@@ -126,13 +126,15 @@ class WordPress:
                 ids.append(nuovo["id"])
         return ids
 
-    def carica_media(self, file: Path, alt: str = "") -> int:
+    def carica_media(self, file: Path, alt: str = "", nome: str | None = None) -> int:
         tipo = mimetypes.guess_type(file.name)[0] or "application/octet-stream"
-        nome = urllib.parse.quote(file.name)
+        # WordPress accetta solo filename="..." (non filename*=): nome ASCII sicuro
+        nome = nome or file.name
+        nome = "".join(c if c.isascii() and (c.isalnum() or c in "-_.") else "-" for c in nome)
         media, _ = self._richiesta(
             "POST", "/media", corpo=file.read_bytes(),
             headers_extra={"Content-Type": tipo,
-                           "Content-Disposition": f"attachment; filename*=UTF-8''{nome}"})
+                           "Content-Disposition": f'attachment; filename="{nome}"'})
         if alt:
             self.post(f"/media/{media['id']}", {"alt_text": alt})
         return media["id"]
@@ -206,7 +208,8 @@ def cmd_pubblica(wp: WordPress, args):
             dati["featured_media"] = esistente["featured_media"]
         else:
             print(f"  carico immagine {file_img.name}…")
-            dati["featured_media"] = wp.carica_media(file_img, meta.get("immagine_alt", meta["titolo"]))
+            dati["featured_media"] = wp.carica_media(file_img, meta.get("immagine_alt", meta["titolo"]),
+                                                     nome=f"{meta['slug']}{file_img.suffix.lower()}")
 
     if esistente:
         risultato = wp.post(f"/posts/{esistente['id']}", dati)
