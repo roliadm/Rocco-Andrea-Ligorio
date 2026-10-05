@@ -292,8 +292,14 @@ def main():
 
     env = carica_env()
     wp = WordPress(env["WP_URL"], env["WP_USER"], env["WP_APP_PASSWORD"])
-    {"verifica": cmd_verifica, "elenco": cmd_elenco,
-     "pubblica": cmd_pubblica, "scarica": cmd_scarica}[args.comando](wp, args)
+    try:
+        {"verifica": cmd_verifica, "elenco": cmd_elenco,
+         "pubblica": cmd_pubblica, "scarica": cmd_scarica}[args.comando](wp, args)
+    except SystemExit as e:
+        # su GitHub Actions l'errore diventa un'annotazione leggibile anche senza log
+        if os.environ.get("GITHUB_ACTIONS") and isinstance(e.code, str):
+            print(f"::error::{e.code.replace(chr(10), ' ')[:900]}")
+        raise
 
 
 if __name__ == "__main__":
