@@ -1,0 +1,13 @@
+{
+  "titolo": "Autenticazione a due fattori: guida pratica per studi e PMI",
+  "slug": "autenticazione-due-fattori-studi-pmi",
+  "estratto": "Autenticazione a due fattori spiegata semplice: quale metodo scegliere tra SMS, app e passkey e come attivarla in studio o in azienda senza disagi.",
+  "categorie": ["Informatica"],
+  "tag": ["Autenticazione a due fattori", "Password", "Phishing", "Sicurezza informatica"],
+  "seo": {
+    "titolo": "Autenticazione a due fattori: guida per studi e PMI",
+    "descrizione": "Autenticazione a due fattori: quale metodo scegliere tra SMS, app e passkey e da quali account partire per proteggere lo studio o l'azienda.",
+    "keyword": "autenticazione a due fattori"
+  },
+  "stato": "draft"
+}

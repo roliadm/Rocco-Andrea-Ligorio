@@ -1,0 +1,62 @@
+<p>Una password rubata basta per entrare nella posta dello studio, leggere le fatture dei clienti e mandare email false a nome tuo. Lo vedo succedere anche in uffici attenti, perché le password prima o poi finiscono in qualche elenco trafugato o vengono "pescate" con un'email di phishing. L'<strong>autenticazione a due fattori</strong> è la contromisura più efficace e meno costosa che conosco. In questa guida ti spiego cos'è, quale metodo scegliere e come attivarla in ufficio senza far impazzire nessuno.</p>
+
+<h2>Cos'è l'autenticazione a due fattori</h2>
+<p>Per accedere a un servizio non basta più qualcosa che <strong>sai</strong> (la password): serve anche qualcosa che <strong>hai</strong>, come il telefono o una chiavetta di sicurezza, oppure qualcosa che <strong>sei</strong>, come l'impronta digitale. Si parla anche di <strong>MFA</strong> (Multi-Factor Authentication, autenticazione a più fattori) o di "verifica in due passaggi": il concetto è lo stesso.</p>
+<p>Il vantaggio è semplice: anche se un malintenzionato scopre la password, non ha il secondo fattore e resta fuori. L'agenzia americana per la sicurezza informatica CISA lo riassume così nella sua campagna <a href="https://www.cisa.gov/MFA" target="_blank" rel="noopener">More than a Password</a>: chi attiva l'MFA ha molte meno probabilità di subire un attacco riuscito.</p>
+
+<h2>Quanto protegge davvero</h2>
+<p>Un numero aiuta a capirlo. Uno <a href="https://arxiv.org/abs/2305.00945" target="_blank" rel="noopener">studio dei ricercatori Microsoft</a> su account aziendali reali ha stimato che l'autenticazione a più fattori riduce il rischio di compromissione di oltre il <strong>99%</strong>, e di oltre il 98% anche quando la password era già finita in mano ai criminali.</p>
+<p>Non esistono protezioni perfette, ma pochi interventi offrono tanto beneficio con così poca spesa: nella maggior parte dei servizi l'MFA è già inclusa e va solo attivata.</p>
+
+<h2>I metodi, dal più debole al più sicuro</h2>
+<p>Non tutti i secondi fattori sono uguali. Ecco come li ordino, in linea con le indicazioni di CISA.</p>
+
+<h3>Codice via SMS</h3>
+<p>Il servizio ti manda un codice per messaggio. È meglio di niente, ma è il metodo più debole: il codice può essere intercettato o ottenuto con la frode della sostituzione della SIM, e soprattutto può essere carpito da una pagina di phishing che lo chiede insieme alla password.</p>
+
+<h3>App di autenticazione</h3>
+<p>App come Microsoft Authenticator o Google Authenticator generano un codice che cambia ogni 30 secondi, oppure mostrano una notifica da approvare. Sono gratuite e molto più robuste dell'SMS. Se usi le notifiche, preferisci la modalità con <strong>corrispondenza del numero</strong> (number matching): devi digitare sul telefono il numero mostrato sullo schermo del PC, così non approvi per sbaglio un accesso che non hai chiesto.</p>
+
+<h3>Chiavi di sicurezza e passkey</h3>
+<p>Sono il livello più alto: si basano sugli standard <strong>FIDO2/WebAuthn</strong> e CISA le indica come l'unica forma di autenticazione "resistente al phishing" largamente disponibile, come spiega nella sua <a href="https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf" target="_blank" rel="noopener">scheda sull'MFA resistente al phishing</a>. Una <strong>chiave di sicurezza</strong> è una piccola chiavetta USB o NFC; una <strong>passkey</strong> è la stessa tecnologia salvata sul telefono o sul computer e sbloccata con impronta, volto o PIN. Funzionano solo sul sito vero: una pagina falsa non può usarle, anche se tu ci caschi.</p>
+
+<h2>Da dove partire in uno studio o in una PMI</h2>
+<p>Attivare l'autenticazione a due fattori ovunque in un giorno non è realistico. Conviene procedere per priorità:</p>
+<ol>
+<li><strong>Posta elettronica</strong> (Microsoft 365, Google Workspace o il provider dello studio): è la chiave di tutto, perché da lì si reimpostano le password degli altri servizi;</li>
+<li><strong>Home banking e servizi di pagamento</strong>: di solito l'autenticazione forte è già obbligatoria, ma controlla chi ha accesso e con quale dispositivo;</li>
+<li><strong>Accessi da remoto</strong> come VPN, desktop remoto e pannelli dei server o del NAS;</li>
+<li><strong>Gestionali in cloud, PEC, archiviazione documenti</strong> e software di fatturazione;</li>
+<li><strong>Account amministratore</strong> del sito, dei social e del dominio: pochi, ma molto preziosi.</li>
+</ol>
+
+<h3>Come renderla sostenibile per tutti</h3>
+<ul>
+<li>scegli <strong>un solo metodo standard</strong> per l'ufficio, ad esempio la stessa app di autenticazione per tutti;</li>
+<li>conserva i <strong>codici di recupero</strong> in un posto sicuro, come un gestore di password aziendale o una busta chiusa in cassaforte: servono se il telefono si rompe o si perde;</li>
+<li>prevedi una procedura per chi <strong>cambia telefono</strong> o lascia lo studio, così nessuno resta chiuso fuori e nessun ex collaboratore conserva l'accesso;</li>
+<li>per gli amministratori valuta subito le <strong>chiavi di sicurezza</strong>, tenendone una di riserva;</li>
+<li>spiega a tutti una regola d'oro: <strong>mai approvare una notifica che non hai richiesto tu</strong>, nemmeno se arriva dieci volte di fila.</li>
+</ul>
+
+<h2>Gli errori più comuni sull'autenticazione a due fattori</h2>
+<ul>
+<li><strong>Attivarla solo per il titolare</strong>: gli attaccanti cercano l'account più debole, spesso quello di un collaboratore o di una casella condivisa;</li>
+<li><strong>Usare il telefono personale di una sola persona</strong> per un account condiviso: quando quella persona è in ferie, l'ufficio si blocca;</li>
+<li><strong>Lasciare protocolli vecchi attivi</strong>: alcuni programmi di posta datati si collegano solo con la password e aggirano il secondo fattore. Vanno disattivati o aggiornati;</li>
+<li><strong>Pensare che basti</strong>: l'MFA va affiancata ad aggiornamenti regolari e a backup affidabili, come racconto nella guida sul <a href="https://www.roccoandrealigorio.it/?p=211">backup 3-2-1</a>.</li>
+</ul>
+
+<h2>E nei software su misura?</h2>
+<p>Quando sviluppo un gestionale o un'app per un cliente, la sicurezza degli accessi la progetto dall'inizio: accesso con account Google o Microsoft che hanno già l'MFA attiva, ruoli separati e registro degli accessi. Se vuoi capire come la tua organizzazione può proteggere meglio i propri strumenti, trovi il mio approccio nella pagina <a href="https://www.roccoandrealigorio.it/come-lavoro/">Come lavoro</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>L'autenticazione a due fattori rallenta il lavoro?</h3>
+<p>Molto poco. Su molti servizi puoi segnare un dispositivo come attendibile e il secondo fattore viene chiesto solo ogni tanto o da computer nuovi. Con le passkey l'accesso è addirittura più rapido di una password.</p>
+
+<h3>Se perdo il telefono resto chiuso fuori?</h3>
+<p>No, se hai salvato i codici di recupero o configurato un secondo metodo, ad esempio una chiave di sicurezza. Per questo conviene predisporli subito, non dopo il problema.</p>
+
+<h3>L'SMS va bene o devo cambiarlo?</h3>
+<p>È meglio di nessuna protezione, ma se il servizio offre un'app di autenticazione o le passkey, passa a quelle: resistono molto meglio al phishing.</p>
