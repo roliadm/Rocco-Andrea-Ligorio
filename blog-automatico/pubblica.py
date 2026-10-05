@@ -71,7 +71,11 @@ class WordPress:
     def __init__(self, url: str, utente: str, password_app: str):
         self.api = f"{url}/wp-json/wp/v2"
         token = base64.b64encode(f"{utente}:{password_app}".encode()).decode()
-        self.headers = {"Authorization": f"Basic {token}", "User-Agent": "blog-automatico/1.0"}
+        # Aruba elimina l'intestazione Authorization: le credenziali viaggiano anche in
+        # X-RAL-Auth, verificata dallo snippet WPCode "Blog – stile, intestazione e SEO
+        # articoli", che invia anche l'email "Nuova bozza da approvare".
+        self.headers = {"Authorization": f"Basic {token}", "X-RAL-Auth": token,
+                        "User-Agent": "blog-automatico/1.0"}
 
     def _richiesta(self, metodo: str, percorso: str, dati=None, corpo: bytes | None = None,
                    headers_extra: dict | None = None):

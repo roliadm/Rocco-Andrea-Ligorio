@@ -47,7 +47,7 @@ strumenti per l'ufficio, notizie e novità rilevanti, guide pratiche.
 {
   "titolo": "Titolo dell'articolo (H1 della pagina)",
   "slug": "parole-chiave-separate-da-trattini",
-  "estratto": "1–2 frasi, max 160 caratteri.",
+  "estratto": "120–155 caratteri: è la meta description che il sito mostra a Google e sui social.",
   "categorie": ["Informatica"],
   "tag": ["3–5 tag"],
   "seo": {

@@ -12,7 +12,7 @@ e degli strumenti che lo alimentano.
 | `blog-automatico/articoli/` | Un articolo per cartella: `meta.json` + `articolo.html` (+ immagine) |
 | `blog-automatico/ISTRUZIONI-REDAZIONE.md` | Regole editoriali e SEO per gli articoli |
 | `.github/workflows/bozze-wordpress.yml` | Crea le bozze su WordPress quando arrivano articoli nuovi |
-| `wordpress/ral-seo.snippet.php` | Snippet WPCode: meta description, Open Graph, JSON-LD |
+| `wordpress/ral-seo.snippet.php` | Snippet WPCode (id 213): campi SEO degli articoli e titolo SEO |
 
 ## Flusso automatico (PC spento)
 
@@ -21,6 +21,7 @@ e degli strumenti che lo alimentano.
    arriva un'email di riepilogo.
 2. Il workflow **Bozze WordPress** (GitHub Actions) genera la copertina, crea la **bozza**
    su WordPress con categorie, tag e metadati SEO e salva nel repo il backup degli articoli del sito.
+   WordPress invia l'email "Nuova bozza da approvare" (snippet WPCode id 151).
 3. Rocco rilegge e pubblica la bozza da wp-admin o dall'app WordPress.
 
 Configurazione una tantum: in GitHub → Settings → Secrets and variables → Actions aggiungere

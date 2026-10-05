@@ -10,8 +10,14 @@
 - Regole complete per scrivere articoli (quantità, argomenti, struttura, SEO, consegna):
   `blog-automatico/ISTRUZIONI-REDAZIONE.md`. Le bozze su WordPress le crea il workflow
   GitHub `bozze-wordpress.yml` al push su main: dal cloud di Claude il sito non è raggiungibile.
-- Metadati SEO: `meta.json["seo"]` → post meta `ral_seo_*`, letti dallo snippet
-  `wordpress/ral-seo.snippet.php` (WPCode).
+- Snippet WPCode attivi sul sito che riguardano il blog:
+  - id 151 "Blog – stile, intestazione e SEO articoli" (non nel repo, creato prima): stile scuro,
+    meta description dall'estratto, Open Graph, JSON-LD, autenticazione `X-RAL-Auth`
+    (Aruba elimina `Authorization`) ed email "Nuova bozza da approvare" a ogni bozza creata dallo script.
+  - id 213 "RAL SEO" = `wordpress/ral-seo.snippet.php`: registra i campi `ral_seo_*` e usa
+    `ral_seo_title` come `<title>`. Non stampare altri meta tag: sarebbero doppi.
+- `meta.json["seo"]` → post meta `ral_seo_*`. La meta description pubblicata è l'**estratto**:
+  scriverlo come una meta description (120–155 caratteri).
 - Stile degli articoli: pubblico di studi professionali e PMI, tono pratico e senza gergo,
   in prima persona; H2 per le sezioni, H3 per i sottopunti; chiusura con "Domande frequenti";
   link interni a /servizi/, /portfolio/, /come-lavoro/ quando pertinenti; fonti autorevoli
