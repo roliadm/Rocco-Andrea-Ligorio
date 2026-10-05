@@ -7,6 +7,7 @@ e degli strumenti che lo alimentano.
 
 | Percorso | Cosa contiene |
 |---|---|
+| `RIEPILOGO.md` | Riepilogo di tutto il lavoro, stato del sito e cose da fare |
 | `blog-automatico/pubblica.py` | Pubblica gli articoli su WordPress tramite API REST |
 | `blog-automatico/copertina.py` | Genera la copertina 1200×630 se l'articolo non ne ha una |
 | `blog-automatico/articoli/` | Un articolo per cartella: `meta.json` + `articolo.html` (+ immagine) |
