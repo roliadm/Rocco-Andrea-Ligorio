@@ -14,8 +14,12 @@
   - id 151 "Blog – stile, intestazione e SEO articoli" (non nel repo, creato prima): stile scuro,
     meta description dall'estratto, Open Graph, JSON-LD, autenticazione `X-RAL-Auth`
     (Aruba elimina `Authorization`) ed email "Nuova bozza da approvare" a ogni bozza creata dallo script.
-  - id 213 "RAL SEO" = `wordpress/ral-seo.snippet.php`: registra i campi `ral_seo_*` e usa
-    `ral_seo_title` come `<title>`. Non stampare altri meta tag: sarebbero doppi.
+  - id 213 "RAL SEO" = `wordpress/ral-seo.snippet.php`: campi `ral_seo_*`, `ral_seo_title` come
+    `<title>`, e completa ciò che il 151 non fa: canonical della pagina Blog, twitter:title/
+    description/image delle categorie, SEO completa (titolo, canonical, description, OG, Twitter)
+    delle pagine tag, canonical di archivi autore/data. Non ripetere tag già stampati dal 151.
+  - Verifica: ogni pagina pubblica deve avere esattamente 1 canonical, 1 description e 1 di
+    og:title/og:description/og:image/og:url/twitter:card/title/description/image.
 - `meta.json["seo"]` → post meta `ral_seo_*`. La meta description pubblicata è l'**estratto**:
   scriverlo come una meta description (120–155 caratteri).
 - Stile degli articoli: pubblico di studi professionali e PMI, tono pratico e senza gergo,
