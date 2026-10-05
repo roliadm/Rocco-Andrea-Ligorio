@@ -32,6 +32,13 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 ARTICOLI_DIR = BASE_DIR / "articoli"
 
+# campo in meta.json["seo"]  ->  chiave post meta registrata dallo snippet WordPress
+SEO_CHIAVI = {
+    "titolo": "ral_seo_title",
+    "descrizione": "ral_seo_description",
+    "keyword": "ral_seo_keyword",
+}
+
 
 # --------------------------------------------------------------------------- config
 
@@ -178,6 +185,12 @@ def cmd_pubblica(wp: WordPress, args):
     if data:
         dati["date"] = data
 
+    # metadati SEO: letti dallo snippet "RAL SEO" installato su WordPress
+    seo = meta.get("seo") or {}
+    campi_seo = {k: seo.get(c, "") for c, k in SEO_CHIAVI.items() if seo.get(c)}
+    if campi_seo:
+        dati["meta"] = campi_seo
+
     esistente = wp.post_per_slug(meta["slug"])
 
     immagine = meta.get("immagine")
@@ -222,7 +235,7 @@ def cmd_scarica(wp: WordPress, args):
                                             status="publish,draft,future,pending,private")
         for p in posts:
             cartella = ARTICOLI_DIR / p["slug"]
-            if cartella.exists() and not args.tutti:
+            if (cartella / "meta.json").exists() and not args.tutti:
                 continue
             cartella.mkdir(parents=True, exist_ok=True)
             meta = {
@@ -235,6 +248,16 @@ def cmd_scarica(wp: WordPress, args):
                 "stato": p["status"],
                 "data": p["date"],
             }
+            pm = p.get("meta") or {}
+            seo = {c: pm[k] for c, k in SEO_CHIAVI.items() if pm.get(k)}
+            if seo:
+                meta["seo"] = seo
+            precedente = cartella / "meta.json"
+            if precedente.exists():  # conserva i campi che esistono solo nel repo
+                vecchio = json.loads(precedente.read_text(encoding="utf-8"))
+                for campo in ("seo", "immagine", "immagine_alt"):
+                    if campo in vecchio and campo not in meta:
+                        meta[campo] = vecchio[campo]
             (cartella / "meta.json").write_text(
                 json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             (cartella / "articolo.html").write_text(p["content"]["raw"], encoding="utf-8")

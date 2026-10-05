@@ -5,10 +5,27 @@ e degli strumenti che lo alimentano.
 
 ## Contenuto
 
-| Cartella | Cosa contiene |
+| Percorso | Cosa contiene |
 |---|---|
-| `blog-automatico/` | Script che pubblica gli articoli del blog su WordPress tramite API REST |
+| `blog-automatico/pubblica.py` | Pubblica gli articoli su WordPress tramite API REST |
+| `blog-automatico/copertina.py` | Genera la copertina 1200×630 se l'articolo non ne ha una |
 | `blog-automatico/articoli/` | Un articolo per cartella: `meta.json` + `articolo.html` (+ immagine) |
+| `blog-automatico/ISTRUZIONI-REDAZIONE.md` | Regole editoriali e SEO per gli articoli |
+| `.github/workflows/bozze-wordpress.yml` | Crea le bozze su WordPress quando arrivano articoli nuovi |
+| `wordpress/ral-seo.snippet.php` | Snippet WPCode: meta description, Open Graph, JSON-LD |
+
+## Flusso automatico (PC spento)
+
+1. Ogni giorno alle 12 un'attività programmata di Claude, nel cloud, scrive fino a 2 articoli
+   seguendo `ISTRUZIONI-REDAZIONE.md` e li inserisce in `articoli/` su GitHub. A fine lavoro
+   arriva un'email di riepilogo.
+2. Il workflow **Bozze WordPress** (GitHub Actions) genera la copertina, crea la **bozza**
+   su WordPress con categorie, tag e metadati SEO e salva nel repo il backup degli articoli del sito.
+3. Rocco rilegge e pubblica la bozza da wp-admin o dall'app WordPress.
+
+Configurazione una tantum: in GitHub → Settings → Secrets and variables → Actions aggiungere
+il secret `WP_APP_PASSWORD` (password applicativa WordPress dedicata a GitHub).
+Se manca, il workflow si ferma con un errore chiaro e GitHub manda un'email.
 
 ## blog-automatico: configurazione su un nuovo PC
 

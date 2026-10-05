@@ -4,6 +4,11 @@
   "estratto": "Una o due frasi che riassumono l'articolo: compaiono nell'elenco del blog e nei motori di ricerca.",
   "categorie": ["Informatica"],
   "tag": ["Sicurezza informatica"],
+  "seo": {
+    "titolo": "Titolo per Google, max 60 caratteri",
+    "descrizione": "Meta description per Google e anteprime social, tra 120 e 155 caratteri, con la parola chiave e un invito alla lettura.",
+    "keyword": "parola chiave principale"
+  },
   "immagine": "copertina.jpg",
   "immagine_alt": "Descrizione dell'immagine",
   "stato": "draft"
