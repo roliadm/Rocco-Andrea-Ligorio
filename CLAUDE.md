@@ -27,3 +27,9 @@
   link interni a /servizi/, /portfolio/, /come-lavoro/ quando pertinenti; fonti autorevoli
   con target="_blank" rel="noopener".
 - Il lavoro va sempre committato e pushato su GitHub: niente deve esistere solo su un PC.
+- Cache Aruba HiSpeed Cache: il plugin la svuota da solo quando cambiano articoli, pagine,
+  categorie, tag, menu o commenti (blog automatico compreso). NON la svuota per modifiche
+  tecniche (snippet WPCode, personalizzazione tema, plugin, widget): dopo ognuna di queste,
+  cliccare "Cancella cache" nella barra nera di wp-admin (voce `wp-admin-bar-ahsc-purge-link`;
+  se il pannello è stretto e la voce non è visibile, simularne il click via JavaScript) e
+  verificare la risposta "Cache cancellata correttamente".
