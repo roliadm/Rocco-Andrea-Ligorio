@@ -58,7 +58,7 @@ Regole di scrittura (argomenti, tono, struttura, SEO): `blog-automatico/ISTRUZIO
 | `blog-automatico/copertina.py` | Genera la copertina se l'articolo non ne ha una |
 | `blog-automatico/ISTRUZIONI-REDAZIONE.md` | Regole editoriali e SEO |
 | `blog-automatico/articoli/` | Un articolo per cartella (`meta.json` + `articolo.html`): backup di tutti gli articoli |
-| `.github/workflows/bozze-wordpress.yml` | Automazione GitHub che crea le bozze |
+| `.github/workflows/bozze-wordpress.yml` | Automazione GitHub che crea le bozze (nella copia sul Desktop si trova in `github-workflow (copia)/`, perché Windows non permette di scrivere lì la cartella `.github` da remoto) |
 | `wordpress/ral-seo.snippet.php` | Copia dello snippet WPCode "RAL SEO" installato sul sito |
 
 Gli articoli presenti al 5 ottobre 2026:
