@@ -1,0 +1,64 @@
+<p>Se hai una piccola impresa o uno studio professionale e ti serve "un'app", prima di chiedere due preventivi separati per iPhone e Android vale la pena conoscere le <strong>Progressive Web App</strong>. In questa guida ti spiego cosa sono, cosa sanno fare davvero (e cosa no) e come capire se sono la scelta giusta per il tuo caso.</p>
+
+<h2>Cos'è una Progressive Web App, in parole semplici</h2>
+<p>Una Progressive Web App, o PWA, è un'applicazione costruita con le tecnologie del web, le stesse di un sito, ma che si usa come un'app vera: si installa sulla schermata principale del telefono o sul computer, si apre a schermo intero senza la barra del browser e può funzionare anche quando la connessione manca.</p>
+<p>La differenza rispetto a un sito normale la fanno due elementi tecnici:</p>
+<ul>
+<li>il <strong>manifest</strong>, un piccolo file che dice al dispositivo nome, icona e colori dell'app, così può essere installata;</li>
+<li>il <strong>service worker</strong>, uno script che lavora dietro le quinte: salva in memoria i contenuti e i dati necessari e permette all'app di aprirsi e funzionare anche offline.</li>
+</ul>
+<p>Il tutto viaggia su HTTPS. Se vuoi approfondire la parte tecnica, la <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps" target="_blank" rel="noopener">documentazione di MDN sulle Progressive Web App</a> è il riferimento più completo.</p>
+
+<h2>Cosa può fare una PWA (e cosa no)</h2>
+<h3>I punti di forza</h3>
+<ul>
+<li><strong>Un solo progetto per tutti i dispositivi</strong>: la stessa app funziona su Android, iPhone, Windows e Mac. Niente due versioni da sviluppare e da tenere allineate.</li>
+<li><strong>Installazione immediata</strong>: non passa dagli store. L'utente apre un link e la aggiunge alla schermata principale.</li>
+<li><strong>Aggiornamenti senza attese</strong>: quando correggi un errore o aggiungi una funzione, chi usa l'app trova la nuova versione al prossimo avvio, senza aspettare l'approvazione di uno store.</li>
+<li><strong>Uso offline</strong>: con un service worker ben progettato si possono consultare dati e compilare moduli anche senza rete, e sincronizzare tutto quando la connessione torna.</li>
+<li><strong>Notifiche</strong>: su Android e su computer da tempo; su iPhone e iPad dalla versione 16.4 di iOS, a condizione che l'app sia stata aggiunta alla schermata Home, come spiega <a href="https://webkit.org/blog/13878/web-push-for-web-apps-on-ios-and-ipados/" target="_blank" rel="noopener">l'annuncio ufficiale di WebKit</a>.</li>
+</ul>
+<h3>I limiti da conoscere</h3>
+<ul>
+<li><strong>Accesso all'hardware più ridotto</strong>: fotocamera, posizione e microfono si usano senza problemi, ma alcune funzioni avanzate (ad esempio certe connessioni Bluetooth o l'integrazione profonda con il sistema) restano più semplici in un'app nativa.</li>
+<li><strong>Su iPhone qualche passaggio in più</strong>: l'installazione si fa dal pulsante Condividi di Safari con "Aggiungi alla schermata Home", e va spiegata agli utenti con una piccola guida.</li>
+<li><strong>Niente vetrina dello store</strong>: se il tuo obiettivo è farti trovare cercando nell'App Store, una PWA da sola non basta.</li>
+</ul>
+
+<h2>Quando conviene a una piccola impresa</h2>
+<p>Nella mia esperienza la PWA è la scelta più sensata quando l'app serve a <strong>lavorare</strong>, più che a farsi notare. Alcuni casi tipici:</p>
+<ol>
+<li><strong>Strumenti interni</strong>: gestione di clienti, pratiche, appuntamenti o sopralluoghi, usati da un team su dispositivi diversi.</li>
+<li><strong>Lavoro sul campo</strong>: tecnici, consulenti o agenti che devono consultare e aggiornare dati anche dove la rete è scarsa.</li>
+<li><strong>Aree riservate per i clienti</strong>: documenti, stato delle pratiche, richieste, accessibili da qualsiasi dispositivo senza installare nulla dagli store.</li>
+<li><strong>Budget e tempi contenuti</strong>: un solo progetto da sviluppare e mantenere invece di due app separate.</li>
+</ol>
+<p>Un esempio concreto è <a href="https://www.roccoandrealigorio.it/portfolio/">Ferruzzi CRM</a>, una Progressive Web App che ho realizzato per la gestione di consulenti e clienti: si installa dalla home del telefono, funziona anche offline e permette l'accesso con Google o con credenziali.</p>
+
+<h2>Quando è meglio un'app nativa</h2>
+<p>Una PWA non è la risposta a tutto. Ha più senso puntare su un'app nativa se:</p>
+<ul>
+<li>l'app vive di grafica pesante o giochi;</li>
+<li>servono funzioni di sistema molto specifiche, come l'integrazione con dispositivi Bluetooth particolari o servizi in background sempre attivi;</li>
+<li>la presenza negli store è parte della tua strategia di marketing.</li>
+</ul>
+<p>Esiste anche una via di mezzo: partire con una PWA per validare l'idea con gli utenti reali e valutare un'app nativa solo quando i numeri lo giustificano.</p>
+
+<h2>Come si parte: le domande da farsi prima</h2>
+<p>Prima di scrivere una riga di codice conviene chiarire alcuni punti. Sono le stesse domande con cui comincio ogni progetto, come racconto nella pagina <a href="https://www.roccoandrealigorio.it/come-lavoro/">Come lavoro</a>:</p>
+<ul>
+<li><strong>Chi la userà</strong> e su quali dispositivi?</li>
+<li><strong>Serve lavorare offline?</strong> Se sì, quali dati devono essere disponibili senza rete?</li>
+<li><strong>Chi può vedere cosa?</strong> Ruoli, accessi e permessi vanno pensati fin dall'inizio.</li>
+<li><strong>Con cosa deve parlare?</strong> Fogli Excel, gestionali esistenti, email, altri servizi.</li>
+<li><strong>Chi la seguirà dopo il rilascio?</strong> Un'app usata ogni giorno ha bisogno di manutenzione e piccoli miglioramenti nel tempo.</li>
+</ul>
+<p>Se le risposte puntano verso uno strumento di lavoro, multi-dispositivo e da far evolvere nel tempo, una PWA è probabilmente la strada giusta. Nella pagina <a href="https://www.roccoandrealigorio.it/servizi/">Servizi</a> trovi come affronto questo tipo di progetti.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Una PWA si può pubblicare negli store?</h3>
+<p>Sì, su Google Play e sul Microsoft Store è possibile pubblicare una PWA con alcuni passaggi aggiuntivi. Per l'App Store di Apple il percorso è più complicato e spesso non conviene: nella maggior parte dei casi basta l'installazione diretta dal browser.</p>
+<h3>Una PWA funziona davvero senza internet?</h3>
+<p>Sì, se è progettata per farlo. Il service worker conserva sul dispositivo l'app e i dati necessari; le modifiche fatte offline vengono inviate al server quando la connessione torna. Va però deciso in anticipo quali funzioni devono essere disponibili offline.</p>
+<h3>Le PWA sono sicure?</h3>
+<p>Funzionano solo su HTTPS e girano all'interno del browser, con le sue protezioni. Come per ogni applicazione, la sicurezza dipende poi da come sono gestiti accessi, permessi e dati sul server.</p>

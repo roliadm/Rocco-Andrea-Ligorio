@@ -1,0 +1,55 @@
+<p>Un disco che si rompe, un portatile rubato, un ransomware che cifra tutto in una notte: per uno studio professionale o una piccola impresa perdere i dati significa fermarsi. La buona notizia è che per proteggersi non servono budget enormi, ma un metodo. In questa guida ti spiego la <strong>regola del backup 3-2-1</strong>, come applicarla in pratica e gli errori che vedo più spesso.</p>
+
+<h2>Cos'è la regola del backup 3-2-1</h2>
+<p>È uno schema semplice da ricordare, citato come riferimento minimo da molte guide di sicurezza:</p>
+<ul>
+<li><strong>3 copie</strong> dei dati: l'originale più due copie di backup;</li>
+<li><strong>2 supporti diversi</strong>: ad esempio un disco esterno o un NAS e un servizio cloud, così un guasto dello stesso tipo non colpisce tutte le copie;</li>
+<li><strong>1 copia fuori sede</strong>: lontana dall'ufficio, per resistere a furti, incendi o allagamenti.</li>
+</ul>
+<p>L'idea è che nessun singolo evento, che sia un guasto, un errore umano o un attacco, possa distruggere tutte le copie contemporaneamente.</p>
+
+<h2>Perché oggi serve anche una copia scollegata</h2>
+<p>Il ransomware ha cambiato le regole del gioco: molti attacchi non si limitano a cifrare i file sul computer, ma cercano anche i backup raggiungibili dalla rete per cancellarli o cifrarli. Per questo la guida #StopRansomware dell'agenzia americana CISA raccomanda di <a href="https://www.cisa.gov/stopransomware/ransomware-guide" target="_blank" rel="noopener">mantenere backup offline e cifrati dei dati critici e di verificarne regolarmente la disponibilità e l'integrità</a>.</p>
+<p>In pratica, almeno una delle copie dovrebbe essere <strong>scollegata</strong> quando non è in uso (un disco esterno che stacchi a fine backup) oppure <strong>non modificabile</strong> per un certo periodo (alcuni servizi cloud e NAS offrono copie "immutabili" o versioni che non si possono cancellare subito). Per questo si parla spesso di evoluzione del 3-2-1 verso il 3-2-1-1-0: una copia isolata in più e zero errori nei controlli di ripristino.</p>
+
+<h2>Come applicarla in uno studio o in una PMI</h2>
+<h3>1. Decidi cosa salvare</h3>
+<p>Prima di comprare qualsiasi cosa, fai l'elenco dei dati di cui non puoi fare a meno: archivio delle pratiche, documenti dei clienti, contabilità, database del gestionale, email, progetti. Considera anche le configurazioni dei programmi, che spesso si dimenticano finché non servono.</p>
+<h3>2. Scegli i due supporti</h3>
+<p>Una combinazione comune e sostenibile è:</p>
+<ul>
+<li>un <strong>NAS o un disco esterno in ufficio</strong>, per ripristini veloci;</li>
+<li>un <strong>servizio cloud di backup</strong>, che diventa anche la copia fuori sede.</li>
+</ul>
+<p>Attenzione: una cartella sincronizzata (tipo quelle che aggiornano in automatico i file su tutti i dispositivi) <strong>non è un backup</strong>. Se un file viene cancellato o cifrato, la modifica si propaga ovunque. Serve uno strumento che conservi versioni nel tempo.</p>
+<h3>3. Automatizza</h3>
+<p>Un backup che dipende dalla memoria di qualcuno prima o poi salta. Programma copie automatiche, con una frequenza adatta a quanto lavoro sei disposto a rifare: per molti studi una copia giornaliera è il minimo ragionevole, per i dati che cambiano di continuo può servire più spesso.</p>
+<h3>4. Proteggi le copie</h3>
+<ul>
+<li>usa account separati per il backup, con password robuste e, dove possibile, autenticazione a due fattori;</li>
+<li>cifra le copie, soprattutto quelle fuori sede o su dischi che possono essere persi;</li>
+<li>stacca il disco esterno quando il backup è finito.</li>
+</ul>
+<h3>5. Prova il ripristino</h3>
+<p>È il passaggio più trascurato e il più importante. Anche l'Agenzia per la Cybersicurezza Nazionale, nella sua <a href="https://www.acn.gov.it/portale/cybersicurezza-pmi" target="_blank" rel="noopener">guida per le PMI</a>, raccomanda di eseguire regolarmente i backup e di fare test periodici di ripristino completo dei dati. Un backup mai provato è solo una speranza: scopri che manca un file o che la copia è illeggibile proprio nel momento peggiore.</p>
+
+<h2>Gli errori più comuni</h2>
+<ul>
+<li><strong>Un solo disco esterno, sempre collegato</strong>: un ransomware o un guasto elettrico lo colpiscono insieme al computer.</li>
+<li><strong>Confondere sincronizzazione e backup</strong>: senza versioni precedenti, un errore si replica ovunque.</li>
+<li><strong>Dimenticare il gestionale</strong>: i dati di molti software stanno in un database che va salvato con la procedura corretta, non copiando file a caso mentre il programma è aperto.</li>
+<li><strong>Non controllare mai i log</strong>: il backup fallisce in silenzio per settimane e nessuno se ne accorge.</li>
+<li><strong>Nessuno sa come ripristinare</strong>: scrivi due righe di istruzioni e tienile anche fuori dal computer.</li>
+</ul>
+
+<h2>E se il tuo software lo gestisse da solo?</h2>
+<p>Quando sviluppo un gestionale su misura, il backup lo considero parte del progetto fin dall'inizio, non un accessorio. Nella suite <a href="https://www.roccoandrealigorio.it/portfolio/">GEOCON</a>, ad esempio, la dashboard avvisa quando l'ultimo backup è troppo vecchio, così il problema emerge prima di diventare un danno. Se il tuo software attuale non ti dà questa tranquillità, tra i <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a> che offro c'è anche l'analisi dei sistemi esistenti, con strategie di backup e ripristino.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Il cloud da solo basta come backup?</h3>
+<p>Il cloud è un'ottima copia fuori sede, ma da solo non rispetta la regola dei due supporti e, se è solo una cartella sincronizzata, non protegge da cancellazioni o ransomware. Meglio affiancarlo a una copia locale e scegliere un servizio che conservi le versioni precedenti dei file.</p>
+<h3>Ogni quanto devo fare il backup?</h3>
+<p>Dipende da quanti dati sei disposto a perdere: se l'ultimo backup è di ieri sera, nel caso peggiore rifai il lavoro di una giornata. Per la maggior parte degli studi una copia automatica giornaliera è il punto di partenza, da aumentare per i dati che cambiano spesso.</p>
+<h3>Ogni quanto devo provare il ripristino?</h3>
+<p>Fai una prova a intervalli regolari, ad esempio ogni pochi mesi, e sempre dopo aver cambiato software, disco o servizio di backup. L'importante è verificare di riuscire davvero a recuperare file e database funzionanti.</p>
