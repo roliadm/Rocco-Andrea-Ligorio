@@ -1,0 +1,10 @@
+{
+  "titolo": "Titolo dell'articolo",
+  "slug": "titolo-articolo",
+  "estratto": "Una o due frasi che riassumono l'articolo: compaiono nell'elenco del blog e nei motori di ricerca.",
+  "categorie": ["Informatica"],
+  "tag": ["Sicurezza informatica"],
+  "immagine": "copertina.jpg",
+  "immagine_alt": "Descrizione dell'immagine",
+  "stato": "draft"
+}

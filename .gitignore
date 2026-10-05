@@ -1,0 +1,20 @@
+# credenziali
+.env
+*.env
+!.env.example
+
+# sistema / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# node
+node_modules/
