@@ -1,0 +1,54 @@
+<p>"Qual è la password del Wi-Fi?". In molti uffici la risposta è scritta su un post-it attaccato al router, è la stessa da anni e la conoscono clienti, fornitori, ex collaboratori e il tecnico della caldaia. Sulla stessa rete viaggiano i PC con le pratiche, la stampante, il NAS con i backup e magari le telecamere. Rendere il <strong>Wi-Fi dell'ufficio sicuro</strong> non richiede grandi investimenti: in questa guida ti spiego, passo per passo, come separare la rete degli ospiti, quali impostazioni del router controllare e quando è il momento di cambiarlo.</p>
+
+<h2>Perché il Wi-Fi dell'ufficio è una porta d'ingresso</h2>
+<p>Chiunque sia collegato alla tua rete si trova, di fatto, "dentro l'ufficio": può vedere gli altri dispositivi e, se uno di questi è vulnerabile, provare ad attaccarlo. Il rischio non viene solo da malintenzionati: lo smartphone di un ospite già infetto da un malware può diffondere il problema senza che lui lo sappia.</p>
+<p>Le situazioni che incontro più spesso sono tre:</p>
+<ul>
+<li><strong>una sola rete per tutto</strong>: PC di lavoro, telefoni personali, ospiti e dispositivi "smart" mescolati insieme;</li>
+<li><strong>password mai cambiata</strong>, condivisa con decine di persone negli anni;</li>
+<li><strong>router dimenticato</strong>: installato dall'operatore anni fa, con la password di amministrazione di fabbrica e il firmware (il software interno dell'apparato) mai aggiornato.</li>
+</ul>
+<p>Per uno studio che tratta dati di clienti, inoltre, la rete fa parte delle misure di sicurezza che il GDPR chiede di adottare in modo adeguato al rischio.</p>
+
+<h2>Wi-Fi dell'ufficio sicuro: separa le reti</h2>
+<p>La misura più efficace è la <strong>segmentazione</strong>, cioè dividere la rete in parti che non comunicano tra loro. Anche l'NSA, l'agenzia di sicurezza statunitense, nelle sue <a href="https://media.defense.gov/2023/Feb/22/2003165170/-1/-1/0/CSI_BEST_PRACTICS_FOR_SECURING_YOUR_HOME_NETWORK.PDF" target="_blank" rel="noopener">raccomandazioni per le reti domestiche e dei piccoli uffici</a> suggerisce di separare la rete principale, quella degli ospiti e quella dei dispositivi IoT.</p>
+
+<h3>La rete ospiti</h3>
+<p>Quasi tutti i router, anche quelli forniti dagli operatori, hanno una funzione <strong>"rete ospiti"</strong> (guest). Crea una rete con un nome diverso e una password diversa, che dà accesso solo a Internet. Controlla che sia attiva l'opzione di <strong>isolamento</strong>, che impedisce agli ospiti di vedere i dispositivi della rete principale e, se possibile, anche quelli degli altri ospiti.</p>
+<p>Un buon consiglio pratico: cambia la password della rete ospiti a scadenza fissa, ad esempio ogni tre mesi, e stampala su un cartellino da mostrare a chi la chiede. La rete di lavoro, invece, non va comunicata a nessuno che non ne abbia bisogno.</p>
+
+<h3>La rete per i dispositivi "smart"</h3>
+<p>Telecamere, termostati, TV della sala riunioni, assistenti vocali: sono comodi ma spesso ricevono pochi aggiornamenti e hanno difese deboli. Se il router lo consente, mettili su una rete a parte. In uffici con più esigenze si usano le <strong>VLAN</strong>, reti virtuali separate configurate su router e switch professionali: è un lavoro da tecnico, ma una volta impostato non richiede manutenzione.</p>
+
+<h3>La rete di lavoro</h3>
+<p>Qui restano solo i dispositivi dello studio: PC, stampanti, NAS, server. Dove possibile, collega via cavo le postazioni fisse e i dispositivi che contengono dati importanti: il cavo è più stabile, più veloce e non è raggiungibile dal parcheggio.</p>
+
+<h2>Le impostazioni del router da controllare oggi</h2>
+<p>Ti bastano una mezz'ora e l'accesso al pannello di amministrazione del router (di solito si apre dal browser all'indirizzo indicato sull'etichetta dell'apparato). Ecco cosa verificare.</p>
+<ol>
+<li><strong>Password di amministrazione</strong>: se è ancora quella stampata sull'etichetta o, peggio, "admin", cambiala con una lunga e unica, da conservare nel gestore di password.</li>
+<li><strong>Protezione WPA3</strong>: è lo standard di cifratura Wi-Fi più recente, introdotto nel 2018, che rende molto più difficile indovinare la password per tentativi. Se alcuni dispositivi vecchi non lo supportano, usa la modalità mista <strong>WPA2/WPA3</strong>. Mai lasciare reti aperte o con il vecchio WEP.</li>
+<li><strong>Password del Wi-Fi lunga</strong>: l'NSA suggerisce almeno 20 caratteri. Una frase di più parole è facile da ricordare e difficile da indovinare.</li>
+<li><strong>WPS disattivato</strong>: è il pulsante per collegarsi "senza password"; comodo, ma storicamente debole.</li>
+<li><strong>Amministrazione remota disattivata</strong>: il pannello del router non deve essere raggiungibile da Internet, salvo che lo gestisca un tecnico con accesso protetto.</li>
+<li><strong>UPnP disattivato</strong>: è una funzione che permette ai dispositivi di aprire da soli "porte" verso Internet. Se un programma ne ha davvero bisogno, configura l'apertura a mano.</li>
+<li><strong>Aggiornamenti automatici del firmware</strong> attivi, quando disponibili.</li>
+<li><strong>Nome della rete</strong> (SSID) cambiato rispetto a quello di fabbrica, senza riferimenti a marca e modello del router. Nasconderlo, invece, non serve a nulla.</li>
+</ol>
+
+<h2>Quando conviene cambiare il router</h2>
+<p>Un router non è eterno. Va sostituito quando il produttore <strong>smette di rilasciare aggiornamenti</strong> (si parla di "fine supporto"): da quel momento le vulnerabilità scoperte restano aperte per sempre. Altri segnali sono l'assenza di WPA3, l'impossibilità di creare una rete ospiti isolata o una copertura che costringe a usare ripetitori economici e poco sicuri.</p>
+<p>Spesso il router dell'operatore va benissimo per la connessione, ma in uno studio con più postazioni conviene affiancargli un apparato professionale, sotto il tuo controllo, con firewall, reti separate e access point gestiti. Ne parlo con i clienti quando seguo l'infrastruttura dell'ufficio: puoi vedere come imposto questi interventi nella pagina <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a>.</p>
+
+<h3>Una nota sulle reti pubbliche</h3>
+<p>La stessa logica vale al contrario: quando lavori fuori sede, il Wi-Fi dell'hotel o del bar è una rete di cui non sai nulla. Per accedere ai sistemi dello studio usa una <strong>VPN</strong> aziendale (un collegamento cifrato verso l'ufficio) oppure l'hotspot del telefono.</p>
+
+<h2>Domande frequenti</h2>
+<h3>La rete ospiti del router dell'operatore è sufficiente?</h3>
+<p>Per un piccolo ufficio, spesso sì, a patto che l'isolamento dai dispositivi della rete principale sia attivo. Verificalo provando, da un telefono collegato come ospite, a vedere la stampante o il NAS: non dovresti trovarli.</p>
+<h3>Ogni quanto devo cambiare la password del Wi-Fi?</h3>
+<p>Quella degli ospiti a intervalli regolari, ad esempio ogni tre mesi. Quella della rete di lavoro ogni volta che un collaboratore lascia lo studio o se sospetti che sia stata divulgata.</p>
+<h3>Nascondere il nome della rete la rende più sicura?</h3>
+<p>No. Una rete nascosta si individua comunque con strumenti molto diffusi e a volte crea problemi di connessione. Meglio una cifratura WPA3 e una password lunga.</p>
+<h3>Posso fare queste modifiche da solo?</h3>
+<p>Le impostazioni di base sì, con un po' di attenzione. Per VLAN, firewall e accessi remoti conviene affidarsi a un tecnico, per evitare di lasciare lo studio senza connessione.</p>
