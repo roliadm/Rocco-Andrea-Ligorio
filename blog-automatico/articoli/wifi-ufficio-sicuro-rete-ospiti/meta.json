@@ -2,12 +2,21 @@
   "titolo": "Wi-Fi dell'ufficio sicuro: rete ospiti e router in 8 passi",
   "slug": "wifi-ufficio-sicuro-rete-ospiti",
   "estratto": "Come rendere sicuro il Wi-Fi dell'ufficio: rete ospiti isolata, WPA3, impostazioni del router da controllare e quando cambiarlo. Guida pratica.",
-  "categorie": ["Informatica"],
-  "tag": ["Wi-Fi", "Reti", "Sicurezza informatica"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Wi-Fi",
+    "Reti",
+    "Sicurezza informatica"
+  ],
   "seo": {
     "titolo": "Wi-Fi dell'ufficio sicuro: rete ospiti, router e WPA3",
     "descrizione": "Wi-Fi dell'ufficio sicuro in pochi passi: separa la rete ospiti, attiva WPA3, controlla il router. Guida pratica per studi professionali e PMI.",
     "keyword": "wi-fi dell'ufficio"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Wi-Fi dell'ufficio sicuro: rete ospiti e router in 8 passi",
+  "id": 223
 }
