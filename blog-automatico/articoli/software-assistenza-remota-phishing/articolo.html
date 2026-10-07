@@ -1,0 +1,61 @@
+<p>Un'email con l'invito a una riunione, un "lettore PDF" da aggiornare, un modulo da scaricare: un clic, un'installazione che sembra innocua, e da quel momento qualcuno può controllare il tuo PC a distanza, come farebbe il tuo tecnico di fiducia. È il trucco che Microsoft ha descritto il 29 settembre 2026: campagne di phishing che installano un <strong>software di assistenza remota</strong> perfettamente legittimo, usato però dai criminali. In questo articolo ti spiego come funziona l'attacco, perché sfugge a molti antivirus e cosa puoi fare, già da questa settimana, per proteggere lo studio o l'azienda.</p>
+
+<h2>Cosa è successo: il phishing che installa il "tecnico"</h2>
+<p>Secondo il <a href="https://www.microsoft.com/en-us/security/blog/2026/09/29/phishing-abuses-rmm-tools-persistent-access/" target="_blank" rel="noopener">blog di sicurezza di Microsoft</a>, a luglio 2026 il team Defender Experts ha osservato campagne di phishing rivolte ad aziende di diversi settori. Le email spingevano a scaricare file con nomi credibili: un invito a un evento, un installer di Zoom, un lettore PDF, un estratto conto di un ente pubblico. In realtà erano installer di <strong>MSP360</strong>, un programma di gestione remota usato da molti tecnici informatici, con tanto di firma digitale valida.</p>
+<p>Come ricostruito anche da <a href="https://thehackernews.com/2026/09/attackers-abuse-msp360-to-deploy.html" target="_blank" rel="noopener">The Hacker News</a>, una volta installato il programma chiedeva i permessi di amministratore, si registrava come servizio di Windows per ripartire a ogni accensione e apriva una porta nel firewall. Poi installava un secondo strumento di controllo remoto, <strong>ScreenConnect</strong>, come "ruota di scorta": se togli uno dei due, l'altro resta. I file venivano ospitati anche su servizi cloud noti, come Dropbox o Amazon S3, che i filtri di posta tendono a considerare affidabili.</p>
+
+<h3>Che cos'è un software RMM</h3>
+<p>RMM sta per <em>Remote Monitoring and Management</em>: sono i programmi che i tecnici usano per assistere i PC dei clienti senza spostarsi, installare aggiornamenti e controllare che tutto funzioni. AnyDesk, TeamViewer, ScreenConnect e simili rientrano nella stessa famiglia. Sono strumenti utilissimi, e proprio per questo pericolosi nelle mani sbagliate.</p>
+
+<h2>Perché il software di assistenza remota è l'arma perfetta</h2>
+<p>Il problema non è nuovo. Già nel 2023 l'agenzia americana per la cybersicurezza CISA, con NSA e MS-ISAC, aveva pubblicato un <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-025a" target="_blank" rel="noopener">avviso dedicato all'uso malevolo dei software RMM</a>. I motivi per cui i criminali li preferiscono a un virus "classico" sono tre:</p>
+<ul>
+<li><strong>sono programmi legittimi e firmati</strong>: molti antivirus non li bloccano, perché milioni di aziende li usano ogni giorno;</li>
+<li><strong>il traffico sembra normale</strong>: la connessione verso i server del produttore assomiglia in tutto e per tutto a una sessione di assistenza;</li>
+<li><strong>danno pieno controllo</strong>: chi è collegato vede lo schermo, apre file, copia documenti, installa altro software. Da qui si arriva al furto di dati, alle frodi bancarie o al ransomware.</li>
+</ul>
+<p>C'è poi una variante che vedo spesso nelle piccole realtà: la <strong>telefonata del finto tecnico</strong>. Qualcuno chiama fingendosi la banca, Microsoft o il fornitore del gestionale, segnala un "problema urgente" e chiede di installare un programma di assistenza "per sistemarlo". Il risultato è lo stesso: le chiavi dell'ufficio consegnate a uno sconosciuto.</p>
+
+<h2>Come difendersi: 7 misure concrete</h2>
+
+<h3>1. Decidi quale strumento di assistenza è "quello ufficiale"</h3>
+<p>Scegli, insieme al tuo tecnico, <strong>un solo programma di assistenza remota</strong> e comunicalo a tutti. Qualsiasi altro strumento che compare su un PC è un campanello d'allarme. Se in ufficio convivono AnyDesk, TeamViewer e altri tre programmi installati negli anni, è il momento di fare pulizia.</p>
+
+<h3>2. Togli i diritti di amministratore a chi non ne ha bisogno</h3>
+<p>Nell'attacco descritto da Microsoft l'installer chiedeva l'elevazione dei permessi. Se l'utente lavora con un account standard, quel passaggio si ferma lì. È una delle misure più semplici ed efficaci, e costa zero.</p>
+
+<h3>3. Blocca l'installazione dei programmi non autorizzati</h3>
+<p>Con le impostazioni di Windows o con gli strumenti di gestione inclusi in alcuni piani business di Microsoft 365, il tecnico può limitare quali applicazioni si possono installare ed eseguire. Per una PMI non serve un progetto complesso: basta impedire agli utenti di installare software da soli e concordare un elenco di programmi ammessi.</p>
+
+<h3>4. Diffida di file eseguibili che arrivano per email</h3>
+<p>Un invito a una riunione non è mai un file <strong>.exe</strong>. Lo stesso vale per un PDF, un estratto conto o una fattura. Insegna ai colleghi una regola semplice: se per "leggere" qualcosa ti viene chiesto di installare un programma, fermati e chiedi.</p>
+
+<h3>5. Verifica sempre chi ti chiama</h3>
+<p>La banca, Microsoft e i fornitori seri non telefonano per chiederti di installare software. Se ricevi una chiamata del genere, riattacca e richiama tu il numero ufficiale che trovi sul contratto o sul sito. Nessuna urgenza vale il rischio.</p>
+
+<h3>6. Proteggi gli accessi di chi ti assiste</h3>
+<p>Il tuo strumento di assistenza "buono" deve avere un account protetto da password robusta e autenticazione a due fattori, con accessi registrati. Chiedi al tuo tecnico chi può collegarsi ai vostri PC, da dove e se le sessioni vengono tracciate.</p>
+
+<h3>7. Tieni pronto un backup separato</h3>
+<p>Se qualcosa va storto, l'ultima linea di difesa è un backup che l'attaccante non può raggiungere. Se non hai ancora una strategia, parti dalla <a href="https://www.roccoandrealigorio.it/?p=211">regola del backup 3-2-1</a>.</p>
+
+<h2>Cosa fare se sospetti di aver installato un software di assistenza remota sospetto</h2>
+<ol>
+<li><strong>Scollega il PC dalla rete</strong> (cavo e Wi-Fi), senza spegnerlo: così interrompi il collegamento remoto e conservi le tracce.</li>
+<li><strong>Avvisa subito il tuo tecnico</strong> e, da un altro dispositivo, cambia le password dell'email e della banca.</li>
+<li><strong>Controlla i movimenti bancari</strong> e segnala alla banca eventuali operazioni anomale.</li>
+<li>Se sono coinvolti dati di clienti, valuta con il consulente privacy se serve la <strong>notifica al Garante</strong> entro 72 ore prevista dal GDPR.</li>
+<li>Puoi segnalare la truffa alla <a href="https://www.commissariatodips.it/" target="_blank" rel="noopener">Polizia Postale</a>.</li>
+</ol>
+<p>Disinstallare il programma non basta: come visto, questi attacchi installano spesso un secondo strumento di riserva. Serve una verifica completa del computer.</p>
+
+<h2>Il mio consiglio</h2>
+<p>Gli strumenti di assistenza remota sono preziosi: li uso anch'io ogni giorno per aiutare i clienti senza far perdere tempo a nessuno. La differenza la fa avere regole chiare su chi può collegarsi, con quale programma e con quali permessi. Se vuoi fare il punto sulla sicurezza dei PC del tuo ufficio, trovi i miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a> e il mio <a href="https://www.roccoandrealigorio.it/come-lavoro/">metodo di lavoro</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>AnyDesk e TeamViewer sono pericolosi?</h3>
+<p>No, sono programmi legittimi. Il pericolo nasce quando vengono installati su richiesta di uno sconosciuto o restano attivi senza controllo. Tieni solo quello concordato con il tuo tecnico.</p>
+<h3>L'antivirus non mi protegge?</h3>
+<p>Non sempre: questi programmi sono firmati e usati da milioni di aziende, quindi molti antivirus non li considerano una minaccia. Per questo contano permessi limitati e regole sull'installazione.</p>
+<h3>Come capisco se sul mio PC c'è un programma di controllo remoto?</h3>
+<p>Controlla l'elenco delle app installate e le icone accanto all'orologio di Windows. Se trovi strumenti di assistenza che non riconosci, non disinstallarli da solo: chiedi a un tecnico di verificare il PC.</p>
