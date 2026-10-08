@@ -1,0 +1,59 @@
+<p>Molti studi professionali e PMI hanno in ufficio un <strong>firewall Fortinet</strong>, spesso un FortiGate installato anni fa per far lavorare i collaboratori da casa con la VPN. Funziona, nessuno lo tocca più, e la password dell'amministratore è la stessa del giorno dell'installazione. È esattamente il tipo di dispositivo preso di mira da <strong>FortiBleed</strong>, la campagna di furto di credenziali su cui FBI e Secret Service americani hanno lanciato un nuovo allarme il 6 ottobre 2026. In questo articolo ti spiego cosa sta succedendo, perché non basta "aggiornare" e quali controlli fare (o far fare al tuo tecnico) già questa settimana.</p>
+
+<h2>FortiBleed: cosa sta succedendo ai firewall Fortinet</h2>
+<p>FortiBleed non è un singolo difetto del software, ma una <strong>campagna di furto di credenziali</strong> che va avanti da mesi. Gli attaccanti cercano su Internet i FortiGate con il portale VPN o il pannello di amministrazione raggiungibili dall'esterno, e provano ad entrare con nomi utente e password già rubati in passato, con password deboli o con tentativi automatici a ripetizione.</p>
+<p>In Italia se ne parla da giugno: il <a href="https://www.acn.gov.it/portale/en/w/fortibleed-esposizione-di-credenziali-ssl-vpn-associate-a-dispositivi-fortinet-esposti-su-internet" target="_blank" rel="noopener">CSIRT Italia dell'Agenzia per la Cybersicurezza Nazionale</a> ha pubblicato il 18 giugno 2026 un bollettino (aggiornato fino al 23 giugno) su un archivio di dati legato a FortiBleed, con informazioni su dispositivi Fortinet esposti e credenziali per l'accesso VPN. Il CSIRT ha segnalato di aver trovato al suo interno anche riferimenti a organizzazioni italiane.</p>
+<p>La novità di questi giorni è che la campagna <strong>non si è fermata</strong>. Secondo quanto riportato da <a href="https://www.cybersecuritydive.com/news/fbi-fortibleed-credential-harvesting-attacks/832366/" target="_blank" rel="noopener">Cybersecurity Dive</a>, l'avviso congiunto di FBI e Secret Service parla di oltre 86.000 dispositivi compromessi in 194 Paesi, su più di 430.000 FortiGate presi di mira, secondo le stime della società di sicurezza SOCRadar.</p>
+
+<h3>Che cos'è una VPN SSL e perché è il bersaglio</h3>
+<p>La <strong>VPN</strong> (rete privata virtuale) è il "tunnel" che permette a chi lavora fuori sede di collegarsi alla rete dell'ufficio come se fosse alla sua scrivania. La versione "SSL" si usa dal browser o da un piccolo programma, ed è comodissima. Proprio per questo è sempre raggiungibile da Internet: chi ruba un nome utente e una password validi entra dalla porta principale, senza far scattare allarmi.</p>
+
+<h2>Come lavorano gli attaccanti</h2>
+<p>Dall'analisi dell'avviso fatta da <a href="https://securityaffairs.com/200558/cyber-crime/fortibleed-hit-86000-firewalls-by-exploiting-something-nobody-can-patch-away.html" target="_blank" rel="noopener">Security Affairs</a> emerge un lavoro quasi industriale:</p>
+<ul>
+<li><strong>scansione automatica</strong> di Internet alla ricerca di portali VPN FortiGate esposti;</li>
+<li><strong>riuso di credenziali</strong> già trapelate in vecchi furti di dati o rubate dai PC con programmi spia, e tentativi a tappeto con password comuni;</li>
+<li><strong>decifratura delle password</strong>: quando riescono a copiare l'archivio delle password del firewall, lo "craccano" con computer molto potenti, approfittando di un vecchio metodo di protezione più debole;</li>
+<li><strong>creazione di nuovi account amministratore</strong>, con nomi dall'aria innocua, per restare dentro anche dopo un cambio password;</li>
+<li><strong>blocco dei proprietari</strong>: in molti casi cancellano o cambiano le password degli account originali, e l'azienda si ritrova chiusa fuori dal proprio firewall.</li>
+</ul>
+<p>Gli accessi ottenuti vengono poi <strong>rivenduti</strong> a gruppi ransomware, cioè ai criminali che cifrano i dati e chiedono un riscatto. L'avviso cita espressamente alcune di queste bande come acquirenti attivi.</p>
+
+<h2>Perché aggiornare il firewall Fortinet non basta</h2>
+<p>Quando si parla di attacchi a un dispositivo, il consiglio istintivo è "installa l'aggiornamento". Qui serve, ma non risolve: se qualcuno conosce già la tua password, la usa anche sul firewall aggiornato. Fortinet stessa, nella sua analisi di giugno, collegava gli episodi soprattutto a <strong>credenziali riutilizzate</strong> e a configurazioni deboli, oltre che a vulnerabilità già corrette in passato su apparati mai aggiornati.</p>
+<p>In altre parole, il problema non è (solo) il prodotto: è come è stato configurato e gestito negli anni. E vale, in modo simile, per i firewall e le VPN di qualunque marca.</p>
+
+<h2>Cosa fare subito: la checklist per lo studio</h2>
+<p>Ho riassunto le indicazioni del CSIRT Italia e dell'avviso americano in passi concreti. Se il firewall lo gestisce un tecnico esterno, giragli questa lista e chiedi conferma punto per punto.</p>
+<ol>
+<li><strong>Verifica se hai un FortiGate</strong> e chi lo amministra. Sembra banale, ma spesso nessuno in ufficio lo sa con certezza.</li>
+<li><strong>Togli da Internet il pannello di amministrazione.</strong> La gestione del firewall deve essere raggiungibile solo dalla rete interna o da indirizzi autorizzati, mai da chiunque.</li>
+<li><strong>Chiudi tutte le sessioni attive</strong> di VPN e di amministrazione, così eventuali intrusi già collegati vengono buttati fuori.</li>
+<li><strong>Cambia tutte le password</strong> di amministratori e utenti VPN, con password lunghe e diverse da quelle usate altrove.</li>
+<li><strong>Attiva l'autenticazione a due fattori</strong> su VPN e amministrazione, preferibilmente nella forma più resistente al phishing (app di autenticazione con conferma o chiavi di sicurezza).</li>
+<li><strong>Controlla gli account</strong>: elimina quelli di ex collaboratori, quelli condivisi e quelli che non riconosci. Un "admin2" comparso da poco è un campanello d'allarme.</li>
+<li><strong>Aggiorna FortiOS</strong> all'ultima versione supportata. Sulle versioni recenti (dalla 7.2.11) è disponibile un metodo più robusto per proteggere le password degli amministratori: chiedi al tecnico di attivarlo.</li>
+<li><strong>Guarda i registri</strong> (log) di accesso: collegamenti a orari strani, da Paesi esteri o molti tentativi falliti vanno approfonditi.</li>
+</ol>
+
+<h3>Se trovi qualcosa di sospetto</h3>
+<p>Non spegnere tutto in preda al panico e non cancellare nulla: i registri servono per capire cosa è successo. Isola il dispositivo se necessario, conserva i log e fatti aiutare da un professionista. Se la tua organizzazione rientra nella NIS2, ricorda che gli incidenti significativi vanno notificati al CSIRT Italia nei tempi previsti.</p>
+
+<h2>La lezione per tutti, anche senza Fortinet</h2>
+<p>FortiBleed è un promemoria utile anche per chi usa altre marche. Tre abitudini fanno la differenza:</p>
+<ul>
+<li><strong>nessun accesso remoto senza doppio fattore</strong>: è la misura che da sola avrebbe fermato gran parte di questi attacchi;</li>
+<li><strong>i dispositivi di rete vanno manutenuti</strong> come i PC: aggiornamenti, revisione periodica degli account, controllo dei log;</li>
+<li><strong>un piano B per i dati</strong>: se un intruso arriva fino al ransomware, solo un buon <a href="https://www.roccoandrealigorio.it/?p=211">backup secondo la regola 3-2-1</a> ti permette di ripartire senza pagare.</li>
+</ul>
+<p>Se non sai come è configurato il firewall del tuo ufficio, o vuoi una verifica indipendente, è uno dei controlli che faccio nei miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi di assistenza informatica</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>FortiBleed è una vulnerabilità da correggere con una patch?</h3>
+<p>No, non principalmente. È una campagna che sfrutta password rubate, deboli o riutilizzate e configurazioni esposte. Aggiornare serve, ma bisogna anche cambiare le credenziali e attivare il doppio fattore.</p>
+<h3>Come faccio a sapere se il mio firewall Fortinet è stato violato?</h3>
+<p>I segnali tipici sono account amministratore che non riconosci, password che non funzionano più, modifiche alla configurazione non autorizzate e accessi VPN da luoghi o orari insoliti. Serve un controllo dei log da parte di un tecnico.</p>
+<h3>Uso un'altra marca di firewall: sono al sicuro?</h3>
+<p>Non automaticamente. Le stesse tecniche funzionano contro qualunque VPN esposta su Internet e protetta solo da una password. Le misure della checklist valgono per tutti.</p>
+<h3>Devo spegnere la VPN dello studio?</h3>
+<p>Non serve, se la metti in sicurezza: password nuove, doppio fattore, pannello di amministrazione non esposto e account inutili eliminati. Se nessuno la usa più, invece, disattivarla è la scelta migliore.</p>

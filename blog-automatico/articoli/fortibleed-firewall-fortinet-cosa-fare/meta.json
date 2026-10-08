@@ -1,0 +1,13 @@
+{
+  "titolo": "FortiBleed: firewall Fortinet sotto attacco, cosa fare subito",
+  "slug": "fortibleed-firewall-fortinet-cosa-fare",
+  "estratto": "FortiBleed colpisce i firewall Fortinet con password rubate: 86.000 dispositivi violati. Cosa sta succedendo e 8 controlli da fare subito in studio.",
+  "categorie": ["Informatica"],
+  "tag": ["Sicurezza informatica", "Firewall", "VPN", "Ransomware", "Password"],
+  "seo": {
+    "titolo": "Firewall Fortinet e FortiBleed: cosa fare subito in ufficio",
+    "descrizione": "Firewall Fortinet nel mirino di FortiBleed: l'allarme di FBI e CSIRT Italia, come funziona l'attacco e la checklist in 8 punti per proteggere la VPN.",
+    "keyword": "firewall Fortinet"
+  },
+  "stato": "draft"
+}

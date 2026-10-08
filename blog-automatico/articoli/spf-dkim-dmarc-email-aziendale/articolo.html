@@ -1,0 +1,64 @@
+<p>Un cliente ti chiama: "Ho ricevuto la vostra email con il nuovo IBAN, ho già fatto il bonifico". Solo che tu quell'email non l'hai mai mandata. Qualcuno ha usato il nome del tuo dominio per scrivere ai tuoi clienti, e il messaggio sembrava in tutto e per tutto tuo. Oppure succede il contrario: le tue email vere finiscono nella cartella spam dei destinatari. In entrambi i casi la causa è spesso la stessa: il dominio non ha configurato <strong>SPF, DKIM e DMARC</strong>, tre impostazioni tecniche che dicono al mondo quali email sono davvero tue. In questa guida ti spiego cosa sono, senza gergo, e come metterle a posto passo dopo passo.</p>
+
+<h2>Perché chiunque può scrivere "a nome tuo"</h2>
+<p>La posta elettronica è nata decenni fa, quando nessuno pensava alle truffe. Il protocollo che la trasporta non verifica chi è il mittente: scrivere "info@tuostudio.it" nel campo "Da" è tecnicamente facile come scrivere un indirizzo falso sul retro di una busta. Questa tecnica si chiama <strong>spoofing</strong> ed è la base di molte truffe del falso fornitore o del falso cambio IBAN.</p>
+<p>L'Agenzia per la Cybersicurezza Nazionale lo dice chiaramente nelle sue <a href="https://www.acn.gov.it/portale/en/w/acn-pubblica-le-linee-guida-per-la-configurazione-del-servizio-di-posta-elettronica-per-l-autenticazione-del-mittente" target="_blank" rel="noopener">linee guida sulla configurazione della posta elettronica</a>, pubblicate ad aprile 2026: senza configurazioni adeguate, qualunque dominio può essere impersonato con facilità. Le tre "etichette" che risolvono il problema si scrivono nel <strong>DNS</strong>, cioè nella rubrica pubblica del tuo dominio che gestisci dal pannello del provider (Aruba, Register, OVH e simili).</p>
+
+<h2>SPF, DKIM e DMARC spiegati semplici</h2>
+
+<h3>SPF: l'elenco dei postini autorizzati</h3>
+<p>L'<strong>SPF</strong> (Sender Policy Framework) è una riga nel DNS che elenca i server autorizzati a spedire email per il tuo dominio: per esempio quelli di Microsoft 365 o di Google Workspace, più eventuali servizi esterni come il gestionale che invia le fatture o la piattaforma delle newsletter. Chi riceve un messaggio controlla se arriva da uno di questi server.</p>
+
+<h3>DKIM: il sigillo sulla busta</h3>
+<p>Il <strong>DKIM</strong> (DomainKeys Identified Mail) aggiunge a ogni email una firma digitale invisibile. Il tuo server firma con una chiave segreta, e chiunque può verificare la firma con la chiave pubblica pubblicata nel DNS. Se il messaggio è falso o è stato modificato lungo il percorso, la firma non torna.</p>
+
+<h3>DMARC: le istruzioni per chi riceve</h3>
+<p>Il <strong>DMARC</strong> collega i due controlli precedenti al nome che il destinatario vede nel campo "Da", e dice ai server di posta cosa fare con i messaggi che non superano la verifica:</p>
+<ul>
+<li><strong>none</strong>: non fare nulla, limitati a mandarmi un rapporto;</li>
+<li><strong>quarantine</strong>: mettili nello spam;</li>
+<li><strong>reject</strong>: rifiutali del tutto.</li>
+</ul>
+<p>In più, il DMARC ti fa arrivare dei <strong>rapporti periodici</strong> su chi sta inviando email usando il tuo dominio: è il modo migliore per scoprire sia i servizi legittimi dimenticati sia i tentativi di truffa.</p>
+
+<h2>Non è più facoltativo: Google, Microsoft e ACN</h2>
+<p>Per anni queste impostazioni sono state "consigliate". Oggi sono di fatto obbligatorie per farsi consegnare la posta:</p>
+<ul>
+<li>dal 1° febbraio 2024 <a href="https://support.google.com/mail/answer/81126?hl=it" target="_blank" rel="noopener">Google richiede</a> a tutti i mittenti verso Gmail almeno SPF o DKIM, e a chi invia più di 5.000 messaggi al giorno SPF, DKIM e DMARC insieme;</li>
+<li>dal 5 maggio 2025 <a href="https://techcommunity.microsoft.com/blog/microsoftdefenderforoffice365blog/strengthening-email-ecosystem-outlook%E2%80%99s-new-requirements-for-high%E2%80%90volume-senders/4399730" target="_blank" rel="noopener">Microsoft applica requisiti simili</a> per Outlook.com, Hotmail e Live: chi invia grandi volumi senza le tre configurazioni finisce nella posta indesiderata;</li>
+<li>le linee guida ACN raccomandano l'adozione congiunta dei tre protocolli e le collegano alle misure di sicurezza previste dalla NIS2, precisando che valgono anche per chi non è soggetto a quegli obblighi.</li>
+</ul>
+<p>Uno studio professionale non manda 5.000 email al giorno, è vero. Ma i filtri antispam premiano chi è configurato bene, e soprattutto il DMARC è l'unico strumento che impedisce a un truffatore di usare il tuo nome con i tuoi clienti.</p>
+
+<h2>Come configurare SPF, DKIM e DMARC in 6 passi</h2>
+<p>Non serve essere tecnici per capire il percorso; per le modifiche al DNS, se non sei sicuro, fatti affiancare da chi gestisce il tuo dominio.</p>
+<ol>
+<li><strong>Fai l'inventario di chi spedisce per te.</strong> La casella principale (Microsoft 365, Google Workspace, provider), il gestionale, il software di fatturazione, la newsletter, il modulo contatti del sito. È il passo più importante: chi dimentichi qui rischia di veder bloccate le proprie email.</li>
+<li><strong>Controlla la situazione attuale.</strong> Esistono strumenti online gratuiti che, inserendo il dominio, mostrano se SPF, DKIM e DMARC sono presenti e corretti.</li>
+<li><strong>Sistema l'SPF.</strong> Deve esserci un solo record SPF che includa tutti i servizi dell'inventario. ACN raccomanda di chiuderlo con "-all", cioè "tutti gli altri server non sono autorizzati".</li>
+<li><strong>Attiva il DKIM</strong> dal pannello del tuo servizio di posta, che di solito genera le righe da copiare nel DNS. ACN indica come dimensione consigliata delle chiavi 2048 bit e suggerisce di cambiarle almeno ogni sei mesi.</li>
+<li><strong>Pubblica il DMARC partendo da "none"</strong> e indicando un indirizzo per ricevere i rapporti. Per qualche settimana osserva: se compaiono servizi legittimi che falliscono la verifica, sistemali.</li>
+<li><strong>Stringi gradualmente</strong>: passa a "quarantine" e poi a "reject", che è l'obiettivo finale indicato anche nell'esempio delle linee guida ACN. Fermarsi per sempre a "none" significa ricevere i rapporti ma non bloccare nessuna truffa.</li>
+</ol>
+
+<h3>I domini che non usi per la posta</h3>
+<p>Hai un secondo dominio solo per il sito, o un vecchio nome registrato per sicurezza? ACN consiglia di pubblicare comunque un SPF che dichiari che <strong>nessun server è autorizzato</strong> a inviare email: altrimenti è un bersaglio comodo per chi vuole impersonarti.</p>
+
+<h2>Gli errori che vedo più spesso</h2>
+<ul>
+<li><strong>Due record SPF</strong> sullo stesso dominio: invece di sommarsi, rendono non valido il controllo.</li>
+<li><strong>DMARC lasciato su "none" per anni</strong>, con i rapporti che arrivano a una casella che nessuno legge.</li>
+<li><strong>Servizi dimenticati</strong>: il gestionale che manda i solleciti di pagamento con il tuo indirizzo, ma non è nell'SPF e non firma con DKIM.</li>
+<li><strong>Inoltri automatici</strong>: le email inoltrate da un'altra casella possono fallire l'SPF; è uno dei motivi per cui il DKIM è indispensabile.</li>
+</ul>
+<p>Se preferisci che qualcuno lo faccia per te, la configurazione della posta e del dominio rientra nei miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>: ti spiego anche <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a>, dall'analisi iniziale alla verifica finale.</p>
+
+<h2>Domande frequenti</h2>
+<h3>SPF, DKIM e DMARC servono anche se uso Microsoft 365 o Gmail?</h3>
+<p>Sì. Il fornitore protegge i suoi server, ma le impostazioni del tuo dominio le devi pubblicare tu, o chi gestisce il tuo DNS. Senza di esse il tuo nome resta impersonabile.</p>
+<h3>Configurare il DMARC può bloccare le mie email?</h3>
+<p>Può succedere se passi subito a "reject" dimenticando qualche servizio. Per questo si parte da "none", si leggono i rapporti e si stringe solo quando tutto ciò che è legittimo supera i controlli.</p>
+<h3>La PEC è coinvolta?</h3>
+<p>La PEC viaggia su un circuito dedicato con regole proprie. SPF, DKIM e DMARC riguardano la posta ordinaria del tuo dominio, che è quella più usata nelle truffe.</p>
+<h3>Quanto tempo serve?</h3>
+<p>Per uno studio con pochi servizi, la configurazione richiede poche ore; il passaggio graduale a "reject" di solito si completa in alcune settimane di osservazione dei rapporti.</p>
