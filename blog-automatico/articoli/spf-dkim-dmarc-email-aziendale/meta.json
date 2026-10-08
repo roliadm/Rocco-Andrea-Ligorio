@@ -2,12 +2,22 @@
   "titolo": "SPF, DKIM e DMARC: come proteggere l'email dello studio",
   "slug": "spf-dkim-dmarc-email-aziendale",
   "estratto": "Email false a nome tuo o messaggi finiti nello spam? SPF, DKIM e DMARC spiegati semplici e i 6 passi per configurarli nel dominio di studio o PMI.",
-  "categorie": ["Informatica"],
-  "tag": ["Sicurezza informatica", "Email", "Phishing", "DMARC"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Sicurezza informatica",
+    "Email",
+    "Phishing",
+    "DMARC"
+  ],
   "seo": {
     "titolo": "SPF, DKIM e DMARC: guida pratica per l'email di studi e PMI",
     "descrizione": "SPF, DKIM e DMARC spiegati senza gergo: come bloccare le email false a nome tuo, evitare lo spam e configurarli in 6 passi secondo le linee guida ACN.",
     "keyword": "SPF, DKIM e DMARC"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "SPF, DKIM e DMARC: come proteggere l'email dello studio",
+  "id": 235
 }
