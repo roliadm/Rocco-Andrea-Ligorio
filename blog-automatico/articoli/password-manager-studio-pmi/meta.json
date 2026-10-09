@@ -1,0 +1,13 @@
+{
+  "titolo": "Password manager: guida pratica per studi professionali e PMI",
+  "slug": "password-manager-studio-pmi",
+  "estratto": "Basta password su Excel o riciclate ovunque: cos'è un password manager, come sceglierlo per lo studio o la PMI e come introdurlo in ufficio in 6 passi.",
+  "categorie": ["Informatica"],
+  "tag": ["Password", "Sicurezza informatica", "Autenticazione a due fattori", "Phishing"],
+  "seo": {
+    "titolo": "Password manager per studi e PMI: come sceglierlo e usarlo",
+    "descrizione": "Password manager per studi e PMI: perché conviene, come scegliere quello giusto e come introdurlo in ufficio in 6 passi, secondo le linee guida NIST.",
+    "keyword": "password manager"
+  },
+  "stato": "draft"
+}

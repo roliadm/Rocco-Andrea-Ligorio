@@ -1,0 +1,65 @@
+<p>Arriva un'email che sembra normale: "Hai un documento condiviso da firmare", oppure "La tua password sta per scadere". Il link porta a una pagina che ti chiede di inserire un codice sul sito ufficiale di Microsoft. Tu lo fai, accedi come sempre, confermi anche la notifica sul telefono. Tutto sembra in ordine. In realtà hai appena consegnato la tua casella di posta a un truffatore. Si chiama <strong>device code phishing</strong> ed è una delle tecniche che vedo crescere di più nel 2026, proprio perché aggira l'autenticazione a due fattori. In questo articolo ti spiego come funziona, perché è pericoloso per studi e PMI che usano Microsoft 365 e cosa puoi fare, in concreto, per bloccarlo.</p>
+
+<h2>Cos'è il device code phishing</h2>
+<p>Per capirlo bisogna partire da una funzione legittima. Alcuni dispositivi, come smart TV, stampanti o sistemi per sale riunioni, non hanno una tastiera comoda per inserire email e password. Per loro esiste il <strong>flusso "device code"</strong> (codice dispositivo): il dispositivo mostra un breve codice, tu lo digiti da PC o smartphone su una pagina ufficiale (per Microsoft è microsoft.com/devicelogin), accedi con il tuo account e il dispositivo viene autorizzato.</p>
+<p>Il truffatore sfrutta proprio questo meccanismo. Il "dispositivo" da autorizzare, però, è il suo computer. In pratica succede questo:</p>
+<ol>
+<li>il criminale chiede a Microsoft un codice dispositivo, cosa che chiunque può fare;</li>
+<li>ti manda un'email o un messaggio con un pretesto credibile (fattura, documento da firmare, messaggio vocale, scadenza della password) e ti invita a inserire il codice;</li>
+<li>tu lo inserisci sulla <strong>pagina vera</strong> di Microsoft, accedi e approvi anche il secondo fattore;</li>
+<li>Microsoft rilascia al computer del criminale i "gettoni" di accesso (token) al tuo account: da quel momento può leggere la posta, i file e i contatti senza conoscere la tua password.</li>
+</ol>
+<p>Il punto più subdolo è che la pagina su cui scrivi il codice è autentica. Non c'è un indirizzo strano da notare, e il controllo "guarda bene il sito prima di inserire la password" qui non basta.</p>
+
+<h2>Perché se ne parla adesso</h2>
+<p>La tecnica non è nuova, ma nel 2026 è diventata un prodotto "pronto all'uso". Ad aprile la società di sicurezza Push Security ha rilevato che le pagine di device code phishing erano cresciute di oltre <strong>37 volte</strong> dall'inizio dell'anno, con più di una decina di kit diversi in vendita ai criminali, come ha riportato <a href="https://www.bleepingcomputer.com/news/security/device-code-phishing-attacks-surge-37x-as-new-kits-spread-online/amp/" target="_blank" rel="noopener">BleepingComputer</a>.</p>
+<p>Negli stessi giorni il team di ricerca di Microsoft ha descritto <a href="https://www.microsoft.com/en-us/security/blog/2026/04/06/ai-enabled-device-code-phishing-campaign-april-2026/" target="_blank" rel="noopener">una campagna su larga scala</a> che usava l'intelligenza artificiale per scrivere email su misura per il ruolo della vittima (fatture, richieste di offerta, file condivisi) e generava il codice nel momento esatto del clic, così da non farlo scadere. Dopo l'accesso, in alcuni casi i criminali creavano regole nascoste nella casella di posta e copiavano le email; i bersagli preferiti erano amministrazione e direzione.</p>
+<p>E la tecnica continua a evolvere: l'8 ottobre 2026 <a href="https://thehackernews.com/2026/10/wazza-phishkit-targets-banking.html" target="_blank" rel="noopener">The Hacker News</a> ha raccontato di un nuovo kit, chiamato Wazza, che filtra i visitatori per nascondersi ai sistemi di analisi e mostra la pagina con il codice solo alle vittime "giuste", usando come esca un finto documento Adobe. Bersagli dichiarati: banche, manifattura ed enti pubblici anche in Europa.</p>
+
+<h2>Perché l'autenticazione a due fattori non ti salva</h2>
+<p>Ho scritto più volte che l'<a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a> è la difesa più efficace contro il furto di password, e lo confermo. Ma qui la password non viene rubata: sei tu ad accedere davvero, con password e secondo fattore, e ad autorizzare un dispositivo che non è il tuo. Per il sistema è tutto regolare.</p>
+<p>Per questo serve un intervento diverso: <strong>spegnere la funzione</strong> che il criminale sfrutta, se in azienda non la usa nessuno. Ed è quello che raccomanda la stessa Microsoft.</p>
+
+<h2>Come bloccare il device code phishing in Microsoft 365</h2>
+
+<h3>1. Verifica se il flusso device code ti serve davvero</h3>
+<p>Microsoft stessa scrive che questo tipo di accesso è usato raramente dai clienti e spesso dagli attaccanti. Nella maggior parte degli studi e delle PMI non serve a nessuno. Le eccezioni tipiche sono i dispositivi Teams delle sale riunioni o qualche vecchio strumento tecnico: vanno censiti prima di bloccare.</p>
+
+<h3>2. Attiva il blocco con l'Accesso condizionale</h3>
+<p>L'<strong>Accesso condizionale</strong> (Conditional Access) è la funzione di Microsoft Entra, il sistema che gestisce gli account di Microsoft 365, che decide chi può accedere, da dove e come. Nella <a href="https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-authentication-flows" target="_blank" rel="noopener">documentazione ufficiale</a> Microsoft indica di avvicinarsi il più possibile a un blocco totale del flusso device code. I passi, in sintesi:</p>
+<ul>
+<li>nel centro di amministrazione di Microsoft Entra apri <strong>Accesso condizionale → Criteri → Nuovo criterio</strong>;</li>
+<li>includi tutti gli utenti, escludendo solo gli account di emergenza e le eccezioni documentate;</li>
+<li>nelle condizioni scegli <strong>Flussi di autenticazione</strong> (Authentication flows), seleziona il flusso del codice dispositivo (Device code flow) e come controllo <strong>Blocca accesso</strong>;</li>
+<li>attiva il criterio prima in modalità <strong>solo report</strong>, controlla per qualche giorno che non blocchi nulla di legittimo, poi impostalo su "Attivo".</li>
+</ul>
+<p>Attenzione al requisito: l'Accesso condizionale richiede licenze come <strong>Microsoft 365 Business Premium</strong> o Microsoft Entra ID P1/P2. Molti studi hanno piani più semplici; in quel caso conviene valutare l'upgrade almeno per gli account più esposti, come amministrazione e titolari.</p>
+
+<h3>3. Controlla il criterio che Microsoft attiva da sola</h3>
+<p>Nei tenant con Accesso condizionale, Microsoft sta introducendo un <a href="https://learn.microsoft.com/en-us/entra/identity/conditional-access/managed-policies" target="_blank" rel="noopener">criterio gestito</a> chiamato "Block device code flow". Viene creato in modalità solo report e attivato automaticamente non prima di 30 giorni, con un avviso via email due settimane prima. Il mio consiglio: non aspettare, verifica che ci sia, controlla l'impatto e attivalo tu, escludendo eventuali dispositivi delle sale riunioni.</p>
+
+<h3>4. Rafforza il resto della difesa</h3>
+<ul>
+<li><strong>Metodi di accesso resistenti al phishing</strong>: Microsoft raccomanda chiavi di sicurezza FIDO2 o passkey, ed evitare SMS e chiamate come secondo fattore;</li>
+<li><strong>filtri antiphishing</strong> sulla posta e protezione dei link, ad esempio con Defender per Office 365;</li>
+<li><strong>controllo degli accessi</strong>: guardare ogni tanto i log di accesso e le regole di inoltro della posta, che sono il primo segnale di un account compromesso.</li>
+</ul>
+
+<h2>Cosa dire a colleghi e collaboratori</h2>
+<p>La tecnologia blocca gran parte del problema, ma una regola semplice aiuta tutti: <strong>non inserire mai un codice su microsoft.com/devicelogin</strong> (o su pagine simili di altri servizi) se non stai configurando in quel momento un dispositivo che hai davanti, come una TV o una stampante. Nessun documento da firmare, nessuna fattura e nessuna scadenza della password richiede di farlo.</p>
+<p>Se qualcuno pensa di averlo fatto, la reazione deve essere rapida: avvisare subito chi gestisce l'informatica, che dovrà <strong>revocare le sessioni attive</strong> dell'account, cambiare la password, controllare regole di posta e dispositivi registrati. Microsoft ricorda che, anche dopo la revoca, un token già rilasciato può restare valido fino a circa un'ora: per questo a volte conviene sospendere temporaneamente l'account.</p>
+<p>Se vuoi una mano a verificare la configurazione del tuo Microsoft 365, a capire se hai le licenze giuste o a impostare l'Accesso condizionale senza bloccare il lavoro dello studio, trovi i dettagli nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Il device code phishing riguarda solo Microsoft 365?</h3>
+<p>No. Lo stesso meccanismo esiste anche in altri servizi cloud e il kit Wazza, per esempio, usa un'esca a tema Adobe. Microsoft 365 è però il bersaglio più diffuso perché è usato dalla maggior parte delle aziende.</p>
+
+<h3>Se ho l'autenticazione a due fattori sono comunque protetto?</h3>
+<p>Non da questa tecnica, perché sei tu ad approvare l'accesso. L'autenticazione a due fattori resta indispensabile, ma va affiancata al blocco del flusso device code.</p>
+
+<h3>Bloccare il flusso device code crea problemi?</h3>
+<p>Di solito no. Può interessare dispositivi Teams per sale riunioni o strumenti tecnici particolari: per questo si parte in modalità solo report e si escludono solo le eccezioni necessarie.</p>
+
+<h3>Con Microsoft 365 Business Standard posso bloccarlo?</h3>
+<p>L'Accesso condizionale non è incluso in Business Standard: servono Business Premium o una licenza Microsoft Entra ID P1/P2. In alternativa restano formazione, filtri sulla posta e controllo degli accessi.</p>
