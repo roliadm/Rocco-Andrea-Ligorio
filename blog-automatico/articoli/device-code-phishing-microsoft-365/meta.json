@@ -2,12 +2,22 @@
   "titolo": "Device code phishing: la truffa che aggira la doppia autenticazione",
   "slug": "device-code-phishing-microsoft-365",
   "estratto": "Un codice da inserire sul sito vero di Microsoft e la casella di posta è persa. Come funziona il device code phishing e come bloccarlo in Microsoft 365.",
-  "categorie": ["Informatica"],
-  "tag": ["Phishing", "Microsoft 365", "Autenticazione a due fattori", "Sicurezza informatica"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Phishing",
+    "Microsoft 365",
+    "Autenticazione a due fattori",
+    "Sicurezza informatica"
+  ],
   "seo": {
     "titolo": "Device code phishing: cos'è e come fermarlo in Microsoft 365",
     "descrizione": "Device code phishing: la truffa che aggira la doppia autenticazione di Microsoft 365. Come funziona e i passi per bloccarla nello studio o in azienda.",
     "keyword": "device code phishing"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Device code phishing: la truffa che aggira la doppia autenticazione",
+  "id": 239
 }
