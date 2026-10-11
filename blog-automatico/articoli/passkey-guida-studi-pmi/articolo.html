@@ -1,0 +1,68 @@
+<p>Negli ultimi mesi, accedendo a Google, Microsoft, Amazon o alla tua banca, ti sarà comparso un invito del tipo "Crea una passkey per accedere più velocemente". Molti titolari di studi e piccole imprese mi chiedono se sia l'ennesima complicazione o qualcosa che vale davvero la pena attivare. La mia risposta è che le <strong>passkey</strong> sono oggi il modo più semplice per proteggere gli account dal phishing, a patto di introdurle con un minimo di metodo. In questo articolo ti spiego cosa sono, perché funzionano, dove attivarle per prime e quali errori evitare in ufficio.</p>
+
+<h2>Cos'è una passkey, spiegato senza gergo</h2>
+<p>Una passkey è una <strong>credenziale che sostituisce la password</strong>. Invece di digitare una parola segreta, confermi l'accesso con lo stesso gesto che usi per sbloccare il telefono o il computer: impronta digitale, riconoscimento del volto oppure PIN.</p>
+<p>Dietro le quinte, come spiega la <a href="https://fidoalliance.org/passkeys/" target="_blank" rel="noopener">FIDO Alliance</a> (il consorzio che ha definito lo standard e di cui fanno parte Apple, Google e Microsoft), ogni passkey è formata da una coppia di chiavi crittografiche:</p>
+<ul>
+<li>la <strong>chiave privata</strong> resta sul tuo dispositivo e non viene mai inviata a nessuno;</li>
+<li>la <strong>chiave pubblica</strong> viene consegnata al sito o all'app quando crei la passkey.</li>
+</ul>
+<p>Quando accedi, il sito invia una "domanda" che solo la tua chiave privata sa firmare; il sito controlla la firma con la chiave pubblica e ti fa entrare. L'impronta o il volto servono solo a sbloccare la chiave sul tuo dispositivo: <strong>i dati biometrici non escono mai dal telefono o dal PC</strong>.</p>
+
+<h3>Passkey sincronizzate o legate al dispositivo</h3>
+<p>Esistono due tipi di passkey, ed è utile conoscerli:</p>
+<ul>
+<li><strong>sincronizzate</strong>: vengono salvate nel portachiavi di Apple, nel gestore password di Google, in Windows o in un password manager, e sono disponibili su tutti i tuoi dispositivi, anche quando cambi telefono;</li>
+<li><strong>legate al dispositivo</strong>: restano su un solo apparecchio, tipicamente una <strong>chiave di sicurezza</strong> USB o NFC. Sono meno comode ma offrono il livello di garanzia più alto, per gli account più delicati.</li>
+</ul>
+
+<h2>Perché le passkey battono password e codici SMS</h2>
+<p>Il punto debole della password è che si può <strong>digitare nel posto sbagliato</strong>. Basta un'email ben fatta e una pagina di accesso identica all'originale: lo vedo succedere anche a persone attente. Con le passkey questo trucco non funziona, per tre motivi.</p>
+<ol>
+<li><strong>Non c'è niente da rubare</strong>: non esiste una parola segreta da inserire, quindi una pagina falsa non può raccoglierla.</li>
+<li><strong>La passkey riconosce il sito</strong>: è legata all'indirizzo esatto del servizio per cui è stata creata. Su un dominio contraffatto semplicemente non si attiva.</li>
+<li><strong>Un furto di dati dal sito non basta</strong>: il servizio conserva solo chiavi pubbliche, inutili a un malintenzionato per entrare nel tuo account.</li>
+</ol>
+<p>Anche l'<a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a> classica resta preziosa, ma un codice via SMS o da app può essere carpito da un sito trappola che lo chiede "in diretta". Per questo le passkey sono considerate un'autenticazione <strong>resistente al phishing</strong>, lo stesso livello che le linee guida sulla sicurezza raccomandano per gli account più esposti.</p>
+<p>Non è una tecnologia di nicchia: già a fine 2024, secondo i dati FIDO citati da <a href="https://thehackernews.com/2025/05/microsoft-sets-passkeys-default-for-new.html" target="_blank" rel="noopener">The Hacker News</a>, oltre 15 miliardi di account potevano accedere con una passkey, e dal maggio 2025 Microsoft crea i nuovi account personali "senza password" per impostazione predefinita.</p>
+
+<h2>Da dove partire con le passkey in ufficio</h2>
+<p>Non serve convertire tutto in un giorno. Ti consiglio di procedere per priorità, partendo dagli account che, se rubati, farebbero più danni.</p>
+
+<h3>1. Email e suite d'ufficio</h3>
+<p>La casella email è la chiave di tutto: da lì si reimpostano le password di quasi ogni altro servizio. Se usate <strong>Microsoft 365</strong>, l'amministratore può abilitare le passkey per i dipendenti dal centro di amministrazione di Microsoft Entra, sia nell'app Microsoft Authenticator sia, con un profilo dedicato, come passkey sincronizzate: la procedura è descritta nella <a href="https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-synced-passkeys" target="_blank" rel="noopener">documentazione ufficiale Microsoft</a>. Per gli account Google la creazione è guidata dalla pagina di <a href="https://support.google.com/accounts/answer/13548313?hl=it" target="_blank" rel="noopener">assistenza dell'account Google</a>.</p>
+<p>Questa è anche la migliore difesa contro truffe come quelle che ho raccontato nell'articolo sul <a href="https://www.roccoandrealigorio.it/?p=239">device code phishing</a>: più si riducono i metodi di accesso deboli, meno appigli restano agli attaccanti.</p>
+
+<h3>2. Banca, PEC e portali con dati di clienti</h3>
+<p>Molte banche, i grandi marketplace e diversi gestionali in cloud supportano già le passkey. Controlla nelle impostazioni di sicurezza di ciascun servizio la voce "Passkey" o "Accesso senza password".</p>
+
+<h3>3. Il resto, con calma</h3>
+<p>Per i servizi che non supportano ancora le passkey continua a usare password lunghe e uniche, custodite in un <a href="https://www.roccoandrealigorio.it/?p=241">password manager</a>, con il secondo fattore attivo. I password manager più diffusi, tra l'altro, sanno conservare anche le passkey.</p>
+
+<h2>Gli errori da evitare</h2>
+<p>Le passkey sono semplici da usare, ma in un ufficio con più persone vanno introdotte con criterio. Gli sbagli che vedo più spesso sono questi:</p>
+<ul>
+<li><strong>Salvare la passkey dell'account aziendale sul telefono personale</strong> di un dipendente, magari sincronizzata sul suo account Apple o Google privato. Quando quella persona lascia lo studio, la credenziale se ne va con lei. Ne parlo anche nella <a href="https://www.roccoandrealigorio.it/?p=227">checklist IT per gli ex dipendenti</a>.</li>
+<li><strong>Avere un solo metodo di accesso</strong>: se il telefono si rompe o si perde e non c'è un'alternativa, si resta chiusi fuori. Registra almeno due passkey (per esempio telefono e PC, oppure una chiave di sicurezza di riserva) e conserva i codici di recupero in un luogo sicuro.</li>
+<li><strong>Lasciare la password vecchia e debole</strong>: se il servizio continua ad accettarla, resta una porta aperta. Dove possibile cambiala con una robusta o, se il servizio lo consente, eliminala.</li>
+<li><strong>Dispositivi senza blocco schermo</strong>: la passkey è sicura quanto lo sblocco del dispositivo che la custodisce. PIN o biometria devono essere sempre attivi.</li>
+<li><strong>Account condivisi</strong>: una passkey identifica una persona. Le caselle usate da più colleghi vanno trasformate in caselle condivise con accessi individuali, non "risolte" passando il telefono di mano in mano.</li>
+</ul>
+
+<h2>Le passkey sono pronte anche per studi e PMI?</h2>
+<p>Sì, con un po' di pianificazione. Il mio consiglio pratico è partire da un gruppo ristretto (il titolare e chi amministra i sistemi), verificare che tutto funzioni sui dispositivi in uso e poi estendere a tutti, dedicando dieci minuti a spiegare ai colleghi cosa cambia. Mettere ordine negli accessi è anche un passo concreto verso gli obblighi di sicurezza che molte imprese stanno affrontando con la <a href="https://www.roccoandrealigorio.it/?p=221">direttiva NIS2</a>.</p>
+<p>Se vuoi un aiuto per fare il punto sugli account del tuo studio e introdurre le passkey senza bloccare il lavoro, trovi come posso aiutarti nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Se perdo il telefono perdo anche le passkey?</h3>
+<p>No, se usi passkey sincronizzate: le ritrovi sul nuovo dispositivo accedendo al tuo account Apple, Google o al password manager. Per sicurezza conviene comunque avere un secondo metodo di accesso registrato.</p>
+
+<h3>Il sito riceve la mia impronta digitale?</h3>
+<p>No. L'impronta o il volto servono solo a sbloccare la passkey sul tuo dispositivo; al sito arriva soltanto una firma crittografica.</p>
+
+<h3>Posso usare una passkey su un computer che non è mio?</h3>
+<p>Sì: molti siti mostrano un codice QR che inquadri con il telefono, e confermi l'accesso dallo smartphone senza salvare nulla sul computer altrui.</p>
+
+<h3>Con le passkey posso fare a meno del password manager?</h3>
+<p>Non ancora: molti servizi non le supportano. Il password manager resta utile per le password rimaste e può custodire anche le passkey.</p>

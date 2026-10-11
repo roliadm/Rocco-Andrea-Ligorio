@@ -1,0 +1,13 @@
+{
+  "titolo": "Passkey: cosa sono e come usarle in studio e in azienda",
+  "slug": "passkey-guida-studi-pmi",
+  "estratto": "Passkey: cosa sono, perché resistono al phishing e come attivarle per email, Microsoft 365 e banca nel tuo studio, senza errori e senza bloccare il lavoro.",
+  "categorie": ["Informatica"],
+  "tag": ["Passkey", "Password", "Autenticazione a due fattori", "Phishing", "Sicurezza informatica"],
+  "seo": {
+    "titolo": "Passkey: guida pratica per studi professionali e PMI",
+    "descrizione": "Passkey: cosa sono, perché proteggono dal phishing meglio di password e SMS e come introdurle in studio partendo da email e Microsoft 365.",
+    "keyword": "passkey"
+  },
+  "stato": "draft"
+}
