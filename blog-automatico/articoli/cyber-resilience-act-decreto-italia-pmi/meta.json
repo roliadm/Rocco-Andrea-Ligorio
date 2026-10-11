@@ -2,12 +2,22 @@
   "titolo": "Cyber Resilience Act: il decreto italiano e cosa cambia per le PMI",
   "slug": "cyber-resilience-act-decreto-italia-pmi",
   "estratto": "Cyber Resilience Act: il decreto del 2 ottobre affida all'ACN i controlli. Scadenze, sanzioni e cosa cambia per chi compra o sviluppa software.",
-  "categorie": ["Informatica"],
-  "tag": ["Cyber Resilience Act", "Normative digitali", "Sicurezza informatica", "Aggiornamenti di sicurezza"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Cyber Resilience Act",
+    "Normative digitali",
+    "Sicurezza informatica",
+    "Aggiornamenti di sicurezza"
+  ],
   "seo": {
     "titolo": "Cyber Resilience Act: decreto italiano e novità per PMI",
     "descrizione": "Cyber Resilience Act: cosa prevede il decreto italiano, quali scadenze sono già scattate e cosa cambia per studi e PMI che comprano o sviluppano software.",
     "keyword": "cyber resilience act"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Cyber Resilience Act: il decreto italiano e cosa cambia per le PMI",
+  "id": 251
 }
