@@ -1,0 +1,75 @@
+<p>Un temporale, un blackout di due secondi, e il server dello studio si spegne di colpo mentre qualcuno stava salvando una pratica. Al riavvio il gestionale non parte, il NAS controlla i dischi per ore, e nei casi peggiori un archivio si danneggia. Molti di questi guai si evitano con un apparecchio poco costoso e spesso trascurato: il <strong>gruppo di continuità</strong>, o UPS. In questo articolo ti spiego a cosa serve davvero, quale tipo scegliere, come dimensionarlo senza sprechi e come configurarlo perché spenga server e NAS in modo ordinato quando la corrente manca a lungo.</p>
+
+<h2>Cos'è un gruppo di continuità e a cosa serve</h2>
+<p>UPS sta per <em>Uninterruptible Power Supply</em>, alimentatore che non si interrompe. È una scatola con dentro una <strong>batteria</strong> e un'elettronica che, quando la rete elettrica ha un problema, continua ad alimentare i dispositivi collegati.</p>
+<p>Il suo compito principale non è farti lavorare per ore senza corrente, ma tre cose più modeste e più importanti:</p>
+<ul>
+<li><strong>superare i microblackout</strong> di pochi secondi, che sono i più frequenti e che bastano a spegnere un PC;</li>
+<li><strong>proteggere dagli sbalzi di tensione</strong>, cali e picchi che a lungo andare rovinano alimentatori e dischi;</li>
+<li>dare il tempo di <strong>spegnere in modo ordinato</strong> server, NAS e computer quando il blackout si prolunga.</li>
+</ul>
+<p>Uno spegnimento brusco può danneggiare i file aperti, i database dei gestionali e i dischi. Ecco perché, nel mio lavoro, lo considero un complemento naturale del <a href="https://www.roccoandrealigorio.it/?p=211">backup 3-2-1</a>: il backup ti fa recuperare i dati, l'UPS riduce le occasioni in cui ne hai bisogno.</p>
+
+<h2>I tre tipi di gruppo di continuità</h2>
+<p>La norma europea <strong>EN 62040-3</strong> divide gli UPS in tre classi, in base a quanto proteggono dai disturbi della rete. Una buona sintesi in italiano è nella <a href="https://www.01net.it/guida-normativa-ups/" target="_blank" rel="noopener">guida normativa agli UPS di 01net</a>.</p>
+
+<h3>Offline o standby (classe VFD)</h3>
+<p>In condizioni normali i dispositivi sono alimentati direttamente dalla rete; quando la corrente manca, l'UPS passa alla batteria in circa 10 millisecondi. Non corregge gli sbalzi di tensione. È il tipo più economico, adatto a un singolo PC o al modem di casa.</p>
+
+<h3>Line interactive (classe VI)</h3>
+<p>Aggiunge un regolatore che <strong>stabilizza la tensione</strong> senza consumare la batteria, e il passaggio alla batteria è più rapido, intorno ai 4-5 millisecondi. Ha un'ottima efficienza e un prezzo contenuto: per la maggior parte degli studi e delle piccole imprese è la <strong>scelta giusta</strong> per postazioni, switch, router e piccoli NAS.</p>
+
+<h3>Online a doppia conversione (classe VFI)</h3>
+<p>Qui i dispositivi sono sempre alimentati dall'elettronica dell'UPS, che ricostruisce da zero una corrente "pulita": il passaggio alla batteria è istantaneo e i dispositivi sono isolati dai disturbi della rete. Costa di più e consuma un po' di più, ma è la soluzione indicata per un <strong>server</strong> con il gestionale, per apparecchiature sensibili o per zone con rete elettrica instabile.</p>
+
+<h2>Come dimensionare il gruppo di continuità</h2>
+<p>Sulle confezioni trovi due numeri: i <strong>VA</strong> (volt-ampere) e i <strong>W</strong> (watt). Come spiega <a href="https://apc.com/be/en/solutions/industry-insights/watts-vs-va-whats-difference-anyway.jsp" target="_blank" rel="noopener">APC by Schneider Electric</a>, i watt indicano la potenza reale assorbita dai dispositivi, i VA la potenza "apparente", e il rapporto tra i due si chiama fattore di potenza. Il punto pratico è uno: il carico collegato <strong>non deve superare nessuno dei due valori</strong>. Un UPS da 1000 VA, per esempio, può reggere molto meno di 1000 W.</p>
+<p>Ecco come procedo di solito:</p>
+<ol>
+<li><strong>elenca cosa va protetto</strong>: server o NAS, router, firewall, switch, il PC di chi lavora sul gestionale. Stampanti laser e stufette no: assorbono molto e non servono durante un blackout;</li>
+<li><strong>somma i watt</strong> reali di ciascun dispositivo (li trovi sull'alimentatore o nella scheda tecnica; ancora meglio misurarli con una presa wattmetrica);</li>
+<li><strong>tieni un margine</strong>: scegli un UPS che con quel carico lavori intorno al 60-70% della sua potenza in watt, così hai spazio per crescere e più minuti di autonomia;</li>
+<li><strong>controlla l'autonomia</strong> nella tabella del produttore: per uno spegnimento ordinato bastano in genere 5-10 minuti.</li>
+</ol>
+
+<h2>Lo spegnimento automatico: la parte che quasi tutti dimenticano</h2>
+<p>Vedo spesso UPS installati e mai collegati ai computer. Funzionano per i blackout brevi, ma se la corrente manca per mezz'ora la batteria si scarica e il server si spegne di colpo comunque, come se l'UPS non ci fosse.</p>
+<p>La soluzione è il <strong>cavo di comunicazione</strong>, quasi sempre un cavo USB fornito con l'UPS, oppure una scheda di rete sui modelli più professionali:</p>
+<ul>
+<li><strong>NAS</strong>: i principali produttori, come Synology e QNAP, riconoscono l'UPS collegato via USB e permettono di impostare lo spegnimento dopo alcuni minuti di blackout. Lo stesso NAS può anche avvisare gli altri dispositivi in rete;</li>
+<li><strong>server e PC Windows</strong>: si usa il software del produttore dell'UPS, che chiude i programmi e spegne il sistema quando la batteria scende sotto una soglia;</li>
+<li><strong>notifiche</strong>: fatti mandare un'email quando l'UPS passa a batteria, così sai che qualcosa non va anche se sei fuori ufficio.</li>
+</ul>
+<p>Una volta configurato, <strong>fai una prova</strong>: stacca la spina dell'UPS dal muro, in un momento tranquillo, e verifica che tutto si spenga nell'ordine previsto.</p>
+
+<h2>Batterie: durano meno di quanto pensi</h2>
+<p>La batteria è il componente che si consuma. Secondo le <a href="https://apc.com/eg/en/faqs/FA158934" target="_blank" rel="noopener">indicazioni di APC</a>, la maggior parte delle batterie per UPS dura <strong>da tre a cinque anni</strong>, e il calore la accorcia molto: la temperatura ideale è tra 20 e 25 gradi, e ogni 8 gradi in più la vita della batteria si dimezza.</p>
+<p>In pratica:</p>
+<ul>
+<li>non mettere l'UPS nello sgabuzzino senza aria accanto al server caldo, né vicino a un termosifone;</li>
+<li>controlla periodicamente l'autotest e la data di installazione della batteria (scrivila con un pennarello sull'apparecchio);</li>
+<li>metti in calendario la <strong>sostituzione</strong> prima del quinto anno, anche se l'UPS sembra funzionare.</li>
+</ul>
+
+<h2>Gli errori più comuni</h2>
+<ul>
+<li>collegare la <strong>stampante laser</strong> all'UPS: all'accensione assorbe picchi di corrente che lo mandano in sovraccarico;</li>
+<li>proteggere il server ma dimenticare <strong>router e switch</strong>: il server resta acceso, ma nessuno riesce a raggiungerlo;</li>
+<li>usare una ciabatta multipla a valle dell'UPS e collegarci di tutto;</li>
+<li>non configurare lo spegnimento automatico, o non provarlo mai.</li>
+</ul>
+<p>Se vuoi una mano a capire cosa proteggere nel tuo ufficio e a configurare server e NAS perché si spengano da soli, guarda i miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Serve un gruppo di continuità anche per un portatile?</h3>
+<p>Di solito no, perché il portatile ha già la sua batteria. Conviene però proteggere router e modem, altrimenti durante un blackout resti comunque senza internet.</p>
+
+<h3>Quanto costa un gruppo di continuità per un piccolo studio?</h3>
+<p>Dipende dalla potenza e dal tipo: un line interactive per router e NAS è un acquisto contenuto, mentre un online a doppia conversione per un server costa sensibilmente di più. Conviene dimensionarlo sul carico reale, non comprare "il più grande".</p>
+
+<h3>Ogni quanto va cambiata la batteria?</h3>
+<p>Indicativamente ogni tre-cinque anni, prima se l'UPS lavora in un locale caldo o se l'autotest segnala problemi.</p>
+
+<h3>L'UPS protegge anche dai fulmini?</h3>
+<p>Attenua sbalzi e sovratensioni, ma non sostituisce un impianto elettrico a norma con le protezioni adeguate: su questo il riferimento resta il tuo elettricista.</p>

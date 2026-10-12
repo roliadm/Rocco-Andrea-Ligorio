@@ -1,0 +1,13 @@
+{
+  "titolo": "Gruppo di continuità (UPS): come sceglierlo e configurarlo per l'ufficio",
+  "slug": "gruppo-continuita-ups-ufficio",
+  "estratto": "Gruppo di continuità per l'ufficio: quale tipo scegliere, come dimensionarlo e come far spegnere da soli server e NAS durante un blackout.",
+  "categorie": ["Informatica"],
+  "tag": ["Hardware", "Backup", "Reti", "NAS"],
+  "seo": {
+    "titolo": "Gruppo di continuità: guida alla scelta per studi e PMI",
+    "descrizione": "Gruppo di continuità (UPS) per studio e PMI: i tre tipi, come dimensionarlo, spegnimento automatico di server e NAS e quando cambiare le batterie.",
+    "keyword": "gruppo di continuità"
+  },
+  "stato": "draft"
+}
