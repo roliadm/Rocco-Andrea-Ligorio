@@ -1,0 +1,75 @@
+<p>Il <strong>19 ottobre 2026</strong> scade l'ultimo dei <strong>certificati Secure Boot</strong> che Microsoft usa dal 2011 per proteggere l'avvio di Windows. È una di quelle notizie tecniche che passano inosservate, ma che riguardano ogni PC dell'ufficio: se un computer non riceve i certificati nuovi, continua ad accendersi, ma perde gradualmente una protezione importante contro i malware più subdoli. In questo articolo ti spiego in parole semplici cosa sta succedendo, come controllare in due minuti se i tuoi computer sono a posto e cosa fare se non lo sono.</p>
+
+<h2>Cos'è Secure Boot e perché ha dei certificati</h2>
+<p><strong>Secure Boot</strong> ("avvio protetto") è una funzione del firmware del computer, cioè del software di base che parte prima di Windows (quello che una volta si chiamava BIOS, oggi UEFI). Il suo compito è controllare che i programmi caricati all'accensione siano autentici e non siano stati manomessi.</p>
+<p>Per farlo usa dei <strong>certificati digitali</strong>: una sorta di "firme di garanzia" rilasciate da Microsoft. Se il programma di avvio porta una firma valida, Secure Boot lo lascia partire; se la firma manca o è falsa, lo blocca. È la difesa principale contro i <strong>bootkit</strong>, malware che si nascondono nella fase di avvio e possono disattivare l'antivirus prima ancora che Windows sia caricato.</p>
+<p>Come tutti i certificati, anche questi hanno una data di scadenza. Quelli in uso su quasi tutti i PC sono stati emessi nel 2011 e stanno scadendo proprio quest'anno.</p>
+
+<h2>Le scadenze dei certificati Secure Boot nel 2026</h2>
+<p>I certificati interessati sono tre. Come riepilogato da <a href="https://www.malwarebytes.com/blog/news/2026/05/your-windows-pc-has-a-security-deadline-in-june-2026" target="_blank" rel="noopener">Malwarebytes</a> e dalla <a href="https://kb.wisc.edu/159935" target="_blank" rel="noopener">documentazione dell'Università del Wisconsin</a>:</p>
+<ul>
+<li><strong>Microsoft Corporation KEK CA 2011</strong>: scaduto il 24 giugno 2026;</li>
+<li><strong>Microsoft UEFI CA 2011</strong>: scaduto il 27 giugno 2026;</li>
+<li><strong>Microsoft Windows Production PCA 2011</strong>: scade il <strong>19 ottobre 2026</strong>. È quello legato al programma di avvio di Windows.</li>
+</ul>
+<p>Microsoft li sta sostituendo con nuovi certificati datati 2023, distribuiti tramite i normali aggiornamenti di Windows. Le due scadenze di giugno sono già passate: quella di ottobre chiude la transizione, ed è il momento giusto per verificare che tutti i computer abbiano completato il passaggio.</p>
+
+<h2>Cosa succede a un PC che non viene aggiornato</h2>
+<p>Partiamo dalla notizia rassicurante: <strong>il computer non smette di funzionare</strong>. Secondo la <a href="https://support.microsoft.com/en-us/servicing/os/secure-boot/2026/02/when-secure-boot-certificates-expire-on-windows-devices" target="_blank" rel="noopener">pagina ufficiale di Microsoft</a>, un dispositivo con i vecchi certificati continua ad avviarsi e a installare i normali aggiornamenti di Windows.</p>
+<p>Il problema è più sottile. Quel PC <strong>non può più ricevere le nuove protezioni della fase di avvio</strong>: aggiornamenti del programma di avvio, liste dei componenti revocati perché vulnerabili, correzioni per falle scoperte in futuro. Microsoft scrive che il dispositivo diventa "progressivamente meno protetto" man mano che emergono nuove minacce. In pratica è come un antifurto che funziona ancora, ma che nessuno può più aggiornare quando i ladri imparano un trucco nuovo.</p>
+<p>Non è un rischio teorico: il bootkit <strong>BlackLotus</strong>, scoperto nel 2023, riusciva proprio ad aggirare Secure Boot su sistemi Windows aggiornati, ed è uno dei motivi per cui Microsoft ha avviato questo rinnovo.</p>
+
+<h2>Come controllare se i PC dell'ufficio sono a posto</h2>
+<p>Da aprile 2026 Microsoft ha aggiunto un controllo direttamente nell'app <strong>Sicurezza di Windows</strong>. Su ogni computer:</p>
+<ol>
+<li>apri <strong>Sicurezza di Windows</strong> dal menu Start;</li>
+<li>vai su <strong>Sicurezza dispositivi</strong>;</li>
+<li>apri la sezione <strong>Avvio protetto</strong> (Secure Boot) e leggi il messaggio.</li>
+</ol>
+<p>Attenzione a un dettaglio che Microsoft stessa sottolinea nella <a href="https://support.microsoft.com/en-us/servicing/os/secure-boot/2026/03/secure-boot-certificate-update-status-in-the-windows-security-app" target="_blank" rel="noopener">guida allo stato dei certificati</a>: <strong>la spunta verde da sola non basta</strong>. Leggi il testo e cerca la conferma che gli aggiornamenti dei certificati sono completati.</p>
+
+<h3>Cosa significano i messaggi</h3>
+<p>Il testo esatto può variare, ma in sostanza i casi sono questi:</p>
+<ul>
+<li><strong>Aggiornato</strong>: non devi fare nulla;</li>
+<li><strong>Aggiornamento in attesa</strong>: installa gli ultimi aggiornamenti di Windows e riavvia quando richiesto;</li>
+<li><strong>Aggiornamenti temporaneamente sospesi</strong> per un problema noto: non serve intervenire, ripartono da soli;</li>
+<li><strong>Hardware o firmware non supporta l'aggiornamento automatico</strong>: serve un aggiornamento del firmware dal produttore del computer;</li>
+<li><strong>Icona rossa</strong>: il PC è rimasto ai vecchi certificati e richiede un intervento.</li>
+</ul>
+<p>Se gestisci più computer, chi si occupa della tua assistenza può verificare lo stato anche in modo centralizzato, tramite il registro di sistema o gli strumenti di gestione come Intune, seguendo la <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-client/windows-security/update-secure-boot-certificates" target="_blank" rel="noopener">documentazione tecnica Microsoft</a>.</p>
+
+<h2>Cosa fare in pratica: 5 passi per studi e PMI</h2>
+
+<h3>1. Tieni Windows aggiornato</h3>
+<p>Per la maggior parte dei computer il passaggio è <strong>automatico</strong> tramite Windows Update. I PC che restano spenti per settimane, o su cui gli aggiornamenti vengono rimandati all'infinito, sono quelli che vedo più spesso indietro. Accendili, lasciali aggiornare e riavviali.</p>
+
+<h3>2. Controlla gli aggiornamenti del firmware</h3>
+<p>Sui computer meno recenti il firmware potrebbe non accettare i nuovi certificati. Cerca il modello sul sito del produttore (Dell, HP, Lenovo, ecc.) e installa l'aggiornamento BIOS/UEFI più recente. Microsoft avverte che questi aggiornamenti potrebbero essere disponibili solo finché il dispositivo è nel periodo di supporto del produttore: un motivo in più per non rimandare.</p>
+
+<h3>3. Recupera le chiavi di ripristino BitLocker</h3>
+<p>Se i dischi sono cifrati con <strong>BitLocker</strong>, in alcuni casi l'aggiornamento del firmware o dei certificati può far comparire la richiesta della <strong>chiave di ripristino</strong> all'avvio. Prima di intervenire, assicurati di averla: di solito è salvata nell'account Microsoft o nel portale aziendale. Un PC bloccato su quella schermata senza chiave significa una mattinata persa, o peggio.</p>
+
+<h3>4. Non disattivare Secure Boot</h3>
+<p>Capita che qualcuno lo disattivi per "risolvere" un problema di avvio o di compatibilità. È una scorciatoia da evitare: Microsoft spiega che così si riduce in modo significativo la protezione del dispositivo. Se un programma o una periferica richiedono di spegnerlo, è il momento di farsi qualche domanda su quel programma.</p>
+
+<h3>5. Occhio ai computer senza più supporto</h3>
+<p>I certificati nuovi arrivano con gli aggiornamenti: un PC che non li riceve più non può ricevere nemmeno questi. Vale per i computer con Windows 10 non iscritti al programma ESU, di cui ho parlato nell'articolo su <a href="https://www.roccoandrealigorio.it/?p=215">Windows 10 ESU e cosa cambia per le aziende</a>, e per i sistemi più vecchi.</p>
+
+<h2>Perché vale la pena occuparsene adesso</h2>
+<p>Il rischio di un bootkit su un PC di uno studio professionale non è il primo pensiero della giornata, lo so. Ma la verifica costa pochi minuti per computer, mentre un malware annidato nella fase di avvio è tra i più difficili da individuare e rimuovere. E per chi rientra negli obblighi della direttiva NIS2, tenere aggiornati i sistemi è parte delle misure di sicurezza richieste.</p>
+<p>Se preferisci non fare il giro dei computer da solo, posso occuparmene io: controllo dello stato, aggiornamenti del firmware e messa al sicuro delle chiavi BitLocker. Trovi come lavoro nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Dopo il 19 ottobre il mio PC non si accenderà più?</h3>
+<p>No. Il computer continua ad avviarsi e a ricevere i normali aggiornamenti. Perde però la possibilità di ricevere le nuove protezioni della fase di avvio, e diventa più esposto nel tempo.</p>
+
+<h3>Devo comprare qualcosa o installare un programma?</h3>
+<p>No. I nuovi certificati arrivano gratuitamente con Windows Update. Al massimo serve un aggiornamento del firmware, anch'esso gratuito, dal sito del produttore del PC.</p>
+
+<h3>Riguarda anche i Mac?</h3>
+<p>No, questi certificati riguardano i computer con Windows e firmware UEFI. Anche i server Windows sono interessati e vanno verificati.</p>
+
+<h3>Come capisco se il mio PC ha già i certificati nuovi?</h3>
+<p>Apri Sicurezza di Windows, poi Sicurezza dispositivi e Avvio protetto, e leggi il messaggio: deve indicare che l'aggiornamento è completato, non basta la spunta verde.</p>
