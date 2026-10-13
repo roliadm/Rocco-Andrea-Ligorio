@@ -17,5 +17,8 @@
     "descrizione": "Certificati Secure Boot in scadenza il 19 ottobre 2026: come controllare i PC Windows dell'ufficio e cosa fare per non perdere le protezioni di avvio.",
     "keyword": "certificati secure boot"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Certificati Secure Boot in scadenza: cosa fare sui PC dell'ufficio",
+  "id": 262
 }

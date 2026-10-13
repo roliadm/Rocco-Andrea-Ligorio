@@ -16,5 +16,8 @@
     "descrizione": "Excel come gestionale: i 6 segnali che il file è al limite e come passare a un software su misura senza perdere dati né tempo. Guida per studi e PMI.",
     "keyword": "excel come gestionale"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Excel come gestionale: quando è ora di passare a un software su misura",
+  "id": 264
 }
