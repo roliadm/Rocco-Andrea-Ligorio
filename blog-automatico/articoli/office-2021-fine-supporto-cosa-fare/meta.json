@@ -2,12 +2,22 @@
   "titolo": "Office 2021 fuori supporto: cosa fare dopo il 13 ottobre",
   "slug": "office-2021-fine-supporto-cosa-fare",
   "estratto": "Office 2021 fine supporto: dal 13 ottobre 2026 niente più patch di sicurezza. Come verificare i PC dello studio e quale alternativa scegliere.",
-  "categorie": ["Informatica"],
-  "tag": ["Aggiornamenti di sicurezza", "Sicurezza informatica", "Windows 11", "Microsoft Office"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Aggiornamenti di sicurezza",
+    "Sicurezza informatica",
+    "Windows 11",
+    "Microsoft Office"
+  ],
   "seo": {
     "titolo": "Office 2021 fine supporto: cosa fare in studio e in azienda",
     "descrizione": "Office 2021 fine supporto dal 13 ottobre 2026: niente più patch di sicurezza. Come verificare i PC dell'ufficio e scegliere l'alternativa giusta.",
     "keyword": "office 2021 fine supporto"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Office 2021 fuori supporto: cosa fare dopo il 13 ottobre",
+  "id": 270
 }
