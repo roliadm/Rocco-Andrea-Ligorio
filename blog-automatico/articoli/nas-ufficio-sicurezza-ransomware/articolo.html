@@ -1,0 +1,68 @@
+<p>In tanti studi e piccole aziende il NAS è la scatola silenziosa sotto la scrivania che contiene tutto: l'archivio delle pratiche, i documenti condivisi, spesso anche i backup dei PC. Proprio per questo è uno dei bersagli preferiti di chi diffonde ransomware, i programmi che cifrano i file e chiedono un riscatto. La <strong>sicurezza del NAS</strong> però si gioca su poche impostazioni, quasi sempre gratuite, che vedo trascurate di continuo. In questa guida ti spiego i rischi reali e le regole pratiche per proteggerlo, valide per i modelli più diffusi come Synology e QNAP.</p>
+
+<h2>Cos'è un NAS e perché attira gli attaccanti</h2>
+<p>Un <strong>NAS</strong> (Network Attached Storage) è un piccolo computer dedicato a conservare file e a condividerli in rete. Ha un suo sistema operativo, un pannello di gestione via browser, e può installare applicazioni: backup, fotografie, accesso da remoto, perfino server di posta. Più funzioni attivi, più porte apri.</p>
+<p>Gli attaccanti lo sanno. Nel gennaio 2022 QNAP ha diffuso un <a href="https://www.qnap.com/vi-vn/security-news/2022/take-immediate-actions-to-stop-your-nas-from-exposing-to-the-internet-and-update-qts-to-the-latest-available-version-fight-against-ransomware-together" target="_blank" rel="noopener">avviso urgente sul ransomware DeadBolt</a>, che cifrava i dati dei NAS raggiungibili direttamente da Internet e chiedeva un riscatto in bitcoin. L'anno prima Synology aveva segnalato un'ondata di <a href="https://www.techradar.com/news/synology-nas-devices-are-being-hacked-to-target-linux-systems" target="_blank" rel="noopener">tentativi di accesso a forza bruta</a>, cioè migliaia di password provate in automatico da una rete di dispositivi infetti, con il rischio di installare ransomware sui NAS violati. In entrambi i casi il punto di ingresso non era sofisticato: un pannello esposto su Internet e credenziali deboli.</p>
+
+<h2>Le regole per la sicurezza del NAS</h2>
+
+<h3>1. Non esporre il pannello di gestione su Internet</h3>
+<p>È la regola più importante. Molti NAS, per comodità, chiedono al router di aprire le porte in automatico tramite <strong>UPnP</strong>, una funzione che permette ai dispositivi di configurare il router da soli. Il risultato è che la pagina di login del NAS diventa raggiungibile da chiunque nel mondo. Dopo DeadBolt, QNAP ha raccomandato esplicitamente di disattivare l'inoltro delle porte di amministrazione sul router e l'UPnP nelle impostazioni del NAS.</p>
+<p>Cosa fare:</p>
+<ul>
+<li>nel router, elimina le regole di <strong>port forwarding</strong> (inoltro delle porte) verso il NAS, se non sai a cosa servono;</li>
+<li>nel NAS, disattiva la configurazione automatica del router e l'UPnP;</li>
+<li>se ti serve accedere ai file da fuori, usa una <strong>VPN</strong>, cioè un collegamento cifrato verso la rete dell'ufficio, configurata sul firewall o sul router.</li>
+</ul>
+
+<h3>2. Aggiorna sistema e applicazioni</h3>
+<p>Il sistema operativo del NAS (DSM per Synology, QTS o QuTS hero per QNAP) riceve correzioni di sicurezza regolari, come Windows. Attiva l'installazione automatica degli aggiornamenti importanti e controlla una volta al mese anche le app installate. Verifica inoltre che il tuo modello sia ancora supportato dal produttore: un NAS di dieci anni fa che non riceve più aggiornamenti va sostituito, non solo protetto.</p>
+
+<h3>3. Niente account "admin" e password deboli</h3>
+<p>Gli attacchi automatici provano per primi i nomi utente standard come "admin". Crea un amministratore con un nome diverso, poi disattiva l'account predefinito. Usa password lunghe e uniche, salvate in un <a href="https://www.roccoandrealigorio.it/?p=241">password manager</a>, e non usare l'account amministratore per il lavoro di tutti i giorni.</p>
+
+<h3>4. Attiva la verifica in due passaggi e il blocco automatico</h3>
+<p>Tutti i principali produttori offrono l'<strong>autenticazione a due fattori</strong>: oltre alla password serve un codice generato da un'app sul telefono. Attivala almeno per gli amministratori; ne ho parlato nella guida all'<a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori per studi e PMI</a>. Abilita anche il <strong>blocco automatico</strong> degli indirizzi che sbagliano la password troppe volte: è una delle misure raccomandate da Synology contro gli attacchi a forza bruta.</p>
+
+<h3>5. Dai a ciascuno solo le cartelle che gli servono</h3>
+<p>Ogni persona deve avere il proprio utente, non un account condiviso "ufficio". Organizza le cartelle condivise per gruppi (ad esempio amministrazione, pratiche, archivio storico) e concedi la sola lettura dove non serve modificare. Se un PC viene infettato, il ransomware può cifrare solo ciò che quell'utente può scrivere. Quando qualcuno lascia lo studio, disattiva subito il suo accesso: trovi la procedura nella <a href="https://www.roccoandrealigorio.it/?p=227">checklist IT per gli ex dipendenti</a>.</p>
+
+<h3>6. Spegni ciò che non usi</h3>
+<p>Servizi come FTP, Telnet, i vecchi protocolli di condivisione (SMB1) e le applicazioni installate "per prova" sono porte in più. Disattiva tutto ciò che non serve e disinstalla le app abbandonate. I NAS hanno anche un controllo automatico della configurazione (Security Advisor su Synology, Security Counselor su QNAP): avvialo e segui i suggerimenti.</p>
+
+<h3>7. Usa le istantanee dei file</h3>
+<p>Molti NAS recenti, con il file system adatto, supportano le <strong>istantanee</strong> (snapshot): fotografie dello stato delle cartelle, scattate ad esempio ogni ora, che permettono di tornare indietro in pochi minuti se un file viene cancellato o cifrato. Imposta una conservazione di almeno qualche settimana e, se il tuo modello lo prevede, rendile <strong>non modificabili</strong> per un certo periodo, così un attaccante con accesso amministrativo non può cancellarle.</p>
+
+<h3>8. Ricorda che il NAS non è il backup</h3>
+<p>Un NAS con due dischi in RAID protegge dal guasto di un disco, non dal ransomware, dal furto o da un incendio. La guida #StopRansomware della CISA, l'agenzia americana per la sicurezza informatica, raccomanda di <a href="https://www.cisa.gov/stopransomware/ransomware-guide" target="_blank" rel="noopener">mantenere copie offline e cifrate dei dati critici</a> e di provarne periodicamente il ripristino. Serve quindi almeno una copia fuori dall'ufficio e una scollegata: il metodo è quello del <a href="https://www.roccoandrealigorio.it/?p=211">backup 3-2-1</a>.</p>
+
+<h3>9. Proteggi anche la parte fisica e la rete</h3>
+<ul>
+<li>Collega il NAS a un <a href="https://www.roccoandrealigorio.it/?p=258">gruppo di continuità (UPS)</a> configurato per spegnerlo correttamente in caso di blackout.</li>
+<li>Tienilo in un luogo non accessibile ai visitatori.</li>
+<li>Non metterlo sulla stessa rete Wi-Fi degli ospiti: ho spiegato come separarle nella guida al <a href="https://www.roccoandrealigorio.it/?p=223">Wi-Fi dell'ufficio sicuro</a>.</li>
+<li>Attiva le notifiche via email per errori dei dischi, accessi falliti e aggiornamenti disponibili, indirizzandole a una casella che qualcuno legge davvero.</li>
+</ul>
+
+<h2>Un controllo da fare oggi in dieci minuti</h2>
+<ol>
+<li>Accedi al pannello del NAS e controlla la versione del sistema: ci sono aggiornamenti in attesa?</li>
+<li>Apri l'elenco utenti: esiste ancora "admin" attivo? Ci sono account di persone che non lavorano più con te?</li>
+<li>Controlla nelle impostazioni di rete o di accesso remoto se UPnP e la configurazione automatica del router sono attivi.</li>
+<li>Verifica quando è stato fatto l'ultimo backup esterno e se è mai stato provato un ripristino.</li>
+</ol>
+<p>Se una di queste risposte ti mette in dubbio, vale la pena approfondire. Configurare un NAS in modo sicuro, insieme a backup e accesso remoto, è un lavoro che faccio spesso per studi e piccole aziende: trovi i dettagli nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Posso accedere ai file del NAS da casa senza rischi?</h3>
+<p>Sì, se non esponi il pannello su Internet. La soluzione più sicura è una VPN verso l'ufficio; in alternativa usa il servizio di accesso remoto ufficiale del produttore, sempre con verifica in due passaggi attiva.</p>
+
+<h3>Se ho il RAID ho già un backup?</h3>
+<p>No. Il RAID protegge dalla rottura di un disco, ma se i file vengono cancellati o cifrati il danno si replica su tutti i dischi. Serve una copia separata, meglio se fuori sede.</p>
+
+<h3>Ogni quanto devo controllare il NAS?</h3>
+<p>Una verifica veloce al mese (aggiornamenti, notifiche, esito dei backup) è sufficiente per la maggior parte degli uffici, più una prova di ripristino ogni tre-sei mesi.</p>
+
+<h3>Il mio NAS non riceve più aggiornamenti: cosa faccio?</h3>
+<p>Pianifica la sostituzione. Nel frattempo scollegalo da Internet, limita gli utenti che possono accedervi e assicurati di avere una copia aggiornata dei dati altrove.</p>
