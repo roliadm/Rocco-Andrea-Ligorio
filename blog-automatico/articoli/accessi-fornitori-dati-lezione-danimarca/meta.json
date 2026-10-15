@@ -17,5 +17,8 @@
     "descrizione": "Accessi dei fornitori: in Danimarca un piccolo fornitore ha esposto 8,8 milioni di dati. Checklist in 8 punti e domande utili per studi e PMI.",
     "keyword": "accessi dei fornitori"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Accessi dei fornitori: la lezione degli 8,8 milioni di dati danesi",
+  "id": 272
 }

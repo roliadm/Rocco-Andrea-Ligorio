@@ -16,5 +16,8 @@
     "descrizione": "Backup di Microsoft 365: cestino, Ripristina OneDrive e posta hanno limiti di 30-93 giorni. Come proteggere davvero i dati di studi e PMI.",
     "keyword": "backup di microsoft 365"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Backup di Microsoft 365: perché OneDrive da solo non basta",
+  "id": 274
 }
