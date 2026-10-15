@@ -1,0 +1,69 @@
+<p>"Tanto è tutto su OneDrive, è già al sicuro": è una delle frasi che sento più spesso negli studi e nelle piccole aziende che lavorano con Microsoft 365. È vero che Microsoft difende benissimo i suoi data center da guasti e incendi. Ma se un collaboratore cancella per sbaglio una cartella, se un ransomware cifra i file sincronizzati o se un account viene chiuso troppo in fretta, quello che puoi recuperare ha <strong>limiti di tempo precisi</strong>. In questo articolo ti spiego perché il <strong>backup di Microsoft 365</strong> è una cosa diversa dalla sincronizzazione, quali strumenti hai già a disposizione, dove finiscono e come impostare una copia di sicurezza vera senza complicarti la vita.</p>
+
+<h2>Sincronizzare non è fare un backup</h2>
+<p>OneDrive e SharePoint sono servizi di <strong>sincronizzazione e condivisione</strong>: il loro compito è tenere uguali i file su tutti i dispositivi. È comodissimo, ma ha un rovescio della medaglia. Se un file viene cancellato, rinominato male o cifrato da un virus sul PC, OneDrive replica fedelmente anche quel danno sul cloud e sugli altri computer collegati.</p>
+<p>Un <strong>backup</strong>, invece, è una copia separata e datata dei dati, che non cambia quando cambia l'originale e da cui puoi tornare indietro anche dopo mesi. È lo stesso principio della regola 3-2-1 di cui ho parlato nella <a href="https://www.roccoandrealigorio.it/?p=211">guida al backup per studi e PMI</a>: almeno tre copie, su due supporti diversi, una delle quali fuori sede.</p>
+<p>Nei servizi cloud vale il cosiddetto <strong>modello di responsabilità condivisa</strong>: Microsoft garantisce che la piattaforma funzioni e che l'infrastruttura non perda i dati; tu resti responsabile di <strong>cosa</strong> succede ai tuoi file e ai tuoi account. Se l'errore parte da dentro lo studio, per Microsoft è un'operazione legittima.</p>
+
+<h2>Cosa ti offre già Microsoft 365 (e dove si ferma)</h2>
+<p>Gli strumenti di recupero inclusi nell'abbonamento sono utili e vale la pena conoscerli. Il punto è che sono pensati per rimediare a errori recenti, non per conservare la storia dei tuoi dati.</p>
+
+<h3>Cestino di OneDrive e SharePoint</h3>
+<p>Per gli account di lavoro, i file eliminati restano nel cestino per <strong>93 giorni</strong>, salvo diversa impostazione dell'amministratore, come spiega la <a href="https://support.microsoft.com/en-us/office/restore-deleted-files-or-folders-in-onedrive-949ada80-0026-4db3-a953-c99083e6a84f" target="_blank" rel="noopener">guida ufficiale Microsoft</a>. Per gli account personali il limite scende a 30 giorni. Passato quel periodo, il file non è più recuperabile da te.</p>
+
+<h3>Ripristina OneDrive</h3>
+<p>La funzione <strong>Ripristina OneDrive</strong>, disponibile con Microsoft 365, riporta l'intero spazio a come era in un momento preciso, fino a <strong>30 giorni</strong> indietro. È lo strumento giusto dopo un attacco ransomware: Microsoft indica che, se rileva il ransomware, propone già una data di ripristino (<a href="https://support.microsoft.com/en-US/onedrive/restore-your-onedrive" target="_blank" rel="noopener">documentazione Microsoft</a>). Oltre i 30 giorni, però, non si torna.</p>
+
+<h3>Posta di Outlook ed Exchange Online</h3>
+<p>Le email eliminate definitivamente (anche dalla cartella "Posta eliminata") restano recuperabili per <strong>14 giorni</strong> di default. L'amministratore può portare questo valore al massimo a <strong>30 giorni</strong>, come indicato nella <a href="https://learn.microsoft.com/en-us/exchange/recipients-in-exchange-online/manage-user-mailboxes/change-deleted-item-retention" target="_blank" rel="noopener">documentazione di Exchange Online</a>. Ti consiglio di farlo subito: costa zero e allunga il margine di recupero.</p>
+
+<h2>I casi in cui il backup di Microsoft 365 ti salva</h2>
+<p>Ecco le situazioni che vedo più spesso e in cui gli strumenti inclusi non bastano:</p>
+<ul>
+<li><strong>Errore scoperto tardi</strong>: una cartella clienti cancellata a giugno di cui ci si accorge a ottobre, quando serve per una pratica.</li>
+<li><strong>Ransomware silenzioso</strong>: i file vengono cifrati poco alla volta e ci si accorge del problema dopo più di 30 giorni.</li>
+<li><strong>Dipendente che lascia lo studio</strong>: l'account viene eliminato per risparmiare la licenza e, scaduti i tempi di conservazione, mail e documenti spariscono con lui. Ne ho parlato nella <a href="https://www.roccoandrealigorio.it/?p=227">checklist IT per gli ex dipendenti</a>.</li>
+<li><strong>Account compromesso</strong>: chi ruba le credenziali può cancellare o modificare file e regole di posta, e il danno si sincronizza ovunque.</li>
+<li><strong>Obblighi di conservazione</strong>: per molti professionisti alcuni documenti vanno conservati per anni, non per 93 giorni.</li>
+</ul>
+
+<h2>Come impostare un vero backup di Microsoft 365</h2>
+<p>La buona notizia è che oggi un backup serio del cloud non richiede server in ufficio. Le strade principali sono due.</p>
+
+<h3>1. Microsoft 365 Backup</h3>
+<p>Microsoft offre un servizio a pagamento chiamato <strong>Microsoft 365 Backup</strong>, che si attiva dall'interfaccia di amministrazione e protegge caselle di posta, OneDrive e siti SharePoint con punti di ripristino. Si paga a consumo, in base allo spazio protetto (trovi il modello di prezzo nella <a href="https://learn.microsoft.com/en-us/microsoft-365/backup/backup-pricing" target="_blank" rel="noopener">pagina ufficiale</a>). È comodo perché resta tutto nello stesso ambiente; il limite è proprio questo: la copia non esce dall'ecosistema Microsoft.</p>
+
+<h3>2. Un servizio di backup di terze parti</h3>
+<p>Esistono servizi specializzati che copiano posta, OneDrive, SharePoint e Teams su un cloud diverso da quello di Microsoft. Quando ne valuto uno per un cliente guardo questi punti:</p>
+<ol>
+<li><strong>Cosa copre</strong>: almeno posta, calendari, OneDrive e SharePoint; meglio se anche Teams.</li>
+<li><strong>Dove sono i dati</strong>: data center nell'Unione europea, per stare tranquilli con il GDPR.</li>
+<li><strong>Per quanto tempo</strong>: conservazione impostabile per anni, non per settimane.</li>
+<li><strong>Immutabilità</strong>: copie che nemmeno un amministratore compromesso può cancellare.</li>
+<li><strong>Ripristino granulare</strong>: poter recuperare una singola mail o un singolo file, non solo tutto in blocco.</li>
+<li><strong>Accesso protetto</strong>: la console del backup deve avere un account separato con <a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a>.</li>
+</ol>
+
+<h2>Le impostazioni da fare oggi, a costo zero</h2>
+<p>Anche prima di scegliere un servizio, ci sono alcune cose che puoi sistemare in un pomeriggio:</p>
+<ul>
+<li>porta a <strong>30 giorni</strong> la conservazione degli elementi eliminati in Exchange Online;</li>
+<li>quando qualcuno lascia lo studio, <strong>non eliminare subito l'account</strong>: converti la casella in casella condivisa e sposta i file di OneDrive a un collega;</li>
+<li>attiva la <strong>doppia autenticazione</strong> per tutti, amministratori in testa;</li>
+<li>verifica che le cartelle importanti non stiano solo nell'OneDrive di una persona, ma in una raccolta SharePoint dello studio;</li>
+<li>scrivi in una pagina <strong>chi fa cosa</strong> se servisse un ripristino.</li>
+</ul>
+
+<h2>Fai una prova di ripristino</h2>
+<p>Un backup che non hai mai provato a ripristinare è solo una speranza. Una volta ogni qualche mese recupera un file a caso e una mail a caso, verifica che si aprano e annota quanto tempo ci hai messo. Così, il giorno in cui servirà davvero, saprai già come fare.</p>
+<p>Se vuoi capire come è messo il tuo studio, posso aiutarti a fare il punto e a scegliere la soluzione più adatta: trovi i dettagli nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Microsoft fa già il backup dei miei dati su Microsoft 365?</h3>
+<p>Microsoft protegge l'infrastruttura da guasti e disastri, ma non conserva a lungo termine i file che tu o i tuoi collaboratori cancellate o modificate. Per quello servono un servizio di backup dedicato e una conservazione su misura.</p>
+<h3>Quanto tempo ho per recuperare un file cancellato da OneDrive?</h3>
+<p>Con un account di lavoro, di solito 93 giorni dal cestino. Con "Ripristina OneDrive" puoi riportare tutto lo spazio indietro fino a 30 giorni.</p>
+<h3>Basta copiare OneDrive su un disco esterno?</h3>
+<p>È meglio di niente, ma non copre la posta, dipende da un PC acceso e il disco collegato può essere cifrato dal ransomware. Un servizio di backup cloud separato è più affidabile.</p>
+<h3>Il backup di Microsoft 365 è costoso?</h3>
+<p>Per uno studio piccolo il costo è in genere contenuto rispetto al valore dei dati: si paga per utente o per spazio protetto, a seconda del servizio scelto.</p>

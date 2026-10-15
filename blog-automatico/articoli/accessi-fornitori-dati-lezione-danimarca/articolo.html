@@ -1,0 +1,59 @@
+<p>Il commercialista che entra nel gestionale, la software house che si collega per gli aggiornamenti, il consulente del lavoro con l'accesso al portale paghe: in quasi ogni studio e PMI ci sono persone esterne con le chiavi dei nostri dati. Quello che è successo in Danimarca in queste settimane mostra cosa può andare storto quando quelle chiavi sono custodite male: un piccolo fornitore con un accesso legittimo è diventato la porta d'ingresso per i dati di circa 8,8 milioni di persone. In questo articolo ti racconto i fatti e ti propongo una checklist pratica per tenere sotto controllo gli <strong>accessi dei fornitori</strong> ai tuoi sistemi.</p>
+
+<h2>Cosa è successo in Danimarca</h2>
+<p>Il CPR è il registro anagrafico nazionale danese: contiene il codice personale di ogni cittadino, un po' come il nostro codice fiscale, insieme a nome e indirizzo. Alcune aziende private hanno un accesso autorizzato per offrire servizi di verifica dei dati ai propri clienti. Una di queste è <strong>Pays ApS</strong>, una società di Odense che, secondo il registro delle imprese, a luglio contava due dipendenti.</p>
+<p>Questi i fatti principali, così come li hanno ricostruiti la <a href="https://cphpost.dk/2026-10-10/news/round-up/123456-password-used-in-massive-danish-cpr-data-breach/" target="_blank" rel="noopener">Copenhagen Post</a> e <a href="https://cybernews.com/security/denmark-cpr-data-breach-weak-password/" target="_blank" rel="noopener">Cybernews</a>:</p>
+<ul>
+<li>il Ministero danese della Digitalizzazione ha comunicato l'esposizione di circa <strong>8,8 milioni</strong> di codici CPR, con nomi e indirizzi;</li>
+<li>l'accesso abusivo è partito il <strong>10 settembre 2026</strong> passando dalle credenziali di Pays, che ha confermato che il suo accesso legittimo è stato sfruttato;</li>
+<li>con quelle credenziali sono state fatte circa <strong>14 milioni di ricerche</strong> nel registro, molte più di quante giustificasse la clientela dell'azienda;</li>
+<li>secondo il quotidiano Politiken, almeno tre account di Pays, compreso quello di amministratore, usavano la password <strong>"123456"</strong>. L'azienda non ha confermato questo dettaglio;</li>
+<li>l'autore dell'attacco sostiene di essere partito dalla password di un <strong>ex dipendente</strong>, anche questa un'affermazione non verificata.</li>
+</ul>
+<p>Il dettaglio che mi ha colpito di più: secondo l'ufficio del registro, l'anomalia è emersa per una <strong>fattura insolitamente alta</strong> legata al numero di ricerche, non grazie a un sistema di allarme. La ministra competente ha riconosciuto che le misure di sicurezza non erano adeguate e ha chiesto una revisione.</p>
+
+<h2>Perché riguarda anche il tuo studio</h2>
+<p>Viene da pensare che sia una storia di grandi registri statali. In realtà lo schema è identico a quello che vedo nelle piccole realtà:</p>
+<ul>
+<li>un sistema importante (il gestionale, il server, la posta, l'home banking aziendale);</li>
+<li>un fornitore piccolo e di fiducia, con un accesso ampio e "per comodità" sempre attivo;</li>
+<li>credenziali condivise, mai cambiate, magari note anche a chi nel frattempo ha cambiato lavoro;</li>
+<li>nessuno che controlli cosa viene fatto con quell'accesso.</li>
+</ul>
+<p>Il problema non è il fornitore in sé: senza consulenti esterni nessuno studio potrebbe lavorare. Il problema è che l'anello più debole della catena decide la sicurezza di tutti. È lo stesso motivo per cui la direttiva <strong>NIS2</strong> chiede alle organizzazioni coinvolte di occuparsi della <strong>sicurezza della catena di approvvigionamento</strong>, come ho spiegato nell'<a href="https://www.roccoandrealigorio.it/?p=221">articolo sulla scadenza NIS2</a>.</p>
+
+<h2>Cosa dice il GDPR sugli accessi dei fornitori</h2>
+<p>Se un fornitore tratta dati personali per conto tuo (pensa alla software house che gestisce il database dei clienti), per il GDPR è un <strong>responsabile del trattamento</strong>. L'<a href="https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679" target="_blank" rel="noopener">articolo 28 del Regolamento</a> prevede che tu scelga solo fornitori che offrono <strong>garanzie sufficienti</strong> sulle misure di sicurezza, e che il rapporto sia regolato da un contratto o da un altro atto giuridico che indichi cosa possono fare con i dati. L'articolo 32 aggiunge che la sicurezza deve essere adeguata al rischio.</p>
+<p>In pratica: se il tuo fornitore usa "123456", in caso di violazione la domanda "come lo avevi scelto e controllato?" arriverà anche a te. Il Garante per la protezione dei dati personali pubblica indicazioni e modelli utili sul suo <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener">sito ufficiale</a>.</p>
+
+<h2>Accessi dei fornitori: la checklist in 8 punti</h2>
+<p>Ecco la lista che uso quando faccio il punto con un cliente. Non serve tutto subito, ma i primi quattro punti si sistemano in pochi giorni.</p>
+<ol>
+<li><strong>Fai l'inventario.</strong> Scrivi in una tabella chi ha accesso a cosa: nome del fornitore, sistema, tipo di accesso, referente, data dell'ultimo controllo.</li>
+<li><strong>Un account per persona.</strong> Niente utenze condivise tipo "assistenza" o "admin" usate da più tecnici: ogni persona deve avere il proprio accesso, così sai chi ha fatto cosa.</li>
+<li><strong>Doppia autenticazione obbligatoria.</strong> Ogni accesso esterno deve richiedere un secondo fattore. Se non sai da dove partire, trovi una guida nell'<a href="https://www.roccoandrealigorio.it/?p=217">articolo sull'autenticazione a due fattori</a>.</li>
+<li><strong>Password robuste e uniche.</strong> Generate e custodite con un <a href="https://www.roccoandrealigorio.it/?p=241">password manager</a>, mai comunicate per email o WhatsApp.</li>
+<li><strong>Accesso minimo indispensabile.</strong> Il consulente che deve leggere i dati contabili non ha bisogno di essere amministratore del server.</li>
+<li><strong>Accesso a tempo.</strong> Per l'assistenza remota, attiva la connessione solo quando serve e chiudila a lavoro finito, invece di lasciarla sempre aperta.</li>
+<li><strong>Chiedi conto del ricambio del personale.</strong> Quando un tecnico lascia il fornitore, le sue credenziali sui tuoi sistemi vanno disattivate. Mettilo per iscritto nel contratto, come fai per i tuoi dipendenti con la <a href="https://www.roccoandrealigorio.it/?p=227">checklist per gli ex dipendenti</a>.</li>
+<li><strong>Controlla le attività.</strong> Attiva i registri di accesso (log) dove possibile e dai un'occhiata periodica: orari strani, volumi anomali, accessi da Paesi insoliti. In Danimarca se ne sono accorti dalla bolletta: tu puoi arrivarci prima.</li>
+</ol>
+
+<h2>Le domande da fare al tuo fornitore</h2>
+<p>Non serve un audit formale. Basta una mail con poche domande chiare, e la qualità delle risposte ti dirà già molto:</p>
+<ul>
+<li>Usate la doppia autenticazione per entrare nei nostri sistemi?</li>
+<li>Quante persone del vostro staff hanno le nostre credenziali, e come le custodite?</li>
+<li>Cosa succede alle credenziali quando un vostro tecnico lascia l'azienda?</li>
+<li>In caso di incidente che coinvolge i nostri dati, entro quanto tempo ci avvisate?</li>
+<li>Avete firmato con noi l'accordo da responsabile del trattamento previsto dal GDPR?</li>
+</ul>
+<p>Se vuoi, posso aiutarti a mappare gli accessi esterni e a sistemare quelli critici: trovi come lavoro nella pagina <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Se il fornitore subisce un attacco, la responsabilità è solo sua?</h3>
+<p>No. Il fornitore risponde delle sue mancanze, ma come titolare del trattamento devi dimostrare di averlo scelto con cura e di aver regolato il rapporto. Per questo contratto, verifiche e inventario degli accessi sono importanti.</p>
+<h3>Posso chiedere al fornitore di usare la doppia autenticazione?</h3>
+<p>Sì, ed è una richiesta ragionevole. Se il sistema lo permette, puoi anche imporla tu dalle impostazioni, così vale per tutti gli account esterni senza eccezioni.</p>
+<h3>I dati danesi rubati sono stati pubblicati?</h3>
+<p>Al momento, secondo le fonti citate, l'autore dice di non volerli vendere né pubblicare, ma non è verificabile. Le autorità danesi hanno invitato i cittadini a diffidare di messaggi e telefonate che contengono i loro dati personali.</p>
