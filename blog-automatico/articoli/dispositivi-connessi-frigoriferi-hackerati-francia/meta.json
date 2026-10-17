@@ -2,12 +2,22 @@
   "titolo": "Frigoriferi hackerati in Francia: la lezione sui dispositivi connessi dell'ufficio",
   "slug": "dispositivi-connessi-frigoriferi-hackerati-francia",
   "estratto": "Centinaia di supermercati francesi con i frigo spenti dagli hacker: cosa insegna sui dispositivi connessi dell'ufficio e come proteggerli in 6 passi.",
-  "categorie": ["Informatica"],
-  "tag": ["Sicurezza informatica", "Reti", "Hardware", "NIS2"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Sicurezza informatica",
+    "Reti",
+    "Hardware",
+    "NIS2"
+  ],
   "seo": {
     "titolo": "Dispositivi connessi: cosa insegnano i frigo hackerati",
     "descrizione": "Dispositivi connessi a rischio: cosa è successo ai frigo dei supermercati francesi e i 6 passi per proteggere telecamere, NAS e impianti dell'ufficio.",
     "keyword": "dispositivi connessi"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Frigoriferi hackerati in Francia: la lezione sui dispositivi connessi dell'ufficio",
+  "id": 282
 }

@@ -2,12 +2,22 @@
   "titolo": "Aggiornamenti software in ufficio: un piano pratico per studi e PMI",
   "slug": "aggiornamenti-software-ufficio-piano-pratico",
   "estratto": "Aggiornamenti software: perché non vanno più rimandati, cosa aggiornare per primo e un piano in 5 regole per tenere al sicuro i PC di studio e azienda.",
-  "categorie": ["Informatica"],
-  "tag": ["Aggiornamenti di sicurezza", "Sicurezza informatica", "Windows 11", "Microsoft Office"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Aggiornamenti di sicurezza",
+    "Sicurezza informatica",
+    "Windows 11",
+    "Microsoft Office"
+  ],
   "seo": {
     "titolo": "Aggiornamenti software: piano pratico per studi e PMI",
     "descrizione": "Aggiornamenti software in ufficio: cosa aggiornare per primo, come gestire le emergenze e un piano in 5 regole che non blocca il lavoro di studio e PMI.",
     "keyword": "aggiornamenti software"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Aggiornamenti software in ufficio: un piano pratico per studi e PMI",
+  "id": 280
 }
