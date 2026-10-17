@@ -1,0 +1,72 @@
+<p>Nella notte tra l'11 e il 12 ottobre 2026, in centinaia di supermercati francesi i banchi frigo hanno smesso di raffreddare e hanno cominciato a scaldare, fino a circa 50 gradi. La mattina dopo carne, formaggi e yogurt sono finiti nella spazzatura. Non è stato un guasto: qualcuno ha preso il controllo da remoto delle centraline che gestiscono la refrigerazione. Ti racconto questa storia perché riguarda anche te, anche se non vendi alimentari: in ogni studio e in ogni PMI ci sono <strong>dispositivi connessi a internet</strong> che nessuno guarda più dal giorno dell'installazione. In questo articolo vediamo cosa è successo, perché è potuto succedere e come controllare in un pomeriggio quelli del tuo ufficio.</p>
+
+<h2>Cosa è successo nei supermercati francesi</h2>
+<p>Secondo quanto ricostruito da Reuters e AFP e riportato da <a href="https://thehackernews.com/2026/10/attackers-heat-french-supermarket.html" target="_blank" rel="noopener">The Hacker News</a>, gli attaccanti hanno forzato i frigoriferi in un <strong>ciclo di sbrinamento</strong> (la fase in cui l'impianto si scalda per sciogliere il ghiaccio) che, invece di durare pochi minuti, è andato avanti per ore. Le insegne coinvolte sono diverse:</p>
+<ul>
+<li><strong>Intermarché e Netto</strong> (gruppo Les Mousquetaires): circa 150 punti vendita secondo Reuters, almeno 300 secondo AFP;</li>
+<li><strong>Carrefour</strong> e <strong>Coopérative U</strong>: circa 80 negozi ciascuna;</li>
+<li><strong>Monoprix</strong>: una trentina di negozi; <strong>E.Leclerc</strong>: alcuni punti vendita.</li>
+</ul>
+<p>Il presidente di Les Mousquetaires, Thierry Cotillard, ha parlato di perdite per <strong>decine di milioni di euro</strong>. La procura di Parigi ha aperto un'indagine e un analista citato da Reuters segnala casi anche in altri Paesi europei, tra cui Spagna, Germania e Belgio. Ad oggi nessun gruppo ha rivendicato l'attacco e non è stato chiesto alcun riscatto.</p>
+
+<h3>Quali apparecchi sono stati colpiti</h3>
+<p>Il <a href="https://cert.cyber.gouv.fr/alerte/CERTFR-2026-ALE-012/" target="_blank" rel="noopener">CERT-FR</a>, la squadra di risposta agli incidenti dell'agenzia francese per la cybersicurezza (ANSSI), ha pubblicato un'allerta il 12 ottobre, aggiornata fino al 16 ottobre. Parla di <strong>numerose compromissioni</strong> di centraline per il controllo remoto della refrigerazione: le serie Danfoss AK-SM e AK-SC e i sistemi di supervisione xweb di Copeland e Dixell, quest'ultima un'azienda nata in provincia di Belluno.</p>
+<p>Danfoss ha dichiarato che la maggior parte delle unità colpite sono <strong>modelli vecchi che non ricevono più aggiornamenti</strong>: l'AK-SM 800 è fuori supporto dal 2021 e l'AK-SC 355 è stato ritirato nel 2016. Sono stati colpiti anche alcuni modelli attuali, ma con firmware (il software interno dell'apparecchio) non aggiornato. Il CERT-FR non ha indicato una vulnerabilità precisa, ma per le centraline AK-SM 8xxA esistevano già falle note: la CISA americana le aveva segnalate nel <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-25-140-03" target="_blank" rel="noopener">maggio 2025</a>, raccomandando di non lasciarle raggiungibili da internet.</p>
+
+<h2>Perché i dispositivi connessi sono il punto debole</h2>
+<p>Il problema non è il frigorifero. È una combinazione di tre fattori che vedo spesso anche negli uffici:</p>
+<ol>
+<li><strong>Il pannello di gestione è raggiungibile da internet.</strong> Il manutentore vuole controllare l'impianto da remoto, quindi qualcuno apre una porta sul router e il pannello diventa visibile a chiunque. Il CERT-FR lo dice senza giri di parole: esporre su internet un'interfaccia di gestione è contrario alle buone pratiche.</li>
+<li><strong>L'apparecchio è fuori supporto o mai aggiornato.</strong> Una centralina installata dieci anni fa continua a funzionare benissimo, quindi nessuno pensa a sostituirla. Ma le falle scoperte nel frattempo restano aperte per sempre.</li>
+<li><strong>Le password sono quelle di fabbrica.</strong> Spesso nessuno le ha mai cambiate, o sono le stesse su tutti gli impianti dello stesso installatore.</li>
+</ol>
+<p>Quando questi tre fattori si sommano, all'attaccante basta cercare in rete gli apparecchi di un certo modello: esistono motori di ricerca fatti apposta che li trovano in pochi minuti. Ad agosto 2026, secondo un conteggio di Censys ripreso nelle ricerche di Claroty, le centraline di un solo modello Danfoss visibili online erano oltre 2.700.</p>
+
+<h2>Quali dispositivi connessi ci sono nel tuo ufficio</h2>
+<p>In uno studio professionale o in una piccola azienda non ci sono banchi frigo, ma ci sono oggetti con lo stesso profilo di rischio. Quelli che trovo più spesso durante i sopralluoghi:</p>
+<ul>
+<li><strong>videocamere e videoregistratori</strong> (NVR/DVR) consultabili dallo smartphone;</li>
+<li><strong>NAS</strong>, i dischi di rete dove finiscono documenti e backup;</li>
+<li><strong>stampanti multifunzione</strong> con pannello web e invio in cartella o via email;</li>
+<li><strong>condizionatori, caldaie e termostati</strong> gestiti da un'app;</li>
+<li><strong>centralini telefonici</strong> e citofoni IP;</li>
+<li><strong>allarmi e controllo accessi</strong>, spesso installati e gestiti da un fornitore esterno;</li>
+<li><strong>gruppi di continuità</strong> con scheda di rete.</li>
+</ul>
+<p>Molti di questi sono stati installati da un tecnico che non si occupa di informatica, con l'accesso remoto aperto "per comodità". E spesso stanno sulla stessa rete dei PC con cui lavori sulle pratiche dei clienti: se qualcuno entra dalla telecamera, può provare ad arrivare ai file.</p>
+
+<h2>Come mettere in sicurezza i dispositivi connessi in 6 passi</h2>
+<p>Le raccomandazioni del CERT-FR per i frigoriferi valgono, quasi parola per parola, per qualsiasi apparecchio dell'ufficio. Ecco come le applicherei.</p>
+
+<h3>1. Fai l'inventario</h3>
+<p>Fai un elenco di tutto ciò che è collegato alla rete: marca, modello, chi l'ha installato, chi lo gestisce e come vi accede. Il router di solito mostra l'elenco dei dispositivi collegati: è un buon punto di partenza. Se trovi qualcosa che nessuno sa cosa sia, è il primo da approfondire.</p>
+
+<h3>2. Togli dall'internet ciò che non deve starci</h3>
+<p>Controlla sul router le <strong>regole di inoltro delle porte</strong> (port forwarding) e l'UPnP, la funzione che permette agli apparecchi di aprirsi le porte da soli: andrebbe disattivata. Nessun pannello di gestione dovrebbe essere raggiungibile direttamente da internet. Prima di chiudere, come suggerisce anche il CERT-FR, verifica con il fornitore se il contratto di assistenza o l'assicurazione prevedono il collegamento remoto: meglio saperlo prima.</p>
+
+<h3>3. Accesso remoto solo tramite VPN</h3>
+<p>Se tu o un fornitore dovete raggiungere un apparecchio da fuori, fatelo attraverso una <strong>VPN</strong>, cioè un collegamento cifrato che porta dentro la rete solo chi ha le credenziali giuste. Ne ho parlato anche nell'articolo sugli <a href="https://www.roccoandrealigorio.it/?p=272">accessi dei fornitori</a>: ogni tecnico esterno deve avere un accesso personale, con doppia autenticazione e da revocare a fine lavoro.</p>
+
+<h3>4. Cambia le password di fabbrica</h3>
+<p>Ogni apparecchio deve avere una password propria, lunga e diversa dalle altre, conservata in un <a href="https://www.roccoandrealigorio.it/?p=241">password manager</a>. Chiedi al fornitore di confermarti per iscritto di averlo fatto anche sugli impianti che gestisce lui.</p>
+
+<h3>5. Aggiorna o sostituisci</h3>
+<p>Controlla sul sito del produttore se il modello riceve ancora aggiornamenti. Se sì, installa l'ultimo firmware. Se no, metti in conto la sostituzione: il CERT-FR avverte che un apparecchio fuori supporto lasciato su internet ha un <strong>rischio molto elevato</strong> di essere compromesso, e che il ripristino di fabbrica non basta, perché elimina l'intruso ma lascia aperta la porta da cui è entrato.</p>
+
+<h3>6. Separa la rete</h3>
+<p>Telecamere, climatizzazione e domotica dovrebbero stare su una rete separata da quella dei PC, come si fa con la rete ospiti del Wi-Fi. Trovi le indicazioni pratiche nella guida al <a href="https://www.roccoandrealigorio.it/?p=223">Wi-Fi dell'ufficio sicuro</a>, mentre per il disco di rete c'è l'articolo dedicato alla <a href="https://www.roccoandrealigorio.it/?p=268">sicurezza del NAS</a>.</p>
+
+<h2>Una lezione che va oltre la tecnologia</h2>
+<p>Il caso francese mostra un cambio di passo: un attacco informatico che produce un <strong>danno fisico</strong>, merce da buttare e negozi fermi, senza nemmeno chiedere un riscatto. E secondo quanto dichiarato dal presidente di Intermarché, le assicurazioni non coprono questo tipo di incidente. Per una piccola azienda un blocco simile, anche di un solo giorno, può costare molto più di qualche ora di verifica oggi.</p>
+<p>C'è anche un aspetto normativo: per le aziende che rientrano nella NIS2 la gestione dei dispositivi e dei fornitori è parte delle misure di sicurezza richieste, con la scadenza del 31 ottobre 2026 di cui ho scritto <a href="https://www.roccoandrealigorio.it/?p=221">qui</a>. Ma anche chi non è obbligato ha tutto l'interesse a sapere cosa è collegato alla propria rete.</p>
+<p>Se vuoi, posso aiutarti a fare l'inventario dei dispositivi del tuo ufficio e a chiudere gli accessi inutili: trovi come lavoro nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Come faccio a sapere se un mio dispositivo è visibile da internet?</h3>
+<p>Il controllo più semplice è guardare sul router le regole di inoltro delle porte e se l'UPnP è attivo. Per una verifica completa serve una scansione dall'esterno, che un tecnico può fare in poco tempo senza toccare gli apparecchi.</p>
+<h3>Spegnere l'accesso remoto non mi impedisce di usare l'app?</h3>
+<p>No, se l'accesso passa da una VPN o dal servizio cloud ufficiale del produttore, aggiornato e protetto da doppia autenticazione. Quello da evitare è il pannello esposto direttamente con una porta aperta sul router.</p>
+<h3>Il ripristino di fabbrica risolve un dispositivo compromesso?</h3>
+<p>Solo in parte. Elimina l'intruso, ma se l'apparecchio resta vulnerabile ed esposto può essere ricompromesso subito. Va prima tolto da internet, poi aggiornato o sostituito e riconfigurato con password nuove.</p>
+<h3>Di chi è la responsabilità se il dispositivo lo gestisce un fornitore?</h3>
+<p>Il fornitore deve lavorare in modo sicuro, ma la rete e i dati restano tuoi. Conviene mettere per iscritto come accede, con quali credenziali e con quale frequenza aggiorna gli apparecchi.</p>
