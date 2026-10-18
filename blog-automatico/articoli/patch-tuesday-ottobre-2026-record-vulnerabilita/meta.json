@@ -2,12 +2,23 @@
   "titolo": "Patch Tuesday di ottobre 2026: oltre 1.400 falle, cosa aggiornare subito",
   "slug": "patch-tuesday-ottobre-2026-record-vulnerabilita",
   "estratto": "Microsoft corregge oltre 1.400 falle, una già sfruttata tramite gli allegati: cosa contiene l'aggiornamento e come installarlo su tutti i PC dello studio.",
-  "categorie": ["Informatica"],
-  "tag": ["Aggiornamenti di sicurezza", "Sicurezza informatica", "Windows 11", "Microsoft Office", "Phishing"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Aggiornamenti di sicurezza",
+    "Sicurezza informatica",
+    "Windows 11",
+    "Microsoft Office",
+    "Phishing"
+  ],
   "seo": {
     "titolo": "Patch Tuesday di ottobre: 1.400 falle, cosa aggiornare ora",
     "descrizione": "Patch Tuesday di ottobre 2026: oltre 1.400 falle, una già sfruttata con gli allegati. Cosa conta per studi e PMI e come aggiornare tutti i PC in mezz'ora.",
     "keyword": "patch tuesday di ottobre"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Patch Tuesday di ottobre 2026: oltre 1.400 falle, cosa aggiornare subito",
+  "id": 286
 }
