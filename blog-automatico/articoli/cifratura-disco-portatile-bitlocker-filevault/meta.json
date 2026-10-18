@@ -1,0 +1,13 @@
+{
+  "titolo": "Cifratura del disco: come proteggere i dati se perdi il portatile",
+  "slug": "cifratura-disco-portatile-bitlocker-filevault",
+  "estratto": "Portatile perso o rubato? Con la cifratura del disco i dati restano illeggibili. Come attivare BitLocker e FileVault e dove conservare la chiave.",
+  "categorie": ["Informatica"],
+  "tag": ["BitLocker", "Sicurezza informatica", "GDPR", "Privacy", "Windows 11"],
+  "seo": {
+    "titolo": "Cifratura del disco: proteggi i dati del portatile",
+    "descrizione": "Cifratura del disco con BitLocker e FileVault: come attivarla su Windows e Mac, perché conta per il GDPR e dove tenere la chiave di ripristino.",
+    "keyword": "cifratura del disco"
+  },
+  "stato": "draft"
+}

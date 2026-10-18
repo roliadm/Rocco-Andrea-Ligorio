@@ -1,0 +1,60 @@
+<p>Un portatile dimenticato in treno, rubato dall'auto o sparito da una sala d'attesa. Capita più spesso di quanto si pensi, e il problema non è il costo del computer: è quello che c'è dentro. Fascicoli dei clienti, buste paga, dichiarazioni dei redditi, email. Senza protezione, chiunque può togliere il disco, collegarlo a un altro PC e leggere tutto, password di Windows o no. La soluzione esiste ed è già inclusa nel tuo computer: la <strong>cifratura del disco</strong>. In questo articolo ti spiego cos'è, perché conta anche per il GDPR e come verificarla e attivarla su Windows e Mac, passo per passo.</p>
+
+<h2>Cifratura del disco: cos'è e cosa ti protegge</h2>
+<p>Cifrare il disco significa trasformare tutti i dati salvati in una forma illeggibile, che torna in chiaro solo quando il computer si avvia correttamente e l'utente accede. Se qualcuno estrae il disco o prova ad avviare il PC con un altro sistema, vede solo dati senza senso.</p>
+<p>È importante capire cosa <strong>non</strong> fa: la cifratura protegge il computer spento o bloccato, cioè il caso tipico del furto o dello smarrimento. Non protegge da un virus che arriva mentre stai lavorando, né da un collega che usa il tuo PC lasciato aperto. Per quello servono aggiornamenti, antivirus e il blocco schermo.</p>
+<h3>La password di Windows non basta?</h3>
+<p>No, ed è l'equivoco che sento più spesso. La password di accesso impedisce di usare Windows, ma non protegge i file sul disco: chi lo collega a un altro computer li legge senza chiedere nulla a nessuno. Solo la cifratura rende i dati davvero inaccessibili.</p>
+
+<h2>Perché conta anche per il GDPR</h2>
+<p>Il Regolamento europeo sulla protezione dei dati cita la cifratura in modo esplicito. L'<a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32016R0679" target="_blank" rel="noopener">articolo 32 del GDPR</a> la indica tra le misure di sicurezza adeguate, e l'articolo 34 aggiunge un dettaglio molto pratico: se perdi un dispositivo con dati personali, <strong>non sei obbligato ad avvisare uno per uno i clienti coinvolti</strong> quando quei dati erano resi incomprensibili a chi non è autorizzato, "quali la cifratura".</p>
+<p>Tradotto: un portatile cifrato rubato è un fastidio; uno non cifrato è una violazione di dati con tutto quello che comporta. Resta comunque da valutare, caso per caso, la segnalazione al Garante e da annotare l'evento nel registro delle violazioni. Ho spiegato come muoversi nell'articolo su <a href="https://www.roccoandrealigorio.it/?p=276">cosa fare nelle prime 72 ore dopo un data breach</a>.</p>
+
+<h2>Windows: BitLocker e crittografia del dispositivo</h2>
+<p>Windows ha due versioni dello stesso strumento, come spiega la <a href="https://support.microsoft.com/en-us/windows/security/encryption/device-encryption-in-windows" target="_blank" rel="noopener">documentazione ufficiale Microsoft</a>:</p>
+<ul>
+<li><strong>Crittografia del dispositivo</strong>: disponibile anche su Windows Home, ha poche opzioni e cifra il disco principale e quelli interni.</li>
+<li><strong>BitLocker</strong>: la versione completa, inclusa in Windows Pro, Enterprise ed Education. Permette di gestire più dischi e anche le chiavette USB (con la funzione BitLocker To Go).</li>
+</ul>
+<p>Su molti PC recenti la crittografia si attiva da sola quando si configura Windows con un account Microsoft o con un account di lavoro. Con un <strong>account locale</strong>, invece, non parte automaticamente: è il caso più frequente che trovo nei computer installati "di corsa".</p>
+<h3>Come verificare e attivare</h3>
+<ol>
+<li>Accedi con un account amministratore.</li>
+<li>Su Windows 11 Home: Impostazioni › Privacy e sicurezza › <strong>Crittografia dispositivo</strong>, e attiva l'interruttore.</li>
+<li>Su Windows 11 Pro: cerca "Gestisci BitLocker" nel menu Start; accanto al disco C: deve comparire "BitLocker attivato". Se non lo è, scegli "Attiva BitLocker" e segui la procedura.</li>
+<li>Se la voce non compare, apri "Informazioni di sistema" come amministratore e cerca "Supporto crittografia dispositivo": ti dice il motivo, per esempio il chip TPM disattivato nel BIOS o il Secure Boot spento.</li>
+</ol>
+<p>Proprio il Secure Boot è legato alla cifratura: se state aggiornando i PC per i certificati in scadenza, leggi anche l'articolo sui <a href="https://www.roccoandrealigorio.it/?p=262">certificati Secure Boot</a>, dove spiego perché avere la chiave di ripristino a portata di mano.</p>
+
+<h2>Mac: FileVault</h2>
+<p>Sui Mac lo strumento si chiama <strong>FileVault</strong>. Secondo il <a href="https://support.apple.com/guide/mac-help/protect-data-on-your-mac-with-filevault-mh11785/mac" target="_blank" rel="noopener">supporto Apple</a>, i Mac con chip Apple o con chip di sicurezza T2 cifrano già i dati, ma è FileVault a legare quella protezione alla password di accesso: senza, il Mac rubato resta molto più esposto. Per attivarlo:</p>
+<ol>
+<li>Menu Apple › Impostazioni di Sistema › Privacy e sicurezza › <strong>FileVault</strong>.</li>
+<li>Clicca "Attiva" e inserisci la password.</li>
+<li>Scegli come sbloccare il disco se dimentichi la password: con l'account iCloud oppure con una chiave di recupero da conservare tu.</li>
+</ol>
+<p>Per un Mac aziendale preferisco la chiave di recupero, salvata nell'archivio dello studio: l'account iCloud spesso è personale del dipendente.</p>
+
+<h2>La chiave di ripristino: il punto che fa la differenza</h2>
+<p>La cifratura ha un rovescio: se perdi la password e la chiave di ripristino, perdi anche i dati. Non c'è assistenza che tenga. Microsoft lo dice chiaramente: il suo supporto non può recuperare né ricreare una chiave persa.</p>
+<p>La <strong>chiave di ripristino di BitLocker</strong> è un numero di 48 cifre. Secondo la <a href="https://support.microsoft.com/en-us/windows/security/encryption/find-your-bitlocker-recovery-key" target="_blank" rel="noopener">guida Microsoft</a> può trovarsi nell'account Microsoft (si consulta da un altro dispositivo su aka.ms/myrecoverykey), nell'account aziendale Microsoft 365, su una chiavetta USB o stampata su carta. Il mio consiglio per gli studi:</p>
+<ul>
+<li>per ogni computer, annota in un elenco nome del PC, utente e dove si trova la chiave;</li>
+<li>conserva le chiavi in un luogo protetto, per esempio il <a href="https://www.roccoandrealigorio.it/?p=241">password manager dello studio</a>, non in un file sul desktop dello stesso PC;</li>
+<li>se i PC sono legati all'account personale di un dipendente, recupera le chiavi prima che lasci lo studio.</li>
+</ul>
+<p>Quando la chiave serve davvero? Più spesso di quanto pensi: dopo un aggiornamento del BIOS, una modifica alle impostazioni di avvio o una riparazione della scheda madre, il PC può chiederla all'accensione.</p>
+
+<h2>Non dimenticare dischi esterni e chiavette</h2>
+<p>Il portatile cifrato serve a poco se poi la copia dei fascicoli viaggia su una chiavetta in tasca. Per i dispositivi esterni hai due strade: BitLocker To Go su Windows Pro (clic destro sull'unità in Esplora file › "Attiva BitLocker") oppure chiavette e dischi con cifratura hardware e tastierino. Vale anche per i dischi di backup: se li porti a casa a rotazione, devono essere cifrati.</p>
+<p>Se vuoi controllare in una volta sola tutti i computer dello studio e avere l'elenco delle chiavi in ordine, è uno dei controlli che faccio nei miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>La cifratura rallenta il computer?</h3>
+<p>Sui computer degli ultimi anni la differenza non si nota nel lavoro quotidiano. La prima cifratura richiede un po' di tempo, ma avviene in background e puoi continuare a usare il PC.</p>
+<h3>Ho Windows Home: devo passare a Pro?</h3>
+<p>Non necessariamente. La crittografia del dispositivo di Windows Home protegge il disco principale. Pro diventa utile se vuoi cifrare chiavette e dischi esterni o gestire più computer in modo centralizzato.</p>
+<h3>Se porto il PC in assistenza devo togliere la cifratura?</h3>
+<p>No. Tieni a portata di mano la chiave di ripristino, perché dopo alcune riparazioni il PC può chiederla. Togliere la cifratura espone i dati proprio mentre il computer è fuori dallo studio.</p>
+<h3>Serve anche sui computer fissi?</h3>
+<p>Sì, anche se il rischio di smarrimento è minore. I fissi vengono rubati durante i furti in ufficio e, soprattutto, prima o poi vengono dismessi: un disco cifrato si può smaltire con molta più tranquillità.</p>

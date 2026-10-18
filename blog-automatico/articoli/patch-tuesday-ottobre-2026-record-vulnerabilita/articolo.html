@@ -1,0 +1,56 @@
+<p>Martedì 13 ottobre 2026 Microsoft ha rilasciato gli aggiornamenti di sicurezza mensili e ha battuto ogni record: <strong>oltre 1.400 vulnerabilità corrette in un colpo solo</strong>, più di quante ne avesse mai sistemate in un intero anno. Una sola è già usata dagli attaccanti, ma riguarda un gesto che in ufficio facciamo tutti i giorni: aprire un allegato. Se hai visto i PC dello studio chiedere un riavvio più lungo del solito, il motivo è questo. In questo articolo ti spiego cosa contiene il <strong>Patch Tuesday di ottobre</strong>, quali correzioni contano davvero per uno studio o una PMI e come assicurarti in mezz'ora che siano installate ovunque.</p>
+
+<h2>Patch Tuesday di ottobre 2026: i numeri</h2>
+<p>Il "Patch Tuesday" è il secondo martedì del mese, il giorno in cui Microsoft pubblica in blocco le correzioni per Windows, Office e gli altri suoi prodotti. Questa volta il pacchetto è enorme. I conteggi delle varie società di analisi oscillano di qualche unità (da 1.413 a 1.417, a seconda di cosa si include), ma il quadro è chiaro:</p>
+<ul>
+<li>secondo <a href="https://cyberscoop.com/microsoft-patch-tuesday-october-2026/" target="_blank" rel="noopener">CyberScoop</a>, circa <strong>1.100 vulnerabilità riguardano Windows</strong>, 134 Office e 36 SharePoint Server;</li>
+<li>il precedente record annuale, 1.261 falle, risaliva al 2020; a settembre 2026 erano state circa mille e a ottobre 2025 appena 180;</li>
+<li>quelle classificate come <strong>critiche</strong> sono una ottantina;</li>
+<li>quelle già <strong>sfruttate dagli attaccanti</strong> sono una sola.</li>
+</ul>
+<p>Perché così tante? Secondo Dustin Childs della Zero Day Initiative, l'intelligenza artificiale c'entra in parte: non crea nuovi difetti, ma accorcia molto il tempo necessario a scoprire quelli che esistono già. In altre parole i ricercatori, aiutati dall'AI, stanno trovando bug che prima sarebbero rimasti nascosti per anni. È una tendenza che vedremo ancora nei prossimi mesi.</p>
+
+<h2>La falla già sfruttata: occhio agli allegati</h2>
+<p>La vulnerabilità da correggere per prima si chiama <strong>CVE-2026-96951</strong> (il codice CVE è il "numero di targa" con cui si identifica ogni falla) e riguarda la Windows Shell, cioè la parte di Windows che gestisce file, cartelle e collegamenti. Ha un punteggio di gravità di 8,8 su 10.</p>
+<h3>Cosa permette di fare</h3>
+<p>Permette di aggirare il <strong>Mark of the Web</strong>, il "marchio" invisibile che Windows applica ai file scaricati da internet o arrivati via email. È grazie a quel marchio che Word apre un allegato in <em>visualizzazione protetta</em> e che Windows mostra l'avviso "Vuoi davvero eseguire questo file?". Come spiega la <a href="https://www.zerodayinitiative.com/blog/2026/10/13/the-october-2026-security-update-review" target="_blank" rel="noopener">Zero Day Initiative</a>, chi sfrutta la falla fa sparire questi avvisi: il file malevolo si apre come se fosse stato creato in ufficio.</p>
+<h3>Perché riguarda proprio gli studi</h3>
+<p>Per funzionare l'attacco ha bisogno di un'azione dell'utente: aprire un file ricevuto per email o in chat, cliccare un link, aprire un allegato. È esattamente il tipo di gesto che in uno studio si ripete decine di volte al giorno con fatture, preventivi e documenti dei clienti. Secondo <a href="https://blog.qualys.com/vulnerabilities-threat-research/2026/10/13/microsoft-patch-tuesday-october-2026-security-update-review" target="_blank" rel="noopener">Qualys</a>, l'agenzia statunitense CISA l'ha inserita nel suo catalogo delle vulnerabilità sfruttate attivamente. È anche la terza falla della Windows Shell sfruttata nel 2026: un segnale che gli attaccanti la considerano una strada promettente.</p>
+
+<h2>Le altre correzioni da non rimandare</h2>
+<p>Oltre alla falla già attiva, nel pacchetto ce ne sono alcune che meritano attenzione se in ufficio hai qualcosa di più di qualche PC:</p>
+<ul>
+<li><strong>Office</strong>: più di venti falle critiche solo in Excel, più altre in Word, PowerPoint, Outlook e Visio. Sono il classico rischio del "documento trappola" e si chiudono aggiornando Office.</li>
+<li><strong>Server Windows</strong>: la Zero Day Initiative conta 59 falle potenzialmente "wormable", cioè sfruttabili da remoto senza password e senza che nessuno clicchi nulla, in servizi come DHCP, DNS e Remote Desktop Gateway (il servizio che molti usano per lavorare da casa sul server dello studio).</li>
+<li><strong>SharePoint, Exchange e SQL Server</strong> installati in sede: ci sono correzioni critiche per tutti e tre. Se il gestionale gira su un SQL Server raggiungibile da internet, è il caso di verificare subito.</li>
+<li><strong>.NET Framework</strong>: una seconda falla, CVE-2026-108398, era già pubblicamente nota prima della correzione, anche se non risulta sfruttata.</li>
+</ul>
+<p>Nello stesso giorno anche Adobe ha pubblicato 11 bollettini con circa 175 correzioni; tra i programmi coinvolti ci sono Photoshop e Bridge, quindi conviene aprire anche l'app Adobe Creative Cloud e aggiornare.</p>
+
+<h3>La novità: i "risk cohorts"</h3>
+<p>Davanti a numeri così, Microsoft ha proposto un modo nuovo per orientarsi: i <strong>risk cohorts</strong>, gruppi di vulnerabilità che richiedono la stessa verifica. Per esempio, una sola domanda ("il nostro Remote Desktop Gateway è raggiungibile da internet?") vale per tutte le 65 falle di accesso remoto del mese, come riporta <a href="https://www.itnews.com.au/news/microsoft-floats-risk-cohorts-as-patch-load-hits-record-size-629624" target="_blank" rel="noopener">iTnews</a>. Per ora è una proposta sperimentale, non cambia le indicazioni ufficiali. Ma il ragionamento è utile anche in piccolo: invece di leggere 1.400 schede, ti chiedi quali servizi del tuo ufficio sono esposti.</p>
+
+<h2>Cosa fare in pratica, in mezz'ora</h2>
+<p>La buona notizia è che per un ufficio normale non serve studiare l'elenco: serve che gli aggiornamenti arrivino davvero su ogni macchina. Ecco la procedura che seguo io:</p>
+<ol>
+<li><strong>PC Windows</strong>: Impostazioni › Windows Update › "Verifica disponibilità aggiornamenti", poi riavvia. Un aggiornamento scaricato ma non riavviato non protegge.</li>
+<li><strong>Office</strong>: da Word, File › Account › Opzioni di aggiornamento › "Aggiorna ora". Office si aggiorna separatamente da Windows.</li>
+<li><strong>Server</strong>: pianifica il riavvio fuori orario, ma entro pochi giorni, dando la precedenza a quelli raggiungibili da fuori (accesso remoto, posta, gestionale).</li>
+<li><strong>Portatili</strong>: chi lavora fuori sede o in smart working spesso rimanda per settimane. Chiedi a tutti di riavviare entro venerdì.</li>
+<li><strong>Controllo finale</strong>: su ogni PC, in Windows Update › Cronologia aggiornamenti, deve comparire l'aggiornamento cumulativo di ottobre 2026 installato.</li>
+</ol>
+<p>Se vuoi un metodo stabile, ho descritto un piano mensile completo nell'articolo sugli <a href="https://www.roccoandrealigorio.it/?p=280">aggiornamenti software in ufficio</a>.</p>
+
+<h3>I PC che questo aggiornamento non lo ricevono</h3>
+<p>Qui sta il punto più importante. Le correzioni di ottobre arrivano solo ai sistemi ancora supportati. Un PC con <strong>Windows 10 senza il programma ESU</strong> non le riceve: resta con tutte le 1.400 falle aperte, compresa quella degli allegati. Lo stesso vale per <strong>Office 2021</strong>, il cui supporto è terminato proprio il 13 ottobre: dai prossimi mesi non avrà più correzioni. Se in ufficio c'è ancora una di queste situazioni, trovi cosa fare negli articoli su <a href="https://www.roccoandrealigorio.it/?p=215">Windows 10 ESU</a> e su <a href="https://www.roccoandrealigorio.it/?p=270">Office 2021 fuori supporto</a>.</p>
+<p>E, a prescindere dagli aggiornamenti, ricorda ai colleghi la regola d'oro: un allegato inatteso, anche da un mittente conosciuto, si verifica con una telefonata prima di aprirlo. Se preferisci che qualcuno tenga d'occhio aggiornamenti e sicurezza al posto tuo, puoi vedere <a href="https://www.roccoandrealigorio.it/servizi/">i servizi che offro</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Devo installare a mano tutte le 1.400 correzioni?</h3>
+<p>No. Sono raccolte in pochi aggiornamenti cumulativi: Windows Update e l'aggiornamento di Office le installano tutte insieme. Il tuo compito è verificare che siano arrivate e che i PC siano stati riavviati.</p>
+<h3>Ho Windows 11 Home sul portatile: sono coinvolto?</h3>
+<p>Sì, la falla della Windows Shell riguarda anche le edizioni Home. L'aggiornamento è lo stesso e arriva da Windows Update, quindi basta verificare e riavviare.</p>
+<h3>L'antivirus non basta a proteggermi?</h3>
+<p>Aiuta, ma non sostituisce l'aggiornamento. La falla serve proprio a far sparire gli avvisi che Windows mostra prima di aprire un file pericoloso: se l'antivirus non riconosce quel file specifico, l'unica vera protezione è aver chiuso la falla.</p>
+<h3>Quanto tempo ho per aggiornare?</h3>
+<p>Per la falla già sfruttata il consiglio è di farlo subito, al massimo entro pochi giorni. Per il resto, l'importante è non lasciar passare il mese: a novembre arriverà il pacchetto successivo.</p>
