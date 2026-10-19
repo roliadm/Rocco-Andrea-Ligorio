@@ -1,0 +1,58 @@
+<p>Hai pagato un gestionale fatto su misura, lo usi ogni giorno, poi il rapporto con lo sviluppatore si interrompe: cambia lavoro, chiude l'attività o semplicemente non risponde più. Chiami un altro programmatore per una modifica e la prima domanda che ti fa è: "Mi dai il codice sorgente?". È lì che molti scoprono di non averlo mai ricevuto, e di non sapere nemmeno se ne hanno diritto. In questo articolo ti spiego in parole semplici chi ha la <strong>proprietà del codice sorgente</strong> di un software su misura secondo la legge italiana, perché la risposta non è scontata e quali clausole chiedere nel contratto prima di iniziare. Premessa doverosa: non sono un avvocato, quindi per il contratto vero e proprio fatti seguire da un legale; ma le domande giuste da porre sì, quelle te le posso dare.</p>
+
+<h2>Codice sorgente: cos'è e perché ti serve</h2>
+<p>Il <strong>codice sorgente</strong> è il programma scritto in forma leggibile dalle persone: sono i file su cui lavora lo sviluppatore. Quello che installi sul server o sul PC, invece, è spesso una versione "compilata", pronta da eseguire ma praticamente impossibile da modificare. Avere solo il programma funzionante è come avere una casa senza progetto né impianti documentati: ci abiti, ma ogni ristrutturazione diventa un problema.</p>
+<p>Senza il sorgente non puoi:</p>
+<ul>
+<li>affidare manutenzione e correzioni a un altro sviluppatore;</li>
+<li>aggiornare il software quando cambiano sistema operativo, browser o normative;</li>
+<li>verificare come vengono trattati i dati dei tuoi clienti, cosa utile anche ai fini del GDPR;</li>
+<li>far crescere il programma con nuove funzioni senza ripartire da zero.</li>
+</ul>
+<p>In pratica, chi tiene il sorgente tiene anche te: è la forma più comune di <strong>dipendenza dal fornitore</strong> (in inglese "lock-in").</p>
+
+<h2>Cosa dice la legge sulla proprietà del codice sorgente</h2>
+<p>In Italia il software è protetto dal diritto d'autore, cioè dalla <a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1941-04-22;633" target="_blank" rel="noopener">legge 633/1941</a>. Bisogna distinguere due cose: i <strong>diritti morali</strong> (essere riconosciuto come autore), che restano sempre a chi ha scritto il codice, e i <strong>diritti di utilizzazione economica</strong> (riprodurre, modificare, distribuire il programma), che sono quelli che contano per te. La regola cambia a seconda di chi sviluppa.</p>
+<h3>Se lo sviluppa un tuo dipendente</h3>
+<p>Qui la legge è chiara. L'articolo 12-bis della legge sul diritto d'autore stabilisce che, <strong>salvo patto contrario</strong>, i diritti economici sul programma creato da un dipendente nello svolgimento delle sue mansioni o su istruzioni del datore di lavoro spettano al datore di lavoro.</p>
+<h3>Se lo sviluppa un libero professionista</h3>
+<p>La regola di partenza è opposta. L'<a href="https://www.brocardi.it/lavoro-agile/capo-i/art4.html" target="_blank" rel="noopener">articolo 4 della legge 81/2017</a> sul lavoro autonomo dice che i diritti sugli apporti originali realizzati durante l'incarico <strong>restano al lavoratore autonomo</strong>, a meno che l'attività creativa sia proprio l'oggetto del contratto e sia pagata per questo.</p>
+<h3>Se lo sviluppa una software house</h3>
+<p>È il caso più frequente ed è anche quello più incerto, perché la legge non lo disciplina in modo specifico. I giudici non sempre hanno deciso allo stesso modo:</p>
+<ul>
+<li>con l'ordinanza del 24 giugno 2025 il <a href="https://giurisprudenzadelleimprese.it/sentenza/software-commissionato-in-appalto-titolarita-del-committente-e-consegna-cautelare-dei-codici-sorgente/" target="_blank" rel="noopener">Tribunale delle Imprese di Venezia</a> ha dato ragione al committente di un'app sviluppata su sue specifiche, ordinando allo sviluppatore di consegnare il codice sorgente perché senza di esso l'azienda non poteva far fare manutenzione ad altri;</li>
+<li>la Corte di Cassazione, con l'ordinanza n. 19335 del 15 giugno 2022 (relativa a file grafici, non a un software), ha però precisato che i diritti passano al committente solo se <strong>l'oggetto del contratto è proprio la creazione dell'opera</strong>; se il contratto prevedeva la consegna del prodotto finito, i file sorgente possono restare a chi li ha creati.</li>
+</ul>
+<p>Tradotto: senza un contratto scritto chiaro, ti affidi all'interpretazione di un giudice. E una causa, anche vinta, costa tempo e soldi che potevi spendere meglio.</p>
+
+<h2>Le clausole da chiedere prima di firmare</h2>
+<p>La soluzione è mettere tutto nero su bianco all'inizio, quando il rapporto è buono e nessuno ha interesse a fare il furbo. Ecco i punti che consiglio di controllare.</p>
+<h3>1. Chi ha i diritti economici</h3>
+<p>Il contratto deve dire esplicitamente se i diritti di utilizzazione economica sul software sviluppato per te passano a te (<strong>cessione</strong>) oppure se ricevi solo una <strong>licenza d'uso</strong>. Molti contratti standard delle software house prevedono la seconda strada: non è necessariamente sbagliato, ma devi saperlo e il prezzo dovrebbe rifletterlo.</p>
+<h3>2. Consegna del sorgente e della documentazione</h3>
+<p>Specifica che a ogni rilascio (o almeno alla consegna finale) riceverai il codice sorgente completo, le istruzioni per compilarlo e installarlo, la struttura del database e le credenziali dei servizi collegati. Il modo più pratico è un <strong>repository</strong>, cioè un archivio del codice su un servizio come GitHub o GitLab, intestato alla tua azienda e a cui lo sviluppatore ha accesso come collaboratore.</p>
+<h3>3. Componenti di terzi e open source</h3>
+<p>Quasi nessun software nasce da zero: si usano librerie già pronte, spesso open source. Chiedi un elenco dei componenti esterni con le relative licenze, perché alcune impongono obblighi precisi su come puoi distribuire il programma. Se lo sviluppatore riusa parti di un suo prodotto, è normale che quelle restino sue: in quel caso ti serve almeno una licenza perpetua per usarle e modificarle.</p>
+<h3>4. Se il fornitore sparisce</h3>
+<p>Se il fornitore non vuole cedere il sorgente, esiste il <strong>deposito a garanzia</strong> ("software escrow"): il codice viene depositato presso un terzo neutrale, ad esempio un notaio o una società specializzata, e ti viene consegnato se il fornitore chiude o smette di garantire l'assistenza.</p>
+<h3>5. Domini, server e account</h3>
+<p>Non c'entra con il diritto d'autore, ma è collegato e lo vedo spesso: dominio, hosting, account cloud e app store vanno <strong>intestati alla tua azienda</strong>, non al programmatore. Altrimenti, anche con il sorgente in mano, non riesci a pubblicare un aggiornamento.</p>
+
+<h2>Se il software ce l'hai già</h2>
+<p>Se usi già un programma su misura e non sai bene cosa possiedi, ti suggerisco tre passi:</p>
+<ol>
+<li><strong>rileggi il contratto o l'offerta firmata</strong> e cerca le parole "cessione", "licenza", "codice sorgente";</li>
+<li><strong>chiedi oggi una copia aggiornata del sorgente</strong>, finché il rapporto è sereno: è una richiesta normale, non un atto di sfiducia;</li>
+<li>se il fornitore rifiuta, valuta con un legale un accordo integrativo o il deposito a garanzia.</li>
+</ol>
+<p>Se stai valutando di passare da fogli Excel a un programma dedicato, ho scritto anche <a href="https://www.roccoandrealigorio.it/?p=264">quando conviene passare a un software su misura</a>. E se vuoi sapere come imposto un progetto su misura, dall'analisi alla consegna, leggi la pagina <a href="https://www.roccoandrealigorio.it/come-lavoro/">Come lavoro</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Se ho pagato lo sviluppo, il software non è automaticamente mio?</h3>
+<p>Non necessariamente. Pagare lo sviluppo non equivale per forza ad acquistare i diritti economici sul codice: dipende da cosa dice il contratto e da come un giudice lo interpreta. Per questo conviene scriverlo in modo esplicito.</p>
+<h3>Con il codice sorgente posso rivendere il programma ad altri?</h3>
+<p>Solo se hai ottenuto la cessione dei diritti economici, o una licenza che lo consente. Avere materialmente i file non basta: contano i diritti che ti sono stati trasferiti.</p>
+<h3>Lo sviluppatore può riusare il mio software per altri clienti?</h3>
+<p>Se i diritti sono stati ceduti a te, no, salvo le parti generiche che erano già sue. Se hai solo una licenza, in genere sì. Anche questo va chiarito nel contratto, insieme alla riservatezza sui tuoi dati e processi.</p>
+<h3>Il deposito a garanzia costa molto?</h3>
+<p>Dipende dal servizio scelto e dalla frequenza degli aggiornamenti del deposito. Per software piccoli spesso basta un repository intestato all'azienda; l'escrow ha più senso per programmi critici di cui il fornitore vuole mantenere la proprietà.</p>
