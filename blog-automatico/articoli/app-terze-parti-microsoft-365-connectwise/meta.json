@@ -2,12 +2,22 @@
   "titolo": "App di terze parti in Microsoft 365: la lezione dell'attacco a ConnectWise",
   "slug": "app-terze-parti-microsoft-365-connectwise",
   "estratto": "Una credenziale rubata a ConnectWise ha aperto centinaia di Microsoft 365 aziendali. Cosa è successo e come controllare le app collegate al tuo.",
-  "categorie": ["Informatica"],
-  "tag": ["Microsoft 365", "Backup", "Sicurezza informatica", "Autenticazione a due fattori"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Microsoft 365",
+    "Backup",
+    "Sicurezza informatica",
+    "Autenticazione a due fattori"
+  ],
   "seo": {
     "titolo": "App di terze parti in Microsoft 365: il caso ConnectWise",
     "descrizione": "App di terze parti in Microsoft 365: dopo l'attacco a ConnectWise, i controlli per scoprire chi accede ai dati dello studio e chiudere le porte inutili.",
     "keyword": "app di terze parti in Microsoft 365"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "App di terze parti in Microsoft 365: la lezione dell'attacco a ConnectWise",
+  "id": 292
 }

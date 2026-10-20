@@ -2,12 +2,23 @@
   "titolo": "Truffa del cambio IBAN: come proteggere i pagamenti ai fornitori",
   "slug": "truffa-cambio-iban-email-fornitori",
   "estratto": "Email identiche a quelle del fornitore, ma con un IBAN diverso: come funziona la truffa, i segnali d'allarme e le regole per non pagare il conto sbagliato.",
-  "categorie": ["Informatica"],
-  "tag": ["Phishing", "Email", "Truffe online", "Sicurezza informatica", "Autenticazione a due fattori"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Phishing",
+    "Email",
+    "Truffe online",
+    "Sicurezza informatica",
+    "Autenticazione a due fattori"
+  ],
   "seo": {
     "titolo": "Truffa del cambio IBAN: come difendere studio e azienda",
     "descrizione": "Truffa del cambio IBAN via email: come riconoscerla, le regole per verificare i pagamenti ai fornitori e cosa fare subito se hai già fatto il bonifico.",
     "keyword": "truffa del cambio IBAN"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Truffa del cambio IBAN: come proteggere i pagamenti ai fornitori",
+  "id": 294
 }
