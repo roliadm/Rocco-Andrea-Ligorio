@@ -1,0 +1,62 @@
+<p>Quando colleghi un servizio esterno a Microsoft 365 (un backup, un'app per firmare documenti, uno strumento di gestione usato dal tuo tecnico) clicchi su "Accetta" e te ne dimentichi. Eppure quel clic consegna una chiave del tuo ufficio digitale a qualcun altro. La settimana scorsa questa chiave è stata rubata a un fornitore molto diffuso, ConnectWise, ed è stata usata per entrare in centinaia di ambienti Microsoft 365 di aziende clienti. In questo articolo ti spiego cosa è successo, perché le <strong>app di terze parti in Microsoft 365</strong> meritano la stessa attenzione delle password e quali controlli puoi fare (o chiedere al tuo tecnico) già questa settimana.</p>
+
+<h2>Cosa è successo a ConnectWise Cloud Backup</h2>
+<p>ConnectWise è un'azienda americana che vende strumenti agli MSP, cioè ai fornitori che gestiscono l'informatica di altre aziende. Uno dei suoi prodotti, <strong>Cloud Backup</strong> (prima si chiamava SkyKick), salva posta, file e Teams dei clienti Microsoft 365. Per farlo ha bisogno di permessi molto ampi su ogni ambiente in cui è installato.</p>
+<p>Secondo la ricostruzione pubblicata il 16 ottobre e poi aggiornata dalla società di sicurezza <a href="https://www.huntress.com/blog/vendor-credential-enables-unauthorized-access" target="_blank" rel="noopener">Huntress</a>, il 15 ottobre qualcuno ha usato una credenziale rubata dell'app di backup per ottenere accessi ai tenant (gli ambienti Microsoft 365 delle singole aziende) che l'avevano autorizzata. I numeri principali:</p>
+<ul>
+<li><strong>162 tenant</strong> con accessi non autorizzati confermati;</li>
+<li>attività di accesso dall'indirizzo dell'attaccante su <strong>quasi 1.000 tenant</strong>, con esito positivo in oltre 300;</li>
+<li>in un caso un'altra app ConnectWise si è assegnata da sola il ruolo di <strong>amministratore globale</strong>, il livello più alto;</li>
+<li>l'attaccante ha aggiunto nuove "password" (in gergo <em>client secret</em>) ad altre app di gestione, valide fino al 2028: un modo per restare dentro anche dopo la chiusura della porta principale.</li>
+</ul>
+<p>Come riporta <a href="https://www.securityweek.com/connectwise-suspends-cloud-services-in-response-to-cyberattack/" target="_blank" rel="noopener">SecurityWeek</a>, ConnectWise ha sospeso Cloud Backup il 17 ottobre e il giorno dopo anche i servizi SaaS Security e Cloud Management. L'azienda dichiara di non avere prove che i backup archiviati siano stati consultati e che gli archivi esistenti resteranno disponibili, ma al momento in cui scrivo non c'è una data di ripristino: i backup programmati sono fermi e i ripristini non sono possibili. Non è stato nemmeno chiarito come la credenziale sia stata sottratta.</p>
+
+<h3>Perché la doppia autenticazione non è bastata</h3>
+<p>Qui c'è il punto che sorprende molti titolari. L'attaccante non ha indovinato la password di un dipendente né aggirato un codice SMS: ha usato l'identità dell'app, che si autentica da sola, senza persone e senza <a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a>. Come sottolinea Huntress, la credenziale funziona in ogni tenant in cui l'app ha ricevuto il consenso. Il cliente, in pratica, non poteva fare nulla per evitare il furto: poteva solo limitare i danni e accorgersene in fretta.</p>
+
+<h2>App di terze parti in Microsoft 365: cosa sono e perché contano</h2>
+<p>Ogni volta che un servizio ti chiede di "accedere con Microsoft" e mostra una finestra con un elenco di permessi (leggere la posta, accedere ai file, gestire i calendari), stai dando un <strong>consenso</strong>. Da quel momento, nel tuo Microsoft 365 compare una <strong>applicazione aziendale</strong> con quei permessi, che lavora per conto suo anche quando nessuno è collegato.</p>
+<p>Nella mia esperienza con studi professionali e PMI, quando apro l'elenco delle applicazioni aziendali trovo quasi sempre sorprese:</p>
+<ul>
+<li>app di prova installate anni fa e mai rimosse;</li>
+<li>strumenti di un ex fornitore che hanno ancora accesso a tutta la posta;</li>
+<li>estensioni autorizzate da un singolo dipendente, che però leggono la sua casella e i file condivisi;</li>
+<li>app di backup o di gestione con permessi da amministratore, legittime ma mai verificate.</li>
+</ul>
+<p>Non sono di per sé un problema: molti servizi utili funzionano proprio così, compreso un buon <a href="https://www.roccoandrealigorio.it/?p=274">backup di Microsoft 365</a>. Il problema è non sapere quali sono, cosa possono fare e chi le controlla. È lo stesso tema che ho affrontato parlando di <a href="https://www.roccoandrealigorio.it/?p=272">accessi dei fornitori</a>: ogni accesso esterno è una porta, e le porte vanno contate.</p>
+
+<h2>I controlli da fare subito</h2>
+<p>Se usi ConnectWise Cloud Backup o Cloud Management, direttamente o tramite il tuo fornitore IT, la priorità è seguire le indicazioni di Huntress: <strong>disabilitare, senza eliminarle, le app ConnectWise</strong> nel pannello Microsoft Entra (la sezione di Microsoft 365 che gestisce utenti e app) e non riattivarle finché ConnectWise non conferma di aver sostituito tutte le credenziali. Disabilitare ferma i nuovi backup, ma non cancella quelli già salvati.</p>
+<p>Anche se non usi ConnectWise, questa è l'occasione per una verifica generale. Ecco cosa controllerei:</p>
+<ol>
+<li><strong>Fai l'inventario delle applicazioni aziendali.</strong> In Microsoft Entra, alla voce "Applicazioni aziendali", trovi l'elenco completo. Microsoft spiega come <a href="https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/manage-application-permissions" target="_blank" rel="noopener">rivedere i permessi concessi</a> a ciascuna.</li>
+<li><strong>Elimina ciò che non usi.</strong> App di prova, servizi dismessi, strumenti di ex fornitori: via.</li>
+<li><strong>Guarda i permessi delle app che restano.</strong> Un'app per le firme non ha bisogno di leggere tutta la posta di tutti. Se i permessi sono sproporzionati, chiedi spiegazioni al fornitore.</li>
+<li><strong>Controlla i ruoli di amministratore.</strong> Verifica che nessuna app abbia ruoli come amministratore globale o amministratore di Exchange senza un motivo preciso e documentato.</li>
+<li><strong>Verifica credenziali aggiunte di recente.</strong> Huntress consiglia di controllare <em>client secret</em> e certificati aggiunti alle app dal 13 ottobre in poi: se non sai spiegarli, vanno rimossi.</li>
+</ol>
+
+<h3>Le impostazioni da cambiare per il futuro</h3>
+<ul>
+<li><strong>Togli ai dipendenti la possibilità di autorizzare app da soli.</strong> Con il <a href="https://learn.microsoft.com/en-gb/entra/identity/enterprise-apps/manage-consent-requests" target="_blank" rel="noopener">flusso di richiesta di consenso</a>, chi vuole collegare un nuovo servizio invia una richiesta e un amministratore la approva o la rifiuta.</li>
+<li><strong>Limita chi può gestire le app.</strong> I ruoli di amministratore delle applicazioni devono averli poche persone, idealmente una o due.</li>
+<li><strong>Tieni un registro dei fornitori collegati</strong>: quale servizio, quali permessi, chi lo ha autorizzato, quando va rivisto. Una riga in un foglio condiviso basta.</li>
+<li><strong>Non affidare il backup a un solo anello.</strong> Il caso ConnectWise mostra che anche il servizio di backup può fermarsi da un giorno all'altro. Una seconda copia indipendente, secondo la regola del <a href="https://www.roccoandrealigorio.it/?p=211">backup 3-2-1</a>, evita di restare senza ripristino proprio quando serve.</li>
+</ul>
+
+<h2>Cosa chiedere al tuo fornitore IT</h2>
+<p>Molti studi non gestiscono Microsoft 365 da soli, e va benissimo. Però hai il diritto di sapere cosa succede nel tuo ambiente. Dopo un caso come questo, tre domande dirette al tuo tecnico sono più che legittime:</p>
+<ul>
+<li>Usiamo strumenti ConnectWise o altri strumenti di gestione con accesso al nostro Microsoft 365? Quali permessi hanno?</li>
+<li>Avete controllato i log di accesso delle app e le credenziali aggiunte negli ultimi giorni?</li>
+<li>Se il servizio di backup resta fermo per settimane, da dove recuperiamo i dati?</li>
+</ul>
+<p>Se dai controlli emergono accessi anomali alla posta o ai file, valuta se si tratta di una violazione di dati personali: in quel caso le tempistiche del GDPR sono strette, e ti rimando alla mia guida su <a href="https://www.roccoandrealigorio.it/?p=276">cosa fare nelle prime 72 ore dopo un data breach</a>. Se invece vuoi una revisione completa delle app e dei permessi del tuo Microsoft 365, è uno dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a> che offro a studi e PMI.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Non uso ConnectWise: devo preoccuparmi?</h3>
+<p>Non di questo attacco specifico, ma del principio sì. Qualunque app collegata con permessi ampi può diventare una porta d'ingresso se il suo fornitore viene violato. L'inventario delle app vale per tutti.</p>
+<h3>Se disabilito l'app di backup perdo i dati salvati?</h3>
+<p>No. Secondo Huntress e ConnectWise, disabilitare l'app interrompe i nuovi backup ma non elimina gli archivi già conservati. Nel frattempo conviene avere una copia alternativa dei dati più importanti.</p>
+<h3>Quanto spesso va rivisto l'elenco delle app collegate?</h3>
+<p>Ti consiglio almeno ogni sei mesi, e comunque ogni volta che cambi fornitore o che un dipendente lascia lo studio. È un controllo di pochi minuti se l'elenco è tenuto in ordine.</p>
