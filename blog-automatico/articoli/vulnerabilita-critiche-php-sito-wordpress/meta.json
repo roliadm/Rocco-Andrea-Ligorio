@@ -1,0 +1,13 @@
+{
+  "titolo": "Falle critiche in PHP: cosa fare se hai un sito WordPress",
+  "slug": "vulnerabilita-critiche-php-sito-wordpress",
+  "estratto": "Due falle critiche in PHP mettono a rischio siti WordPress e gestionali web: come controllare la versione del tuo sito e cosa chiedere all'hosting.",
+  "categorie": ["Informatica"],
+  "tag": ["Sicurezza informatica", "Aggiornamenti di sicurezza", "WordPress", "Siti web"],
+  "seo": {
+    "titolo": "Vulnerabilità PHP: cosa fare subito per il sito aziendale",
+    "descrizione": "Vulnerabilità PHP critiche di ottobre 2026: come verificare la versione del sito WordPress, aggiornare in sicurezza e capire se sei stato colpito.",
+    "keyword": "vulnerabilità PHP"
+  },
+  "stato": "draft"
+}

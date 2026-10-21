@@ -1,0 +1,63 @@
+<p>In quasi ogni studio e ufficio c'è una macchina che vede passare contratti, buste paga, documenti d'identità e cartelle dei clienti, ma a cui nessuno pensa quando si parla di sicurezza: la <strong>stampante multifunzione</strong>. Stampa, scansiona, invia email, salva file in cartelle condivise e spesso ha un disco interno. In pratica è un piccolo computer collegato alla rete, con la password di fabbrica e un software che nessuno aggiorna. In questo articolo ti spiego quali rischi corre e ti lascio otto regole pratiche per avere una <strong>stampante multifunzione sicura</strong>, anche se non sei un tecnico.</p>
+
+<h2>Perché la stampante multifunzione è un rischio</h2>
+<p>Vedo spesso multifunzione installate dal fornitore, configurate in fretta "perché funzionino" e poi mai più toccate. Il problema è che questi apparecchi custodiscono tre cose preziose:</p>
+<ul>
+<li><strong>Le credenziali</strong>: per la funzione "scansiona e invia per email" o "scansiona su cartella", la stampante memorizza l'account di posta o l'utente di rete con cui accede ai file dello studio.</li>
+<li><strong>I documenti</strong>: molti modelli conservano su disco o in memoria copie dei lavori di stampa, delle scansioni e la rubrica dei destinatari.</li>
+<li><strong>L'accesso alla rete</strong>: una stampante compromessa è un punto d'appoggio dentro l'ufficio, che nessun antivirus controlla.</li>
+</ul>
+
+<h3>Un caso concreto: le password di fabbrica prevedibili</h3>
+<p>Nel giugno 2025 i ricercatori di <a href="https://www.rapid7.com/blog/post/multiple-brother-devices-multiple-vulnerabilities-fixed/" target="_blank" rel="noopener">Rapid7</a> hanno pubblicato otto vulnerabilità che riguardavano <strong>748 modelli</strong> di cinque marchi: 689 Brother, 46 Fujifilm, 6 Konica Minolta, 5 Ricoh e 2 Toshiba. La più grave (CVE-2024-51978) permetteva di ricavare la password di amministrazione di fabbrica partendo dal numero di serie, che a sua volta poteva essere letto da remoto. Un'altra falla, una volta entrati, consentiva di leggere le password dei servizi esterni salvati nella stampante, come cartelle di rete e server.</p>
+<p>Il dettaglio che mi interessa farti notare è questo: secondo il produttore, quella falla <strong>non si poteva correggere del tutto con un aggiornamento</strong>, perché la password veniva generata in fabbrica. L'unica difesa era cambiarla a mano. È la dimostrazione che la sicurezza della multifunzione dipende soprattutto da come viene configurata in ufficio.</p>
+
+<h2>Stampante multifunzione sicura: 8 regole pratiche</h2>
+<p>Queste sono le verifiche che faccio quando metto mano alla rete di uno studio. Molte richiedono pochi minuti dal pannello web della stampante, che si apre digitando il suo indirizzo IP nel browser.</p>
+
+<h3>1. Cambia la password di amministrazione</h3>
+<p>È la regola più importante. Sostituisci la password di fabbrica (spesso stampata su un'etichetta o uguale per tutti i modelli) con una lunga e unica, e conservala in un <a href="https://www.roccoandrealigorio.it/?p=241">password manager</a>. Se la stampante è a noleggio, chiedi al fornitore di farlo con te e di consegnarti la password.</p>
+
+<h3>2. Aggiorna il firmware</h3>
+<p>Il <strong>firmware</strong> è il software interno della stampante. I produttori pubblicano correzioni di sicurezza come per i PC: controlla nel pannello se esiste l'aggiornamento automatico e attivalo, oppure inserisci la stampante nel tuo <a href="https://www.roccoandrealigorio.it/?p=280">piano di aggiornamenti</a>. Per le macchine a noleggio, verifica che l'aggiornamento sia previsto dal contratto di assistenza.</p>
+
+<h3>3. Non esporla su internet</h3>
+<p>La stampante deve essere raggiungibile solo dalla rete interna. Controlla che sul router non ci siano porte aperte verso di lei (le cosiddette regole di "port forwarding") e disattiva le funzioni di accesso remoto che non usi. Se ti serve stampare da fuori ufficio, meglio passare da una VPN o dal servizio cloud ufficiale del produttore.</p>
+
+<h3>4. Spegni i servizi che non usi</h3>
+<p>Le multifunzione arrivano con decine di protocolli attivi: FTP, Telnet, SNMP, stampa via web, Wi-Fi Direct. Ognuno è una porta in più. Lascia attivi solo quelli che servono davvero e, dove c'è la scelta, preferisci le versioni cifrate (HTTPS invece di HTTP, SNMPv3 invece delle versioni precedenti).</p>
+
+<h3>5. Usa un account dedicato per le scansioni</h3>
+<p>Per "scansiona su cartella" o "scansiona su email" non usare l'account del titolare o dell'amministratore di rete. Crea un utente apposito che possa solo <strong>scrivere in una cartella</strong> e inviare posta, senza altri permessi. Se le credenziali della stampante venissero rubate, il danno resterebbe limitato.</p>
+
+<h3>6. Proteggi le stampe riservate</h3>
+<p>Il foglio con i dati di un cliente dimenticato sul vassoio è una violazione di riservatezza a tutti gli effetti. Molti modelli offrono la <strong>stampa protetta</strong>: il documento esce solo quando la persona inserisce un PIN o avvicina il badge alla macchina. In uno studio con documenti sensibili è una delle misure più utili in assoluto.</p>
+
+<h3>7. Mettila in una rete separata, se puoi</h3>
+<p>Se il router o il firewall lo permettono, sposta stampanti e altri dispositivi "di servizio" in una rete separata da quella dei PC, con solo le comunicazioni necessarie. Ne ho parlato a proposito della <a href="https://www.roccoandrealigorio.it/?p=223">rete Wi-Fi dell'ufficio</a> e dei <a href="https://www.roccoandrealigorio.it/?p=282">dispositivi connessi</a>: è la stessa logica.</p>
+
+<h3>8. Cancella i dati prima di restituirla o smaltirla</h3>
+<p>Quando il noleggio scade o la macchina si rompe, sul disco possono restare copie di documenti e la rubrica. Il <a href="https://garanteprivacy.it/garante/doc.jsp?ID=1571514" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a>, nel provvedimento sui rifiuti elettronici, ricorda che chi dismette apparecchi con dati personali deve renderli illeggibili, anche affidandosi a tecnici o al produttore che <strong>certifichino la cancellazione</strong>. Prima di restituire la multifunzione usa la funzione di cancellazione sicura o di ripristino del disco, e chiedi al fornitore un'attestazione scritta.</p>
+
+<h2>Cosa chiedere al fornitore a noleggio</h2>
+<p>Nella maggior parte degli studi la multifunzione è a noleggio con assistenza inclusa. È un vantaggio, purché alcune cose siano messe nero su bianco. Alla prossima installazione o al rinnovo del contratto chiedi:</p>
+<ol>
+<li>che la password di amministrazione venga cambiata e consegnata a te;</li>
+<li>se e con quale frequenza viene aggiornato il firmware;</li>
+<li>se la macchina ha un disco interno e se è cifrato;</li>
+<li>quale procedura usano per cancellare i dati al ritiro e se rilasciano un attestato;</li>
+<li>quali accessi remoti usa il tecnico per l'assistenza e come sono protetti.</li>
+</ol>
+<p>Le risposte ti dicono molto sulla serietà del fornitore. E se gestisce dati personali per tuo conto, può valere la pena inserire queste garanzie negli accordi previsti dal GDPR.</p>
+
+<h2>Un controllo da fare una volta l'anno</h2>
+<p>Non serve un'ossessione: basta mettere in agenda un controllo annuale, magari insieme alla verifica dei backup. Accedi al pannello, controlla che la password non sia tornata quella di fabbrica dopo un intervento, che il firmware sia recente, che gli utenti e le cartelle di destinazione delle scansioni siano ancora quelli giusti. Dieci minuti che chiudono una porta spesso dimenticata.</p>
+<p>Se vuoi che verifichi la configurazione delle stampanti e della rete del tuo studio, trovi come lavoro nella pagina <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Una stampante può davvero essere attaccata?</h3>
+<p>Sì. È un dispositivo collegato alla rete con un proprio software, una propria interfaccia web e spesso credenziali salvate. Le vulnerabilità scoperte negli ultimi anni su centinaia di modelli lo confermano.</p>
+<h3>Come trovo l'indirizzo IP della stampante?</h3>
+<p>Di solito si vede dal menu "Rete" o "Informazioni" sul display, oppure stampando la pagina di configurazione. Basta poi digitarlo nel browser da un PC dell'ufficio.</p>
+<h3>Le stampanti piccole, senza disco, sono più sicure?</h3>
+<p>Conservano meno dati, ma la password di amministrazione, il firmware e i servizi di rete vanno curati allo stesso modo. Le regole valgono anche per loro.</p>

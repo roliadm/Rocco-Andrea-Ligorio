@@ -1,0 +1,62 @@
+<p>Se il tuo studio o la tua azienda ha un sito WordPress, un piccolo e-commerce o un'area clienti online, quasi certamente sotto c'è PHP, il linguaggio con cui funziona gran parte dei siti web. Il 20 ottobre il team che sviluppa PHP ha annunciato un aggiornamento d'emergenza per due <strong>vulnerabilità PHP</strong> classificate come critiche, i cui dettagli sono trapelati prima del previsto. Tradotto: per qualche giorno chi attacca potrebbe muoversi più in fretta di chi difende. In questo articolo ti spiego cosa è successo, come capire se il tuo sito è coinvolto e cosa chiedere al tuo hosting o a chi ti segue il sito, senza bisogno di essere un tecnico.</p>
+
+<h2>Vulnerabilità PHP: cosa è successo</h2>
+<p>Il 20 ottobre 2026 il sito ufficiale <a href="https://www.php.net/" target="_blank" rel="noopener">php.net</a> ha pubblicato un avviso: un rilascio di sicurezza straordinario, programmato per <strong>mercoledì 21 ottobre alle 14:00 UTC</strong> (le 16:00 in Italia), corregge due vulnerabilità con un punteggio di gravità di 9,2 su 10. Il team ha precisato che le versioni colpite e quelle corrette sarebbero state rese note solo insieme alle patch, e che il rilascio poteva essere anticipato se le falle fossero diventate pubbliche o sfruttate.</p>
+<p>Il motivo dell'urgenza è che le informazioni sono uscite prima del tempo. Secondo l'analisi di <a href="https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities" target="_blank" rel="noopener">Huntress</a>, il 20 ottobre in rete è comparso un annuncio della scoperta, poi rimosso, e un breve video dimostrativo dell'attacco, anch'esso cancellato. I ricercatori di watchTowr hanno confermato che le falle sono reali. Il nome con cui circolano è <strong>php2shell</strong>, e le sigle ufficiali sono CVE-2026-109618 e CVE-2026-109619.</p>
+
+<h3>Perché è grave</h3>
+<p>Le prime ricostruzioni parlano di <strong>esecuzione di codice da remoto</strong>: in pratica, la possibilità per un estraneo di far eseguire comandi al server che ospita il sito. Da lì si può inserire una <em>webshell</em> (una porta di servizio nascosta tra i file del sito), rubare i dati dei moduli di contatto o dei clienti, usare il sito per diffondere malware o truffe. Al momento in cui scrivo non sono stati segnalati attacchi reali, ma con dettagli già in circolazione è prudente considerare questa finestra molto breve.</p>
+
+<h3>Cosa non si sa ancora</h3>
+<p>Voglio essere chiaro su un punto: alla data dell'annuncio non era pubblica la causa tecnica e non era confermato se basti una normale visita al sito per sfruttare la falla o se serva una configurazione particolare. Alcune fonti ipotizzano che siano coinvolte versioni molto vecchie, fino a PHP 5. Sono ipotesi: le informazioni affidabili sono quelle pubblicate da php.net con il rilascio.</p>
+
+<h2>Il tuo sito è coinvolto?</h2>
+<p>PHP non lo installi tu: lo fornisce il servizio di hosting su cui gira il sito. Questo vale per <strong>WordPress</strong>, ma anche per Joomla, Drupal, PrestaShop, Magento e molti gestionali web. Quello che conta è la <strong>versione di PHP</strong> attiva. Ecco come scoprirla in pochi minuti:</p>
+<ol>
+<li><strong>Da WordPress.</strong> Entra nella bacheca, vai in <em>Strumenti → Salute del sito → Informazioni</em> e apri la sezione <em>Server</em>: trovi la voce "Versione di PHP".</li>
+<li><strong>Dal pannello dell'hosting.</strong> Quasi tutti i provider italiani mostrano la versione PHP del dominio nel pannello di controllo, spesso con un menu per cambiarla.</li>
+<li><strong>Chiedendo a chi gestisce il sito.</strong> Se te l'ha realizzato un'agenzia o un consulente, è una domanda da fare oggi stesso, per email, così resta traccia.</li>
+</ol>
+
+<h3>Le versioni ancora supportate</h3>
+<p>Secondo la pagina ufficiale delle <a href="https://www.php.net/supported-versions.php" target="_blank" rel="noopener">versioni supportate di PHP</a>, oggi ricevono correzioni di sicurezza solo i rami <strong>8.2, 8.3, 8.4 e 8.5</strong>. Prima dell'avviso le ultime versioni pubblicate erano 8.5.11, 8.4.26, 8.3.35 e 8.2.34: dopo il rilascio del 21 ottobre dovrai trovare una versione più recente di queste. Le versioni 8.1, 8.0, 7.x e 5.x sono fuori supporto: <strong>non riceveranno alcuna correzione</strong>, e chi le usa resta esposto.</p>
+<p>Attenzione anche a PHP 8.2: il supporto di sicurezza termina il <strong>31 dicembre 2026</strong>. Se il tuo sito usa ancora quella versione, conviene approfittare di questo momento per pianificare il passaggio. WordPress stesso, nella pagina dei <a href="https://wordpress.org/about/requirements/" target="_blank" rel="noopener">requisiti ufficiali</a>, raccomanda PHP 8.3 o superiore.</p>
+
+<h2>Cosa fare subito, passo per passo</h2>
+<p>Non serve farsi prendere dal panico, serve ordine. Questa è la sequenza che consiglio a studi e PMI:</p>
+<ol>
+<li><strong>Fai un backup completo del sito</strong>, file e database, prima di toccare qualsiasi cosa. Molti hosting lo offrono con un clic; altrimenti c'è un plugin dedicato. Se vuoi impostare una strategia seria, ho spiegato la <a href="https://www.roccoandrealigorio.it/?p=211">regola del backup 3-2-1</a>.</li>
+<li><strong>Verifica la versione di PHP</strong> con uno dei metodi visti sopra e annotala.</li>
+<li><strong>Controlla le comunicazioni del tuo hosting.</strong> Nei servizi condivisi (hosting "shared") è il provider ad aggiornare PHP sui server: verifica sul sito di stato o scrivi all'assistenza chiedendo se e quando applicheranno le patch del 21 ottobre.</li>
+<li><strong>Se usi una versione fuori supporto, passa a una supportata.</strong> Dal pannello dell'hosting di solito si cambia da un menu. Prima, però, aggiorna WordPress, il tema e i plugin: quelli vecchi possono smettere di funzionare con un PHP nuovo.</li>
+<li><strong>Prova il sito dopo il cambio</strong>: pagine principali, moduli di contatto, carrello, area riservata. Se qualcosa si rompe, puoi tornare alla versione precedente mentre si risolve il problema, ma per poco tempo.</li>
+<li><strong>Se hai un server dedicato o una VPS</strong>, cioè un server virtuale tutto tuo, l'aggiornamento è responsabilità di chi lo amministra: installa le patch appena il tuo sistema operativo (Debian, Ubuntu, Red Hat e simili) le rende disponibili.</li>
+</ol>
+
+<h3>Se la versione non si può aggiornare</h3>
+<p>Capita con siti datati o gestionali web personalizzati, scritti anni fa per una versione di PHP ormai superata. In quel caso le opzioni sono due: aggiornare il codice dell'applicazione oppure, nell'attesa, ridurne l'esposizione, per esempio rendendola raggiungibile solo dalla rete dell'ufficio o tramite VPN (una connessione cifrata riservata a chi è autorizzato). Lasciare su internet un'applicazione con PHP fuori supporto, dopo un avviso come questo, è un rischio che sconsiglio.</p>
+
+<h2>Come accorgersi se qualcosa è andato storto</h2>
+<p>Huntress suggerisce di osservare segnali precisi, che per un sito di piccole dimensioni si traducono così:</p>
+<ul>
+<li><strong>file nuovi o modificati</strong> nella cartella del sito che nessuno ha caricato;</li>
+<li><strong>utenti amministratori</strong> sconosciuti in WordPress;</li>
+<li>attività pianificate (<em>cron</em>) aggiunte senza motivo;</li>
+<li>avvisi dell'hosting su consumo anomalo di risorse o invio massivo di email;</li>
+<li>visitatori reindirizzati verso siti di pubblicità, scommesse o finti premi.</li>
+</ul>
+<p>Se noti uno di questi segnali, non limitarti a cancellare il file sospetto. Isola il sito (molti hosting permettono di sospenderlo), conserva i log, cambia le password di amministrazione, FTP e database e fai analizzare la situazione. Se dal sito passano dati personali di clienti, valuta con il tuo consulente se si tratta di una violazione da notificare: ne ho parlato nell'articolo su <a href="https://www.roccoandrealigorio.it/?p=276">cosa fare nelle prime 72 ore di un data breach</a>.</p>
+
+<h2>La lezione per il sito aziendale</h2>
+<p>Episodi come questo mostrano che un sito non è un volantino stampato una volta per tutte: è un software che gira su un server e va mantenuto. Vedo spesso siti realizzati con cura e poi lasciati soli per anni, con PHP vecchio, plugin abbandonati e nessuno che sappia rispondere alla domanda "chi lo aggiorna?". Il mio consiglio è scrivere, anche in mezza pagina, <strong>chi è responsabile</strong> di hosting, aggiornamenti e backup, e controllare almeno una volta l'anno che la versione di PHP sia ancora supportata. Ho raccolto un metodo semplice nel <a href="https://www.roccoandrealigorio.it/?p=280">piano pratico per gli aggiornamenti software</a>.</p>
+<p>Se vuoi che verifichi il tuo sito, la versione di PHP e la compatibilità dei plugin prima dell'aggiornamento, trovi come lavoro nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Il mio sito è su un hosting condiviso: devo fare qualcosa io?</h3>
+<p>Le patch di PHP le installa il provider, ma la scelta della versione spesso è tua. Controlla di non essere su una versione fuori supporto, perché quella non verrà corretta in nessun caso.</p>
+<h3>Basta aggiornare i plugin di WordPress?</h3>
+<p>No. Plugin e tema vanno aggiornati comunque, ma questa falla riguarda PHP, cioè il motore sotto WordPress. Servono entrambe le cose.</p>
+<h3>Cambiare versione di PHP può rompere il sito?</h3>
+<p>Può succedere con plugin o temi molto vecchi. Per questo prima si fa il backup, poi si aggiornano WordPress e i plugin, e solo dopo si cambia versione, controllando le pagine principali.</p>
+<h3>Ho un sito statico, senza WordPress: sono coinvolto?</h3>
+<p>Se il sito è fatto solo di pagine HTML senza PHP, questa falla non lo riguarda. Nel dubbio chiedi al tuo hosting: a volte PHP è attivo anche se il sito non lo usa.</p>
