@@ -1,0 +1,67 @@
+<p>Immagina una segretaria che apre un sito per scaricare un modulo. Compare una finestra che sembra il classico controllo "Non sono un robot", ma invece della casella da spuntare ci sono tre istruzioni: premi due tasti, incolla, premi Invio. Lei esegue, il modulo non arriva e nessuno ci pensa più. Nel frattempo sul PC è partito un programma che sta copiando le password salvate nel browser. Si chiama <strong>ClickFix</strong> ed è una delle truffe più diffuse degli ultimi mesi. In questo articolo ti spiego come funziona, cosa cambia con il nuovo avviso che Google ha aggiunto a Chrome e quali difese puoi mettere in pratica in studio o in azienda da subito.</p>
+
+<h2>Cos'è ClickFix e perché funziona così bene</h2>
+<p>ClickFix è una tecnica di <strong>ingegneria sociale</strong>, cioè di manipolazione: invece di forzare una porta, convince la persona ad aprirla da sola. La pagina truffa mostra un finto problema da "sistemare" (da qui il nome) e, quando l'utente clicca un pulsante, copia di nascosto un comando negli appunti di Windows. Poi chiede di:</p>
+<ol>
+<li>premere i tasti <strong>Windows + R</strong>, che aprono la finestra "Esegui";</li>
+<li>incollare con <strong>Ctrl + V</strong>;</li>
+<li>premere <strong>Invio</strong>.</li>
+</ol>
+<p>Quel comando di solito avvia PowerShell o altri strumenti già presenti in Windows, che scaricano ed eseguono il malware. Il punto è proprio questo: siccome è la persona stessa a lanciare il comando, molte protezioni automatiche non intervengono. Secondo l'analisi pubblicata da <a href="https://www.microsoft.com/en-us/security/blog/2025/08/21/think-before-you-clickfix-analyzing-the-clickfix-social-engineering-technique/" target="_blank" rel="noopener">Microsoft Threat Intelligence</a>, queste campagne colpiscono ogni giorno migliaia di dispositivi in tutto il mondo e all'inizio del 2025 i suoi analisti vedevano migliaia di computer coinvolti ogni mese, anche dove era installato un antivirus aziendale avanzato.</p>
+
+<h3>Le esche più comuni</h3>
+<p>Le varianti cambiano di continuo, ma quelle che vedo citate più spesso sono:</p>
+<ul>
+<li><strong>Finti CAPTCHA</strong> o finte verifiche "sei umano?", spesso imitazioni della schermata di Cloudflare;</li>
+<li><strong>Finti messaggi di errore</strong>: il browser che "si è bloccato", un documento Word che "non si apre" o un'estensione "mancante";</li>
+<li><strong>Email di phishing</strong> a tema fatture, pagamenti o comunicazioni di enti pubblici, con un link alla pagina truffa;</li>
+<li><strong>Siti legittimi compromessi</strong>: a maggio 2026 <a href="https://www.malwarebytes.com/it/blog/bugs/2026/05/700-education-and-tech-websites-hijacked-in-huge-clickfix-malware-campaign" target="_blank" rel="noopener">Malwarebytes</a> ha descritto oltre 700 siti, tra cui pagine di università e aziende tecnologiche, modificati per mostrare ai visitatori una finta verifica ClickFix.</li>
+</ul>
+<p>Quest'ultimo punto è importante: non basta "stare lontani dai siti strani". La trappola può comparire anche su un sito che conosci e che usi da anni.</p>
+
+<h3>Cosa succede dopo il clic</h3>
+<p>Sempre secondo Microsoft, il malware più installato in questo modo è un <strong>infostealer</strong>, cioè un programma che ruba informazioni: password salvate nel browser, sessioni già aperte di posta e home banking, file. In altri casi arrivano programmi di <strong>controllo remoto</strong> che danno all'attaccante accesso al PC. Esiste anche una variante per Mac, che chiede di incollare il comando nel Terminale e poi domanda la password del computer. Per uno studio professionale il danno tipico è il furto delle credenziali della posta o del gestionale, che apre la strada a truffe come quella del <a href="https://www.roccoandrealigorio.it/?p=294">cambio IBAN</a>.</p>
+
+<h2>Il nuovo avviso ClickFix di Chrome</h2>
+<p>Il 20 ottobre 2026 Google ha annunciato sul suo <a href="https://blog.google/security/our-latest-defenses-against-evolving-web-scams/" target="_blank" rel="noopener">blog ufficiale</a> nuove difese contro le truffe online in Chrome. Quella che ci interessa funziona così: quando Chrome si accorge che hai copiato un comando sospetto, rimuove dal testo copiato i dati personali e lo invia al servizio Navigazione sicura di Google per analizzarlo. Se il verdetto è "pericoloso", <strong>mostra un avviso</strong> prima che tu possa procedere. Google precisa che il sistema è pensato per dare pochi falsi allarmi, così da non disturbare chi incolla comandi per lavoro.</p>
+<p>Nello stesso annuncio Google ha introdotto un nuovo avviso per i siti "sospetti", meno grave della classica pagina rossa, e ha esteso il controllo delle pagine truffa tramite il suo modello di intelligenza artificiale Gemini, che ora gira sui server di Google. Secondo l'azienda il testo delle pagine viene analizzato solo quando ci sono forti indizi di truffa e non viene conservato.</p>
+
+<h3>Il limite: serve la Protezione avanzata</h3>
+<p>C'è un dettaglio che fa la differenza: queste novità valgono solo per chi ha attivato la <strong>Protezione avanzata</strong> di Navigazione sicura, non per l'impostazione standard che hanno quasi tutti i PC. Google sostiene che chi usa la Protezione avanzata è "dieci volte più al sicuro" da phishing e truffe rispetto alla protezione standard. In cambio, Chrome invia a Google più informazioni sulle pagine visitate per verificarle: è un compromesso da valutare, ma per i PC di un ufficio io lo considero ragionevole.</p>
+<p>Per attivarla su ogni postazione: apri Chrome, vai su <strong>Impostazioni → Privacy e sicurezza → Sicurezza</strong> e scegli <strong>Protezione avanzata</strong>. Nei contesti aziendali gestiti la stessa impostazione si può imporre centralmente su tutti i PC.</p>
+
+<h2>Come difendersi da ClickFix in studio e in azienda</h2>
+<p>L'avviso di Chrome è un aiuto, non una soluzione: copre un solo browser e solo con una certa impostazione. Ecco le difese che consiglio, dalla più semplice alla più tecnica.</p>
+
+<h3>1. Una regola da spiegare a tutti</h3>
+<p>È la difesa più efficace e costa zero: <strong>nessun sito, nessuna email e nessun CAPTCHA legittimo ti chiede mai di premere Windows + R, incollare qualcosa e premere Invio</strong>. Se succede, è una truffa. Chiudi la pagina e avvisa chi si occupa dell'informatica. Vale lo stesso per un finto tecnico al telefono che ti detta un comando: ne ho parlato nell'articolo sul <a href="https://www.roccoandrealigorio.it/?p=256">falso tecnico informatico</a>.</p>
+
+<h3>2. Se qualcuno ha già eseguito il comando</h3>
+<ul>
+<li><strong>Scollega subito il PC dalla rete</strong> (cavo e Wi-Fi), senza spegnerlo se possibile.</li>
+<li>Da un altro dispositivo pulito, <strong>cambia le password</strong> della posta, del gestionale e dei servizi bancari usati su quel PC, e chiudi le sessioni attive.</li>
+<li>Fai controllare il computer prima di rimetterlo in rete: con un infostealer non basta "togliere il virus", bisogna capire cosa è stato rubato.</li>
+<li>Se sono stati esposti dati di clienti, valuta gli obblighi di notifica: trovi i passi nella guida sul <a href="https://www.roccoandrealigorio.it/?p=276">data breach nelle prime 72 ore</a>.</li>
+</ul>
+
+<h3>3. Accorgimenti tecnici</h3>
+<p>Microsoft, nella stessa analisi, suggerisce alcune misure che un tecnico può applicare anche in una piccola realtà:</p>
+<ul>
+<li><strong>Disattivare la finestra "Esegui"</strong> con i criteri di gruppo sui PC di chi non ne ha bisogno: è proprio la porta usata da ClickFix.</li>
+<li>Limitare l'uso di <strong>PowerShell</strong> agli utenti che servono e attivarne la registrazione, così da poter ricostruire cosa è successo.</li>
+<li>Tenere attive le protezioni web di <strong>Microsoft Defender</strong> e SmartScreen.</li>
+<li>Usare utenti <strong>senza privilegi di amministratore</strong> per il lavoro quotidiano.</li>
+<li>Tenere aggiornati browser e sistema: ti lascio il mio <a href="https://www.roccoandrealigorio.it/?p=280">piano pratico per gli aggiornamenti</a>.</li>
+</ul>
+<p>Infine, riduci il danno nel caso peggiore: un <a href="https://www.roccoandrealigorio.it/?p=241">password manager</a> al posto delle password salvate nel browser e l'<a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a> sugli account importanti rendono molto meno utili le credenziali rubate.</p>
+<p>Se vuoi che verifichi le impostazioni dei PC del tuo ufficio o che prepari una breve sessione di formazione per i colleghi, trovi come posso aiutarti nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Uso Edge o Firefox: l'avviso di Chrome mi protegge?</h3>
+<p>No, la novità annunciata da Google riguarda solo Chrome con la Protezione avanzata attiva. Con altri browser valgono le altre difese: la regola "mai incollare comandi" e le protezioni di Windows.</p>
+<h3>Un antivirus aggiornato non basta?</h3>
+<p>Aiuta, ma non sempre ferma ClickFix, perché il comando lo avvia l'utente con strumenti legittimi di Windows. Microsoft ha osservato infezioni anche su PC con protezioni aziendali avanzate.</p>
+<h3>La Protezione avanzata rallenta il computer o il lavoro?</h3>
+<p>In genere no: i controlli avvengono in background. Il compromesso riguarda la privacy: Chrome invia a Google più informazioni sui siti visitati per controllarli in tempo reale.</p>
+<h3>Anche il Mac è a rischio?</h3>
+<p>Sì. Esistono varianti che chiedono di incollare un comando nel Terminale e poi la password del Mac. La regola è la stessa: nessun sito serio te lo chiede.</p>

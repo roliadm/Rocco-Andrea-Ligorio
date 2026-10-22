@@ -1,0 +1,13 @@
+{
+  "titolo": "ClickFix: la truffa del copia e incolla e il nuovo avviso di Chrome",
+  "slug": "clickfix-truffa-copia-incolla-chrome",
+  "estratto": "ClickFix ti convince a incollare un comando che installa un malware. Come riconoscerla, il nuovo avviso di Chrome e le difese per studi e PMI.",
+  "categorie": ["Informatica"],
+  "tag": ["Phishing", "Sicurezza informatica", "Truffe online", "Malware"],
+  "seo": {
+    "titolo": "ClickFix: come riconoscere la truffa del copia e incolla",
+    "descrizione": "ClickFix ti fa incollare un comando che ruba le password. Come riconoscerla, cosa fa il nuovo avviso di Chrome e come proteggere l'ufficio.",
+    "keyword": "ClickFix"
+  },
+  "stato": "draft"
+}
