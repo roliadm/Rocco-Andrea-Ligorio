@@ -16,5 +16,8 @@
     "descrizione": "Exchange Web Services disattivato in Microsoft 365: perché le app di posta si bloccano, come riattivarle e cosa fare entro aprile 2027.",
     "keyword": "Exchange Web Services"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Exchange Web Services spento: cosa fare se le app non funzionano",
+  "id": 304
 }
