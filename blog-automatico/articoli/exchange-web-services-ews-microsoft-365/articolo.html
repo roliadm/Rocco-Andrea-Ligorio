@@ -1,0 +1,65 @@
+<p>Da qualche settimana ricevo chiamate simili: "il gestionale non invia più le email", "il Mac continua a chiedermi la password della posta", "il componente aggiuntivo di Outlook è sparito". Spesso la causa è la stessa: dal 1° ottobre 2026 Microsoft ha iniziato a spegnere <strong>Exchange Web Services</strong> (EWS) in Microsoft 365. In questo articolo ti spiego cos'è EWS, quali programmi possono essersi bloccati, come rimetterli in funzione subito e, soprattutto, cosa fare prima di aprile 2027, quando lo spegnimento sarà definitivo e non ci saranno più rimedi temporanei.</p>
+
+<h2>Cos'è Exchange Web Services e perché Microsoft lo spegne</h2>
+<p>EWS è un'<strong>API</strong>, cioè un "canale" che permette a un programma di leggere e scrivere dentro una casella di posta Exchange: email, appuntamenti, contatti. Per anni l'hanno usato tantissimi software: componenti aggiuntivi di Outlook, gestionali che inviano fatture o solleciti, CRM che sincronizzano il calendario, programmi di archiviazione, app di posta come Mail e Calendario del Mac configurate come account Exchange.</p>
+<p>Microsoft aveva smesso di aggiornare EWS già nel 2018 e nel 2023 aveva fissato la disattivazione per ottobre 2026. Dopo l'attacco del gruppo Midnight Blizzard ai sistemi di Microsoft, all'inizio del 2024, la scelta è diventata anche una questione di sicurezza: un canale vecchio e molto potente sulle caselle di posta è un bersaglio appetibile. Il sostituto indicato è <strong>Microsoft Graph</strong>, l'interfaccia moderna di Microsoft 365, che secondo la <a href="https://learn.microsoft.com/exchange/clients-and-mobile-in-exchange-online/deprecation-of-ews-exchange-online" target="_blank" rel="noopener">documentazione ufficiale Microsoft</a> copre ormai quasi tutti gli scenari.</p>
+
+<h3>Le date da segnare</h3>
+<ul>
+<li><strong>1° ottobre 2026</strong>: inizia la disattivazione graduale di EWS in tutte le organizzazioni Microsoft 365. Se l'amministratore non ha fatto nulla, EWS viene bloccato.</li>
+<li><strong>Fino a marzo 2027</strong>: l'amministratore può ancora riattivarlo, come soluzione d'emergenza.</li>
+<li><strong>1° aprile 2027</strong>: EWS viene rimosso del tutto da Exchange Online e non si potrà più riattivare.</li>
+</ul>
+<p>Attenzione: la dismissione riguarda solo <strong>Microsoft 365 / Exchange Online</strong>. Chi ha ancora un server Exchange installato in sede non è toccato da questo cambiamento, almeno per ora.</p>
+
+<h2>I sintomi: come capire se il problema è EWS</h2>
+<p>Secondo quanto riportato da <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-shares-how-to-fix-broken-exchange-online-ews-apps/" target="_blank" rel="noopener">BleepingComputer</a>, che ha ripreso le indicazioni pubblicate da Microsoft il 22 ottobre, quando EWS è disattivato le app interessate mostrano errori del tipo "protocollo EWS non disponibile" oppure chiedono di continuo nome utente e password, anche se sono corretti. Nella pratica, i casi che vedo più spesso sono:</p>
+<ul>
+<li>un <strong>gestionale o un CRM</strong> che non invia più email o non sincronizza gli appuntamenti;</li>
+<li><strong>Mail e Calendario del Mac</strong> configurati con un account Exchange che non scaricano più nulla;</li>
+<li>un <strong>componente aggiuntivo di Outlook</strong> (firma digitale, archiviazione, protocollo) che smette di funzionare;</li>
+<li>versioni molto vecchie di <strong>Outlook per Windows</strong>;</li>
+<li>report o fogli di calcolo che prendono dati dalla posta, come il connettore Exchange di Power Query in Excel, che Microsoft stessa indica tra i componenti in fase di modifica.</li>
+</ul>
+<p>Se il problema è comparso all'improvviso nelle prime settimane di ottobre e riguarda solo programmi che "parlano" con la posta di Microsoft 365, EWS è il primo sospettato.</p>
+
+<h2>Come rimettere in funzione le app subito</h2>
+<p>La soluzione rapida va fatta da chi amministra il vostro Microsoft 365 (il tecnico, il fornitore o la persona dello studio con i permessi di amministratore). Microsoft indica due strade equivalenti.</p>
+<h3>Dall'interfaccia di amministrazione</h3>
+<ol>
+<li>Entra nell'<strong>interfaccia di amministrazione di Microsoft 365</strong>.</li>
+<li>Apri la pagina della <strong>modalità di sicurezza di base</strong> (Baseline Security Mode).</li>
+<li>Togli la spunta all'opzione che blocca EWS per tutta l'organizzazione.</li>
+</ol>
+<h3>Da PowerShell</h3>
+<p>Per chi è abituato alla riga di comando, in Exchange Online PowerShell basta il comando <code>Set-OrganizationConfig -EWSEnabled $true</code>. Microsoft segnala che la modifica può richiedere fino a <strong>4 ore</strong> per diventare effettiva, quindi non preoccuparti se non vedi subito il risultato.</p>
+<p>Un consiglio: non riattivare EWS "per tutti e per sempre" senza sapere chi lo usa. Microsoft prevede anche un <strong>elenco di app autorizzate</strong> (allow list), con cui lasciare aperto EWS solo ai programmi che ne hanno davvero bisogno. È la scelta più prudente: meno porte aperte, meno rischi.</p>
+
+<h2>Il vero lavoro: prepararsi ad aprile 2027</h2>
+<p>La riattivazione è un cerotto con la data di scadenza stampata sopra. Dal 1° aprile 2027 i programmi che usano ancora EWS smetteranno di funzionare e non ci sarà nessuna opzione da spuntare. Ecco come mi muoverei in uno studio o in una PMI.</p>
+<h3>1. Fai l'inventario</h3>
+<p>Nell'interfaccia di amministrazione di Microsoft 365 c'è un <strong>report sull'uso di EWS</strong> che mostra quali applicazioni lo stanno ancora usando. È il punto di partenza consigliato da Microsoft. Affiancalo a una semplice domanda in ufficio: "quali programmi leggono o inviano la posta al posto nostro?". Spesso salta fuori qualcosa di dimenticato, come uno script installato anni fa da un vecchio fornitore.</p>
+<h3>2. Contatta i fornitori</h3>
+<p>Per i software acquistati (gestionale, CRM, archiviazione, firma) chiedi per iscritto al produttore se la versione che usi è già passata a Microsoft Graph e, se no, entro quando lo sarà. Se la risposta è vaga, consideralo un segnale da non ignorare: aprile 2027 è dietro l'angolo e le migrazioni richiedono tempo.</p>
+<h3>3. Aggiorna o sostituisci</h3>
+<ul>
+<li><strong>Outlook e Office</strong>: tienili aggiornati; Microsoft sta togliendo EWS dai propri prodotti.</li>
+<li><strong>Mac</strong>: se Mail e Calendario non funzionano più con l'account aziendale, valuta di usare Outlook per Mac aggiornato.</li>
+<li><strong>App poco usate</strong>: se un programma non viene più aggiornato da anni, è il momento di sostituirlo.</li>
+</ul>
+<h3>4. Software su misura: va adeguato il codice</h3>
+<p>Se avete un programma sviluppato apposta per voi che legge o invia posta tramite EWS, il codice va riscritto per usare Microsoft Graph. Non è un lavoro enorme, ma va pianificato e testato. È anche l'occasione per verificare <a href="https://www.roccoandrealigorio.it/?p=288">chi possiede il codice sorgente</a> e chi può metterci mano. Quando collegate app esterne a Microsoft 365, tenete presente anche le regole di sicurezza di cui ho parlato nell'articolo sulle <a href="https://www.roccoandrealigorio.it/?p=292">app di terze parti in Microsoft 365</a>: ogni app collegata deve avere solo i permessi che le servono.</p>
+
+<h2>Exchange Web Services: un esempio di debito tecnico</h2>
+<p>Il caso EWS è un buon promemoria di una regola generale: <strong>ogni programma che usate dipende da qualcos'altro</strong>, e quel qualcos'altro prima o poi cambia. Le organizzazioni che hanno sofferto meno sono quelle che sapevano quali software usavano, chi li manteneva e come erano collegati alla posta. Tenere un elenco aggiornato delle applicazioni e dei loro fornitori costa poco e risparmia giornate di fermo.</p>
+<p>Se vuoi una mano a capire quali programmi del tuo ufficio dipendono ancora da EWS o ad adeguare un software su misura, trovi qui i miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Riattivare EWS è pericoloso?</h3>
+<p>Non è un rischio immediato, ma lascia aperto un canale che Microsoft considera superato. Meglio riattivarlo solo per le app che ne hanno bisogno, tramite l'elenco di app autorizzate, e solo per il tempo necessario a migrare.</p>
+<h3>Uso Outlook aggiornato e la posta funziona: devo fare qualcosa?</h3>
+<p>Probabilmente no per Outlook, ma controlla il report sull'uso di EWS: potrebbero esserci altri programmi, come il gestionale o un componente aggiuntivo, che lo usano in silenzio.</p>
+<h3>Il problema riguarda anche Gmail o altri provider?</h3>
+<p>No. EWS è una tecnologia di Microsoft Exchange: la dismissione riguarda solo le caselle su Microsoft 365 / Exchange Online.</p>
+<h3>Cosa succede dopo il 1° aprile 2027?</h3>
+<p>EWS sarà rimosso definitivamente da Exchange Online: le app che lo usano ancora smetteranno di funzionare e non sarà più possibile riattivarlo.</p>
