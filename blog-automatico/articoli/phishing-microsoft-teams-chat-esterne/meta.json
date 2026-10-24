@@ -2,12 +2,23 @@
   "titolo": "Phishing su Teams: come proteggere le chat con l'esterno",
   "slug": "phishing-microsoft-teams-chat-esterne",
   "estratto": "Phishing su Teams: i truffatori scrivono in chat fingendosi tecnici o fornitori. Le impostazioni da sistemare e le regole da dare a tutto l'ufficio.",
-  "categorie": ["Informatica"],
-  "tag": ["Phishing", "Microsoft 365", "Sicurezza informatica", "Assistenza remota", "Autenticazione a due fattori"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Phishing",
+    "Microsoft 365",
+    "Sicurezza informatica",
+    "Assistenza remota",
+    "Autenticazione a due fattori"
+  ],
   "seo": {
     "titolo": "Phishing su Teams: come difendere lo studio dalle chat false",
     "descrizione": "Phishing su Teams: come funziona la truffa del falso help desk, la novità di Microsoft e le impostazioni da attivare subito in studio e in azienda.",
     "keyword": "phishing su Teams"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Phishing su Teams: come proteggere le chat con l'esterno",
+  "id": 308
 }

@@ -2,12 +2,23 @@
   "titolo": "Windows Server 2016 fuori supporto a gennaio: cosa fare ora",
   "slug": "windows-server-2016-fine-supporto",
   "estratto": "Windows Server 2016 fine supporto il 12 gennaio 2027: niente più patch. Come capire se il server dello studio è coinvolto e quale strada scegliere.",
-  "categorie": ["Informatica"],
-  "tag": ["Aggiornamenti di sicurezza", "Sicurezza informatica", "Windows Server", "Backup", "Ransomware"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Aggiornamenti di sicurezza",
+    "Sicurezza informatica",
+    "Windows Server",
+    "Backup",
+    "Ransomware"
+  ],
   "seo": {
     "titolo": "Windows Server 2016 fine supporto: cosa fare entro gennaio",
     "descrizione": "Windows Server 2016 fine supporto il 12 gennaio 2027: niente più patch di sicurezza. Verifica il server dello studio e scegli come aggiornarlo.",
     "keyword": "windows server 2016 fine supporto"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Windows Server 2016 fuori supporto a gennaio: cosa fare ora",
+  "id": 310
 }
