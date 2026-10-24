@@ -1,0 +1,61 @@
+<p>In tanti studi e piccole aziende c'è un server in uno sgabuzzino che "va da anni e nessuno lo tocca": tiene le cartelle condivise, il gestionale, magari la posta o gli utenti di rete. Molto spesso su quella macchina gira <strong>Windows Server 2016</strong>. Il 23 ottobre Microsoft ha ricordato la data: <strong>Windows Server 2016 fine supporto il 12 gennaio 2027</strong>, con l'ultimo aggiornamento di sicurezza in quella stessa giornata. Mancano meno di tre mesi, e a cavallo ci sono le feste. In questo articolo ti spiego cosa cambia davvero, come capire se il tuo server è coinvolto e quali strade hai, dalla più economica alla più comoda, per arrivare a gennaio senza sorprese.</p>
+
+<h2>Windows Server 2016 fine supporto: cosa succede il 12 gennaio 2027</h2>
+<p>Come riportato da <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2016-reaches-end-of-support-in-january/" target="_blank" rel="noopener">BleepingComputer</a>, che cita il Message Center di Microsoft, l'aggiornamento di sicurezza di gennaio 2027 sarà <strong>l'ultimo disponibile</strong> per questa versione. Dopo quella data il server continua ad accendersi e a funzionare, ma:</p>
+<ul>
+<li>non riceve più le <strong>patch mensili</strong>, cioè le correzioni alle falle di sicurezza scoperte da lì in avanti;</li>
+<li>la scadenza vale per <strong>tutte le edizioni</strong>: Standard, Datacenter, Essentials e MultiPoint Premium;</li>
+<li>nello stesso giorno termina anche il supporto alle funzioni tipiche di <strong>Windows Server 2016 Essentials</strong>, compreso l'<strong>Accesso Web remoto</strong> (Remote Web Access) che molti piccoli uffici usano per raggiungere i file da casa.</li>
+</ul>
+<p>Il "supporto esteso" è già l'ultima fase: quello principale, con le novità e le correzioni non di sicurezza, era finito a gennaio 2022. Dal 13 gennaio, quindi, ogni nuova vulnerabilità resterà aperta per sempre.</p>
+
+<h2>Perché un server senza aggiornamenti è un rischio serio</h2>
+<p>Vedo spesso pensare: "Tanto il server non naviga su Internet". Purtroppo non basta. Il server è il punto in cui finiscono <strong>tutti i dati dello studio</strong> e a cui sono collegati tutti i PC. Se un ransomware entra da una email aperta su un computer qualsiasi, la prima cosa che cerca è proprio il server, per cifrare le cartelle condivise e, se può, i backup.</p>
+<p>Un sistema senza patch è la porta più facile: gli attaccanti usano falle note da tempo proprio perché sanno che molte macchine non vengono aggiornate. In più c'è un aspetto normativo: il <strong>GDPR</strong> chiede misure di sicurezza adeguate, e un sistema fuori supporto che custodisce dati di clienti è difficile da giustificare dopo un incidente. Per chi rientra nella NIS2 il tema è ancora più diretto, ne ho parlato nell'articolo sulla <a href="https://www.roccoandrealigorio.it/?p=221">scadenza NIS2 del 31 ottobre</a>.</p>
+
+<h2>Come capire se il tuo server è coinvolto</h2>
+<p>Bastano due minuti, anche senza essere tecnici:</p>
+<ol>
+<li>accedi al server (o chiedi a chi lo gestisce) e premi <strong>Windows + R</strong>, scrivi <strong>winver</strong> e premi Invio;</li>
+<li>se la finestra riporta "Windows Server 2016" o la versione <strong>1607</strong>, il server è tra quelli che perdono il supporto;</li>
+<li>controlla anche le <strong>macchine virtuali</strong>: spesso un server "nuovo" ospita al suo interno un vecchio Windows Server 2016 con il gestionale.</li>
+</ol>
+<p>Già che ci sei, fai un elenco di cosa gira su quel server: condivisione file, gestionale, database, stampanti, accesso remoto, antivirus centralizzato. Ti servirà per scegliere la strada giusta.</p>
+
+<h3>Occhio a SQL Server 2016</h3>
+<p>Molti gestionali usano un database <strong>SQL Server</strong> installato sullo stesso server. La versione 2016 è già <a href="https://www.microsoft.com/en-us/sql-server/blog/2026/07/14/sql-server-2016-end-of-support-is-here-plan-your-next-steps/" target="_blank" rel="noopener">uscita dal supporto il 14 luglio 2026</a>. Se è il tuo caso, conviene pianificare i due aggiornamenti insieme, coinvolgendo il fornitore del gestionale per sapere quali versioni supporta.</p>
+
+<h2>Le strade possibili prima di gennaio</h2>
+<p>Non esiste una risposta valida per tutti. Queste sono le opzioni che propongo di solito, in ordine di frequenza.</p>
+
+<h3>1. Passare a Windows Server 2025</h3>
+<p>È la strada che Microsoft consiglia. <strong>Windows Server 2025</strong> è disponibile da novembre 2024 e, secondo la <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025" target="_blank" rel="noopener">pagina del ciclo di vita</a>, riceverà aggiornamenti di sicurezza fino al <strong>14 novembre 2034</strong>. Microsoft offre una versione di prova gratuita di 180 giorni, utile per verificare prima che il gestionale funzioni. Se l'hardware ha otto o nove anni, quasi sempre conviene comprare un server nuovo e migrare lì i servizi, invece di aggiornare la vecchia macchina: il disco e l'alimentatore di un server così datato sono un rischio a parte.</p>
+
+<h3>2. Valutare se il server serve ancora</h3>
+<p>A volte il server fa poco: qualche cartella condivisa e gli utenti di rete. In questi casi può avere senso spostare i file su <strong>SharePoint e OneDrive</strong> di Microsoft 365 o su un <strong>NAS</strong> ben configurato, ed eliminare il server. Attenzione però: anche nel cloud servono un backup separato e regole di accesso chiare. Ne parlo negli articoli sul <a href="https://www.roccoandrealigorio.it/?p=274">backup di Microsoft 365</a> e sulla <a href="https://www.roccoandrealigorio.it/?p=268">sicurezza del NAS</a>.</p>
+
+<h3>3. Comprare tempo con gli aggiornamenti estesi (ESU)</h3>
+<p>Microsoft offre gli <strong>Extended Security Updates</strong>, aggiornamenti di sicurezza a pagamento per un massimo di tre anni. Secondo la <a href="https://learn.microsoft.com/en-us/azure/azure-arc/servers/prepare-extended-security-updates" target="_blank" rel="noopener">documentazione ufficiale</a>, per i server in ufficio si attivano tramite <strong>Azure Arc</strong> (un servizio che collega il server al cloud Microsoft), solo per le edizioni Standard e Datacenter e in genere con licenze a volume coperte da <strong>Software Assurance</strong>. La fatturazione parte dal 13 gennaio 2027. Per molti piccoli uffici, con una licenza OEM comprata insieme al server, questa strada non è percorribile o non conviene: va verificata caso per caso con il rivenditore. Ricorda che gli ESU coprono solo le falle critiche e importanti: sono un ponte, non una soluzione.</p>
+
+<h3>4. Lasciare tutto com'è</h3>
+<p>Lo cito perché è la scelta che vedo più spesso, di solito per inerzia. Se proprio il passaggio slitta di qualche settimana, almeno isola il server: nessun accesso diretto da Internet, accesso remoto solo tramite <strong>VPN con doppia autenticazione</strong>, backup giornaliero su un supporto scollegato e verifica che il ripristino funzioni.</p>
+
+<h2>Un calendario realistico per arrivare pronti</h2>
+<p>Con le feste di mezzo, i tempi si accorciano. Ecco come organizzerei le prossime settimane:</p>
+<ul>
+<li><strong>entro metà novembre</strong>: inventario di cosa fa il server, contatto con il fornitore del gestionale, scelta della strada;</li>
+<li><strong>entro fine novembre</strong>: ordine dell'hardware o delle licenze (i tempi di consegna a fine anno possono allungarsi);</li>
+<li><strong>dicembre</strong>: installazione e migrazione in un fine settimana o nei giorni di chiusura, con un backup completo prima di iniziare;</li>
+<li><strong>prima del 12 gennaio</strong>: prova dei servizi, delle stampanti e dell'accesso remoto, poi spegnimento del vecchio server, senza buttarlo finché non sei sicuro che i dati siano tutti al loro posto.</li>
+</ul>
+<p>Se vuoi un aiuto per l'inventario o per la migrazione, trovi come lavoro nella pagina <a href="https://www.roccoandrealigorio.it/come-lavoro/">Come lavoro</a> e i servizi di assistenza in <a href="https://www.roccoandrealigorio.it/servizi/">Servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Dopo il 12 gennaio 2027 il server smette di funzionare?</h3>
+<p>No. Windows Server 2016 continua ad avviarsi e a fare il suo lavoro, ma non riceve più correzioni di sicurezza. Il rischio cresce ogni mese che passa.</p>
+<h3>Posso aggiornare direttamente da 2016 a 2025?</h3>
+<p>Microsoft prevede l'aggiornamento "sul posto" da versioni precedenti, ma su server con molti anni di servizio preferisco quasi sempre un'installazione pulita su hardware nuovo, con migrazione dei dati: è più sicura e lascia il vecchio server come rete di salvataggio.</p>
+<h3>Ho Windows Server 2019: devo preoccuparmi?</h3>
+<p>Non subito: Windows Server 2019 è supportato fino a gennaio 2029. Conviene però metterlo già in programma, così da non trovarsi di nuovo con l'acqua alla gola.</p>
+<h3>Gli ESU convengono a un piccolo studio?</h3>
+<p>Raramente. Richiedono licenze e configurazioni specifiche e coprono solo le falle più gravi. Hanno senso quando un software indispensabile non funziona ancora sulle versioni nuove e serve tempo per sostituirlo.</p>

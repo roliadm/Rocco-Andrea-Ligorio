@@ -1,0 +1,61 @@
+<p>Per anni ci siamo allenati a diffidare delle email strane. Oggi però molti truffatori hanno cambiato canale: scrivono direttamente su <strong>Microsoft Teams</strong>, dove un messaggio sembra arrivare "da dentro" e quasi nessuno si mette in guardia. Il <strong>phishing su Teams</strong> è diventato abbastanza diffuso da spingere Microsoft ad annunciare, il 23 ottobre, un nuovo controllo automatico basato sull'intelligenza artificiale. In questo articolo ti spiego come funzionano questi attacchi, cosa cambierà da novembre e soprattutto quali impostazioni puoi sistemare già oggi nello studio o in azienda, anche senza un reparto IT.</p>
+
+<h2>Phishing su Teams: come funziona la truffa</h2>
+<p>Lo schema più documentato è quello descritto da <a href="https://www.microsoft.com/en-us/security/blog/?p=134322" target="_blank" rel="noopener">Microsoft Threat Intelligence</a> a proposito del gruppo criminale Storm-1811, legato al ransomware Black Basta. Funziona così:</p>
+<ol>
+<li>la casella di posta della vittima viene <strong>sommersa di email</strong> (iscrizioni a centinaia di newsletter): è il cosiddetto <em>email bombing</em>;</li>
+<li>poco dopo arriva un messaggio o una chiamata su Teams da un account chiamato "Help Desk" o "IT Support", che si offre di risolvere il problema;</li>
+<li>il finto tecnico chiede di avviare <strong>Assistenza rapida</strong> (Quick Assist) o un altro programma di controllo remoto;</li>
+<li>una volta dentro il PC, installa strumenti per rubare password e restare nella rete, fino ad arrivare al ransomware.</li>
+</ol>
+<p>Il punto chiave è che quegli account non appartengono a nessuna azienda reale: i criminali creano un loro ambiente Microsoft 365 con un nome rassicurante. Teams, con le impostazioni predefinite, permette di chattare con utenti di altre organizzazioni, e un nome come "Help Desk" basta a far abbassare la guardia. Ho raccontato varianti simili nell'articolo sul <a href="https://www.roccoandrealigorio.it/?p=256">falso tecnico informatico</a> e in quello sui <a href="https://www.roccoandrealigorio.it/?p=229">software di assistenza remota</a>.</p>
+
+<h3>Non solo finti tecnici</h3>
+<p>Lo stesso canale viene usato per finti clienti che mandano un "documento da firmare", finti fornitori che chiedono di cambiare IBAN o finti colleghi di un'altra sede. Spesso il messaggio non contiene nemmeno un link: c'è solo una richiesta urgente. Per questo i filtri tradizionali, che cercano allegati e collegamenti pericolosi, faticano a fermarli.</p>
+
+<h2>La novità annunciata da Microsoft</h2>
+<p>Secondo quanto riportato da <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-teams-to-get-ai-powered-context-aware-phishing-detection/" target="_blank" rel="noopener">BleepingComputer</a>, che cita l'avviso MC1519866 del Message Center di Microsoft 365, Teams riceverà un rilevamento del phishing che <strong>analizza il contesto della conversazione</strong> e non solo link e allegati. I punti principali:</p>
+<ul>
+<li>il rilascio dovrebbe partire a <strong>inizio novembre 2026</strong>, con disponibilità generale prevista tra inizio e metà dicembre;</li>
+<li>si concentra sulle situazioni più a rischio, come il <strong>primo contatto da un utente esterno</strong>;</li>
+<li>non richiede interventi da parte degli amministratori;</li>
+<li>Microsoft dichiara che il contenuto dei messaggi viene usato solo a fini di sicurezza e non per addestrare i modelli.</li>
+</ul>
+<p>È una buona notizia, ma non è una bacchetta magica: nessun filtro intercetta tutto, e i dettagli su quali licenze lo includeranno non sono ancora chiari. Le difese che seguono restano valide in ogni caso.</p>
+
+<h2>Le impostazioni di Teams da controllare oggi</h2>
+<p>Se l'ufficio usa Microsoft 365, chi ha il ruolo di amministratore può fare questi controlli nell'<strong>interfaccia di amministrazione di Teams</strong>, alla voce <strong>Utenti &gt; Accesso esterno</strong>. La <a href="https://learn.microsoft.com/en-us/microsoftteams/manage-external-access" target="_blank" rel="noopener">guida ufficiale di Microsoft</a> descrive tutte le opzioni; ecco quelle che contano per un piccolo ufficio.</p>
+
+<h3>1. Decidi con chi si può chattare</h3>
+<p>Di default Teams consente di comunicare con <strong>tutti i domini esterni</strong>. Se lo studio lavora con pochi clienti e fornitori che usano Teams, la scelta più sicura è <strong>consentire solo domini specifici</strong> e aggiungere quelli fidati (per esempio studiopartner.it). Se invece i contatti sono troppi per un elenco, puoi almeno bloccare i domini sospetti man mano che si presentano.</p>
+
+<h3>2. Valuta gli account Teams "personali"</h3>
+<p>Esiste un'impostazione separata per gli <strong>account Teams non gestiti da un'organizzazione</strong>, cioè quelli personali. Nella maggior parte degli studi non serve che uno sconosciuto con un account personale possa scrivere per primo ai dipendenti: togli la spunta all'opzione che permette agli utenti esterni non gestiti di avviare il contatto. I tuoi colleghi potranno comunque scrivere loro, se serve.</p>
+
+<h3>3. Blocca i singoli mittenti molesti</h3>
+<p>La stessa pagina permette di bloccare fino a 200 utenti esterni specifici: le chat esistenti con loro vengono chiuse. Chi ha <strong>Microsoft Defender per Office 365</strong> può anche far gestire i domini bloccati dall'elenco "Tenant Allow/Block" del portale Defender, così sicurezza email e Teams usano la stessa lista.</p>
+
+<h3>4. Rimuovi gli strumenti di controllo remoto che non usi</h3>
+<p>Microsoft stessa consiglia di <strong>disinstallare o bloccare Assistenza rapida</strong> se in ufficio si usa un altro programma per l'assistenza. Meno strumenti di accesso remoto ci sono sui PC, meno ne può sfruttare un truffatore.</p>
+
+<h2>Le regole da spiegare a tutti in ufficio</h2>
+<p>Le impostazioni aiutano, ma la difesa più efficace resta una persona che si ferma un attimo prima di cliccare. Queste sono le regole che consiglio di appendere, anche solo come promemoria:</p>
+<ul>
+<li>guarda sempre l'etichetta <strong>"Esterno"</strong> accanto al nome: il tuo tecnico o il tuo collega non ce l'hanno;</li>
+<li>il supporto informatico vero <strong>non ti contatta all'improvviso</strong> su Teams per proporti di collegarsi al PC: se non l'hai chiamato tu, chiudi e verifica;</li>
+<li>non concedere mai il <strong>controllo remoto</strong> e non leggere codici di accesso a chi ti ha contattato per primo;</li>
+<li>non approvare richieste di accesso o notifiche della doppia autenticazione che non hai avviato tu;</li>
+<li>per pagamenti, IBAN o documenti riservati richiesti in chat, <strong>verifica con una telefonata</strong> a un numero che conosci già;</li>
+<li>se la posta si riempie all'improvviso di email inutili, avvisa subito il referente IT: spesso è il preludio alla telefonata del falso tecnico.</li>
+</ul>
+<p>Infine, proteggi gli account con una <a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a> robusta: se anche qualcuno ruba una password, il danno resta limitato. Se vuoi una mano a rivedere le impostazioni di Microsoft 365 del tuo ufficio, trovi i dettagli nella pagina <a href="https://www.roccoandrealigorio.it/servizi/">Servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Bloccare le chat esterne impedisce le riunioni con i clienti?</h3>
+<p>No, se lo fai con criterio. Consentendo solo i domini fidati, le chat e le chiamate con quei clienti funzionano normalmente; i clienti possono anche partecipare alle riunioni tramite link come ospiti, secondo le impostazioni delle riunioni.</p>
+<h3>Ho Microsoft 365 Business Basic: queste impostazioni sono disponibili?</h3>
+<p>Sì, il controllo dell'accesso esterno è nell'interfaccia di amministrazione di Teams per tutti i piani che includono Teams. L'integrazione con l'elenco di blocco di Defender, invece, richiede Defender per Office 365.</p>
+<h3>Cosa faccio se un collega ha già dato l'accesso remoto a un finto tecnico?</h3>
+<p>Scollega subito il PC dalla rete, senza spegnerlo, cambia le password da un altro dispositivo e chiama chi ti segue per l'informatica. Se ci sono dati personali coinvolti, valuta i tempi della notifica al Garante.</p>
+<h3>La nuova protezione di Microsoft si attiva da sola?</h3>
+<p>Secondo l'annuncio non servono interventi degli amministratori. Conviene comunque controllare il Message Center di Microsoft 365 nelle prossime settimane per i dettagli definitivi.</p>
