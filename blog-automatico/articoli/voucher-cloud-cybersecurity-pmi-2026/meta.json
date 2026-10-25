@@ -2,12 +2,22 @@
   "titolo": "Voucher cloud e cybersecurity: fino a 20.000 euro per studi e PMI",
   "slug": "voucher-cloud-cybersecurity-pmi-2026",
   "estratto": "Voucher cloud e cybersecurity del MIMIT: fino a 20.000 euro a fondo perduto. Chi può chiederlo, cosa finanzia, scadenze ed errori da evitare.",
-  "categorie": ["Informatica"],
-  "tag": ["Sicurezza informatica", "Backup", "Firewall", "Normative digitali"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Sicurezza informatica",
+    "Backup",
+    "Firewall",
+    "Normative digitali"
+  ],
   "seo": {
     "titolo": "Voucher cloud e cybersecurity 2026: guida per studi e PMI",
     "descrizione": "Voucher cloud e cybersecurity: contributo del 50% fino a 20.000 euro per PMI e professionisti. Requisiti, spese ammesse e date per non perderlo.",
     "keyword": "voucher cloud e cybersecurity"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Voucher cloud e cybersecurity: fino a 20.000 euro per studi e PMI",
+  "id": 314
 }

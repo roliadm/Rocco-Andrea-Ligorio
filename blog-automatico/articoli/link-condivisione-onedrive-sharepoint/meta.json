@@ -2,12 +2,22 @@
   "titolo": "Link di condivisione in OneDrive e SharePoint: come usarli senza rischi",
   "slug": "link-condivisione-onedrive-sharepoint",
   "estratto": "Link di condivisione OneDrive e SharePoint: differenze tra i tipi di link, scadenze, permessi e impostazioni per non esporre i documenti dello studio.",
-  "categorie": ["Informatica"],
-  "tag": ["Microsoft 365", "Privacy", "GDPR", "Sicurezza informatica"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Microsoft 365",
+    "Privacy",
+    "GDPR",
+    "Sicurezza informatica"
+  ],
   "seo": {
     "titolo": "Link di condivisione OneDrive: come usarli in sicurezza",
     "descrizione": "Link di condivisione in OneDrive e SharePoint: quale tipo scegliere, come impostare scadenza e permessi ed evitare che i documenti finiscano in giro.",
     "keyword": "link di condivisione"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Link di condivisione in OneDrive e SharePoint: come usarli senza rischi",
+  "id": 312
 }
