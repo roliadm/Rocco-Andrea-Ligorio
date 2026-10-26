@@ -1,0 +1,63 @@
+<p>Hai fatto di tutto per lasciare Windows 10, i PC dell'ufficio ora hanno Windows 11 e pensi di essere a posto per anni. Purtroppo non funziona così: anche Windows 11 esce in <strong>versioni annuali</strong>, e ognuna ha una sua scadenza. Il 13 ottobre 2026 è toccato a <strong>Windows 11 24H2</strong> nelle edizioni Home e Pro, cioè quelle che trovo sulla maggior parte dei computer di studi professionali e piccole aziende. In questo articolo ti spiego cosa significa, come capire in due minuti quali PC sono rimasti indietro e come aggiornarli senza fermare il lavoro.</p>
+
+<h2>Windows 11 24H2: cosa è successo il 13 ottobre</h2>
+<p>Microsoft pubblica una nuova versione di Windows 11 ogni anno, nella seconda metà dell'anno: da qui le sigle come 24H2 (2024, secondo semestre), 25H2 e 26H2. Per le edizioni <strong>Home e Pro</strong> ogni versione riceve aggiornamenti per <strong>24 mesi</strong>; per Enterprise ed Education, le edizioni con licenze aziendali in volume, i mesi sono 36.</p>
+<p>Come conferma la <a href="https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5124010-windows-11-24h2-25h2-update" target="_blank" rel="noopener">nota ufficiale di Microsoft</a>, dal 13 ottobre 2026 i PC con Windows 11 24H2 Home e Pro non ricevono più aggiornamenti mensili di sicurezza, correzioni dei problemi noti né assistenza tecnica. L'aggiornamento di sicurezza di ottobre è stato l'ultimo, come ha riportato anche <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-11-24h2-home-and-pro-reached-end-of-support/" target="_blank" rel="noopener">BleepingComputer</a>. Le edizioni Enterprise ed Education della stessa versione restano invece supportate fino al 12 ottobre 2027.</p>
+<p>Il PC continua ad accendersi e a funzionare come prima, quindi il problema non si vede. Però ogni nuova falla scoperta da qui in avanti resterà aperta. E ottobre è stato un mese pesante: ne ho parlato nell'articolo sul <a href="https://www.roccoandrealigorio.it/?p=286">Patch Tuesday di ottobre 2026</a>.</p>
+
+<h2>Come capire quale versione hai</h2>
+<p>Controllare un PC richiede meno di un minuto:</p>
+<ol>
+<li>premi i tasti <strong>Windows + R</strong>, scrivi <strong>winver</strong> e premi Invio;</li>
+<li>nella finestra che si apre leggi la riga "Versione": 24H2, 25H2 o 26H2;</li>
+<li>in alternativa vai in <strong>Impostazioni &gt; Sistema &gt; Informazioni</strong>, alla voce "Specifiche di Windows", dove trovi anche l'edizione (Home, Pro, Enterprise).</li>
+</ol>
+<p>Accanto alla versione c'è il numero di build: <strong>26100</strong> corrisponde alla 24H2, <strong>26200</strong> alla 25H2 e <strong>26300</strong> alla 26H2. È utile quando qualcuno ti detta il numero al telefono o lo leggi da un programma di inventario.</p>
+<p>Se in ufficio hai più di cinque o sei computer, annota il risultato in un semplice foglio: nome del PC, utente, versione, edizione. Ti servirà anche per i prossimi passi e per la prossima scadenza.</p>
+
+<h2>Verso quale versione aggiornare</h2>
+<h3>Windows 11 26H2, la scelta consigliata</h3>
+<p>La versione più recente è la <strong>26H2</strong> (Windows 11 2026 Update), disponibile da fine settembre 2026. Microsoft la distribuisce in modo graduale come <strong>pacchetto di abilitazione</strong>: in pratica le novità sono già presenti nel sistema grazie agli aggiornamenti mensili e il pacchetto si limita ad "accenderle". Per questo l'installazione è rapida e richiede <strong>un solo riavvio</strong>, molto diverso dai lunghi aggiornamenti di qualche anno fa. Viene proposta ai PC con 24H2 o 25H2 e riparte da zero con i 24 mesi di supporto.</p>
+<h3>Windows 11 25H2, se la 26H2 non compare ancora</h3>
+<p>Anche la <strong>25H2</strong> è supportata (per Home e Pro fino a ottobre 2027). Se un PC non riceve ancora la 26H2, passare alla 25H2 è comunque una soluzione valida per tornare subito protetti; l'anno prossimo ti toccherà però un nuovo passaggio.</p>
+
+<h2>Come aggiornare un PC passo per passo</h2>
+<ol>
+<li><strong>Fai un backup</strong> dei dati, o almeno verifica che quello automatico funzioni. L'aggiornamento è sicuro, ma un imprevisto può sempre capitare: se ti serve un metodo, parti dalla <a href="https://www.roccoandrealigorio.it/?p=211">regola del backup 3-2-1</a>.</li>
+<li>Apri <strong>Impostazioni &gt; Windows Update</strong> e attiva l'opzione "Ricevi gli aggiornamenti più recenti non appena sono disponibili".</li>
+<li>Clicca su <strong>Verifica disponibilità aggiornamenti</strong>. Se il PC è pronto compare la voce per scaricare e installare la nuova versione.</li>
+<li>Avvia l'installazione e <strong>riavvia a fine giornata</strong>, così non interrompi il lavoro di nessuno.</li>
+<li>Al riavvio ricontrolla con winver che la versione sia cambiata.</li>
+</ol>
+<p>Microsoft sta inoltre aggiornando in automatico i PC Home e Pro non gestiti in azienda arrivati a fine supporto: l'utente può solo scegliere quando riavviare. Non contarci però come unica strategia, perché nella pratica è proprio sui computer degli uffici che l'aggiornamento si blocca.</p>
+
+<h2>Perché alcuni PC non si aggiornano</h2>
+<p>Quando un computer resta fermo alla 24H2 le cause che incontro più spesso sono queste.</p>
+<h3>Un criterio che "blocca" la versione</h3>
+<p>Molti PC Pro sono stati configurati anni fa da un tecnico o da un software di gestione per <strong>restare su una versione precisa</strong>, così da evitare sorprese. Il criterio si chiama "Seleziona la versione di destinazione dell'aggiornamento delle funzionalità" e si trova nei Criteri di gruppo o nelle impostazioni di Intune. Se è impostato su 24H2, Windows Update non proporrà mai la versione successiva: va aggiornato o rimosso.</p>
+<h3>Poco spazio su disco</h3>
+<p>I PC con dischi piccoli (128 GB) e pieni di file temporanei rifiutano l'installazione. Una passata con <strong>Impostazioni &gt; Sistema &gt; Archiviazione</strong> e lo spostamento dei documenti personali su OneDrive o sul server di solito basta.</p>
+<h3>Blocchi di compatibilità</h3>
+<p>A volte è Microsoft stessa a fermare l'aggiornamento su certi modelli, per un driver o un programma noto per causare problemi. In questi casi conviene aggiornare driver e BIOS dal sito del produttore del PC e riprovare dopo qualche giorno.</p>
+<h3>Programmi gestionali datati</h3>
+<p>Qualche vecchio software di contabilità o di studio ha bisogno di una versione aggiornata per funzionare con le nuove release di Windows. Prima di aggiornare tutti i PC, <strong>prova su un solo computer</strong> per un paio di giorni e chiedi al fornitore se ci sono indicazioni.</p>
+
+<h2>Il metodo per non rincorrere più le scadenze</h2>
+<p>La lezione di questa scadenza è che Windows 11 non si installa e si dimentica: va tenuto aggiornato con un piccolo calendario. Quello che consiglio agli studi che seguo:</p>
+<ul>
+<li><strong>Ogni autunno</strong>, dopo l'uscita della nuova versione, aggiornare prima un PC di prova e poi tutti gli altri entro dicembre;</li>
+<li><strong>Ogni mese</strong>, dopo il secondo martedì, verificare che gli aggiornamenti di sicurezza siano stati installati;</li>
+<li>tenere aggiornato l'<strong>inventario dei PC</strong> con versione ed edizione, così sai sempre chi è indietro;</li>
+<li>controllare anche le altre scadenze collegate, come i <a href="https://www.roccoandrealigorio.it/?p=262">certificati Secure Boot</a> e gli eventuali PC ancora con <a href="https://www.roccoandrealigorio.it/?p=215">Windows 10 e licenze ESU</a>.</li>
+</ul>
+<p>Ho descritto un metodo completo, valido anche per gli altri programmi dell'ufficio, nel <a href="https://www.roccoandrealigorio.it/?p=280">piano pratico per gli aggiornamenti software</a>. Se preferisci che sia qualcuno a controllare e aggiornare i computer al posto tuo, trovi come posso aiutarti nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Se resto su Windows 11 24H2 il PC smette di funzionare?</h3>
+<p>No, il computer funziona normalmente. Semplicemente non riceve più aggiornamenti di sicurezza, quindi ogni nuova vulnerabilità resta aperta e il rischio cresce di mese in mese.</p>
+<h3>L'aggiornamento alla 26H2 cancella file o programmi?</h3>
+<p>No, passando da Windows Update file, programmi e impostazioni restano al loro posto. Fare un backup prima resta comunque una buona abitudine.</p>
+<h3>Ho Windows 11 Pro: devo pagare per aggiornare?</h3>
+<p>No, il passaggio a 25H2 o 26H2 è gratuito per chi ha già una licenza di Windows 11.</p>
+<h3>I PC con Windows 11 Enterprise devono aggiornare subito?</h3>
+<p>Per l'edizione Enterprise ed Education la 24H2 è supportata fino al 12 ottobre 2027. C'è più tempo, ma conviene pianificare il passaggio con calma invece di ridursi all'ultimo mese.</p>
