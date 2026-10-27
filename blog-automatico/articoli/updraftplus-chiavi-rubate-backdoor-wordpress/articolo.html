@@ -1,0 +1,62 @@
+<p>Se il sito del tuo studio o della tua azienda è fatto con WordPress, c'è una buona probabilità che i backup li faccia <strong>UpdraftPlus</strong>, uno dei plugin più diffusi al mondo con oltre 4 milioni di installazioni attive. Nel weekend del 17–18 ottobre 2026 qualcuno è entrato nel sito del produttore, TeamUpdraft, e con le chiavi rubate ha installato plugin malevoli su siti WordPress di tutto il mondo. Non è un difetto del plugin che si risolve con un clic su "Aggiorna": è un furto di chiavi, e i comandi dell'attaccante sembravano legittimi. In questo articolo ti spiego cosa è successo, come capire in pochi minuti se il tuo sito è esposto e quali passi seguire, nell'ordine giusto, per rimetterlo in sicurezza.</p>
+
+<h2>Cosa è successo a UpdraftPlus e UpdraftCentral</h2>
+<p>UpdraftPlus include un componente chiamato <strong>UpdraftCentral</strong>: una console che permette a chi gestisce più siti (agenzie, consulenti, tecnici) di aggiornarli e controllarli da un unico pannello, senza entrare in ognuno. Per funzionare, ogni sito collegato conserva una <strong>chiave di connessione</strong>, una specie di password tecnica che autorizza la console a impartire comandi.</p>
+<p>Secondo quanto comunicato da TeamUpdraft e riportato da <a href="https://www.csoonline.com/article/4238422/wordpress-sites-compromised-after-teamupdraft-credential-exposure.html" target="_blank" rel="noopener">CSO Online</a>, gli intrusi hanno probabilmente avuto accesso al database clienti del sito teamupdraft.com: nomi, indirizzi email e di fatturazione, storico degli ordini, password (salvate in forma cifrata, cioè come "hash"), impostazioni della verifica in due passaggi e, soprattutto, le chiavi di UpdraftCentral, UpdraftVault e UpdraftClone. I dati delle carte di pagamento non erano coinvolti, perché i pagamenti passano da Stripe e PayPal.</p>
+<p>Già dal 18 ottobre l'attaccante ha usato quelle chiavi per mandare ai siti un comando perfettamente valido: "installa e attiva questo plugin". Il primo a pubblicare un'analisi è stato lo studio slovacco <a href="https://nethemba.com/updraftcentral-backdoor-analysis/" target="_blank" rel="noopener">Nethemba</a>, che nella notte del 19 ottobre si è trovato tre dei propri siti presi di mira, due dei quali infettati. La società di sicurezza Patchstack ha contato <strong>99 nomi diversi</strong> di plugin malevoli installati in circa 18 ore, tra il 18 e il 19 ottobre.</p>
+
+<h3>Cosa fa il plugin malevolo</h3>
+<p>Il plugin è una <strong>backdoor</strong>, cioè una porta di servizio nascosta. Ha nomi che sembrano innocui, come "Site Health Cache", "Speed Kit" o "Content Helper", e una descrizione sempre uguale: "Small maintenance toolkit: keeps option storage tidy". Quando riceve un codice segreto nell'indirizzo della pagina, crea un utente nascosto con ruolo di <strong>Editore</strong> ma con poteri da amministratore (può cambiare le impostazioni e installare plugin) e fa entrare l'attaccante senza passare dalla pagina di login, quindi anche senza verifica in due passaggi. Come spiega <a href="https://thehackernews.com/2026/10/attackers-abuse-updraftcentral-keys-to.html" target="_blank" rel="noopener">The Hacker News</a>, altre varianti creano direttamente un amministratore o entrano con un amministratore esistente.</p>
+<p>Il dettaglio più insidioso: l'utente nascosto <strong>resta anche dopo che il plugin viene rimosso</strong>. Ed essendo registrato come Editore, chi controlla solo l'elenco degli amministratori non lo vede.</p>
+
+<h2>Il tuo sito con UpdraftPlus è esposto?</h2>
+<p>Il problema riguarda i siti con UpdraftPlus (gratuito o Premium, qualsiasi versione) in cui era presente una chiave di UpdraftCentral nella versione cloud, quella ospitata da TeamUpdraft. Non sono coinvolti, secondo il produttore, le installazioni di UpdraftCentral ospitate in proprio e i backup salvati nei tuoi spazi (Google Drive, Dropbox, Amazon S3 e simili), che continuano a funzionare.</p>
+<p>Attenzione però: molti titolari non sanno di avere una chiave attiva. Capita quando chi ha fatto il sito ha collegato UpdraftCentral anni fa, oppure quando nelle impostazioni del plugin è stato collegato un account teamupdraft.com. Per questo il consiglio è di controllare comunque, anche se non hai mai sentito nominare UpdraftCentral.</p>
+<h3>Il controllo da fare in due minuti</h3>
+<ol>
+<li>Entra nel pannello di WordPress direttamente, non da console esterne.</li>
+<li>Vai in <strong>Impostazioni → UpdraftPlus Backups → Advanced Tools → UpdraftCentral</strong>.</li>
+<li>Se compare un messaggio che dice che nessuna dashboard UpdraftCentral può controllare il sito, non ci sono chiavi attive. Se invece vedi una o più chiavi elencate, il sito era raggiungibile dall'attaccante.</li>
+</ol>
+
+<h2>Cosa fare subito, nell'ordine giusto</h2>
+<p>L'ordine conta: se rimuovi prima il plugin malevolo e lasci la chiave, l'attaccante può reinstallarne un altro. Ecco la sequenza che consiglio, ricavata dalle indicazioni di TeamUpdraft, Patchstack e Nethemba:</p>
+<ol>
+<li><strong>Elimina tutte le chiavi di UpdraftCentral</strong> dalla schermata vista sopra. Togliere il sito dalla console non basta: la chiave va cancellata sul sito.</li>
+<li><strong>Aggiorna UpdraftPlus</strong> almeno alla versione <strong>1.26.13</strong> (gratuita) o <strong>2.26.13</strong> (Premium). Queste versioni scollegano automaticamente le connessioni create prima delle 22 (ora britannica) del 18 ottobre; secondo Nethemba la 1.26.12 non elimina le vecchie chiavi. L'aggiornamento però non rimuove una backdoor già installata.</li>
+<li><strong>Controlla i plugin</strong>, compresa la scheda "Must-Use" se presente: cerca nomi che non riconosci e la descrizione "Small maintenance toolkit".</li>
+<li><strong>Controlla gli utenti</strong>, non solo gli amministratori: cerca account sconosciuti, in particolare con nome visualizzato "Site Tools", nomi tipo due parole più due cifre (come "data-ops43") o email @example.org e @example.com.</li>
+<li><strong>Cambia le password</strong> di tutti gli amministratori, chiudi le sessioni attive e attiva la <a href="https://www.roccoandrealigorio.it/?p=217">verifica in due passaggi</a>.</li>
+<li>Se hai un account su teamupdraft.com, <strong>cambia la password</strong> (e ovunque l'avessi riusata) e reimposta la verifica in due passaggi.</li>
+</ol>
+
+<h3>Se trovi qualcosa di sospetto</h3>
+<p>Se trovi un plugin malevolo o un utente nascosto, considera il sito <strong>completamente compromesso</strong>. Nethemba suggerisce di disattivare il plugin e spostarlo fuori dalla cartella del sito invece di eliminarlo dal pannello, perché la sua procedura di disinstallazione cancella le tracce utili per capire cosa è successo. Poi:</p>
+<ul>
+<li><strong>ripristina un backup precedente al 17 ottobre</strong>, verificato e salvato fuori dal sito (qui torna utile la <a href="https://www.roccoandrealigorio.it/?p=211">regola del backup 3-2-1</a>);</li>
+<li>confronta i file con un'installazione pulita di WordPress;</li>
+<li>se il sito usa UpdraftCentral per accedere ai tuoi spazi di backup, <strong>ricollega lo spazio di archiviazione e cambia le chiavi di accesso</strong>, come raccomanda TeamUpdraft;</li>
+<li>valuta con il consulente privacy se c'è stato accesso a dati personali (moduli di contatto, aree riservate, ordini): in quel caso possono scattare gli obblighi di notifica, di cui ho parlato nell'articolo sul <a href="https://www.roccoandrealigorio.it/?p=276">data breach nelle prime 72 ore</a>.</li>
+</ul>
+<p>Prima di ricollegare il sito a UpdraftCentral, aspetterei che il produttore chiarisca come è avvenuta l'intrusione. Se la gestione remota ti serve subito, Patchstack consiglia di creare la nuova chiave con un utente che non abbia il permesso di installare plugin.</p>
+
+<h2>La lezione per chi ha un sito aziendale</h2>
+<p>Questo caso non nasce da una password debole del cliente né da un aggiornamento dimenticato: il sito era a posto, ma si fidava di un servizio esterno che è stato violato. È lo stesso schema che vedo negli attacchi ai fornitori di assistenza: chi ha le chiavi di casa tua diventa la strada più comoda per entrare. Alcune regole che porto via:</p>
+<ul>
+<li><strong>Fai l'inventario degli accessi esterni</strong>: console di gestione, plugin collegati a servizi cloud, utenti creati per l'agenzia o per vecchi fornitori. Ogni collegamento che non serve più va tolto, perché queste chiavi non scadono da sole.</li>
+<li><strong>Dai a ogni accesso solo i permessi necessari</strong>: un collegamento che serve per i backup non deve poter installare plugin.</li>
+<li><strong>Controlla gli utenti del sito</strong> almeno ogni tre mesi, guardando i ruoli e non solo i nomi.</li>
+<li><strong>Tieni backup che l'attaccante non può toccare</strong>, conservati fuori dal server del sito e con più versioni nel tempo.</li>
+<li><strong>Leggi le email automatiche di WordPress</strong>: nel caso di Nethemba, il primo campanello è stato proprio un'email di errore di un plugin arrivata alle 5:38 del mattino.</li>
+</ul>
+<p>Se non sai chi ha accesso al tuo sito o vuoi una verifica, posso aiutarti a controllarlo e a impostare una manutenzione regolare: trovi i dettagli nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>. Se usi WordPress, ti consiglio anche di rileggere il mio articolo sulle <a href="https://www.roccoandrealigorio.it/?p=298">falle critiche in PHP</a>, che riguardano gli stessi siti in queste settimane.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Devo disinstallare UpdraftPlus?</h3>
+<p>Non necessariamente. Il plugin in sé non è stato manomesso e i backup verso i tuoi spazi funzionano. Basta aggiornarlo alla 1.26.13 o 2.26.13 (o successive), eliminare le chiavi di UpdraftCentral e fare i controlli descritti.</p>
+<h3>Ho aggiornato il plugin: sono al sicuro?</h3>
+<p>Solo in parte. L'aggiornamento chiude la porta usata dall'attaccante, ma non rimuove un plugin malevolo né un utente nascosto già creati. Per questo vanno sempre controllati plugin e utenti.</p>
+<h3>Non uso UpdraftCentral: devo preoccuparmi?</h3>
+<p>Se nella schermata Advanced Tools → UpdraftCentral non compaiono chiavi, il tuo sito non era raggiungibile con questo metodo. Se hai un account su teamupdraft.com, però, cambia comunque la password e diffida di email che sembrano arrivare da TeamUpdraft.</p>
+<h3>Come mi accorgo se il sito è stato usato dall'attaccante?</h3>
+<p>I segnali principali sono un plugin sconosciuto, un utente "Site Tools" o simile e, nei registri del server, richieste con un lungo codice nell'indirizzo. Se trovi uno di questi elementi, tratta il sito come compromesso e ripristina un backup precedente al 17 ottobre.</p>
