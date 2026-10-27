@@ -2,12 +2,23 @@
   "titolo": "UpdraftPlus: chiavi rubate e siti WordPress infettati, cosa controllare",
   "slug": "updraftplus-chiavi-rubate-backdoor-wordpress",
   "estratto": "Con le chiavi rubate a TeamUpdraft sono stati installati plugin malevoli su siti WordPress con UpdraftPlus. Come capire se il tuo è coinvolto e cosa fare.",
-  "categorie": ["Informatica"],
-  "tag": ["WordPress", "Siti web", "Sicurezza informatica", "Backup", "Aggiornamenti di sicurezza"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "WordPress",
+    "Siti web",
+    "Sicurezza informatica",
+    "Backup",
+    "Aggiornamenti di sicurezza"
+  ],
   "seo": {
     "titolo": "UpdraftPlus: chiavi rubate e backdoor nei siti WordPress",
     "descrizione": "UpdraftPlus e chiavi UpdraftCentral rubate: come capire se il tuo sito WordPress ha una backdoor e i passi per ripulirlo e rimetterlo in sicurezza.",
     "keyword": "UpdraftPlus"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "UpdraftPlus: chiavi rubate e siti WordPress infettati, cosa controllare",
+  "id": 320
 }
