@@ -2,12 +2,23 @@
   "titolo": "Malware infostealer: come rubano le password salvate nel browser",
   "slug": "infostealer-password-rubate-browser",
   "estratto": "L'ACN segnala 253 account compromessi da malware infostealer a settembre: come rubano password e sessioni dal browser e come difendere lo studio.",
-  "categorie": ["Informatica"],
-  "tag": ["Malware", "Password", "Sicurezza informatica", "Autenticazione a due fattori", "Phishing"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Malware",
+    "Password",
+    "Sicurezza informatica",
+    "Autenticazione a due fattori",
+    "Phishing"
+  ],
   "seo": {
     "titolo": "Malware infostealer: difendi le password del browser",
     "descrizione": "Malware infostealer: come rubano password e cookie dal browser, perché la doppia autenticazione non basta e le 6 difese pratiche per studi e PMI.",
     "keyword": "malware infostealer"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Malware infostealer: come rubano le password salvate nel browser",
+  "id": 322
 }

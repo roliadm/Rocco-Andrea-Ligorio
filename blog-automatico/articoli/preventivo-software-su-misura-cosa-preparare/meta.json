@@ -16,5 +16,8 @@
     "descrizione": "Preventivo per un software su misura: le 8 cose da scrivere prima di contattare uno sviluppatore e come confrontare le offerte senza sorprese.",
     "keyword": "preventivo per un software su misura"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Preventivo per un software su misura: cosa preparare prima di chiederlo",
+  "id": 324
 }
