@@ -1,0 +1,62 @@
+<p>Molti studi e PMI che seguo salvano le password nel browser "perché è comodo": basta un clic e si entra in banca, nella PEC, nel gestionale. Il problema è che esiste una famiglia di virus costruita apposta per svuotare quel cassetto: i <strong>malware infostealer</strong>, letteralmente "ladri di informazioni". Il 27 ottobre 2026 l'Agenzia per la Cybersicurezza Nazionale ha segnalato che, solo a settembre, il CSIRT Italia ha individuato <strong>253 account istituzionali compromessi</strong> grazie ai dati raccolti da questi programmi. In questo articolo ti spiego come funzionano, perché la doppia autenticazione da sola non basta e cosa fare in ufficio, in ordine di priorità.</p>
+
+<h2>Cosa dicono i dati ACN di settembre 2026</h2>
+<p>Ogni mese l'ACN pubblica l'<a href="https://www.acn.gov.it/portale/en/w/operational-summary-settembre-2026" target="_blank" rel="noopener">Operational Summary</a>, il riepilogo di ciò che il CSIRT Italia ha osservato. Il rapporto su settembre 2026, diffuso il 27 ottobre, conta <strong>485 eventi cyber</strong>, il 57% in più dei 309 di agosto, e <strong>235 incidenti</strong> con un impatto confermato, contro i 196 del mese precedente.</p>
+<p>Tra i numeri, quello che mi interessa di più per chi lavora in uno studio è un altro: i 253 account compromessi scoperti analizzando i dati degli infostealer, che il CSIRT ha segnalato subito ai soggetti interessati. Come riporta <a href="https://www.cybersecurity360.it/nuove-minacce/acn-eventi-cyber-a-57-il-ransomware-pesa-sulla-continuita-dei-servizi/" target="_blank" rel="noopener">Cybersecurity360</a>, nello stesso mese la <strong>compromissione di caselle email</strong> compare in 81 eventi. Il rapporto indica poi tra i principali modi in cui gli attaccanti entrano proprio l'uso di <strong>credenziali valide già rubate</strong>, accanto al phishing e alle vulnerabilità non corrette.</p>
+<p>Tradotto: molti attacchi non "forzano" niente. Usano nome utente e password veri, presi in precedenza da un PC infetto.</p>
+
+<h2>Come funziona un malware infostealer</h2>
+<p>Un infostealer è un programma piccolo e silenzioso. Non cifra i file come il ransomware e non chiede riscatti: entra, copia tutto ciò che ha valore e lo spedisce a un server dei criminali, spesso in pochi secondi. Poi, a volte, si cancella da solo.</p>
+<h3>Cosa ruba</h3>
+<ul>
+<li><strong>Password salvate nel browser</strong> (Chrome, Edge, Firefox) e nei programmi di posta.</li>
+<li><strong>Cookie di sessione</strong>, cioè i "gettoni" che il sito ti lascia dopo l'accesso per non chiederti la password ogni volta.</li>
+<li>Dati delle carte di pagamento salvati per la compilazione automatica.</li>
+<li>File presenti sul desktop, portafogli di criptovalute, informazioni sul computer.</li>
+</ul>
+<p>Il pacchetto di dati rubati da un singolo PC si chiama "log" e viene rivenduto in mercati online. Chi lo compra può entrare nei tuoi account settimane dopo, da qualsiasi parte del mondo.</p>
+<h3>Come arriva sul PC</h3>
+<p>Il caso più noto è <strong>Lumma Stealer</strong>. Nel maggio 2025 <a href="https://blogs.microsoft.com/on-the-issues/2025/05/21/microsoft-leads-global-action-against-favored-cybercrime-tool/" target="_blank" rel="noopener">Microsoft ha guidato un'operazione</a> con il Dipartimento di Giustizia statunitense ed Europol per smantellarne l'infrastruttura: in soli due mesi, tra il 16 marzo e il 16 maggio 2025, aveva contato oltre <strong>394.000 computer Windows infetti</strong> nel mondo e sono stati bloccati circa 2.300 domini malevoli. Lumma veniva venduto "in abbonamento" ad altri criminali, e si diffondeva così:</p>
+<ul>
+<li><strong>email di phishing</strong> che imitano marchi noti come Microsoft o Booking.com;</li>
+<li><strong>pubblicità ingannevoli</strong> nei motori di ricerca, che portano a falsi siti di download di programmi gratuiti;</li>
+<li><strong>falsi CAPTCHA</strong>, le finte verifiche "non sono un robot" che chiedono di incollare un comando sul PC: è la tecnica ClickFix, di cui ho parlato nell'articolo sulla <a href="https://www.roccoandrealigorio.it/?p=302">truffa del copia e incolla</a>.</li>
+</ul>
+<p>Smantellare un servizio non chiude il fenomeno: altri prodotti simili prendono il suo posto, ed è per questo che i numeri dell'ACN continuano a comparire.</p>
+
+<h2>Perché la doppia autenticazione da sola non basta</h2>
+<p>L'<a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a> resta indispensabile: se il ladro ha solo la password, il codice sul telefono lo ferma. Il punto debole è il <strong>cookie di sessione</strong>. Quando accedi a Microsoft 365 o alla webmail e spunti "resta connesso", il sito ti consegna un gettone che vale come accesso già verificato. Se l'infostealer copia quel gettone, chi lo usa può risultare già autenticato, senza password e senza codice, finché la sessione resta valida.</p>
+<p>Per questo, quando trovo un PC infetto, non basta cambiare la password: bisogna anche <strong>chiudere tutte le sessioni aperte</strong>, su tutti i dispositivi.</p>
+
+<h2>Come difendersi dai malware infostealer: le priorità</h2>
+<h3>1. Togli le password dal browser</h3>
+<p>Sposta le credenziali in un <a href="https://www.roccoandrealigorio.it/?p=241">password manager</a> protetto da una password principale e dalla doppia autenticazione, poi cancella quelle salvate in Chrome o Edge e disattiva l'offerta di salvarle. Non è una protezione assoluta, ma riduce molto ciò che un infostealer trova "in chiaro". Nelle aziende con Microsoft 365 o Google Workspace il salvataggio nel browser si può bloccare centralmente.</p>
+<h3>2. Niente account amministratore per il lavoro di tutti i giorni</h3>
+<p>Chi usa il PC con un utente standard, senza diritti di amministratore, rende più difficile l'installazione di programmi, malevoli compresi. Le installazioni le fa chi gestisce l'informatica, con un account separato.</p>
+<h3>3. Scarica programmi solo da fonti ufficiali</h3>
+<p>Il download di un programma "gratis" trovato tramite un annuncio in cima ai risultati di ricerca è una delle porte d'ingresso più comuni. Regola semplice per i colleghi: si scarica solo dal sito del produttore digitato a mano o dallo store ufficiale, oppure si chiede.</p>
+<h3>4. Passkey dove possibile</h3>
+<p>Le <a href="https://www.roccoandrealigorio.it/?p=253">passkey</a> non sono password da copiare: restano legate al dispositivo e non possono essere "incollate" su un sito falso. Per i servizi che le supportano sono la scelta migliore.</p>
+<h3>5. Sessioni più brevi e controllo degli accessi</h3>
+<p>Nei servizi aziendali conviene evitare sessioni che durano settimane e attivare gli avvisi di accesso da Paesi o dispositivi insoliti. In Microsoft 365 l'amministratore vede gli accessi recenti di ogni utente e può revocare le sessioni con un clic.</p>
+<h3>6. Antivirus attivo e aggiornamenti</h3>
+<p>Un sistema operativo aggiornato e un antivirus attivo (anche Microsoft Defender, incluso in Windows) intercettano buona parte degli infostealer conosciuti. Non sono infallibili, ma sono la base.</p>
+
+<h2>Cosa fare se sospetti un PC infetto</h2>
+<ol>
+<li><strong>Scollega il PC dalla rete</strong> e non usarlo per accedere ad altri servizi.</li>
+<li><strong>Da un altro dispositivo pulito</strong>, cambia le password degli account usati su quel PC, partendo da email, PEC, banca e Microsoft 365.</li>
+<li><strong>Chiudi tutte le sessioni attive</strong> ("esci da tutti i dispositivi") e controlla le regole di inoltro della posta: gli intrusi spesso ne creano una per leggere le email di nascosto.</li>
+<li><strong>Fai analizzare o reinstallare il PC</strong> da un tecnico prima di rimetterlo in uso.</li>
+<li><strong>Valuta gli obblighi GDPR</strong>: se sono stati esposti dati personali di clienti o dipendenti, potrebbe trattarsi di un data breach da notificare entro 72 ore. Trovi i passi nella guida sul <a href="https://www.roccoandrealigorio.it/?p=276">data breach</a>.</li>
+</ol>
+<p>Se ricevi una segnalazione dal CSIRT Italia o dal tuo fornitore su credenziali comparse in un log, trattala come un'infezione certa, anche se il PC "sembra funzionare bene".</p>
+<p>Se vuoi una mano a fare il punto su password, sessioni e postazioni del tuo studio, nella pagina <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a> trovi come posso aiutarti.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Come faccio a sapere se un infostealer ha rubato le mie password?</h3>
+<p>Spesso non te ne accorgi. I segnali sono accessi sconosciuti, email inviate a tua insaputa, avvisi di nuovi dispositivi o una segnalazione del fornitore. Servizi come Have I Been Pwned aiutano a scoprire se un indirizzo compare in violazioni note.</p>
+<h3>Su Mac o smartphone sono al sicuro?</h3>
+<p>No. La maggior parte degli infostealer colpisce Windows, ma ne esistono anche per macOS e Android. Le stesse regole valgono per tutti i dispositivi.</p>
+<h3>Basta cambiare la password dopo un'infezione?</h3>
+<p>No: va fatto da un dispositivo pulito, insieme alla chiusura di tutte le sessioni attive, altrimenti i cookie rubati possono continuare a funzionare.</p>
