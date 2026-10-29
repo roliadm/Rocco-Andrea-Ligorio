@@ -1,0 +1,68 @@
+<p>Molti studi e PMI che seguo affidano i propri backup a <strong>Veeam Backup &amp; Replication</strong>, uno dei programmi più diffusi per salvare server, macchine virtuali e cartelle condivise. Il 27 ottobre 2026 Veeam ha pubblicato un bollettino che corregge quattro falle, tra cui una <strong>vulnerabilità Veeam critica</strong> che un attaccante può sfruttare da remoto senza nemmeno avere una password. Se il tuo server di backup usa la versione 13, è il momento di aggiornarlo. In questo articolo ti spiego in parole semplici cosa è successo, come capire se sei coinvolto e cosa fare per proteggere i backup, che sono l'ultima difesa contro il ransomware.</p>
+
+<h2>Cosa ha corretto Veeam il 27 ottobre 2026</h2>
+<p>Il bollettino ufficiale si chiama <a href="https://www.veeam.com/kb4948" target="_blank" rel="noopener">KB4948</a> e accompagna l'uscita di Backup &amp; Replication 13.1.2. Le vulnerabilità risolte sono quattro, tutte segnalate tramite il programma di ricerca HackerOne.</p>
+
+<h3>La falla critica: CVE-2026-108142</h3>
+<p>È la più grave, con un punteggio di <strong>9.1 su 10</strong> sulla scala CVSS (il sistema usato per misurare la gravità delle vulnerabilità). Riguarda il servizio <em>CDP Coordinator</em>, un componente che gira sul server di backup. Secondo quanto riportato da <a href="https://www.it-connect.tech/critical-unauthenticated-flaw-hits-veeam-backup-replication-13/" target="_blank" rel="noopener">IT-Connect</a> e <a href="https://cybersecuritynews.com/veeam-patches-authorization-bypass-vulnerability/" target="_blank" rel="noopener">Cyber Security News</a>, permette a un attaccante <strong>non autenticato</strong> di aggirare i controlli di accesso e ottenere informazioni che non dovrebbe vedere. Veeam precisa che da sola non consente di eseguire codice sul server, ma in sicurezza un primo accesso a informazioni riservate è spesso il punto di partenza per attacchi più seri.</p>
+
+<h3>Le altre tre vulnerabilità</h3>
+<ul>
+<li><strong>CVE-2026-108140 e CVE-2026-108141</strong> (gravità media, 5.9): permettono di scrivere file in posizioni arbitrarie del server di backup, ma solo a un utente già autenticato con il ruolo di <em>Restore Operator</em> che controlla anche il contenuto di una cartella NAS sottoposta a backup.</li>
+<li><strong>CVE-2026-105477</strong> (gravità alta, 7.3): riguarda <strong>Veeam Agent for Linux</strong> gestito da Backup &amp; Replication e consente a un utente locale di ottenere privilegi più alti. È corretta nella versione 13.1.2 (build 13.1.2.11).</li>
+</ul>
+<p>Al momento della pubblicazione Veeam non segnala attacchi in corso che sfruttino queste falle. La stessa Veeam, però, ricorda che i criminali studiano gli aggiornamenti appena usciti proprio per capire come colpire chi non li ha ancora installati.</p>
+
+<h2>Chi è a rischio per la vulnerabilità Veeam</h2>
+<p>La falla critica interessa solo la <strong>versione 13</strong> di Backup &amp; Replication, sia su Windows sia nella Veeam Software Appliance:</p>
+<ul>
+<li>ramo 13.1: build <strong>13.1.1.18 e precedenti</strong>;</li>
+<li>ramo 13.0: build <strong>13.0.2.29 e precedenti</strong>.</li>
+</ul>
+<p>La <strong>versione 12 non è coinvolta</strong> da questo bollettino. Questo non significa che chi è rimasto alla 12 possa dimenticarsi degli aggiornamenti: anche quel ramo riceve correzioni periodiche e va mantenuto all'ultima build disponibile.</p>
+
+<h3>Come controllare la versione installata</h3>
+<p>È un'operazione di un minuto:</p>
+<ol>
+<li>apri la console di Veeam Backup &amp; Replication sul server o sul PC dell'amministratore;</li>
+<li>vai nel menu principale e scegli <strong>Help &gt; About</strong>;</li>
+<li>annota il numero di build e confrontalo con quelli indicati sopra.</li>
+</ol>
+<p>Se il backup è gestito da un fornitore esterno, chiedigli per iscritto quale build è installata e quando verrà aggiornata. È una domanda legittima: i backup sono un bene dello studio, non solo del tecnico.</p>
+
+<h2>Come aggiornare in modo sicuro</h2>
+<p>Le versioni corrette sono <strong>13.1.2 (build 13.1.2.57)</strong> per il ramo 13.1 e <strong>13.0.3 (build 13.0.3.63)</strong> per il ramo 13.0. Su Windows l'aggiornamento alla 13.1.2 si fa con l'immagine ISO completa di installazione o con l'aggiornamento integrato nella console; sulla Software Appliance si aggiorna dall'interno del sistema, mettendo in conto un possibile riavvio.</p>
+<p>Prima di lanciare l'aggiornamento ti consiglio tre accortezze:</p>
+<ul>
+<li><strong>scegli un momento senza job in corso</strong>, per esempio a fine giornata, dopo aver verificato che l'ultimo backup sia andato a buon fine;</li>
+<li><strong>salva la configurazione</strong> di Veeam (la funzione <em>Configuration Backup</em>) in un percorso diverso dal server stesso;</li>
+<li><strong>aggiorna anche gli agenti</strong> installati su PC e server Linux, se la console lo propone.</li>
+</ul>
+<p>Dopo l'aggiornamento, controlla che i job ripartano regolarmente e fai almeno una prova di ripristino di un file: un backup che non si ripristina non è un backup.</p>
+
+<h2>Perché i criminali puntano proprio ai server di backup</h2>
+<p>Chi diffonde ransomware (il malware che cifra i file e chiede un riscatto) sa che una vittima con backup funzionanti può ripartire senza pagare. Per questo, prima di cifrare i dati, cerca di <strong>cancellare o rovinare i backup</strong>. I server Veeam sono un bersaglio ricorrente: nel 2024, per esempio, una vulnerabilità precedente (CVE-2024-40711) è stata sfruttata per installare il ransomware Frag. Ne ho parlato anche nella guida alla <a href="https://www.roccoandrealigorio.it/?p=211">regola del backup 3-2-1</a>: almeno una copia deve stare fuori dalla portata di chi entra nella rete.</p>
+
+<h2>Cinque difese per il server di backup</h2>
+<p>L'aggiornamento chiude questa falla, ma la prossima arriverà. Ecco le misure che consiglio sempre, indipendentemente dal programma usato:</p>
+<ol>
+<li><strong>Non esporre il server di backup su Internet.</strong> Le porte della console e dei servizi Veeam devono essere raggiungibili solo dalla rete interna o tramite una VPN aziendale.</li>
+<li><strong>Tienilo fuori dal dominio Windows</strong>, se possibile, o comunque con credenziali dedicate: se un attaccante ruba la password di un utente qualsiasi, non deve poter entrare anche nel backup.</li>
+<li><strong>Proteggi gli accessi</strong> alla console con password robuste e <a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a>, che dalla versione 12 Veeam supporta per gli utenti della console.</li>
+<li><strong>Usa almeno una copia immutabile o scollegata</strong>: un repository che non permette di modificare o cancellare i file per un certo periodo, oppure un disco che viene staccato dopo il backup.</li>
+<li><strong>Controlla i backup ogni settimana</strong>: le email di esito non bastano se nessuno le legge. Basta una persona incaricata che verifichi gli avvisi e segnali i job falliti.</li>
+</ol>
+<p>Se usi un NAS come destinazione dei backup, ti consiglio anche la lettura della guida sulla <a href="https://www.roccoandrealigorio.it/?p=268">sicurezza del NAS contro il ransomware</a>.</p>
+
+<h2>Se non sai da dove cominciare</h2>
+<p>Capita spesso che il server di backup sia stato installato anni fa e che nessuno in studio sappia più dove si trova la console. Se è il tuo caso, il primo passo è ricostruire la situazione: quale programma, quale versione, dove finiscono le copie e chi le controlla. Se vuoi, posso aiutarti a fare il punto e a mettere in sicurezza l'infrastruttura: trovi i dettagli nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Uso Veeam 12: devo preoccuparmi?</h3>
+<p>Questa vulnerabilità critica non riguarda la versione 12. Verifica comunque di avere l'ultima build del tuo ramo, perché Veeam pubblica correzioni anche per la 12.</p>
+<h3>Uso Veeam Agent gratuito sul PC: è coinvolto?</h3>
+<p>No, la falla critica è nel server di Backup &amp; Replication. L'unica vulnerabilità sugli agenti riguarda Veeam Agent for Linux gestito dalla console, versione 13.1.1.4 e precedenti.</p>
+<h3>Ci sono attacchi in corso?</h3>
+<p>Al 27 ottobre 2026 Veeam non segnala sfruttamenti attivi. Proprio per questo conviene aggiornare adesso, prima che qualcuno costruisca un attacco a partire dalla patch.</p>
+<h3>L'aggiornamento può far perdere i backup esistenti?</h3>
+<p>No, l'aggiornamento non tocca le copie già salvate. Per sicurezza, prima di procedere fai comunque un backup della configurazione di Veeam e verifica che l'ultimo job sia riuscito.</p>
