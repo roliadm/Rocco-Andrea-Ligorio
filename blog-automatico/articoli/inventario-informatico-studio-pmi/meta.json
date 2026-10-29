@@ -2,12 +2,22 @@
   "titolo": "Inventario informatico: l'elenco che ogni studio dovrebbe avere",
   "slug": "inventario-informatico-studio-pmi",
   "estratto": "Come fare l'inventario informatico di uno studio o di una PMI: dispositivi, software, account e fornitori da elencare, con un modello pratico.",
-  "categorie": ["Informatica"],
-  "tag": ["Sicurezza informatica", "Hardware", "Aggiornamenti di sicurezza", "NIS2"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Sicurezza informatica",
+    "Hardware",
+    "Aggiornamenti di sicurezza",
+    "NIS2"
+  ],
   "seo": {
     "titolo": "Inventario informatico: guida pratica per studi e PMI",
     "descrizione": "Inventario informatico per studi e PMI: cosa elencare tra PC, software, account e fornitori, come tenerlo aggiornato e perché serve davvero.",
     "keyword": "inventario informatico"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Inventario informatico: l'elenco che ogni studio dovrebbe avere",
+  "id": 326
 }

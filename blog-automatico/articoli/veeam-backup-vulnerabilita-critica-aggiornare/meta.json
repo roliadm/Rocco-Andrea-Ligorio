@@ -2,12 +2,22 @@
   "titolo": "Vulnerabilità Veeam: perché aggiornare subito il server di backup",
   "slug": "veeam-backup-vulnerabilita-critica-aggiornare",
   "estratto": "Veeam ha corretto una falla critica in Backup & Replication 13: chi è a rischio, quali versioni installare e come proteggere il server dei backup.",
-  "categorie": ["Informatica"],
-  "tag": ["Backup", "Aggiornamenti di sicurezza", "Ransomware", "Sicurezza informatica"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Backup",
+    "Aggiornamenti di sicurezza",
+    "Ransomware",
+    "Sicurezza informatica"
+  ],
   "seo": {
     "titolo": "Vulnerabilità Veeam: aggiorna Backup & Replication 13",
     "descrizione": "Vulnerabilità Veeam critica in Backup & Replication 13: come capire se sei esposto, quale versione installare e 5 difese per il server di backup.",
     "keyword": "vulnerabilità Veeam"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Vulnerabilità Veeam: perché aggiornare subito il server di backup",
+  "id": 328
 }
