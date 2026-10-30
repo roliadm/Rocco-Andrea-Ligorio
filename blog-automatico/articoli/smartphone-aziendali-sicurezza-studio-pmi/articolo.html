@@ -1,0 +1,82 @@
+<p>In quasi tutti gli studi e le piccole aziende che seguo, la posta di lavoro, la chat con i clienti, i documenti su OneDrive e l'app per la doppia autenticazione stanno su uno smartphone. Spesso è il telefono personale del collaboratore, a volte uno aziendale consegnato senza nessuna configurazione. Eppure sugli <strong>smartphone aziendali</strong> si dedica una frazione dell'attenzione che si dà ai PC. In questo articolo ti spiego perché il telefono è diventato una porta d'ingresso ai dati dello studio, prendendo spunto da una falla appena resa pubblica in Microsoft Authenticator, e ti do una lista di regole pratiche per mettere in sicurezza i dispositivi senza complicare la vita a nessuno.</p>
+
+<h2>Il caso di questi giorni: una falla in Microsoft Authenticator per Android</h2>
+<p>Il 23 ottobre 2026 i ricercatori di <a href="https://enclave.ai/blog/authmask-we-made-microsoft-authenticator-hand-over-tokens" target="_blank" rel="noopener">Enclave</a> hanno pubblicato i dettagli di una vulnerabilità in <strong>Microsoft Authenticator per Android</strong>, l'app che molti usano per confermare gli accessi a Microsoft 365. La falla, catalogata come CVE-2026-80097, permetteva a un'altra app installata sullo stesso telefono, anche senza alcun permesso particolare, di spacciarsi per Teams e ottenere dei <strong>token di accesso</strong> all'account di lavoro.</p>
+<p>Un token è una specie di "pass" digitale: dopo che ti sei autenticato, le app lo usano per accedere ai tuoi dati senza chiederti di nuovo la password. Nei test dei ricercatori, i token ottenuti davano accesso a <strong>posta, file e calendario</strong> dell'account aziendale collegato all'app.</p>
+<p>Le notizie sono buone e meno buone insieme:</p>
+<ul>
+<li>Microsoft aveva già corretto il problema con gli aggiornamenti di settembre 2026: la versione sicura è la <strong>6.2606.4246</strong> o successiva, come riporta <a href="https://thehackernews.com/2026/10/microsoft-authenticator-flaw-let.html" target="_blank" rel="noopener">The Hacker News</a>;</li>
+<li>secondo Microsoft la falla non è stata sfruttata prima della correzione e l'attacco richiede comunque un'interazione dell'utente (i ricercatori sostengono il contrario);</li>
+<li>però funziona solo se l'app di Authenticator sul telefono è <strong>aggiornata</strong>. Ed è qui che, negli uffici, spesso si inciampa.</li>
+</ul>
+<p>Il punto non è questa singola vulnerabilità, ma la lezione: lo smartphone contiene le chiavi dello studio, e un'app sbagliata installata per svago può arrivare vicino a quelle chiavi.</p>
+
+<h2>Perché gli smartphone aziendali sono un rischio sottovalutato</h2>
+<p>Quando guardo come vengono usati i telefoni in un piccolo ufficio, trovo quasi sempre le stesse situazioni:</p>
+<ul>
+<li><strong>telefoni personali</strong> con dentro la posta dello studio, senza che nessuno sappia quali altre app ci siano installate;</li>
+<li><strong>aggiornamenti</strong> di sistema e app rimandati per mesi, oppure modelli economici che non ricevono più aggiornamenti;</li>
+<li><strong>nessun blocco schermo</strong> o un PIN di quattro cifre facilmente intuibile;</li>
+<li>allegati dei clienti salvati nella galleria o nei download, insieme alle foto delle vacanze;</li>
+<li>nessun modo di <strong>cancellare i dati</strong> da remoto se il telefono viene perso o rubato, né quando un collaboratore se ne va.</li>
+</ul>
+<p>Un PC dello studio di solito ha un antivirus, un backup e qualcuno che lo controlla. Il telefono, che contiene gli stessi dati, spesso no.</p>
+
+<h2>Le regole base per ogni telefono che accede ai dati dello studio</h2>
+<p>Queste regole valgono sia per i telefoni aziendali sia per quelli personali usati per lavoro. Sono semplici, ma da sole eliminano la maggior parte dei problemi che vedo.</p>
+
+<h3>1. Aggiornamenti automatici, sempre</h3>
+<p>Attiva gli aggiornamenti automatici del sistema operativo e delle app dal Play Store o dall'App Store. Controlla una volta al mese che non ci siano aggiornamenti in sospeso, soprattutto per <strong>Authenticator</strong>, Outlook, Teams e il browser. Se un telefono non riceve più aggiornamenti di sicurezza dal produttore, è il momento di sostituirlo, almeno per l'uso lavorativo.</p>
+
+<h3>2. Blocco schermo serio e cifratura</h3>
+<p>Un PIN di almeno sei cifre, oppure impronta o riconoscimento del volto, con blocco automatico dopo uno o due minuti. Sui telefoni recenti il blocco schermo attiva anche la <strong>cifratura</strong> dei dati: se il dispositivo viene rubato, il contenuto non è leggibile. È lo stesso principio che ti ho spiegato per la <a href="https://www.roccoandrealigorio.it/?p=284">cifratura del disco dei portatili</a>.</p>
+
+<h3>3. App solo dagli store ufficiali, e poche</h3>
+<p>Niente app scaricate da link ricevuti via SMS o WhatsApp, niente file APK installati "a mano" su Android. Ogni tanto fai pulizia: meno app ci sono, meno occasioni ha un'app malevola di comportarsi come nel caso di Authenticator. Diffida anche dei telefoni molto economici di marche sconosciute: ho raccontato il caso del <a href="https://www.roccoandrealigorio.it/?p=278">malware preinstallato negli smartphone</a>.</p>
+
+<h3>4. Doppia autenticazione con un'app, non con gli SMS</h3>
+<p>Lo smartphone è anche il secondo fattore di accesso a quasi tutto. Usa un'app di autenticazione o, meglio ancora, le passkey, e tieni presente che chi perde il telefono deve poter recuperare gli accessi senza restare bloccato. Ne ho parlato nella <a href="https://www.roccoandrealigorio.it/?p=217">guida all'autenticazione a due fattori</a>.</p>
+
+<h3>5. Dati di lavoro nelle app di lavoro</h3>
+<p>Gli allegati si aprono e si salvano in OneDrive, SharePoint o nel cloud dello studio, non nella memoria del telefono o nella galleria. Così, se il telefono sparisce, i documenti restano al sicuro e disponibili altrove.</p>
+
+<h2>Il passo in più: gestire i telefoni in modo centralizzato</h2>
+<p>Quando i dispositivi diventano più di tre o quattro, affidarsi alla buona volontà di ciascuno non basta più. Esistono strumenti chiamati <strong>MDM</strong> (Mobile Device Management, cioè gestione centralizzata dei dispositivi mobili) che permettono di impostare le regole una volta sola e applicarle a tutti i telefoni.</p>
+<p>Se lo studio usa Microsoft 365, molte licenze business includono già <strong>Microsoft Intune</strong>. Con Intune si possono fare due cose diverse, a seconda di chi è il proprietario del telefono.</p>
+
+<h3>Telefoni di proprietà dello studio</h3>
+<p>Il dispositivo viene registrato e gestito completamente: si impone il blocco schermo, si installano le app di lavoro, si può richiedere una <strong>versione minima delle app</strong> (utile proprio in casi come quello di Authenticator) e, in caso di furto, si può cancellare tutto da remoto.</p>
+
+<h3>Telefoni personali dei collaboratori</h3>
+<p>Qui serve più delicatezza: nessuno vuole che lo studio possa vedere le proprie foto. Le soluzioni sono due:</p>
+<ul>
+<li>i <a href="https://learn.microsoft.com/en-us/intune/app-management/protection/overview" target="_blank" rel="noopener">criteri di protezione delle app</a> di Intune, che proteggono solo i dati dentro Outlook, Teams, OneDrive e le altre app di lavoro: si può impedire di copiare un allegato in un'app personale e, quando il collaboratore lascia lo studio, cancellare solo i dati aziendali;</li>
+<li>il <a href="https://www.android.com/intl/en_au/enterprise/work-profile" target="_blank" rel="noopener">profilo di lavoro di Android</a>, che crea sul telefono uno spazio separato per le app aziendali, distinto da quello personale.</li>
+</ul>
+<p>In entrambi i casi la vita privata del collaboratore resta privata, e i dati dello studio restano sotto controllo. È anche un tassello importante della <a href="https://www.roccoandrealigorio.it/?p=227">checklist per quando un collaboratore se ne va</a>.</p>
+
+<h2>Cosa fare se un telefono viene perso o rubato</h2>
+<p>Conviene avere la procedura scritta prima che succeda. In sintesi:</p>
+<ol>
+<li>il collaboratore avvisa subito, anche di sera o nel weekend;</li>
+<li>si cambia la password dell'account di lavoro e si <strong>revocano le sessioni attive</strong> dal pannello di amministrazione di Microsoft 365 o Google Workspace;</li>
+<li>si blocca o si cancella il telefono da remoto (con Intune, oppure con "Trova il mio dispositivo" di Google o "Dov'è" di Apple);</li>
+<li>si valuta con il titolare se sul telefono c'erano dati personali di clienti non protetti: in quel caso potrebbe trattarsi di un <a href="https://www.roccoandrealigorio.it/?p=276">data breach da gestire entro 72 ore</a>.</li>
+</ol>
+
+<h2>Da dove partire questa settimana</h2>
+<p>Se non sai da che parte cominciare, fai questi tre controlli: verifica che su tutti i telefoni Microsoft Authenticator sia aggiornato, fai un elenco di quali telefoni accedono alla posta dello studio e controlla che ognuno abbia un blocco schermo. Bastano un'ora e un caffè con i collaboratori. Se poi vuoi impostare una gestione centralizzata con Intune senza stravolgere le abitudini dell'ufficio, è il tipo di lavoro che faccio: trovi i dettagli nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Posso usare il mio telefono personale per la posta dello studio?</h3>
+<p>Sì, purché il telefono sia aggiornato, protetto da un blocco schermo e, idealmente, i dati di lavoro stiano in app gestite (per esempio con i criteri di protezione delle app di Intune), così da poterli cancellare senza toccare quelli personali.</p>
+
+<h3>Come controllo la versione di Microsoft Authenticator?</h3>
+<p>Il modo più semplice è aprire la scheda di Microsoft Authenticator nel Play Store: se compare il pulsante "Aggiorna", l'app va aggiornata. La versione corretta è la 6.2606.4246 o una successiva.</p>
+
+<h3>Serve un antivirus sullo smartphone?</h3>
+<p>Su Android può aiutare, ma conta molto di più installare app solo dal Play Store, tenere attivo Google Play Protect e aggiornare il sistema. Su iPhone l'aggiornamento costante è la protezione principale.</p>
+
+<h3>Intune costa in più?</h3>
+<p>Dipende dalla licenza: è incluso in Microsoft 365 Business Premium, mentre con altri piani va acquistato a parte. Prima di comprare, conviene verificare cosa è già compreso nell'abbonamento dello studio.</p>
