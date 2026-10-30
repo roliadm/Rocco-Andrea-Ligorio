@@ -2,12 +2,23 @@
   "titolo": "Smartphone aziendali: come proteggerli dopo il caso Authenticator",
   "slug": "smartphone-aziendali-sicurezza-studio-pmi",
   "estratto": "Smartphone aziendali e telefoni personali usati per lavoro: le regole pratiche per proteggere posta e dati dello studio, dopo la falla di Authenticator.",
-  "categorie": ["Informatica"],
-  "tag": ["Sicurezza informatica", "Smartphone", "Android", "Microsoft 365", "Autenticazione a due fattori"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Sicurezza informatica",
+    "Smartphone",
+    "Android",
+    "Microsoft 365",
+    "Autenticazione a due fattori"
+  ],
   "seo": {
     "titolo": "Smartphone aziendali: come proteggerli in studio e in PMI",
     "descrizione": "Smartphone aziendali e telefoni personali con la posta di lavoro: aggiornamenti, blocco schermo, Intune e cosa fare se il telefono viene perso.",
     "keyword": "smartphone aziendali"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Smartphone aziendali: come proteggerli dopo il caso Authenticator",
+  "id": 330
 }

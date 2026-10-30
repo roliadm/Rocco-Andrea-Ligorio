@@ -16,5 +16,8 @@
     "descrizione": "Tracking pixel nelle email: cosa prevedono le linee guida del Garante in vigore dal 29 ottobre 2026 e come adeguare newsletter e invii in 6 passi.",
     "keyword": "tracking pixel nelle email"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Tracking pixel nelle email: cosa chiede il Garante dal 29 ottobre",
+  "id": 332
 }
