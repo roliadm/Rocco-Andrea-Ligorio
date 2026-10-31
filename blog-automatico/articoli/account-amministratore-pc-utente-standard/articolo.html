@@ -1,0 +1,66 @@
+<p>In molti studi e piccole aziende tutti lavorano al PC con un <strong>account amministratore</strong>: è stato creato così il giorno dell'installazione, e "almeno ognuno si installa quello che gli serve". È comodo, ma è anche uno dei regali più grandi che si possano fare a un virus o a un truffatore. In questo articolo ti spiego cosa cambia tra account amministratore e utente standard, perché le principali agenzie di sicurezza consigliano di limitare i privilegi e come passare all'utente standard senza bloccare il lavoro dell'ufficio.</p>
+
+<h2>Account amministratore e utente standard: la differenza</h2>
+<p>Windows (e lo stesso vale per macOS) prevede due tipi principali di account:</p>
+<ul>
+<li>l'<strong>utente standard</strong> può usare i programmi installati, lavorare sui propri file, navigare e stampare, ma non può cambiare le impostazioni che riguardano tutto il computer;</li>
+<li>l'<strong>account amministratore</strong> può fare tutto: installare e disinstallare programmi, disattivare l'antivirus, creare altri utenti, modificare le impostazioni di sicurezza.</li>
+</ul>
+<p>Il punto chiave è questo: <strong>qualunque programma avviato da te lavora con i tuoi permessi</strong>. Se apri per errore l'allegato sbagliato mentre sei amministratore, quel programma maligno ha le stesse "chiavi di casa" che hai tu.</p>
+
+<h3>E la finestra che chiede conferma?</h3>
+<p>Molti mi dicono: "Ma Windows mi chiede sempre se voglio consentire le modifiche". È il <strong>Controllo dell'account utente</strong> (UAC), e aiuta, ma non basta: chi è amministratore preme "Sì" in automatico, senza leggere, e le truffe più diffuse puntano proprio a farti cliccare. Da utente standard, invece, quella finestra chiede la <strong>password di un altro account</strong>, quello di chi gestisce i PC: un passaggio che ferma la maggior parte degli incidenti.</p>
+
+<h2>Perché limitare i privilegi protegge l'ufficio</h2>
+<p>Microsoft lo scrive chiaramente nella sua <a href="https://learn.microsoft.com/en-us/windows/security/application-security/application-control/administrator-protection" target="_blank" rel="noopener">documentazione sulla protezione dell'amministratore</a>: i privilegi di amministratore sono una via d'attacco importante, perché i malintenzionati li sfruttano per accedere ai dati e <strong>disattivare le difese del sistema</strong> senza che l'utente se ne accorga, e molti malware hanno bisogno di quei privilegi per fare danni.</p>
+<p>L'agenzia australiana per la sicurezza informatica (ASD), nella sua guida <a href="https://www.cyber.gov.au/sites/default/files/2023-03/PROTECT%20-%20Restricting%20Administrative%20Privileges%20%28October%202021%29.pdf" target="_blank" rel="noopener">sulla limitazione dei privilegi amministrativi</a>, definisce questa misura "una delle strategie di mitigazione più efficaci". Il motivo è semplice: con meno privilegi, chi riesce a entrare in un PC fa più fatica a diffondersi agli altri computer, a nascondersi e a restare dopo il riavvio.</p>
+
+<h3>Cosa succede in pratica</h3>
+<p>Ecco alcuni esempi che vedo spesso nel lavoro con studi e PMI:</p>
+<ul>
+<li>un finto "aggiornamento del browser" scaricato da un sito ingannevole <strong>non riesce a installarsi</strong> se l'utente è standard;</li>
+<li>un falso tecnico al telefono chiede di installare un programma di controllo remoto, ma senza la password dell'amministratore l'installazione si ferma (ne ho parlato nell'articolo sul <a href="https://www.roccoandrealigorio.it/?p=256">falso tecnico informatico</a>);</li>
+<li>un collaboratore installa in buona fede programmi gratuiti pieni di pubblicità o estensioni non sicure: con l'utente standard serve un'autorizzazione.</li>
+</ul>
+<p>Attenzione: l'utente standard non è uno scudo totale. Un <a href="https://www.roccoandrealigorio.it/?p=322">malware infostealer</a> può comunque rubare le password salvate nel browser, che appartengono all'utente. Ma riduce molto i danni possibili e rende più difficile disattivare antivirus e backup.</p>
+
+<h2>Come passare all'utente standard in 6 passi</h2>
+
+<h3>1. Fai l'elenco di chi è amministratore</h3>
+<p>Su ogni PC verifica quali account sono amministratori (in Windows: Impostazioni, Account, Altri utenti). Se hai un <a href="https://www.roccoandrealigorio.it/?p=326">inventario informatico</a>, aggiungi questa informazione per ogni computer.</p>
+
+<h3>2. Crea un account amministratore separato</h3>
+<p>Serve un account dedicato, usato <strong>solo</strong> per installare programmi e cambiare impostazioni. Non va usato per leggere la posta o navigare, come raccomanda anche la guida australiana. La sua password deve essere robusta, diversa per ogni PC e custodita in un <a href="https://www.roccoandrealigorio.it/?p=241">password manager</a>.</p>
+
+<h3>3. Trasforma gli account di lavoro in utenti standard</h3>
+<p>Prima di farlo, verifica che l'account amministratore separato funzioni. Poi cambia il tipo degli account quotidiani, compreso il tuo: il titolare non fa eccezione, anzi è spesso il bersaglio preferito.</p>
+
+<h3>4. Prova i programmi di lavoro</h3>
+<p>Alcuni software gestionali vecchi o di nicchia pretendono di essere avviati come amministratore. Prima di cambiare tutti i PC, prova su uno: se un programma non funziona, spesso basta sistemare i permessi di una cartella, oppure chiedere al produttore una versione aggiornata.</p>
+
+<h3>5. Stabilisci una procedura per le installazioni</h3>
+<p>Decidi chi può installare software e come si chiede: un messaggio, un modulo, una telefonata. L'obiettivo non è dire sempre di no, ma sapere <strong>cosa c'è installato e perché</strong>.</p>
+
+<h3>6. Gestisci le password degli amministratori locali</h3>
+<p>Se i PC sono più di qualcuno e sono gestiti con Microsoft 365 o con un dominio aziendale, c'è uno strumento gratuito già incluso in Windows 10 e 11: <a href="https://learn.microsoft.com/windows-server/identity/laps/laps-concepts" target="_blank" rel="noopener">Windows LAPS</a>. Genera una password diversa per l'amministratore locale di ogni computer, la cambia periodicamente e la conserva in modo protetto in Microsoft Entra ID o in Active Directory. Così non esiste più la "password dell'amministratore uguale per tutti", che se scoperta apre ogni PC dell'ufficio.</p>
+
+<h2>La novità di Windows 11: la protezione dell'amministratore</h2>
+<p>Microsoft sta lavorando proprio in questa direzione. Su Windows 11 è disponibile la <strong>protezione dell'amministratore</strong>: chi è amministratore lavora normalmente con permessi ridotti e, quando serve un'operazione delicata, Windows chiede una conferma con Windows Hello (impronta, volto o PIN) e concede i privilegi solo per quell'operazione, in un ambiente separato.</p>
+<p>Secondo la documentazione Microsoft la funzione è <strong>disattivata per impostazione predefinita</strong> e non è ancora adatta a tutti i casi: per esempio Microsoft sconsiglia di attivarla sui PC gestiti con LAPS. È un passo avanti utile, ma per uno studio la soluzione più semplice e collaudata resta quella descritta sopra: utenti standard per il lavoro quotidiano, amministratore separato per le modifiche.</p>
+
+<h2>Ne vale la pena?</h2>
+<p>Sì, e il costo è basso: qualche ora di lavoro iniziale e, ogni tanto, una richiesta di installazione da approvare. In cambio ottieni PC più stabili, meno programmi inutili e un ostacolo concreto contro truffe e malware. È una delle misure che propongo sempre quando seguo un ufficio: se vuoi farti aiutare a impostarla, trovi i dettagli nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Se sono utente standard posso ancora aggiornare Windows?</h3>
+<p>Sì. Gli aggiornamenti di Windows e dei principali programmi si installano in automatico anche per gli utenti standard. Serve l'amministratore solo per installare programmi nuovi o cambiare impostazioni di sistema.</p>
+
+<h3>Il titolare dello studio deve essere amministratore?</h3>
+<p>No, nemmeno lui per il lavoro di tutti i giorni. Può conoscere la password dell'account amministratore separato, ma usarla solo quando serve davvero.</p>
+
+<h3>Vale anche per il Mac?</h3>
+<p>Sì. Anche macOS distingue tra account amministratore e account standard, e la regola è la stessa: un account standard per lavorare e uno da amministratore per le modifiche.</p>
+
+<h3>E se un programma funziona solo come amministratore?</h3>
+<p>Prima di arrenderti, chiedi al produttore o al tuo tecnico: spesso il problema si risolve con i permessi corretti su una cartella. Se non c'è alternativa, è un buon segnale per valutare un software più aggiornato.</p>

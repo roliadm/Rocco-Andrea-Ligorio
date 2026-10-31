@@ -1,0 +1,66 @@
+<p>Se il tuo studio o la tua azienda ha un <strong>firewall Cisco</strong> e i collaboratori si collegano da casa con la VPN, questa settimana c'è un controllo da fare. Il 28 ottobre 2026 Cisco ha pubblicato un avviso su una falla nella VPN dei suoi firewall Secure Firewall ASA e Firepower Threat Defense (FTD) che <strong>è già sfruttata dagli attaccanti</strong>: chiunque riesca a raggiungere la pagina di accesso della VPN può far riavviare il dispositivo, lasciando l'ufficio senza connessione da remoto. In questo articolo ti spiego cosa succede, come capire se sei coinvolto e cosa chiedere al tuo tecnico.</p>
+
+<h2>Firewall Cisco: cosa ha comunicato Cisco il 28 ottobre</h2>
+<p>La vulnerabilità si chiama <strong>CVE-2026-76418</strong> (il codice con cui vengono catalogate le falle di sicurezza) e ha un punteggio di gravità di 8,6 su 10. Riguarda il servizio <strong>VPN SSL ad accesso remoto</strong> dei firewall Cisco Secure Firewall ASA e del software Secure Firewall Threat Defense, cioè la funzione che permette a chi lavora fuori sede di entrare nella rete dell'ufficio con il programma Cisco Secure Client (il vecchio AnyConnect) o dal browser.</p>
+<p>Secondo l'<a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-tunnel-dos-s6mgkb75" target="_blank" rel="noopener">avviso ufficiale di Cisco</a>, ripreso da <a href="https://www.networkworld.com/article/4242425/new-cisco-firewall-zero-day-being-actively-exploited-2.html" target="_blank" rel="noopener">Network World</a>, il problema nasce da errori nella logica del software quando sulla VPN è attiva una <strong>autenticazione secondaria</strong>. Un attaccante, senza bisogno di password, invia una richiesta costruita ad arte mentre tenta di collegarsi e il firewall si riavvia.</p>
+<p>Cisco ha confermato di essere venuta a conoscenza di <strong>attacchi reali</strong> già a ottobre, prima che esistesse una correzione: in gergo si parla di "zero-day". Secondo <a href="https://www.securityweek.com/attackers-exploit-second-cisco-firewall-vpn-zero-day-since-august/" target="_blank" rel="noopener">SecurityWeek</a> è la seconda falla di questo tipo nella VPN dei firewall Cisco sfruttata da agosto.</p>
+
+<h3>Cosa rischi davvero</h3>
+<p>Ti dico subito una cosa importante, per evitare allarmismi: in base a quanto pubblicato da Cisco, questa falla <strong>non permette di entrare nella rete</strong>, di leggere i dati o di installare programmi sul firewall. L'effetto è un <strong>blocco del servizio</strong>: il dispositivo si riavvia e, finché non torna su, cadono la VPN e spesso anche la connessione a Internet dell'ufficio, perché tutto il traffico passa da lì.</p>
+<p>Per uno studio che lavora con colleghi in smart working, un firewall che si riavvia a ripetizione vuol dire giornate perse, telefonate al tecnico e clienti che non ricevono risposta. Inoltre un attacco che "spegne" il firewall può servire da diversivo mentre si prova altro, ed è comunque il segnale che il tuo dispositivo è visibile e preso di mira.</p>
+
+<h2>Come capire se il tuo firewall è vulnerabile</h2>
+<p>Non tutti i firewall Cisco sono esposti. Secondo l'avviso, servono <strong>tre condizioni insieme</strong>:</p>
+<ol>
+<li>il firewall usa una <strong>versione del software non ancora corretta</strong>;</li>
+<li>la <strong>VPN SSL</strong> è attiva su almeno un'interfaccia raggiungibile da Internet;</li>
+<li>su almeno un profilo della VPN (Cisco li chiama "tunnel group") è configurato un <strong>server di autenticazione secondaria</strong>, per esempio un secondo controllo delle credenziali dopo la password.</li>
+</ol>
+<p>Attenzione al terzo punto: secondo Cisco l'esposizione resta anche quando l'elenco dei profili è disattivato, se il profilo predefinito (DefaultWEBVPNGroup) usa l'autenticazione secondaria. Sono invece esclusi, sempre secondo l'avviso, i servizi Cisco gestiti in cloud e i firewall senza VPN SSL attiva.</p>
+
+<h3>Le domande da fare al tuo tecnico</h3>
+<p>Se non sai nemmeno che marca di firewall hai, non sei il solo: lo vedo spesso. Il primo passo è chiedere a chi gestisce la rete:</p>
+<ul>
+<li>abbiamo un firewall Cisco ASA o Firepower, e con quale versione del software?</li>
+<li>la VPN SSL è accesa e raggiungibile da Internet?</li>
+<li>usiamo l'autenticazione secondaria su qualche profilo VPN?</li>
+<li>il dispositivo è ancora coperto da contratto di assistenza Cisco, così da poter scaricare gli aggiornamenti?</li>
+</ul>
+<p>Se hai già un <a href="https://www.roccoandrealigorio.it/?p=326">inventario informatico</a> aggiornato, la prima risposta la trovi lì in pochi secondi.</p>
+
+<h2>Cosa fare subito</h2>
+
+<h3>1. Aggiornare il software del firewall</h3>
+<p>Cisco dice chiaramente che <strong>non esiste un workaround</strong> definitivo: la soluzione è installare una versione corretta. Le prime versioni che risolvono questa falla, secondo l'avviso, sono per esempio la 9.18.4.96, la 9.20.4.50 e la 9.22.3.200 per ASA, e la 7.2.13, la 7.4.9 e la 7.6.7 per FTD (l'elenco completo è nell'avviso). Il consiglio pratico è far usare al tecnico il <a href="https://sec.cloudapps.cisco.com/security/center/softwarechecker.x" target="_blank" rel="noopener">Cisco Software Checker</a>, che indica la versione minima che corregge <strong>tutte</strong> le falle note per il tuo modello, non solo questa.</p>
+<p>L'aggiornamento richiede un riavvio: va programmato fuori orario, avvisando chi lavora da remoto, e preceduto da un salvataggio della configurazione.</p>
+
+<h3>2. Se non puoi aggiornare subito, la misura temporanea</h3>
+<p>Cisco descrive una mitigazione provvisoria: <strong>disattivare l'autenticazione secondaria</strong> sui profili VPN coinvolti, compreso quello predefinito. Funziona, ma ha un costo: togli un livello di controllo sugli accessi, e Cisco stessa avverte che può avere effetti su funzionalità e sicurezza. Va quindi valutata caso per caso e tolta appena l'aggiornamento è installato.</p>
+
+<h3>3. Controllare i registri</h3>
+<p>Chiedi al tecnico di verificare se nelle ultime settimane il firewall ha avuto <strong>riavvii inspiegabili</strong> o file di errore. Se i colleghi ti hanno segnalato "la VPN che cade" senza motivo apparente, ora sai che il problema potrebbe non essere il loro PC.</p>
+
+<h3>4. Ridurre ciò che è esposto su Internet</h3>
+<p>Questa è la regola che vale per tutti, qualunque firewall tu abbia: meno servizi visibili da Internet, meno bersagli. Il pannello di amministrazione del firewall non dovrebbe mai essere raggiungibile dall'esterno, e la VPN dovrebbe essere accessibile solo a chi ne ha davvero bisogno, con <a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a> e account personali, non condivisi.</p>
+
+<h2>La lezione: il firewall va curato come un PC</h2>
+<p>Poche settimane fa ho scritto della campagna <a href="https://www.roccoandrealigorio.it/?p=233">FortiBleed contro i firewall Fortinet</a>. Oggi tocca a Cisco. Il messaggio è sempre lo stesso: i dispositivi che proteggono il perimetro della rete sono il primo bersaglio, proprio perché sono sempre accesi, visibili da Internet e spesso dimenticati dopo l'installazione.</p>
+<p>Per uno studio o una PMI questo si traduce in poche abitudini concrete:</p>
+<ul>
+<li>inserire il firewall nel <a href="https://www.roccoandrealigorio.it/?p=280">piano degli aggiornamenti</a>, con un controllo almeno mensile degli avvisi del produttore;</li>
+<li>tenere attivo il contratto di assistenza, senza il quale spesso non si possono scaricare le correzioni;</li>
+<li>sapere chi è responsabile del firewall e come contattarlo in caso di urgenza;</li>
+<li>valutare la sostituzione dei modelli arrivati a fine vita, che non ricevono più correzioni.</li>
+</ul>
+<p>Se non sai a chi affidare questi controlli, puoi vedere i miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a> e <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a>: partiamo da una verifica di cosa c'è in rete e di cosa è esposto su Internet.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Il mio firewall Cisco è stato violato?</h3>
+<p>Questa falla, secondo Cisco, provoca il riavvio del dispositivo e non dà accesso alla rete o ai dati. Se però il firewall si è riavviato senza motivo nelle ultime settimane, fallo controllare e aggiornalo subito.</p>
+
+<h3>Ho un firewall di un'altra marca: devo preoccuparmi?</h3>
+<p>Non per questa falla specifica, che riguarda solo Cisco ASA e FTD. Vale però la stessa regola per tutti: software aggiornato, assistenza attiva e meno servizi esposti su Internet.</p>
+
+<h3>Posso semplicemente spegnere la VPN?</h3>
+<p>Se in questo momento nessuno lavora da remoto, disattivare la VPN SSL elimina l'esposizione a questa falla. Se invece serve, la strada è l'aggiornamento, eventualmente con la misura temporanea indicata da Cisco.</p>

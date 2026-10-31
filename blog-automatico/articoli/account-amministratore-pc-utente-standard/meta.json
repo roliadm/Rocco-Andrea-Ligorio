@@ -1,0 +1,13 @@
+{
+  "titolo": "Account amministratore sul PC: perché in ufficio serve l'utente standard",
+  "slug": "account-amministratore-pc-utente-standard",
+  "estratto": "Lavorare con l'account amministratore espone il PC a virus e truffe. Perché passare all'utente standard e come farlo in 6 passi senza bloccare l'ufficio.",
+  "categorie": ["Informatica"],
+  "tag": ["Sicurezza informatica", "Windows 11", "Password", "Malware"],
+  "seo": {
+    "titolo": "Account amministratore sul PC: i rischi e come limitarlo",
+    "descrizione": "Account amministratore sul PC dell'ufficio: perché è rischioso, cosa consigliano Microsoft e le agenzie di sicurezza e come passare all'utente standard.",
+    "keyword": "account amministratore"
+  },
+  "stato": "draft"
+}
