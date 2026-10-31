@@ -2,12 +2,22 @@
   "titolo": "Firewall Cisco: falla nella VPN già sfruttata, cosa fare subito",
   "slug": "firewall-cisco-vpn-falla-sfruttata",
   "estratto": "Falla nella VPN dei firewall Cisco ASA e FTD già sfruttata dagli attaccanti: come capire se il tuo ufficio è esposto e cosa chiedere al tecnico.",
-  "categorie": ["Informatica"],
-  "tag": ["Sicurezza informatica", "Firewall", "VPN", "Aggiornamenti di sicurezza"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Sicurezza informatica",
+    "Firewall",
+    "VPN",
+    "Aggiornamenti di sicurezza"
+  ],
   "seo": {
     "titolo": "Firewall Cisco: falla VPN sfruttata, cosa fare in ufficio",
     "descrizione": "Firewall Cisco ASA e FTD: una falla nella VPN è già sfruttata per bloccare i dispositivi. Come capire se sei esposto e i 4 passi da fare subito.",
     "keyword": "firewall Cisco"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Firewall Cisco: falla nella VPN già sfruttata, cosa fare subito",
+  "id": 336
 }
