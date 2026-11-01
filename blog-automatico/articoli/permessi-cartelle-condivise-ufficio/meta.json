@@ -1,0 +1,13 @@
+{
+  "titolo": "Permessi delle cartelle condivise: chi deve vedere cosa in studio",
+  "slug": "permessi-cartelle-condivise-ufficio",
+  "estratto": "Cartelle condivise aperte a tutti? Come impostare i permessi per gruppi su server, NAS o SharePoint, limitare i danni del ransomware e rispettare il GDPR.",
+  "categorie": ["Informatica"],
+  "tag": ["Sicurezza informatica", "Ransomware", "GDPR", "NAS", "Microsoft 365"],
+  "seo": {
+    "titolo": "Permessi delle cartelle condivise: guida per studi e PMI",
+    "descrizione": "Permessi delle cartelle condivise: come organizzarli per gruppi su server, NAS o SharePoint, evitare gli errori comuni e contenere il ransomware.",
+    "keyword": "permessi delle cartelle condivise"
+  },
+  "stato": "draft"
+}

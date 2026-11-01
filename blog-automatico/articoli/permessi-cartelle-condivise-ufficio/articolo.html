@@ -1,0 +1,57 @@
+<p>In tanti studi e piccole aziende la cartella condivisa sul server, sul NAS o su SharePoint funziona così: tutti vedono tutto. Le buste paga accanto ai preventivi, i documenti dei clienti accanto alle foto della cena aziendale. Finché va tutto bene nessuno ci pensa, poi un giorno un collaboratore apre un file che non doveva vedere, o un virus cifra l'intero archivio partendo dal PC di uno stagista. In questa guida ti spiego come impostare i <strong>permessi delle cartelle condivise</strong> con un criterio semplice, quali errori vedo più spesso e come rimettere ordine senza bloccare il lavoro.</p>
+
+<h2>Perché i permessi delle cartelle condivise contano</h2>
+<p>I permessi stabiliscono <strong>chi può aprire, modificare o cancellare</strong> ogni cartella. Non è una questione di sfiducia verso i colleghi, ma di tre rischi molto concreti.</p>
+<h3>1. Il ransomware lavora con i tuoi permessi</h3>
+<p>Un <strong>ransomware</strong> è un programma maligno che cifra i file e chiede un riscatto. Quando parte dal PC di un utente, può colpire tutte le cartelle che quell'utente può modificare. Se ogni persona può scrivere ovunque, basta un solo allegato aperto per perdere l'archivio dell'intero studio. Se invece ognuno scrive solo dove serve, il danno resta circoscritto. È lo stesso principio che ho spiegato parlando dell'<a href="https://www.roccoandrealigorio.it/?p=334">account amministratore sul PC</a>.</p>
+<h3>2. Il GDPR chiede di limitare gli accessi</h3>
+<p>Il <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679" target="_blank" rel="noopener">Regolamento europeo sulla protezione dei dati</a> chiede, all'articolo 25, che per impostazione predefinita i dati personali non siano accessibili a un numero indefinito di persone, e all'articolo 32 misure adeguate per proteggerli. Una cartella con i documenti sanitari dei dipendenti aperta a tutto l'ufficio è difficile da giustificare.</p>
+<h3>3. Gli errori umani</h3>
+<p>Chi può cancellare una cartella, prima o poi la cancella per sbaglio o la sposta trascinandola nel posto sbagliato. Meno persone hanno quel potere, meno incidenti ci sono.</p>
+
+<h2>Il principio da seguire: il minimo indispensabile</h2>
+<p>In informatica si chiama <strong>principio del privilegio minimo</strong>: ognuno ha accesso solo a ciò che gli serve per lavorare, con il livello minimo necessario. In pratica i livelli utili sono tre:</p>
+<ul>
+<li><strong>nessun accesso</strong>: la cartella non serve a quella persona;</li>
+<li><strong>sola lettura</strong>: può consultare e copiare, ma non modificare o cancellare (per esempio modelli, procedure, listini);</li>
+<li><strong>modifica</strong>: può creare, modificare e cancellare i file al suo interno.</li>
+</ul>
+<p>C'è poi il <strong>controllo completo</strong>, che permette anche di cambiare i permessi. Va riservato a chi amministra i sistemi: come ricorda la <a href="https://learn.microsoft.com/en-us/training/modules/configure-manage-file-access/3-understand-file-folder-permissions" target="_blank" rel="noopener">documentazione Microsoft sui permessi di file e cartelle</a>, chi ha il controllo completo su una cartella può eliminare qualsiasi file al suo interno.</p>
+
+<h2>Come organizzare le cartelle in 5 passi</h2>
+<p>Ecco il metodo che uso negli studi e nelle PMI. Funziona allo stesso modo su un server Windows, su un NAS o su SharePoint.</p>
+<ol>
+<li><strong>Disegna la struttura per aree, non per persone.</strong> Poche cartelle principali con un nome chiaro: Amministrazione, Personale, Clienti, Commerciale, Modelli, Archivio. Evita le cartelle "Mario" o "Varie": diventano discariche impossibili da gestire.</li>
+<li><strong>Crea gruppi di utenti.</strong> Per esempio "Segreteria", "Contabilità", "Soci". I permessi si assegnano ai gruppi, non alle singole persone: Microsoft lo indica come buona pratica perché riduce il lavoro di gestione. Quando arriva un nuovo collaboratore lo aggiungi al gruppo giusto e ha subito gli accessi corretti.</li>
+<li><strong>Compila una tabella.</strong> Righe con le cartelle, colonne con i gruppi, e in ogni casella "nessuno", "lettura" o "modifica". È il documento che ti permette di ragionare prima di toccare il server, e vale anche come prova di aver pensato alla sicurezza.</li>
+<li><strong>Applica i permessi alle cartelle principali.</strong> Le sottocartelle di norma ereditano le impostazioni della cartella superiore. Evita le eccezioni su singoli file o sottocartelle sparse: dopo un anno nessuno ricorda più perché esistono.</li>
+<li><strong>Prova con un utente reale.</strong> Accedi con l'account di un collaboratore (o chiedigli di verificare) e controlla che veda solo ciò che deve. Meglio scoprire ora un errore che durante una scadenza fiscale.</li>
+</ol>
+
+<h3>Un esempio concreto</h3>
+<p>In uno studio di consulenza del lavoro con sei persone una struttura ragionevole potrebbe essere questa: la cartella <strong>Personale</strong> (contratti e buste paga dei dipendenti dello studio) visibile solo ai soci; <strong>Clienti</strong> in modifica a tutti gli operativi; <strong>Modelli</strong> in sola lettura per tutti e in modifica solo per chi li aggiorna; <strong>Amministrazione</strong> in modifica per la contabilità e in lettura per i soci.</p>
+
+<h2>Gli errori che vedo più spesso</h2>
+<ul>
+<li><strong>"Everyone" o "Tutti" con controllo completo</strong> sulla cartella principale: è l'impostazione più comoda e la più pericolosa.</li>
+<li><strong>Account condivisi</strong> del tipo "ufficio" usati da più persone: non sai più chi ha fatto cosa e non puoi togliere l'accesso a una sola persona.</li>
+<li><strong>Ex collaboratori ancora attivi</strong>: gli account vanno disattivati il giorno dell'uscita, come spiego nella <a href="https://www.roccoandrealigorio.it/?p=227">checklist per chi lascia lo studio</a>.</li>
+<li><strong>Link "chiunque abbia il link"</strong> creati su OneDrive o SharePoint e mai scaduti: aggirano i permessi delle cartelle. Ne ho parlato nell'articolo sui <a href="https://www.roccoandrealigorio.it/?p=312">link di condivisione</a>.</li>
+<li><strong>Cartelle del NAS esposte su Internet</strong> senza necessità: se ti serve accedere da fuori, meglio una VPN. Trovi altre regole nella guida alla <a href="https://www.roccoandrealigorio.it/?p=268">sicurezza del NAS</a>.</li>
+</ul>
+
+<h2>Permessi e backup vanno insieme</h2>
+<p>Permessi ben fatti riducono i danni, ma non li azzerano. Il <strong>backup</strong> deve stare in un posto dove gli utenti normali non possono scrivere, altrimenti un ransomware cifra anche le copie. Se il tuo backup è una cartella condivisa del NAS accessibile a tutti, quella non è una copia di sicurezza: è un'altra cartella da perdere. Per impostare le copie nel modo giusto parti dalla <a href="https://www.roccoandrealigorio.it/?p=211">regola del backup 3-2-1</a>.</p>
+
+<h2>Una revisione all'anno</h2>
+<p>Le persone cambiano ruolo, arrivano stagisti, nascono nuove cartelle. Una volta all'anno riprendi la tabella dei permessi e confrontala con la realtà: chi è entrato, chi è uscito, quali cartelle sono nate. Bastano un'ora e un caffè. Se preferisci farti affiancare, trovi come lavoro nella pagina <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Devo per forza avere un server per gestire i permessi?</h3>
+<p>No. Un NAS, Microsoft 365 con SharePoint o Google Drive condivisi permettono di assegnare permessi per utenti e gruppi. Quello che conta è il metodo, non lo strumento.</p>
+<h3>Il titolare deve avere accesso a tutto?</h3>
+<p>Spesso sì per lettura, ma conviene che lavori ogni giorno con un account normale. L'accesso completo va usato solo quando serve, per ridurre il danno se il suo PC viene compromesso.</p>
+<h3>Restringere i permessi rallenterà il lavoro?</h3>
+<p>Se la struttura è disegnata insieme a chi lavora, no. Nei primi giorni può emergere qualche accesso mancante: si aggiunge al gruppo giusto e il problema sparisce.</p>
+<h3>Ogni quanto vanno controllati i permessi?</h3>
+<p>Almeno una volta all'anno e ogni volta che qualcuno entra, esce o cambia mansione.</p>
