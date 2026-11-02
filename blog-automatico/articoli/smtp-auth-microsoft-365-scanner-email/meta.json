@@ -16,5 +16,8 @@
     "descrizione": "SMTP AUTH Microsoft 365 si spegne a fine dicembre 2026: come capire se scanner e gestionali sono coinvolti e quale alternativa scegliere ora.",
     "keyword": "SMTP AUTH Microsoft 365"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Scanner e gestionali che inviano email: cosa cambia con Microsoft 365 a fine dicembre",
+  "id": 344
 }
