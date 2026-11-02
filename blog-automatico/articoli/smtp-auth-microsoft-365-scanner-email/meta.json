@@ -1,0 +1,20 @@
+{
+  "titolo": "Scanner e gestionali che inviano email: cosa cambia con Microsoft 365 a fine dicembre",
+  "slug": "smtp-auth-microsoft-365-scanner-email",
+  "estratto": "Da fine dicembre 2026 Microsoft 365 spegne SMTP AUTH con password semplice: scanner e gestionali possono smettere di inviare email. Cosa fare ora.",
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Microsoft 365",
+    "Email",
+    "Hardware",
+    "Software su misura"
+  ],
+  "seo": {
+    "titolo": "SMTP AUTH Microsoft 365: scanner e gestionali a rischio stop",
+    "descrizione": "SMTP AUTH Microsoft 365 si spegne a fine dicembre 2026: come capire se scanner e gestionali sono coinvolti e quale alternativa scegliere ora.",
+    "keyword": "SMTP AUTH Microsoft 365"
+  },
+  "stato": "draft"
+}

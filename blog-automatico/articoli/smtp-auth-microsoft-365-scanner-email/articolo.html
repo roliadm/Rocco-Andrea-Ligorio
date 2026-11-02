@@ -1,0 +1,63 @@
+<p>La multifunzione che spedisce le scansioni per email, il gestionale che invia fatture e solleciti, il software del centralino che manda i messaggi della segreteria: in molti uffici questi invii passano dalla casella Microsoft 365 dello studio, con un nome utente e una password scritti nelle impostazioni del dispositivo. A <strong>fine dicembre 2026</strong> Microsoft disattiverà per impostazione predefinita proprio questo metodo, chiamato <strong>SMTP AUTH Microsoft 365</strong> con autenticazione di base. In questo articolo ti spiego cosa cambia, come capire se ti riguarda e quali alternative hai, con il tempo che resta prima delle feste.</p>
+
+<h2>Cos'è SMTP AUTH Microsoft 365, in parole semplici</h2>
+<p><strong>SMTP</strong> è il protocollo con cui un programma o un apparecchio consegna un'email a un server di posta. Con <strong>SMTP AUTH</strong> il dispositivo si presenta al server di Microsoft 365 con le credenziali di una casella (utente e password), come farebbe una persona. Quando l'accesso avviene solo con utente e password si parla di <strong>autenticazione di base</strong> (in inglese <em>Basic Auth</em>).</p>
+<p>Il problema è che una password memorizzata in una stampante o in un gestionale non può avere la doppia autenticazione, spesso non viene mai cambiata e, se rubata, permette di inviare email a nome dello studio. Per questo Microsoft da anni spinge verso l'<strong>autenticazione moderna</strong> (OAuth), in cui il dispositivo ottiene un "permesso" temporaneo invece di conservare la password.</p>
+
+<h2>Le date da segnare</h2>
+<p>Il calendario è stato aggiornato dal team di Exchange il 27 gennaio 2026 nel <a href="https://techcommunity.microsoft.com/blog/exchange/updated-exchange-online-smtp-auth-basic-authentication-deprecation-timeline/4489835" target="_blank" rel="noopener">blog ufficiale di Microsoft</a>, dopo che la scadenza prevista per marzo-aprile 2026 era stata sospesa:</p>
+<ul>
+<li><strong>fino a dicembre 2026</strong>: nulla cambia, gli invii con utente e password continuano a funzionare;</li>
+<li><strong>fine dicembre 2026</strong>: nei tenant esistenti (cioè negli abbonamenti Microsoft 365 già attivi) l'autenticazione di base per SMTP AUTH viene <strong>disattivata per impostazione predefinita</strong>. L'amministratore potrà riattivarla, ma solo come soluzione temporanea;</li>
+<li><strong>nuovi tenant creati dopo dicembre 2026</strong>: l'autenticazione di base non sarà disponibile, si usa OAuth;</li>
+<li><strong>seconda metà del 2027</strong>: Microsoft comunicherà la data di rimozione definitiva, dopo la quale non ci saranno più rinvii.</li>
+</ul>
+<p>In pratica, chi non fa niente rischia di tornare dalle ferie di Natale con lo scanner che "non manda più le scansioni" e il gestionale che non spedisce i documenti, senza un messaggio chiaro sul perché.</p>
+
+<h2>Come capire se il tuo ufficio è coinvolto</h2>
+<h3>1. Fai l'elenco di tutto ciò che invia email da solo</h3>
+<p>Pensa a ogni apparecchio o programma che manda posta senza che una persona prema "Invia" in Outlook:</p>
+<ul>
+<li><strong>stampanti multifunzione</strong> con la funzione "scansione su email";</li>
+<li><strong>gestionali</strong>, programmi di fatturazione e CRM che inviano documenti o promemoria;</li>
+<li><strong>NAS, gruppi di continuità, centralini e telecamere</strong> che mandano avvisi;</li>
+<li><strong>siti web</strong> con moduli di contatto che usano la casella Microsoft 365 per spedire;</li>
+<li>script o piccoli programmi su misura scritti negli anni.</li>
+</ul>
+<p>Se hai già un <a href="https://www.roccoandrealigorio.it/?p=326">inventario informatico</a>, è il momento di usarlo: aggiungi una colonna "invia email? con quale casella?".</p>
+<h3>2. Guarda le impostazioni SMTP</h3>
+<p>Nel pannello del dispositivo o nelle opzioni del programma cerca il server di posta in uscita. Se trovi <strong>smtp.office365.com</strong>, porta 587, con un indirizzo e una password, quel dispositivo usa SMTP AUTH ed è da sistemare, a meno che non supporti già OAuth.</p>
+<h3>3. Chiedi il report a Microsoft 365</h3>
+<p>Chi amministra il tenant può aprire l'Exchange admin center, nella sezione dei report sul flusso di posta, il report <strong>SMTP AUTH clients</strong>: la colonna sul protocollo di autenticazione indica quali caselle inviano ancora con l'autenticazione di base. È il modo più rapido per scoprire anche gli invii che nessuno ricordava.</p>
+
+<h2>Le alternative per continuare a inviare</h2>
+<p>Microsoft descrive le opzioni nella guida ufficiale per <a href="https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365" target="_blank" rel="noopener">configurare multifunzione e applicazioni con Microsoft 365</a>. Te le riassumo in ordine di preferenza per un piccolo ufficio.</p>
+<h3>Passare a OAuth, se il dispositivo lo supporta</h3>
+<p>È la strada migliore. Molti modelli recenti di multifunzione e molti gestionali aggiornati supportano già l'accesso "con account Microsoft" invece della password. Spesso basta un <strong>aggiornamento del firmware</strong> (il software interno della stampante) o della versione del programma. Chiedi al tuo fornitore o al noleggiatore della multifunzione: è una domanda che a fine anno riceveranno in tanti.</p>
+<h3>Il connettore di relay SMTP</h3>
+<p>Se l'ufficio ha un <strong>indirizzo IP pubblico statico</strong> (non condiviso), si può creare in Microsoft 365 un connettore che accetta la posta solo da quell'indirizzo. Il dispositivo invia senza password e può scrivere anche a destinatari esterni. Servono una configurazione accurata e il record SPF aggiornato (ne ho parlato nella guida su <a href="https://www.roccoandrealigorio.it/?p=235">SPF, DKIM e DMARC</a>), e le email non finiscono nella posta inviata.</p>
+<h3>Direct Send, solo per invii interni</h3>
+<p>Il dispositivo consegna la posta direttamente a Microsoft 365 senza autenticarsi, ma <strong>solo a caselle dello stesso dominio</strong>. Va bene per lo scanner che manda le scansioni ai colleghi, non per il gestionale che scrive ai clienti. Microsoft stessa lo sconsiglia a chi non ha competenze specifiche, perché una configurazione sbagliata può essere sfruttata per email false.</p>
+<h3>Un servizio di invio esterno</h3>
+<p>Per i programmi che spediscono molte email ai clienti si può usare un servizio professionale di invio transazionale, che lavora con chiavi dedicate invece della password della casella. Ha un costo, ma separa gli invii automatici dalla posta dello studio.</p>
+<h3>Riattivare l'autenticazione di base: solo per guadagnare tempo</h3>
+<p>Da fine dicembre l'amministratore potrà riaccenderla, ma è solo un rinvio fino alla data definitiva del 2027. Usala come paracadute se un dispositivo si blocca all'improvviso, non come soluzione.</p>
+
+<h2>Un piano in quattro passi da fare entro dicembre</h2>
+<ol>
+<li><strong>Censisci</strong> tutti i dispositivi e i programmi che inviano email, con il report di Microsoft e l'elenco dell'ufficio.</li>
+<li><strong>Chiedi ai fornitori</strong> se il loro prodotto supporta OAuth e da quale versione.</li>
+<li><strong>Aggiorna o riconfigura</strong> un dispositivo alla volta, verificando che l'invio funzioni prima di passare al successivo.</li>
+<li><strong>Annota</strong> la soluzione scelta per ciascuno, così chi verrà dopo saprà come funziona.</li>
+</ol>
+<p>Se un vecchio gestionale su misura non può essere aggiornato, spesso basta modificare la parte che invia le email: è un intervento contenuto. Trovi come lavoro su questi progetti nella pagina <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>. E se il programma usa ancora altre tecnologie Microsoft in dismissione, dai un'occhiata anche all'articolo su <a href="https://www.roccoandrealigorio.it/?p=304">Exchange Web Services</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Uso Outlook sul PC: cambia qualcosa per me?</h3>
+<p>No. Outlook, l'app sul telefono e Outlook sul web usano già l'autenticazione moderna. Il cambiamento riguarda dispositivi e programmi che inviano posta in automatico.</p>
+<h3>Se cambio la password della casella risolvo?</h3>
+<p>No. Il blocco riguarda il metodo di accesso, non la password: con l'autenticazione di base disattivata, qualunque password verrà rifiutata.</p>
+<h3>La mia posta non è su Microsoft 365: devo preoccuparmi?</h3>
+<p>Questa scadenza riguarda solo Microsoft 365 (Exchange Online). Altri provider hanno regole proprie: conviene comunque verificare con il tuo fornitore di posta se supporta accessi più sicuri della semplice password.</p>
+<h3>La stampante è vecchia e non riceve più aggiornamenti: cosa faccio?</h3>
+<p>Puoi usare il connettore di relay o il Direct Send per gli invii interni. Se però il dispositivo non riceve più aggiornamenti di sicurezza, è anche un buon momento per valutarne la sostituzione.</p>

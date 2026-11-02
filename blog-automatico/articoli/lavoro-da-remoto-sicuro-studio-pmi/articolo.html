@@ -1,0 +1,61 @@
+<p>Il collaboratore che lavora da casa il venerdì, il titolare che controlla una pratica la sera, la segretaria che si collega dal portatile quando il figlio è malato: in quasi tutti gli studi e le piccole aziende qualcuno lavora fuori ufficio. Spesso però il collegamento è stato improvvisato anni fa, magari con una porta aperta sul router "perché così funzionava". In questa guida ti spiego come organizzare un <strong>lavoro da remoto sicuro</strong>: quali strade scegliere per raggiungere i dati dello studio, come proteggere i dispositivi e quali errori vedo più spesso.</p>
+
+<h2>Perché il lavoro da remoto sicuro non è scontato</h2>
+<p>In ufficio ci sono un firewall, una rete controllata e PC gestiti. A casa il computer è collegato allo stesso Wi-Fi della console dei ragazzi e magari è usato da tutta la famiglia. Inoltre, per far entrare chi lavora fuori, bisogna aprire un "passaggio" dall'esterno verso la rete dello studio: se è mal protetto, lo usano anche i criminali. Non a caso molti attacchi ransomware degli ultimi anni sono partiti proprio da VPN non aggiornate o da desktop remoti esposti su Internet.</p>
+<p>L'<a href="https://www.enisa.europa.eu/tips-for-cybersecurity-when-working-from-home" target="_blank" rel="noopener">Agenzia dell'Unione europea per la cybersicurezza (ENISA)</a> ha pubblicato consigli per datori di lavoro e dipendenti che restano attuali, così come il <a href="https://www.agid.gov.it/it/agenzia/stampa-e-comunicazione/notizie/2020/03/17/smart-working-vademecum-lavorare-online-sicurezza" target="_blank" rel="noopener">vademecum di AgID</a>. Te li traduco in scelte concrete per un piccolo ufficio.</p>
+
+<h2>Come raggiungere i dati dello studio: tre strade</h2>
+<h3>1. I dati sono già nel cloud</h3>
+<p>Se l'ufficio lavora con Microsoft 365, Google Workspace o un gestionale in cloud, chi è fuori non deve "entrare" nella rete dello studio: si collega direttamente al servizio. È la soluzione più semplice, a patto di attivare la <a href="https://www.roccoandrealigorio.it/?p=217">doppia autenticazione</a> su tutti gli account. Senza, una password rubata basta per leggere tutta la posta e i documenti.</p>
+<h3>2. La VPN verso l'ufficio</h3>
+<p>Se i dati sono su un server o su un NAS in studio, la strada classica è la <strong>VPN</strong> (rete privata virtuale): un "tunnel" cifrato che collega il PC di casa alla rete dell'ufficio come se fosse lì. Funziona bene, ma il dispositivo che la gestisce, di solito il firewall o il router, è esposto su Internet e va trattato con cura:</p>
+<ul>
+<li><strong>aggiornamenti tempestivi</strong> del firewall: le falle nelle VPN sono tra le più sfruttate, come è successo di recente con i <a href="https://www.roccoandrealigorio.it/?p=336">firewall Cisco</a>;</li>
+<li><strong>doppia autenticazione</strong> anche sulla VPN, non solo la password;</li>
+<li>un <strong>account per persona</strong>, mai un utente condiviso "smartworking";</li>
+<li>accesso limitato alle sole risorse che servono, non all'intera rete.</li>
+</ul>
+<h3>3. Il desktop remoto, ma non esposto</h3>
+<p>Molti studi usano il <strong>desktop remoto</strong> (RDP) per controllare dal portatile il PC dell'ufficio. Va bene, ma <strong>solo passando dalla VPN</strong>. Pubblicare direttamente su Internet la porta del desktop remoto, magari cambiandone il numero "per nasconderla", è uno degli errori più pericolosi: esistono programmi che provano password su queste porte giorno e notte. ENISA lo dice chiaramente: non esporre direttamente le interfacce di accesso remoto come RDP.</p>
+<p>Lo stesso vale per i programmi di assistenza remota installati "per comodità" e mai più controllati: ne ho parlato nell'articolo sul <a href="https://www.roccoandrealigorio.it/?p=229">software di assistenza remota usato dagli hacker</a>.</p>
+
+<h2>Il dispositivo: meglio un PC dello studio</h2>
+<p>La scelta che fa più differenza è <strong>con quale computer</strong> si lavora. Un PC personale usato da tutta la famiglia può avere programmi scaricati da chissà dove, un antivirus scaduto e nessun controllo da parte tua. Quando posso, consiglio di fornire un <strong>portatile dello studio</strong>, configurato così:</p>
+<ul>
+<li>sistema operativo e programmi <strong>aggiornati automaticamente</strong>;</li>
+<li>antivirus attivo e firewall di Windows acceso;</li>
+<li>utente senza privilegi di amministratore, come ho spiegato parlando dell'<a href="https://www.roccoandrealigorio.it/?p=334">account amministratore sul PC</a>;</li>
+<li><strong>disco cifrato</strong> con BitLocker o FileVault, così un portatile rubato in auto non diventa un data breach (trovi i dettagli nella guida sulla <a href="https://www.roccoandrealigorio.it/?p=284">cifratura del disco</a>);</li>
+<li>blocco automatico dello schermo dopo pochi minuti.</li>
+</ul>
+<p>Se un collaboratore deve per forza usare il proprio computer, limita l'accesso ai servizi cloud tramite browser e alle sole cose indispensabili, ed evita di salvare documenti dei clienti in locale.</p>
+
+<h2>La rete di casa e i luoghi pubblici</h2>
+<h3>Il Wi-Fi domestico</h3>
+<p>Bastano poche regole: password del Wi-Fi robusta e diversa da quella stampata sotto il router, cifratura WPA2 o WPA3 attiva, firmware del router aggiornato e password di amministrazione cambiata. Sono gli stessi principi che ho descritto per il <a href="https://www.roccoandrealigorio.it/?p=223">Wi-Fi dell'ufficio</a>.</p>
+<h3>Bar, treni e alberghi</h3>
+<p>Le reti Wi-Fi pubbliche sono da evitare per lavorare su dati dei clienti. Meglio usare l'<strong>hotspot del telefono</strong>, che è personale e protetto. Se proprio serve una rete pubblica, collegati sempre tramite VPN e fai attenzione a chi guarda lo schermo: un filtro privacy per il monitor costa poco.</p>
+
+<h2>Le regole da scrivere (e spiegare)</h2>
+<p>Un lavoro da remoto sicuro non dipende solo dalla tecnologia. Metti per iscritto, in una pagina, poche regole chiare:</p>
+<ol>
+<li>quali dispositivi si possono usare per lavorare;</li>
+<li>dove si salvano i documenti (mai su chiavette o sul desktop di casa);</li>
+<li>niente stampe di documenti dei clienti a casa, salvo necessità, e distruzione sicura;</li>
+<li>chi chiamare se il PC si comporta in modo strano o se si perde un dispositivo;</li>
+<li>attenzione alle email e alle telefonate di finti tecnici che chiedono di installare programmi.</li>
+</ol>
+<p>Queste regole aiutano anche a dimostrare, in caso di controlli, di aver adottato misure adeguate per proteggere i dati personali come chiede il GDPR.</p>
+
+<h2>Da dove partire</h2>
+<p>Se oggi il collegamento da casa "funziona e basta", fai tre verifiche: c'è qualche porta del router aperta verso il desktop remoto? La VPN e il firewall sono aggiornati e chiedono un secondo fattore? Chi lavora da fuori usa un PC dello studio? Se una delle risposte non ti convince, si può sistemare in pochi passaggi. Se vuoi farti affiancare, trovi i dettagli nella pagina <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Una VPN commerciale a pagamento basta per lavorare da casa?</h3>
+<p>No. Le VPN commerciali proteggono la navigazione su reti pubbliche, ma non ti collegano alla rete dello studio. Per raggiungere server e NAS serve una VPN configurata sul firewall dell'ufficio o una soluzione equivalente.</p>
+<h3>Posso usare il desktop remoto senza VPN se ho una password lunga?</h3>
+<p>È sconsigliato. La password lunga aiuta, ma la porta resta esposta a tentativi continui e alle falle del servizio. Passa sempre dalla VPN o da un servizio con doppia autenticazione.</p>
+<h3>Il collaboratore può usare il suo PC personale?</h3>
+<p>Si può, ma con limiti: solo servizi cloud via browser con doppia autenticazione, sistema aggiornato e nessun documento dei clienti salvato in locale. Un portatile dello studio resta la scelta più sicura.</p>
+<h3>Cosa faccio se un portatile con dati dello studio viene rubato?</h3>
+<p>Cambia subito le password degli account usati su quel PC, disconnetti le sessioni attive e valuta con il titolare del trattamento se si tratta di una violazione da notificare. Se il disco era cifrato, il rischio per i dati è molto più basso.</p>
