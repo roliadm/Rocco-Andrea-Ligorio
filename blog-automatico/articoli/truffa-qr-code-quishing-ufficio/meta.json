@@ -17,5 +17,8 @@
     "descrizione": "Truffa del QR code (quishing): perché aggira i filtri della posta, le forme più diffuse e 7 regole pratiche per proteggere lo studio e i collaboratori.",
     "keyword": "truffa del QR code"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Truffa del QR code: come riconoscere il quishing in studio e in azienda",
+  "id": 348
 }
