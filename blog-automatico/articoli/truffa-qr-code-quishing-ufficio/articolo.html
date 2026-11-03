@@ -1,0 +1,51 @@
+<p>Il QR code è ovunque: sulle fatture, sugli avvisi di pagamento, sui parcheggi, nelle email che chiedono di "verificare l'account". Proprio per questo è diventato uno strumento comodo anche per i truffatori. La <strong>truffa del QR code</strong>, chiamata anche <strong>quishing</strong> (da QR e phishing), sposta il link pericoloso dentro un'immagine: tu inquadri con il telefono e finisci su un sito falso senza aver visto l'indirizzo. In questo articolo ti spiego perché funziona così bene, in quali forme la vedo arrivare negli uffici e quali regole pratiche adottare in studio e in azienda.</p>
+
+<h2>Cos'è il quishing e perché aggira i controlli</h2>
+<p>Nel phishing classico il messaggio contiene un link: passandoci sopra con il mouse vedi dove porta, e i filtri della posta lo analizzano. Nel quishing, invece, il link è <strong>codificato in un QR code</strong>, cioè in un'immagine. Questo ha tre conseguenze.</p>
+<ul>
+<li><strong>I filtri faticano di più.</strong> Molti sistemi di protezione della posta sono nati per controllare i link testuali; leggere ogni immagine di ogni messaggio è più complesso. Microsoft, nel suo <a href="https://www.microsoft.com/en-us/security/blog/?p=136144" target="_blank" rel="noopener">blog sulla sicurezza</a>, racconta di aver dovuto adattare Defender for Office 365 proprio per estrarre e verificare i link nascosti nei QR code.</li>
+<li><strong>Si cambia dispositivo.</strong> L'email arriva sul PC dell'ufficio, ma il QR lo inquadri con lo smartphone, spesso personale e meno protetto. Il sito falso si apre lì, fuori dai controlli aziendali.</li>
+<li><strong>Lo schermo piccolo nasconde i dettagli.</strong> Come nota la stessa Microsoft, i segnali che su un monitor salterebbero all'occhio (un indirizzo strano, un errore di battitura nel dominio) sul telefono passano facilmente inosservati.</li>
+</ul>
+<p>Il fenomeno non è marginale: Microsoft riferisce che, nel periodo di picco, Defender bloccava circa <strong>3 milioni di tentativi di phishing tramite QR code al giorno</strong>, sceso poi a circa 200.000 al giorno grazie alle nuove difese. Numeri che dicono quanto i truffatori considerino efficace questo canale.</p>
+
+<h2>Le forme della truffa del QR code che vedo più spesso</h2>
+<h3>Le email "di sicurezza"</h3>
+<p>È la versione più pericolosa per un ufficio: un messaggio che imita Microsoft 365, la banca o un servizio di firma elettronica e chiede di "riconfermare l'account" o "riattivare la doppia autenticazione" inquadrando un codice. Il sito che si apre è una copia della pagina di accesso, pensata per rubare email e password. Spesso il testo è minimo, proprio per dare meno appigli ai filtri.</p>
+<h3>Multe, pedaggi e avvisi di pagamento</h3>
+<p>Un finto verbale lasciato sul parabrezza, oppure un SMS che parla di un pedaggio non pagato, con un QR al posto del link. A volte, come descritto da <a href="https://www.malwarebytes.com/it/blog/news/2026/04/traffic-violation-scams-swap-links-for-qr-codes-to-steal-your-card-details" target="_blank" rel="noopener">Malwarebytes</a> ad aprile 2026, il QR porta prima a una pagina con un CAPTCHA, il controllo "non sono un robot", che serve anche a ostacolare i sistemi di analisi automatica, e solo dopo al modulo che chiede i dati della carta per una piccola "commissione". Ho raccolto altre varianti di questo periodo nell'articolo sui <a href="https://www.roccoandrealigorio.it/?p=245">falsi rimborsi e multe</a>.</p>
+<h3>Adesivi sopra i QR originali</h3>
+<p><a href="https://www.altroconsumo.it/soldi/truffe/speciali/quishing" target="_blank" rel="noopener">Altroconsumo</a> segnala casi italiani di adesivi incollati sopra i QR dei parcometri, delle colonnine di ricarica e perfino dei menu dei ristoranti: chi paga la sosta inserisce la carta su un sito civetta. Lo stesso schema può riguardare le auto aziendali e chi si sposta spesso per lavoro.</p>
+<h3>Lettere e pacchi inattesi</h3>
+<p>Volantini che promettono un premio da riscattare via QR, oppure un pacco mai ordinato con un codice "in caso di problemi". L'obiettivo è sempre lo stesso: portarti su una pagina dove lasciare dati personali o di pagamento.</p>
+
+<h2>Come difendersi dalla truffa del QR code: le regole per l'ufficio</h2>
+<ol>
+<li><strong>Un QR in un'email non è mai il modo giusto per accedere a un account.</strong> Microsoft, la banca o la PEC non ti chiederanno di inquadrare un codice per "verificare" le credenziali. Se hai un dubbio, apri tu il servizio digitando l'indirizzo o usando l'app ufficiale.</li>
+<li><strong>Leggi l'anteprima prima di aprire.</strong> Quasi tutti gli smartphone, quando inquadri un QR, mostrano l'indirizzo prima di aprirlo. Fermati un secondo e controlla il dominio: lettere scambiate, parole in più o estensioni insolite sono campanelli d'allarme. Il lucchetto e l'"https" non bastano a garantire che il sito sia quello giusto.</li>
+<li><strong>Diffida dell'urgenza.</strong> "Paga entro oggi per lo sconto", "il tuo account verrà bloccato": la fretta è l'ingrediente principale di ogni truffa.</li>
+<li><strong>Guarda il supporto fisico.</strong> Se il QR di un parcometro o di un cartello è un adesivo applicato sopra un altro, non usarlo: paga dall'app ufficiale del gestore o in contanti.</li>
+<li><strong>Non installare nulla da un QR.</strong> Se dopo la scansione ti viene proposto di scaricare un'app o un file, chiudi tutto. Le app si installano solo dagli store ufficiali.</li>
+<li><strong>Usa la doppia autenticazione resistente al phishing.</strong> Se anche la password venisse rubata, l'<a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a>, meglio ancora con le passkey, rende molto più difficile usarla.</li>
+<li><strong>Proteggi anche gli smartphone.</strong> Sistema aggiornato, blocco schermo e, per i telefoni aziendali, una gestione centralizzata: ne parlo nella guida sugli <a href="https://www.roccoandrealigorio.it/?p=330">smartphone aziendali</a>.</li>
+</ol>
+<h3>Cosa può fare chi gestisce l'informatica</h3>
+<p>Se lo studio usa Microsoft 365 o Google Workspace, vale la pena verificare che le protezioni della posta analizzino anche immagini e allegati e, quando possibile, inserire esempi di QR malevoli nelle simulazioni di phishing per i collaboratori. Cinque minuti di formazione con un esempio reale valgono più di qualsiasi circolare.</p>
+
+<h2>Se hai già inquadrato un QR sospetto</h2>
+<p>Succede, e non è il caso di vergognarsene: l'importante è muoversi in fretta.</p>
+<ul>
+<li>Se hai inserito una <strong>password</strong>, cambiala subito da un dispositivo sicuro e controlla gli accessi recenti dell'account.</li>
+<li>Se hai inserito i dati di una <strong>carta</strong>, chiama la banca per bloccarla e controlla i movimenti.</li>
+<li>Se hai <strong>installato qualcosa</strong>, disinstallalo, scollega il telefono dalla rete aziendale e fallo controllare.</li>
+<li><strong>Avvisa i colleghi</strong> e chi si occupa dell'informatica: spesso lo stesso messaggio è arrivato a più persone.</li>
+</ul>
+<p>Se l'account compromesso contiene dati di clienti, valuta anche gli obblighi previsti dal GDPR: trovi i passi da seguire nell'articolo sul <a href="https://www.roccoandrealigorio.it/?p=276">data breach nelle prime 72 ore</a>. E se vuoi una mano a impostare protezioni e formazione in modo proporzionato alle dimensioni dello studio, dai un'occhiata ai <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Basta inquadrare un QR code per prendere un virus?</h3>
+<p>Di solito no: il QR contiene solo un indirizzo. Il danno arriva dopo, se inserisci dati sul sito che si apre o se scarichi e installi ciò che ti propone.</p>
+<h3>Come verifico un QR code prima di aprirlo?</h3>
+<p>Leggi l'indirizzo mostrato dalla fotocamera prima di toccarlo e confrontalo con quello ufficiale del servizio. Nel dubbio, non aprirlo e raggiungi il sito digitando tu l'indirizzo.</p>
+<h3>I QR code sulle fatture e sugli avvisi pagoPA sono pericolosi?</h3>
+<p>Lo strumento in sé no. Il rischio sta nei documenti che non aspettavi o che arrivano da mittenti dubbi: in quel caso verifica l'avviso nei canali ufficiali dell'ente prima di pagare.</p>
