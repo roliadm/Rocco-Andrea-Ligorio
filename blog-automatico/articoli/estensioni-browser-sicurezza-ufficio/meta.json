@@ -15,5 +15,8 @@
     "descrizione": "Estensioni del browser sicure in ufficio: come capire quali installare, controllare i permessi e bloccare quelle non autorizzate su Chrome ed Edge.",
     "keyword": "estensioni del browser"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Estensioni del browser: come evitare che rubino i dati dello studio",
+  "id": 352
 }
