@@ -1,0 +1,13 @@
+{
+  "titolo": "WordPress 7.1.4: la falla negli aggiornamenti già nel mirino degli hacker",
+  "slug": "aggiornamento-wordpress-7-1-4-falla",
+  "estratto": "Aggiornamento WordPress 7.1.4: una falla nel processo di update è già sotto attacco. Come controllare il sito dello studio e cosa chiedere all'hosting.",
+  "categorie": ["Informatica"],
+  "tag": ["Sicurezza informatica", "Aggiornamenti di sicurezza", "WordPress", "Siti web"],
+  "seo": {
+    "titolo": "Aggiornamento WordPress 7.1.4: la falla già sotto attacco",
+    "descrizione": "Aggiornamento WordPress 7.1.4: corregge 22 falle, una già presa di mira dagli hacker. Come verificare il sito, proteggerlo e capire se è stato colpito.",
+    "keyword": "aggiornamento WordPress 7.1.4"
+  },
+  "stato": "draft"
+}

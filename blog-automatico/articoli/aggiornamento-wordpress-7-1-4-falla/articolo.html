@@ -1,0 +1,60 @@
+<p>Il sito dello studio o dell'azienda è spesso la prima cosa che un cliente vede di te, e molto probabilmente funziona con WordPress, il software con cui è costruita una grossa fetta dei siti nel mondo. Il 28 ottobre 2026 è uscito l'<strong>aggiornamento WordPress 7.1.4</strong>, che corregge 22 vulnerabilità. Una di queste riguarda proprio il meccanismo con cui WordPress si aggiorna, e nel giro di poche ore è finita nel mirino di attacchi automatici. In questo articolo ti spiego cosa è successo in parole semplici, come controllare se il tuo sito è al sicuro e cosa chiedere a chi te lo gestisce.</p>
+
+<h2>Aggiornamento WordPress 7.1.4: cosa corregge</h2>
+<p>Secondo la <a href="https://wordpress.org/support/wordpress-version/version-7-1-4/" target="_blank" rel="noopener">pagina ufficiale della versione 7.1.4</a> su WordPress.org, si tratta di un rilascio dedicato interamente alla sicurezza, con l'invito ad aggiornare subito. Le 22 correzioni comprendono, tra le altre:</p>
+<ul>
+<li>diverse falle di tipo <strong>XSS</strong> (cross-site scripting: codice malevolo che viene salvato in una pagina e si attiva quando qualcuno la apre) in alcuni blocchi dell'editor e in schermate di amministrazione;</li>
+<li>una fuga di informazioni che permetteva a visitatori non autenticati di vedere modifiche del Personalizzatore non ancora pubblicate;</li>
+<li>problemi di permessi per alcuni ruoli personalizzati;</li>
+<li>soprattutto, una <strong>"race condition" durante gli aggiornamenti del core</strong> che, nelle parole del team di WordPress, potrebbe portare all'esecuzione di codice da remoto.</li>
+</ul>
+<p>Le correzioni sono state portate anche sui rami più vecchi, fino alla 4.7 (per esempio 7.0.8, 6.9.11 e 4.7.39). Le versioni 4.6 e precedenti non ricevono più aggiornamenti di sicurezza, e WordPress ricorda che solo l'ultima versione è supportata attivamente.</p>
+
+<h2>La falla negli aggiornamenti spiegata semplice</h2>
+<p>Una "race condition" è una gara contro il tempo. Quando WordPress installa un aggiornamento completo, scompatta i nuovi file in una cartella temporanea, <strong>wp-content/upgrade</strong>, e poco dopo la ripulisce. Secondo l'analisi riportata da <a href="https://www.rescana.com/post/wordpress-core-7-1-4-upgrade-staging-race-rce" target="_blank" rel="noopener">Rescana</a> sulla base dei dati di Wordfence, il nome di quella cartella era prevedibile e raggiungibile dal web. Dentro c'è anche la procedura di installazione di WordPress: chi riesce ad aprirla nei pochi secondi in cui esiste può collegarla a un database sotto il proprio controllo e arrivare a eseguire codice sul server. Non servono password né account sul sito.</p>
+<p>La buona notizia è che la finestra è molto stretta: nei test di laboratorio la cartella restava disponibile solo per qualche secondo. La cattiva è che gli attaccanti usano programmi che interrogano i siti di continuo, proprio per beccare il momento dell'aggiornamento. Per questo i giudizi sulla gravità divergono: WordPress la classifica come bassa, mentre Wordfence, che ha assegnato l'identificativo <strong>CVE-2026-119977</strong>, le dà 8,1 su 10. Entrambi descrivono gli stessi fatti: difficile da sfruttare, ma grave se va a segno.</p>
+
+<h3>Gli attacchi sono già iniziati</h3>
+<p>Wordfence ha segnalato oltre 18.500 richieste verso i percorsi della cartella temporanea nelle prime 21 ore di monitoraggio, alcune ripetute per circa 14 ore e mezza sugli stessi siti, come riportato da <a href="https://securityonline.info/wordpress-core-vulnerability-exploited-rce/" target="_blank" rel="noopener">SecurityOnline</a>. <a href="https://thehackernews.com/2026/10/wordpress-rce-flaw-draws-nearly-63000.html" target="_blank" rel="noopener">The Hacker News</a> ha parlato di quasi 63.000 tentativi bloccati in 24 ore. Il 3 novembre, secondo <a href="https://cybersecuritynews.com/wordpress-core-vulnerability-exploited/" target="_blank" rel="noopener">Cyber Security News</a>, l'agenzia americana per la cybersicurezza CISA ha inserito la falla nel suo catalogo delle vulnerabilità sfruttate attivamente. Va detto con onestà: si tratta di <strong>tentativi</strong>, e al momento non risultano compromissioni confermate pubblicamente. Ma è il classico segnale che dice "non rimandare".</p>
+
+<h2>Come controllare il tuo sito in 5 minuti</h2>
+<p>Se hai accesso al pannello di WordPress, bastano pochi passaggi:</p>
+<ol>
+<li>Entra nella bacheca e vai su <strong>Bacheca &gt; Aggiornamenti</strong>.</li>
+<li>Leggi la versione installata: deve essere <strong>7.1.4</strong> oppure la versione corretta del tuo ramo (per esempio 7.0.8 o 6.9.11).</li>
+<li>Se compare il pulsante per aggiornare, fai prima un backup completo (file e database) e poi aggiorna.</li>
+<li>Anche se gli aggiornamenti automatici sono attivi, <strong>verifica che siano andati davvero a buon fine</strong>: capita più spesso di quanto si pensi che si blocchino per un plugin, per lo spazio disco o per i permessi dei file.</li>
+</ol>
+<p>Se la versione è 4.6 o precedente, il problema è più ampio di questa singola falla: il sito non riceve più correzioni da anni e va rifatto o migrato.</p>
+
+<h2>Cosa chiedere all'hosting o a chi gestisce il sito</h2>
+<p>Molti studi non toccano mai il sito in prima persona: se ne occupa l'agenzia, il "nipote esperto" o il provider. In questo caso manda una mail con tre domande precise:</p>
+<ul>
+<li><strong>"Il sito è già alla 7.1.4 o alla versione corretta del suo ramo?"</strong> Fatti indicare il numero esatto.</li>
+<li><strong>"Avete bloccato l'accesso dal web alla cartella wp-content/upgrade?"</strong> È la protezione consigliata dagli esperti finché non si è aggiornato, e conviene applicarla <em>prima</em> di aggiornare, perché l'aggiornamento stesso usa ancora il vecchio codice di scompattamento. Si fa con una regola sul server web o nel file .htaccess.</li>
+<li><strong>"Avete controllato i log e gli account amministratore?"</strong> Vanno cercate richieste insolite a file PHP dentro quella cartella, utenti amministratori sconosciuti, plugin o file che nessuno ha installato.</li>
+</ul>
+
+<h3>Il plugin di sicurezza non basta</h3>
+<p>Un dettaglio importante: la richiesta malevola arriva a un file PHP senza passare da WordPress, quindi un plugin di sicurezza installato nel sito potrebbe non vederla affatto. Il firewall applicativo resta utile come livello in più, ma <strong>non sostituisce l'aggiornamento</strong>. Secondo Rescana, Wordfence rende disponibile la regola specifica agli utenti della versione gratuita solo dal 27 novembre 2026: un motivo in più per non aspettare.</p>
+
+<h2>La lezione per il sito dello studio</h2>
+<p>Questa vicenda arriva dopo altri rilasci di sicurezza ravvicinati sul ramo 7.1, e dopo le <a href="https://www.roccoandrealigorio.it/?p=298">falle critiche in PHP di ottobre</a>. Vedo spesso siti aziendali lasciati a sé stessi per anni, con aggiornamenti automatici disattivati "perché una volta si era rotto qualcosa". Il rischio non è solo un sito offline: un sito compromesso può distribuire malware ai tuoi clienti, raccogliere dati dei moduli di contatto e finire nelle liste nere di Google, con danni alla reputazione e possibili obblighi verso il Garante se ci sono di mezzo dati personali.</p>
+<p>Le regole minime che consiglio sono semplici:</p>
+<ul>
+<li>aggiornamenti automatici attivi per WordPress, con un controllo periodico che siano riusciti;</li>
+<li>backup giornalieri conservati fuori dal server del sito;</li>
+<li>pochi plugin, solo quelli necessari e ancora mantenuti;</li>
+<li>un responsabile chiaro, interno o esterno, con un accordo scritto su chi aggiorna cosa e in quanto tempo.</li>
+</ul>
+<p>Se vuoi un controllo del tuo sito o qualcuno che se ne occupi con regolarità, trovi come lavoro nella pagina <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Il mio sito usa gli aggiornamenti automatici: sono a posto?</h3>
+<p>Probabilmente sì, ma va verificato. Apri Bacheca &gt; Aggiornamenti e controlla che la versione sia la 7.1.4 o quella corretta del tuo ramo. Gli aggiornamenti automatici a volte falliscono senza avvisare.</p>
+<h3>Se aggiorno, rischio che il sito si rompa?</h3>
+<p>Un aggiornamento minore come la 7.1.4 corregge solo problemi di sicurezza e raramente crea guai. Fai comunque un backup completo prima, così puoi tornare indietro in pochi minuti.</p>
+<h3>Come capisco se il sito è già stato attaccato?</h3>
+<p>I segnali tipici sono amministratori che non conosci, plugin mai installati, file PHP strani nella cartella wp-content/upgrade e reindirizzamenti verso siti sconosciuti. Se ne trovi uno, non limitarti ad aggiornare: fai analizzare il sito da un tecnico.</p>
+<h3>Il mio sito non è su WordPress: devo preoccuparmi?</h3>
+<p>Di questa falla no, ma la regola vale per qualsiasi piattaforma: chiedi a chi gestisce il sito quale versione usa e con che frequenza la aggiorna.</p>

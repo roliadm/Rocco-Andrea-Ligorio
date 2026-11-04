@@ -1,0 +1,53 @@
+<p>Il convertitore di PDF, il traduttore al volo, lo strumento che "sblocca il copia e incolla" sui siti che lo impediscono: in quasi tutti gli uffici che visito, i browser dei PC sono pieni di piccoli componenti aggiuntivi installati da chi li usa, spesso anni fa. Sono le <strong>estensioni del browser</strong>, e hanno un accesso alle pagine che apri molto più ampio di quanto si immagini: possono leggere quello che scrivi, comprese le password, e vedere la posta web e il gestionale online. In questo articolo ti spiego perché anche un'estensione utile e ben recensita può trasformarsi in una spia, come fare un controllo rapido sui PC dello studio e come impostare regole semplici su Chrome ed Edge.</p>
+
+<h2>Il caso di agosto: 19 estensioni diventate malevole</h2>
+<p>A fine agosto 2026 i ricercatori di Socket hanno individuato 19 estensioni per Chrome ed Edge che rubavano dati, come riportato da <a href="https://www.bleepingcomputer.com/news/security/chrome-web-store-extensions-caught-stealing-crypto-browser-data/" target="_blank" rel="noopener">BleepingComputer</a>. Una di queste, uno strumento per riattivare il clic destro e il copia e incolla, contava almeno 70.000 utenti su Chrome e 10.000 installazioni su Edge quando è diventata malevola.</p>
+<p>Il dettaglio che deve far riflettere è <strong>come</strong> sono diventate pericolose. Molte funzionavano esattamente come promesso al momento della pubblicazione. Cinque sono state <strong>acquistate dagli sviluppatori originali</strong> e poi trasformate in malware con un normale aggiornamento automatico. Chi le aveva installate non ha fatto nulla di sbagliato quel giorno: si è ritrovato in casa un programma diverso da quello scelto.</p>
+<p>Una volta attive, queste estensioni registravano credenziali e dati inseriti nei moduli, raccoglievano la cronologia di navigazione e informazioni sugli account social, rubavano criptovalute e mostravano perfino falsi avvisi di aggiornamento del browser in stile <a href="https://www.roccoandrealigorio.it/?p=302">ClickFix</a>, che invitavano a eseguire comandi sul PC. Google le ha rimosse dallo store, ma rimuoverle dallo store non le cancella dai computer su cui sono già installate.</p>
+
+<h2>Perché le estensioni del browser sono un rischio sottovalutato</h2>
+<p>Un'estensione non è un sito che visiti: è un pezzo di software che vive dentro il browser e lavora su ogni pagina che apri, se gli dai il permesso. Quando ne installi una, compare un avviso del tipo "può leggere e modificare tutti i tuoi dati su tutti i siti web". Quasi tutti cliccano su "Aggiungi" senza pensarci, ma quella frase significa esattamente ciò che dice.</p>
+<h3>Cosa può vedere un'estensione con permessi ampi</h3>
+<ul>
+<li>le password che digiti, anche se poi usi la doppia autenticazione;</li>
+<li>le email nella posta web, i documenti aperti online, le schermate del gestionale o dell'home banking;</li>
+<li>i "cookie di sessione", cioè i gettoni che ti tengono connesso: chi li ruba può entrare nel tuo account senza password, come fanno i <a href="https://www.roccoandrealigorio.it/?p=322">malware infostealer</a>.</li>
+</ul>
+<h3>Perché le recensioni non bastano</h3>
+<p>Le stelle e il numero di utenti raccontano il passato. Un'estensione può cambiare proprietario e comportamento da un giorno all'altro, e si aggiorna da sola, in silenzio. Per questo il controllo va ripetuto, non fatto una volta sola.</p>
+
+<h2>Controllo rapido sui PC dello studio</h2>
+<p>Puoi farlo tu stesso, PC per PC, in dieci minuti l'uno.</p>
+<ol>
+<li>Apri la pagina delle estensioni: in Chrome scrivi <strong>chrome://extensions</strong> nella barra degli indirizzi, in Edge <strong>edge://extensions</strong>. Fallo per ogni browser installato e per ogni profilo utente.</li>
+<li>Per ciascuna estensione chiediti: <strong>la usiamo davvero? Sappiamo chi la produce?</strong> Se la risposta è no, rimuovila.</li>
+<li>Apri i "Dettagli" di quelle che restano e guarda i permessi e l'accesso ai siti. Dove possibile, imposta l'accesso "Al clic" o solo su siti specifici, invece di "Su tutti i siti".</li>
+<li>Diffida delle estensioni che fanno cose banali chiedendo permessi enormi: sbloccare il copia e incolla, cambiare lo sfondo delle schede, scaricare video.</li>
+<li>Se trovi un'estensione segnalata come malevola o rimossa dallo store, eliminala e <strong>cambia subito le password</strong> usate da quel browser, partendo da email e servizi critici, poi disconnetti le sessioni attive dagli account principali.</li>
+</ol>
+<p>Un buon <a href="https://www.roccoandrealigorio.it/?p=241">password manager</a> rende quest'ultimo passaggio molto meno faticoso.</p>
+
+<h2>Le regole da impostare in ufficio</h2>
+<p>Il controllo manuale è un buon inizio, ma in un ufficio con più persone serve una regola che valga per tutti. La più efficace è la <strong>lista delle estensioni autorizzate</strong>: si bloccano tutte, tranne quelle approvate.</p>
+<h3>Con Chrome ed Edge gestiti centralmente</h3>
+<p>Entrambi i browser permettono di farlo tramite criteri (le "policy"). Google descrive come consentire o bloccare app ed estensioni nella guida <a href="https://support.google.com/chrome/a/answer/6177431" target="_blank" rel="noopener">Consentire o bloccare app ed estensioni</a> della console di amministrazione di Chrome Enterprise. Microsoft documenta le stesse funzioni per Edge nella pagina <a href="https://learn.microsoft.com/deployedge/microsoft-edge-manage-extensions-policies" target="_blank" rel="noopener">Use group policies to manage Microsoft Edge extensions</a>, con criteri come la lista di blocco (ExtensionInstallBlocklist) e quella di autorizzazione (ExtensionInstallAllowlist). In pratica si imposta "blocca tutto" e si aggiungono solo le estensioni approvate. Nelle realtà con Microsoft 365 Business Premium e Intune, queste regole si distribuiscono a tutti i PC da un unico pannello.</p>
+<h3>Anche senza strumenti di gestione</h3>
+<p>Se lo studio è piccolo e i PC non sono gestiti centralmente, alcune abitudini fanno già molta differenza:</p>
+<ul>
+<li>fate lavorare le persone con un <a href="https://www.roccoandrealigorio.it/?p=334">account utente standard</a> e non amministratore: riduce i danni di qualunque software indesiderato;</li>
+<li>scrivete una lista breve di estensioni ammesse e una regola chiara: <strong>nessuna installazione senza chiedere</strong>;</li>
+<li>usate un profilo del browser per il lavoro e, se proprio serve, un altro per le cose personali;</li>
+<li>ripetete il controllo ogni tre mesi e quando una persona lascia lo studio.</li>
+</ul>
+
+<h2>Una questione anche di privacy</h2>
+<p>Se un'estensione legge i dati dei clienti dal gestionale o dalla posta e li invia a terzi, per lo studio non è solo un problema tecnico: può essere una violazione di dati personali da valutare secondo il GDPR. Avere una lista delle estensioni autorizzate e un controllo periodico documentato è anche un modo per dimostrare di aver adottato misure adeguate.</p>
+<p>Se vuoi che imposti queste regole sui PC del tuo ufficio, o che faccia un controllo completo di browser e account, trovi come lavoro nella pagina <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Le estensioni scaricate dallo store ufficiale sono sicure?</h3>
+<p>Sono controllate, ma non garantite. Il caso di agosto mostra che un'estensione approvata può diventare malevola con un aggiornamento, anche dopo un cambio di proprietario.</p>
+<h3>Quante estensioni dovrebbe avere un PC di lavoro?</h3>
+<p>Il meno possibile. Spesso bastano il password manager e uno o due strumenti richiesti dal gestionale o dalla firma digitale. Ogni estensione in più è una porta in più.</p>
+<h3>Ho trovato un'estensione sospetta: cosa faccio?</h3>
+<p>Rimuovila, cambia le password usate in quel browser partendo dall'email, chiudi le sessioni attive degli account principali e fai controllare il PC con l'antivirus. Se c'erano dati di clienti, valuta con il responsabile privacy se si tratta di un data breach.</p>
