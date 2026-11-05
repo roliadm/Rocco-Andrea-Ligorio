@@ -16,5 +16,8 @@
     "descrizione": "Aggiornamento Android di novembre 2026: 216 falle, una critica senza clic. Come verificare il livello di patch sui telefoni dello studio.",
     "keyword": "aggiornamento Android di novembre"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Aggiornamento Android di novembre: la falla critica da chiudere subito",
+  "id": 354
 }

@@ -16,5 +16,8 @@
     "descrizione": "Formazione sulla sicurezza informatica dei dipendenti: obblighi GDPR e NIS2, regole base, pillole mensili e simulazioni di phishing che funzionano.",
     "keyword": "formazione sulla sicurezza informatica"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Formazione sulla sicurezza informatica: come farla in studio senza corsi noiosi",
+  "id": 356
 }
