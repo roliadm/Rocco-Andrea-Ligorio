@@ -17,5 +17,8 @@
     "descrizione": "Hosting violato: cosa insegna l'attacco a DreamHost e 6 passi per mettere al sicuro sito, email e password dello studio prima che sia tardi.",
     "keyword": "hosting violato"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Hosting violato: la lezione di DreamHost per il sito e l'email dello studio",
+  "id": 358
 }
