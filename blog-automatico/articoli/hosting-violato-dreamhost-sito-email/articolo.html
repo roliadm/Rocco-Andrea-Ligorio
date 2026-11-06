@@ -1,0 +1,67 @@
+<p>Quasi tutti gli studi e le piccole aziende che seguo hanno sito ed email presso lo stesso fornitore di hosting, cioè l'azienda che "ospita" il sito sui suoi server e gestisce le caselle di posta. È comodo, ma ha un rovescio: se a essere attaccato è il fornitore, il problema arriva fino a te anche se in ufficio hai fatto tutto bene. È quello che è appena successo ai clienti di DreamHost, un grande provider americano. In questo articolo ti racconto cosa è accaduto, perché la lezione vale anche per chi usa un hosting italiano e cosa fare, passo per passo, se ricevi la notizia di un <strong>hosting violato</strong>.</p>
+
+<h2>Cosa è successo a DreamHost</h2>
+<p>Il 23 ottobre 2026 DreamHost ha scoperto un accesso non autorizzato ai propri sistemi. Nei giorni successivi ha obbligato molti clienti a reimpostare le password di email e FTP, inizialmente senza spiegare il motivo: <a href="https://www.bleepingcomputer.com/news/security/dreamhost-forces-email-ftp-sftp-password-resets-in-ongoing-incident/" target="_blank" rel="noopener">BleepingComputer</a> ha raccontato di clienti rimasti senza accesso alla posta fino al cambio delle credenziali e di avvisi arrivati "senza alcuna spiegazione".</p>
+<p>Il 29 ottobre l'azienda ha pubblicato il proprio <a href="https://www.dreamhost.com/news/announcements/october-security-incident/" target="_blank" rel="noopener">resoconto ufficiale dell'incidente</a>. In sintesi:</p>
+<ul>
+<li>gli attaccanti hanno sfruttato una <strong>vulnerabilità in un software di terze parti</strong> usato dal File Manager, lo strumento che permette di gestire i file del sito dal browser;</li>
+<li>chi ha effettuato l'accesso al File Manager <strong>tra agosto circa e il 23 ottobre</strong> deve considerare rubati nome utente e password FTP/SFTP (i protocolli con cui si caricano i file del sito);</li>
+<li>gli attaccanti sono arrivati anche ad alcuni sistemi di webmail e hanno ottenuto le credenziali di un numero limitato di utenti; in pochi casi <strong>potrebbero aver letto il contenuto delle caselle</strong>;</li>
+<li>secondo l'analisi dell'azienda, sono stati coinvolti meno del 10% circa degli account email e FTP/SFTP, e non ci sono prove di accessi al pannello di controllo o ai dati di pagamento.</li>
+</ul>
+<p>Il dettaglio che più mi colpisce è la durata: circa <strong>due mesi</strong> in cui qualcuno ha potuto raccogliere password senza che nessuno se ne accorgesse. Come riporta <a href="https://sqmagazine.co.uk/dreamhost-hackers-stole-session-tokens-logins/" target="_blank" rel="noopener">SQ Magazine</a>, l'azienda non ha ancora spiegato perché il monitoraggio non abbia rilevato prima l'intrusione.</p>
+
+<h2>Perché ti riguarda anche se il tuo hosting è italiano</h2>
+<p>DreamHost è un fornitore statunitense, ma gli strumenti colpiti sono gli stessi che trovi in qualsiasi offerta di hosting: un file manager via web, l'accesso FTP per aggiornare il sito, la webmail per leggere la posta dal browser. Ogni provider usa software, spesso di terze parti, che può avere falle.</p>
+<p>Il punto è che <strong>non puoi controllare la sicurezza del fornitore</strong>, ma puoi decidere quanto danno fa un suo incidente. Le conseguenze di un hosting violato, per uno studio, sono molto concrete:</p>
+<ul>
+<li><strong>sito modificato</strong>: con le credenziali FTP si possono inserire nel sito pagine di phishing o codice malevolo, e il tuo dominio diventa un'esca per i tuoi stessi clienti;</li>
+<li><strong>email lette o manipolate</strong>: chi entra nella casella può leggere fatture e conversazioni e preparare truffe mirate, come la <a href="https://www.roccoandrealigorio.it/?p=294">truffa del cambio IBAN</a>;</li>
+<li><strong>password riutilizzate</strong>: se la password della posta è la stessa della banca o del gestionale, il problema si allarga in un attimo.</li>
+</ul>
+
+<h2>Hosting violato: cosa fare subito, passo per passo</h2>
+<p>Che il fornitore sia DreamHost o un altro, se ricevi un avviso di incidente questa è la sequenza che seguo con i miei clienti. Prima regola: <strong>non cliccare sui link dell'email di avviso</strong>. I truffatori approfittano di questi momenti per mandare falsi messaggi "reimposta la password". Entra nel pannello digitando tu l'indirizzo del fornitore; DreamHost stessa ricorda che le sue comunicazioni non chiedono mai la password.</p>
+
+<h3>1. Cambia tutte le password coinvolte</h3>
+<p>Email, FTP/SFTP, pannello di controllo, amministrazione del sito (per esempio WordPress). Ogni password deve essere <strong>nuova e diversa dalle altre</strong>: un <a href="https://www.roccoandrealigorio.it/?p=241">password manager</a> rende la cosa gestibile. Poi aggiorna le password salvate su PC e telefoni (Outlook, app di posta, programmi FTP), altrimenti continueranno a provare quelle vecchie.</p>
+
+<h3>2. Cambia le password uguali o simili usate altrove</h3>
+<p>È il passaggio che quasi tutti saltano. Se qualcuno in studio usava la password della posta anche per altri servizi, quelle vanno cambiate subito, partendo da banca, PEC e servizi cloud.</p>
+
+<h3>3. Controlla le regole della casella di posta</h3>
+<p>Chi entra in una casella spesso crea una <strong>regola di inoltro</strong> che copia in silenzio tutti i messaggi verso un indirizzo esterno, oppure un filtro che sposta nel cestino certe email. Apri le impostazioni di ogni casella, sia in webmail sia in Outlook, e cancella qualsiasi inoltro o filtro che nessuno ricorda di aver creato.</p>
+
+<h3>4. Verifica i file del sito</h3>
+<p>Cerca file modificati di recente che nessuno ha toccato, soprattutto file PHP o pagine sconosciute. Se hai un <a href="https://www.roccoandrealigorio.it/?p=211">backup</a> recente e precedente all'incidente, confrontare le due versioni è il modo più rapido per capire se qualcosa è cambiato.</p>
+
+<h3>5. Attiva la doppia autenticazione dove esiste</h3>
+<p>Sul pannello del fornitore, sulla posta e sull'amministrazione del sito. Con l'<a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a> una password rubata, da sola, non basta più per entrare.</p>
+
+<h3>6. Valuta gli obblighi privacy</h3>
+<p>Se nelle caselle coinvolte ci sono dati personali di clienti, l'incidente potrebbe essere un <strong>data breach</strong> ai sensi del GDPR, con l'obbligo di valutare la notifica al <a href="https://www.garanteprivacy.it/data-breach" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a> entro 72 ore da quando ne vieni a conoscenza. Lo stesso DreamHost invita chi conserva dati di terzi a sentire i propri consulenti. Ne ho parlato nella guida su <a href="https://www.roccoandrealigorio.it/?p=276">cosa fare nelle prime 72 ore dopo un data breach</a>.</p>
+
+<h2>Come ridurre i danni del prossimo incidente</h2>
+<p>Passata l'emergenza, conviene sistemare alcune abitudini che vedo spesso negli uffici:</p>
+<ul>
+<li><strong>Una password per ogni casella e per ogni servizio.</strong> Le caselle condivise con la stessa password conosciuta da tutti sono le più difficili da mettere in sicurezza.</li>
+<li><strong>Niente FTP "in chiaro".</strong> Se il fornitore lo consente, usa SFTP con chiavi al posto delle password e disattiva gli accessi che non servono più, come quello dato anni fa a chi ha fatto il sito.</li>
+<li><strong>Il backup del sito e della posta non lo lascio solo al fornitore.</strong> Una copia gestita da te, fuori dall'hosting, ti permette di ripartire anche se i server del provider sono compromessi.</li>
+<li><strong>Sapere chi è l'intestatario.</strong> In un incidente come questo solo il titolare dell'account può reimpostare le password: se l'account è intestato a un ex collaboratore o all'agenzia che ha fatto il sito, perdi giorni. Ne ho scritto a proposito del <a href="https://www.roccoandrealigorio.it/?p=316">dominio aziendale</a>.</li>
+<li><strong>Una posta professionale per i dati delicati.</strong> Per uno studio che gestisce documenti riservati, valuta servizi di posta con doppia autenticazione obbligatoria, registri degli accessi e avvisi per accessi sospetti, invece della casella inclusa "gratis" nell'hosting.</li>
+</ul>
+<p>Se vuoi una mano a mettere in ordine accessi, password e backup del tuo sito e della posta, trovi come lavoro nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Il mio sito è su un altro hosting: devo fare qualcosa?</h3>
+<p>Non per questo incidente specifico, che riguarda solo DreamHost. È però un buon momento per verificare che le password di posta e FTP siano uniche, che la doppia autenticazione sia attiva e che tu abbia un backup del sito fuori dall'hosting.</p>
+
+<h3>Come capisco se qualcuno ha letto la mia posta?</h3>
+<p>Molti servizi di webmail mostrano gli ultimi accessi con data e indirizzo IP: controllali. Segnali tipici sono regole di inoltro sconosciute, email lette che non hai aperto o risposte inviate che non hai scritto. Nel dubbio, chiedi al fornitore i registri degli accessi.</p>
+
+<h3>Basta che il fornitore abbia già cambiato le password?</h3>
+<p>No. Il fornitore azzera le credenziali coinvolte, ma non sa se hai usato la stessa password altrove, né può controllare le regole delle tue caselle o i file del tuo sito. Quella parte tocca a te.</p>
+
+<h3>Conviene cambiare fornitore di hosting dopo un incidente?</h3>
+<p>Non necessariamente: conta come il fornitore reagisce. Trasparenza, tempi di comunicazione e misure prese sono buoni criteri. Se l'incidente ti ha colto impreparato, il cambiamento più utile spesso non è il fornitore, ma le tue abitudini su password, backup e accessi.</p>
