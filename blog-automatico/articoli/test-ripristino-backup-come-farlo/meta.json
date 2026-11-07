@@ -1,0 +1,13 @@
+{
+  "titolo": "Test di ripristino del backup: come verificare che funzioni davvero",
+  "slug": "test-ripristino-backup-come-farlo",
+  "estratto": "Test di ripristino del backup: perché un backup mai provato non è una garanzia e come organizzare controlli mensili, trimestrali e annuali in studio.",
+  "categorie": ["Informatica"],
+  "tag": ["Backup", "Ransomware", "GDPR", "Sicurezza informatica", "NAS"],
+  "seo": {
+    "titolo": "Test di ripristino del backup: guida pratica per lo studio",
+    "descrizione": "Test di ripristino del backup: come verificare che i dati si recuperino davvero, ogni quanto farlo e come documentarlo per il GDPR. Guida per studi e PMI.",
+    "keyword": "test di ripristino del backup"
+  },
+  "stato": "draft"
+}

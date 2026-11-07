@@ -1,0 +1,62 @@
+<p>"Il backup ce l'abbiamo, lo fa il tecnico." È la frase che sento più spesso quando entro in uno studio o in una piccola azienda. Poi chiedo: <strong>quando è stata l'ultima volta che avete provato a recuperare un file da quel backup?</strong> E di solito cala il silenzio. Un backup mai provato è una speranza, non una garanzia: lo scopri solo il giorno del guasto o del ransomware, cioè nel momento peggiore. In questo articolo ti spiego cos'è un <strong>test di ripristino del backup</strong>, perché va fatto con regolarità e come organizzarlo in pratica, anche senza un reparto IT.</p>
+
+<h2>Cos'è un test di ripristino del backup</h2>
+<p>Il <strong>ripristino</strong> (in inglese <em>restore</em>) è l'operazione inversa del backup: prendere i dati salvati e rimetterli al loro posto, in modo da poterli usare di nuovo. Il test di ripristino è una prova fatta a mente fredda, in un giorno qualunque, per verificare tre cose:</p>
+<ul>
+<li>che i dati ci siano davvero e siano <strong>completi</strong>;</li>
+<li>che si possano <strong>aprire e usare</strong> (un file salvato ma corrotto non serve a nulla);</li>
+<li>quanto <strong>tempo</strong> serve per tornare operativi.</li>
+</ul>
+<p>Non è una mia fissazione. La <a href="https://www.cisa.gov/stopransomware/ransomware-guide" target="_blank" rel="noopener">guida contro il ransomware della CISA</a>, l'agenzia americana per la cybersicurezza, raccomanda di conservare backup scollegati e cifrati e di <strong>verificarne regolarmente disponibilità e integrità</strong> simulando un'emergenza. E il <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679" target="_blank" rel="noopener">GDPR, all'articolo 32</a>, chiede a chi tratta dati personali di saper ripristinare tempestivamente l'accesso ai dati dopo un incidente e di testare con regolarità l'efficacia delle misure di sicurezza. Per uno studio professionale significa: se perdi l'archivio dei clienti e non riesci a recuperarlo, non è solo un danno economico.</p>
+
+<h2>Perché i backup falliscono (senza che nessuno se ne accorga)</h2>
+<p>In anni di interventi ho visto backup "verdi" sul pannello che, alla prova dei fatti, non contenevano quello che serviva. Le cause più comuni:</p>
+<ul>
+<li><strong>Cartelle dimenticate</strong>: il backup era stato impostato anni fa; poi il gestionale è stato spostato su un altro disco e nessuno ha aggiornato le impostazioni.</li>
+<li><strong>Database salvati "a caldo"</strong>: alcuni programmi gestionali usano database che, se copiati mentre sono aperti, risultano illeggibili. Il file c'è, ma non funziona.</li>
+<li><strong>Disco esterno pieno o scollegato</strong> da mesi, con avvisi di errore che finiscono in una casella email che nessuno legge.</li>
+<li><strong>Password di cifratura persa</strong>: il backup è protetto (bene), ma la chiave la conosceva solo il tecnico che non lavora più con te.</li>
+<li><strong>Backup raggiunto dal ransomware</strong>: se il disco o il <a href="https://www.roccoandrealigorio.it/?p=268">NAS</a> è sempre collegato alla rete, chi cifra i PC può cifrare anche le copie.</li>
+</ul>
+<p>Nessuno di questi problemi si vede guardando il semaforo verde del software. Si vede solo provando a ripristinare.</p>
+
+<h2>Come fare un test di ripristino del backup, passo per passo</h2>
+<p>Non serve fermare l'ufficio. Ecco come lo imposto di solito con i miei clienti.</p>
+
+<h3>1. Fai l'elenco di cosa non puoi perdere</h3>
+<p>Prima di tutto scrivi su un foglio i dati davvero critici: archivio pratiche, database del gestionale, contabilità, email, documenti condivisi, eventuali dati su <a href="https://www.roccoandrealigorio.it/?p=274">Microsoft 365 e OneDrive</a>. Per ognuno annota dove si trova e da quale backup è coperto. Spesso già questo passaggio fa emergere un buco.</p>
+
+<h3>2. Il test piccolo: un file a caso, ogni mese</h3>
+<p>Una volta al mese scegli <strong>un file a caso</strong> (non sempre lo stesso) e ripristinalo in una <strong>cartella separata</strong>, mai sopra l'originale. Aprilo e controlla che sia leggibile e aggiornato. Richiede dieci minuti e ti dice se il backup sta lavorando.</p>
+
+<h3>3. Il test medio: una cartella o il gestionale, ogni tre mesi</h3>
+<p>Ogni trimestre prova a recuperare qualcosa di più consistente: un'intera cartella di pratiche o una copia del database del gestionale, ripristinata su un PC di prova. Se il gestionale si apre e mostra i dati di ieri, sei a posto. Se ti serve l'aiuto del produttore del software per farlo, meglio scoprirlo ora che durante un'emergenza.</p>
+
+<h3>4. Il test completo: "se domani si rompe il server", una volta l'anno</h3>
+<p>Una volta l'anno simula il caso peggiore: il PC principale o il server non c'è più. Quanto ci metti a rimettere in piedi un computer funzionante con programmi e dati? Cronometra. Quel numero è il tuo <strong>tempo di ripristino</strong> reale, e ti dice se è compatibile con il tuo lavoro: per uno studio che deve rispettare scadenze fiscali, tre giorni di fermo possono essere un problema serio.</p>
+
+<h3>5. Prova anche la copia "fuori sede"</h3>
+<p>Se segui la <a href="https://www.roccoandrealigorio.it/?p=211">regola del backup 3-2-1</a>, hai almeno una copia fuori dall'ufficio, per esempio nel cloud o su un disco portato a casa. Va testata anche quella: è proprio la copia che userai in caso di incendio, furto o ransomware. Verifica di avere credenziali e chiavi di cifratura a portata di mano, <strong>conservate in un posto sicuro fuori dai PC dell'ufficio</strong>.</p>
+
+<h2>Scrivi tutto: il registro dei test</h2>
+<p>Ogni prova va annotata in un semplice registro: data, cosa hai ripristinato, da quale backup, quanto tempo ci è voluto, se è andato tutto bene e, se no, cosa hai corretto. Bastano un foglio Excel o un documento condiviso.</p>
+<p>Il registro serve a due cose. La prima, pratica: ti accorgi se i tempi peggiorano o se un problema si ripete. La seconda: in caso di incidente o di controllo, dimostra che hai adottato e verificato misure adeguate, che è esattamente ciò che il GDPR chiede. Se ti capitasse una violazione dei dati, ne ho parlato nella guida su <a href="https://www.roccoandrealigorio.it/?p=276">cosa fare in caso di data breach</a>.</p>
+
+<h2>Gli errori da evitare durante il test</h2>
+<ul>
+<li><strong>Ripristinare sopra i file originali</strong>: se il backup è vecchio o corrotto, sovrascrivi dati buoni con dati cattivi. Usa sempre una cartella o un PC di prova.</li>
+<li><strong>Testare sempre lo stesso file</strong>: dimostra solo che quel file è salvato.</li>
+<li><strong>Delegare senza verificare</strong>: se se ne occupa un tecnico esterno, chiedi di ricevere il resoconto di ogni test, con data e risultato.</li>
+<li><strong>Non aggiornare il piano</strong>: nuovo gestionale, nuovo NAS, nuovo servizio cloud? Il backup va rivisto, e il test ripetuto.</li>
+</ul>
+<p>Se vuoi che questo controllo diventi un'abitudine senza pesare sul tuo tempo, posso aiutarti a impostare backup, test e registro: trovi come lavoro nella pagina <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a> e i dettagli nei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Ogni quanto va fatto un test di ripristino del backup?</h3>
+<p>Una buona regola per uno studio o una PMI: un file a caso ogni mese, una cartella o il gestionale ogni tre mesi, una simulazione completa una volta l'anno e dopo ogni cambiamento importante.</p>
+<h3>Il software di backup mi dice che è tutto ok: non basta?</h3>
+<p>No. Il software conferma che la copia è stata eseguita, non che i dati siano completi e utilizzabili. Solo un ripristino reale lo dimostra.</p>
+<h3>Posso fare il test da solo o serve un tecnico?</h3>
+<p>Il test mensile su un file lo può fare chiunque in ufficio. Per il gestionale e la simulazione completa conviene farsi affiancare da un tecnico o dal produttore del software.</p>
+<h3>Il backup su OneDrive o Google Drive va testato?</h3>
+<p>Sì, anche perché la sincronizzazione non è un vero backup: se un file viene cancellato o cifrato, la modifica si propaga ovunque. Verifica di poter recuperare versioni precedenti e file eliminati.</p>

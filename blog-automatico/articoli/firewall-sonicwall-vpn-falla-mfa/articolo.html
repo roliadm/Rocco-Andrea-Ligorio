@@ -1,0 +1,49 @@
+<p>Se in ufficio hai un <strong>firewall SonicWall</strong> e i collaboratori si collegano da casa con la VPN, questa settimana c'è un aggiornamento da non rimandare. Il 6 novembre 2026 SonicWall ha corretto una falla che, in certe configurazioni, permette di entrare nella VPN <strong>senza passare dall'autenticazione a due fattori</strong>, e lo stesso giorno l'agenzia americana CISA l'ha inserita tra le vulnerabilità già sfruttate dagli attaccanti. In questo articolo ti spiego cosa è successo, come capire se il tuo firewall è coinvolto e cosa fare (o far fare al tuo tecnico) nei prossimi giorni.</p>
+
+<h2>Cosa è successo ai firewall SonicWall</h2>
+<p>La vulnerabilità si chiama <strong>CVE-2026-19868</strong> (il CVE è il codice con cui si identificano pubblicamente le falle di sicurezza) ed è descritta nell'avviso <a href="https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0014" target="_blank" rel="noopener">SNWLID-2026-0014 di SonicWall</a>. Riguarda il servizio <strong>SSL-VPN</strong> di SonicOS, il sistema operativo dei firewall SonicWall: è la VPN che usi per collegarti alla rete dello studio da fuori, con il client dedicato o dal browser.</p>
+<p>Il problema nasce quando l'accesso alla VPN è configurato con <strong>SAML</strong>, cioè quando il login passa da un servizio esterno di identità (per esempio l'account Microsoft 365 aziendale) che di solito chiede anche il secondo fattore, come il codice sull'app del telefono. Un attaccante che possiede la password valida di un utente, ma per un <em>metodo di accesso alternativo</em> (per esempio un account locale del firewall), può aggirare i controlli SAML e con essi l'autenticazione a più fattori.</p>
+<p>SonicWall ha dato alla falla un punteggio di gravità 7,1 su 10: non altissimo sulla carta, ma il dato che conta è un altro. L'azienda ha dichiarato di aver indagato una segnalazione di sfruttamento e la <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA l'ha aggiunta il 6 novembre al catalogo delle vulnerabilità sfruttate</a>, chiedendo alle agenzie federali americane di correggerla entro il 20 novembre. Anche il <a href="https://www.cyber.gc.ca/en/alerts-advisories/sonicwall-security-advisory-av26-1133" target="_blank" rel="noopener">Centro canadese per la cybersicurezza</a> ha pubblicato un avviso lo stesso giorno.</p>
+
+<h3>Perché è un problema serio anche se serve una password</h3>
+<p>Vedo spesso pensare: "Tanto senza la password non entrano". Purtroppo le password rubate sono il pane quotidiano di chi attacca: arrivano da vecchie violazioni, da malware che le prelevano dai browser, da email di phishing. L'autenticazione a due fattori esiste proprio per rendere inutile una password rubata. Questa falla toglie quella protezione: chi entra si ritrova nella rete dello studio con gli stessi permessi dell'utente, quindi cartelle condivise, gestionale, NAS. È esattamente il punto di ingresso che molti gruppi ransomware cercano.</p>
+
+<h2>Il tuo firewall SonicWall è coinvolto?</h2>
+<p>Secondo l'avviso del produttore, devono esserci <strong>tutte</strong> queste condizioni:</p>
+<ul>
+<li>il firewall è di <strong>generazione 7 o 8</strong> (fisico o virtuale): per esempio i modelli TZ, NSa e NSv più recenti;</li>
+<li>la versione di SonicOS è <strong>7.3.3-7015 o precedente</strong> (Gen 7) oppure <strong>8.2.2-8015 o precedente</strong> (Gen 8);</li>
+<li>la <strong>SSL-VPN è attiva</strong> e raggiungibile da Internet;</li>
+<li>l'accesso alla VPN usa <strong>SAML</strong>.</li>
+</ul>
+<p>Se la VPN non usa SAML, questa specifica falla non ti riguarda. Ma lo stesso avviso corregge altre sei vulnerabilità, tra cui due nel pannello di gestione con gravità 8,8 e una nel servizio SSL-VPN raggiungibile senza login. Quindi <strong>l'aggiornamento conviene a tutti</strong>, SAML o no.</p>
+
+<h3>E se il firewall è di generazione 6 o più vecchio?</h3>
+<p>I firewall SonicWall di generazione 6 e precedenti sono fuori supporto: non ricevono più aggiornamenti di sicurezza e il produttore indica di passare ai modelli attuali. Un firewall senza aggiornamenti, con la VPN aperta su Internet, è una porta lasciata socchiusa. Se ne hai uno, è il momento di mettere in preventivo la sostituzione. Lo stesso discorso l'ho fatto per i <a href="https://www.roccoandrealigorio.it/?p=233">firewall Fortinet</a> e per i <a href="https://www.roccoandrealigorio.it/?p=336">firewall Cisco</a>: il dispositivo che protegge la rete va trattato come un PC da tenere aggiornato, non come un elettrodomestico.</p>
+
+<h2>Cosa fare subito: la checklist</h2>
+<p>Ecco i passi, in ordine. Se il firewall lo gestisce un tecnico esterno, giragli questo elenco e chiedi conferma scritta di ogni punto.</p>
+<ol>
+<li><strong>Verifica modello e versione.</strong> Nel pannello del firewall, alla voce di stato del sistema, trovi la versione di SonicOS. Annotala.</li>
+<li><strong>Fai un backup della configurazione</strong> prima di toccare qualsiasi cosa: se l'aggiornamento va storto, si torna indietro in pochi minuti.</li>
+<li><strong>Aggiorna SonicOS</strong> almeno alla versione <strong>7.3.4-7013</strong> per la generazione 7 o alla <strong>8.2.3-8015</strong> per la generazione 8 (o successive), come indicato da SonicWall. Il produttore non indica soluzioni alternative all'aggiornamento.</li>
+<li><strong>Controlla dopo il riavvio</strong> che la versione sia davvero cambiata e che la VPN funzioni per tutti.</li>
+<li><strong>Riduci i metodi di accesso alla VPN.</strong> Se usi SAML, verifica che gli utenti non possano entrare anche con account locali o altri metodi: meno strade ci sono, meno ce ne sono da sorvegliare.</li>
+<li><strong>Guarda i registri di accesso VPN</strong> delle ultime settimane: cerca login riusciti che non sono passati dal servizio di identità, orari insoliti, Paesi da cui nessuno lavora.</li>
+<li><strong>Se trovi qualcosa di strano</strong>, considera compromesso quell'account: cambia la password, controlla a cosa poteva accedere e coinvolgi subito un tecnico.</li>
+<li><strong>Limita chi può raggiungere la VPN</strong>, per esempio solo dall'Italia o da indirizzi noti, se la configurazione lo permette.</li>
+</ol>
+
+<h3>Non dimenticare le altre "porte" dell'ufficio</h3>
+<p>Questa vicenda ricorda una cosa che ripeto spesso: l'autenticazione a due fattori è indispensabile, ma da sola non basta se il dispositivo che la applica non è aggiornato. Se vuoi approfondire come impostare bene il lavoro da casa, ho scritto una guida sul <a href="https://www.roccoandrealigorio.it/?p=342">lavoro da remoto sicuro</a> e una sull'<a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a>. E se non sai nemmeno quali dispositivi hai in rete e con quale versione, partire da un <a href="https://www.roccoandrealigorio.it/?p=326">inventario informatico</a> ti farà risparmiare tempo alla prossima emergenza.</p>
+<p>Se ti serve una mano a verificare il firewall o a organizzare gli aggiornamenti in modo regolare, puoi dare un'occhiata ai miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Ho un firewall SonicWall ma non uso la VPN: devo aggiornare?</h3>
+<p>Sì. La falla sull'MFA riguarda solo la SSL-VPN con SAML, ma lo stesso aggiornamento corregge anche vulnerabilità del pannello di gestione e di altri servizi. Tenere aggiornato il firewall è sempre la scelta giusta.</p>
+<h3>L'aggiornamento blocca il lavoro in ufficio?</h3>
+<p>Il firewall si riavvia, quindi Internet e VPN si interrompono per qualche minuto. Conviene farlo fuori orario, dopo aver salvato la configurazione.</p>
+<h3>Come faccio a sapere se qualcuno è già entrato?</h3>
+<p>Controllando i registri di accesso VPN: login riusciti senza passare dal servizio di identità, orari o provenienze insolite sono campanelli d'allarme. Nel dubbio, cambia le password degli account coinvolti e fai verificare la rete da un tecnico.</p>
+<h3>Il mio firewall è di generazione 6: cosa rischio?</h3>
+<p>Non riceve più aggiornamenti, quindi ogni nuova falla resta aperta per sempre. Va pianificata la sostituzione con un modello supportato, e nel frattempo conviene limitare al minimo i servizi esposti su Internet.</p>
