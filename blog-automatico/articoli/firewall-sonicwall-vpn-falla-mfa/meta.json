@@ -2,12 +2,23 @@
   "titolo": "Firewall SonicWall: la falla che aggira l'MFA della VPN, cosa fare",
   "slug": "firewall-sonicwall-vpn-falla-mfa",
   "estratto": "Firewall SonicWall: una falla già sfruttata aggira l'autenticazione a due fattori della VPN. Chi è a rischio e la checklist per aggiornare subito.",
-  "categorie": ["Informatica"],
-  "tag": ["Sicurezza informatica", "Firewall", "VPN", "Autenticazione a due fattori", "Aggiornamenti di sicurezza"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Sicurezza informatica",
+    "Firewall",
+    "VPN",
+    "Autenticazione a due fattori",
+    "Aggiornamenti di sicurezza"
+  ],
   "seo": {
     "titolo": "Firewall SonicWall: falla VPN aggira l'MFA, cosa fare ora",
     "descrizione": "Firewall SonicWall con VPN SAML: una falla già sfruttata aggira l'MFA. Come capire se sei coinvolto e la checklist in 8 passi per proteggere lo studio.",
     "keyword": "firewall SonicWall"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Firewall SonicWall: la falla che aggira l'MFA della VPN, cosa fare",
+  "id": 362
 }
