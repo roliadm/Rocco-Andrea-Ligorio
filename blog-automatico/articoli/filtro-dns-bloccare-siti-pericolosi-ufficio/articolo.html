@@ -1,0 +1,68 @@
+<p>Basta un clic sbagliato su un link di phishing, una pubblicità ingannevole o un finto sito di download perché in studio entri un malware. Puoi spiegare mille volte ai collaboratori di stare attenti, ma prima o poi qualcuno clicca. Un <strong>filtro DNS</strong> è una protezione semplice, spesso gratuita, che blocca molti di questi siti prima ancora che la pagina si apra, su tutti i dispositivi della rete. In questo articolo ti spiego cos'è, come funziona, come attivarlo nel tuo ufficio e quali errori evitare.</p>
+
+<h2>Cos'è il DNS, spiegato senza tecnicismi</h2>
+<p>Quando scrivi un indirizzo come <em>www.esempio.it</em>, il computer non sa dove si trova quel sito: deve chiedere a un servizio che traduce il nome in un indirizzo numerico, un po' come una rubrica telefonica. Questo servizio si chiama <strong>DNS</strong> (Domain Name System). Ogni volta che apri una pagina, leggi la posta o un programma si aggiorna, i tuoi dispositivi fanno decine di queste richieste.</p>
+<p>Di solito a rispondere è il DNS del tuo operatore internet, impostato in automatico sul router. Funziona, ma si limita a tradurre: se chiedi l'indirizzo di un sito di phishing, te lo dà senza fare domande.</p>
+
+<h3>Come funziona un filtro DNS</h3>
+<p>Un filtro DNS (in inglese si parla anche di <em>protective DNS</em>) è un servizio DNS che, prima di rispondere, controlla il nome richiesto su elenchi aggiornati di <strong>domini malevoli</strong>: siti di phishing, server che distribuiscono malware, indirizzi usati dai virus per ricevere ordini. Se il dominio è nell'elenco, la risposta non arriva e la connessione non parte. L'utente vede un errore, e il danno è evitato.</p>
+<p>Non è un'idea da grandi aziende: nel 2021 la NSA e la CISA, le agenzie americane per la sicurezza, hanno pubblicato una <a href="https://www.cisa.gov/news-events/alerts/2021/03/04/joint-nsa-and-cisa-guidance-strengthening-cyber-defense-through" target="_blank" rel="noopener">guida congiunta sul protective DNS</a> che lo indica come uno strumento efficace per ridurre il rischio di phishing e malware.</p>
+
+<h2>Perché un filtro DNS conviene a studi e PMI</h2>
+<ul>
+<li><strong>Protegge tutta la rete in un colpo solo</strong>: impostato sul router, vale per PC, telefoni collegati al Wi-Fi, stampanti, telecamere e ogni altro dispositivo, senza installare nulla.</li>
+<li><strong>Interviene anche quando l'antivirus non c'è</strong>: pensa alla smart TV della sala riunioni o al telefono personale di un ospite.</li>
+<li><strong>Blocca le comunicazioni del malware</strong>: se un PC è già infetto, il filtro può impedirgli di contattare i server degli attaccanti, limitando il furto di dati.</li>
+<li><strong>Costa poco o niente</strong>: esistono servizi gratuiti affidabili e, per chi vuole di più, servizi a pagamento con pannello di controllo e report.</li>
+</ul>
+<p>Attenzione però: è <strong>uno strato in più</strong>, non una soluzione completa. Non sostituisce aggiornamenti, antivirus, backup e autenticazione a due fattori, e non ferma un sito appena creato che non è ancora negli elenchi.</p>
+
+<h2>Quale filtro DNS scegliere</h2>
+
+<h3>Le opzioni gratuite</h3>
+<p>Due servizi pubblici gratuiti molto diffusi sono:</p>
+<ul>
+<li><strong>Quad9</strong>: gestito da una fondazione non profit con sede in Svizzera, blocca i domini malevoli noti e <a href="https://quad9.net/service/" target="_blank" rel="noopener">dichiara di non conservare dati personali</a> né gli indirizzi IP di chi lo usa. Gli indirizzi da impostare sono <strong>9.9.9.9</strong> e <strong>149.112.112.112</strong>.</li>
+<li><strong>Cloudflare 1.1.1.1 for Families</strong>: la versione con blocco del malware usa gli indirizzi <strong>1.1.1.2</strong> e <strong>1.0.0.2</strong>; quella che blocca anche i contenuti per adulti usa <strong>1.1.1.3</strong> e <strong>1.0.0.3</strong>, come indicato nella <a href="https://developers.cloudflare.com/1.1.1.1/ip-addresses/" target="_blank" rel="noopener">documentazione ufficiale di Cloudflare</a>.</li>
+</ul>
+<p>Per un piccolo ufficio sono un ottimo punto di partenza. Il limite è che non hai un pannello: non puoi vedere cosa è stato bloccato né sbloccare un sito legittimo finito per errore in elenco.</p>
+
+<h3>Quando passare a un servizio a pagamento</h3>
+<p>Le versioni professionali, offerte da diversi produttori di sicurezza e spesso integrate nei firewall, aggiungono:</p>
+<ul>
+<li>un <strong>pannello di controllo</strong> con l'elenco dei blocchi, utile per capire se un PC è infetto;</li>
+<li><strong>regole personalizzate</strong>, per esempio bloccare categorie di siti o consentire un dominio specifico;</li>
+<li>la protezione dei <strong>portatili anche fuori ufficio</strong>, tramite un piccolo programma installato sul PC.</li>
+</ul>
+<p>Se in studio lavorano più di cinque o sei persone, o ci sono portatili che escono spesso, di solito ne vale la pena.</p>
+
+<h2>Come attivare il filtro DNS in ufficio</h2>
+
+<h3>1. Sul router o sul firewall</h3>
+<p>È il metodo più efficace. Nelle impostazioni del router cerca la sezione <strong>DHCP</strong> o <strong>LAN</strong>, dove si indicano i server DNS da distribuire ai dispositivi, e inserisci i due indirizzi del servizio scelto. Sui router forniti dagli operatori questa voce a volte è bloccata: in quel caso si interviene sul firewall, se c'è, oppure si valuta un router gestibile. Dopo la modifica, riavvia i dispositivi o scollegali e ricollegali alla rete.</p>
+
+<h3>2. Sui singoli PC, se il router non lo permette</h3>
+<p>In Windows 11 vai in <strong>Impostazioni › Rete e Internet</strong>, scegli la connessione, poi "Assegnazione server DNS" › Modifica, e inserisci gli indirizzi a mano. Sul Mac la voce è in <strong>Impostazioni di Sistema › Rete › Dettagli › DNS</strong>. Funziona, ma va ripetuto su ogni dispositivo e qualcuno resta sempre fuori.</p>
+
+<h3>3. Verifica che funzioni</h3>
+<p>Quad9 e Cloudflare offrono pagine di verifica che indicano se stai usando il loro servizio. Fai la prova da più dispositivi, compreso uno collegato al Wi-Fi ospiti, se ne hai uno: ne ho parlato nella guida al <a href="https://www.roccoandrealigorio.it/?p=223">Wi-Fi dell'ufficio sicuro</a>.</p>
+
+<h2>Gli errori più comuni da evitare</h2>
+<ul>
+<li><strong>Il "DNS sicuro" del browser</strong>: Chrome, Edge e Firefox possono usare un proprio DNS cifrato, scavalcando quello del router. Controlla nelle impostazioni di sicurezza del browser che usi il provider attuale o lo stesso servizio filtrato.</li>
+<li><strong>Dimenticare la VPN e i portatili</strong>: fuori ufficio il PC usa il DNS della rete di casa o dell'hotel. Se lavori spesso in mobilità, serve la versione con programma installato sul PC.</li>
+<li><strong>Rompere la rete interna</strong>: se in studio c'è un server con dominio Windows, i PC devono continuare a usare il server come DNS. In quel caso il filtro si imposta sul server stesso, come "inoltro" verso il servizio scelto. Qui conviene far intervenire il tecnico.</li>
+<li><strong>Non dire niente ai colleghi</strong>: spiega che alcuni siti potrebbero non aprirsi e a chi segnalarlo. Un blocco errato capita, e va gestito senza che qualcuno disattivi tutto per comodità.</li>
+</ul>
+<p>Se vuoi che verifichi la configurazione della tua rete o che scelga e imposti il servizio più adatto al tuo studio, trovi come lavoro nella pagina <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a> e l'elenco degli interventi nei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Il filtro DNS rallenta la navigazione?</h3>
+<p>Di norma no. I servizi più diffusi hanno server in tutta Europa e rispondono in pochi millisecondi; spesso la differenza rispetto al DNS dell'operatore non si nota.</p>
+
+<h3>Il filtro DNS sostituisce l'antivirus?</h3>
+<p>No. Blocca molti siti pericolosi prima che si aprano, ma non controlla i file, gli allegati o le chiavette USB. È uno strato di protezione in più, da affiancare all'antivirus.</p>
+
+<h3>Cosa faccio se un sito legittimo viene bloccato?</h3>
+<p>Con i servizi gratuiti puoi segnalarlo al gestore; nel frattempo il tecnico può creare un'eccezione sul firewall. Con i servizi a pagamento basta aggiungere il dominio all'elenco dei siti consentiti dal pannello.</p>

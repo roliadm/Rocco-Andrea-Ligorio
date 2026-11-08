@@ -1,0 +1,71 @@
+<p>In molti studi c'è almeno un telefono che "funziona benissimo" ma non viene aggiornato da anni: il vecchio iPhone del titolare, l'Android della segreteria, il cellulare personale con cui si legge la posta dello studio. Questa settimana una ricerca sulla sicurezza ha mostrato quanto possono costare gli <strong>smartphone non aggiornati</strong>: è bastato visitare un sito, anche affidabile, perché il telefono consegnasse cookie, password e messaggi. In questo articolo ti spiego cosa è successo, chi rischia davvero e i controlli da fare sui telefoni che usi per lavoro.</p>
+
+<h2>Cosa è successo: siti normali che attaccano i telefoni</h2>
+<p>All'inizio di novembre l'azienda francese di sicurezza Sekoia ha pubblicato il rapporto <a href="https://www.sekoia.com/blog/poisoned-source-apt29-watering-holes-targets-mobile-devices-with-n-day-exploits" target="_blank" rel="noopener">"Poisoned Source"</a>, ripreso da <a href="https://www.helpnetsecurity.com/2026/11/04/apt29-watering-hole-mobile-devices-n-day-exploits/" target="_blank" rel="noopener">Help Net Security</a> e da <a href="https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html" target="_blank" rel="noopener">The Hacker News</a>. Descrive una campagna scoperta a metà ottobre e attribuita, con confidenza da moderata ad alta, ad APT29, un gruppo di spionaggio legato ai servizi russi.</p>
+<p>La tecnica si chiama <strong>watering hole</strong>, letteralmente "la pozza d'acqua": invece di mandare email trappola, chi attacca inserisce codice malevolo in siti che le vittime visitano normalmente e aspetta. Secondo Sekoia, i siti usati sono stati di tre tipi:</p>
+<ul>
+<li><strong>siti legittimi compromessi</strong>, tra cui quelli di un'associazione industriale americana e di un'azienda energetica ucraina;</li>
+<li><strong>siti sosia</strong>, con indirizzi simili a quelli di siti noti;</li>
+<li><strong>un servizio di statistiche per siti web</strong>, Plerdy, compromesso tra il 27 agosto e il 3 settembre 2026: in quella settimana chi apriva uno dei siti che lo usavano caricava, senza saperlo, anche lo script degli attaccanti.</li>
+</ul>
+<p>Lo script "osservava" il visitatore e, se il telefono era vulnerabile, lanciava l'attacco. Nessun clic su allegati, nessuna app da installare: bastava aprire la pagina.</p>
+
+<h3>Cosa veniva rubato</h3>
+<p>Dipende dal telefono. Secondo il rapporto:</p>
+<ul>
+<li>su <strong>iPhone fermi a iOS 16.7</strong> l'attacco rubava i <strong>cookie</strong>, cioè i "gettoni" che tengono aperto l'accesso a webmail e servizi online: con quelli si entra nell'account senza password e spesso senza secondo fattore;</li>
+<li>su <strong>iPhone con iOS 18.5</strong> veniva usato un kit molto più invasivo, che portava via SMS, iMessage, WhatsApp, Telegram, email, password salvate nel Portachiavi, contatti, foto, posizione e altro;</li>
+<li>su <strong>Android con alcune versioni di Chrome</strong> (dalla 139 alla 145) venivano sottratti cookie, password salvate nel browser, cronologia e password del Wi-Fi.</li>
+</ul>
+
+<h3>Il dettaglio che conta: le falle erano già corrette</h3>
+<p>Nessuna delle vulnerabilità usate era nuova. Apple e Google le avevano già corrette prima che la campagna iniziasse: una delle falle Apple risale addirittura a maggio 2024. Il 4 novembre la CISA, l'agenzia americana per la cybersicurezza, ha inserito proprio quella falla (CVE-2024-27834) nel suo <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">catalogo delle vulnerabilità sfruttate</a>. Sekoia lo dice in modo netto: chi usa un sistema operativo aggiornato è protetto da questi attacchi. Il problema, quindi, non è un difetto misterioso: sono i telefoni rimasti indietro.</p>
+
+<h2>Perché riguarda anche uno studio o una PMI italiana</h2>
+<p>Questa campagna aveva obiettivi di spionaggio e i siti colpiti erano soprattutto americani, ucraini, cechi e bulgari. Potresti pensare che non ti tocchi, e per questo specifico attacco il rischio diretto è basso. Ma vedo tre motivi per prenderlo sul serio:</p>
+<ol>
+<li><strong>Le tecniche si diffondono.</strong> Alcuni degli strumenti usati contro gli iPhone, secondo i ricercatori, erano già comparsi in altre campagne, anche tramite pubblicità malevole su siti comuni. Quello che oggi serve allo spionaggio domani finisce nelle mani di chi cerca soldi.</li>
+<li><strong>Il telefono è la chiave di tutto.</strong> Sullo smartphone ci sono la posta dello studio, WhatsApp con i clienti, l'app della banca, spesso l'app per la doppia autenticazione. Chi lo svuota ha in mano molto più di un PC.</li>
+<li><strong>Un sito affidabile non basta.</strong> Il consiglio "non aprire siti strani" qui non serve: i siti erano normali. L'unica difesa che ha funzionato davvero è stata l'aggiornamento.</li>
+</ol>
+
+<h2>Smartphone non aggiornati: come controllarli uno per uno</h2>
+<p>Prenditi dieci minuti e fai il giro di tutti i telefoni che toccano dati dello studio, compresi quelli personali usati per lavoro.</p>
+
+<h3>Su iPhone e iPad</h3>
+<ul>
+<li>Vai in <strong>Impostazioni › Generali › Aggiornamento software</strong> e installa quello che c'è.</li>
+<li>Nella stessa schermata attiva gli <strong>aggiornamenti automatici</strong>, compresa la voce per le risposte di sicurezza.</li>
+<li>Se il telefono dice che è aggiornato ma resta su una versione vecchia (per esempio iOS 16), significa che <strong>non riceve più le nuove versioni</strong>: è il caso, ad esempio, di iPhone 8 e iPhone X. Va sostituito o, almeno, non deve più accedere a posta e dati dello studio.</li>
+</ul>
+
+<h3>Su Android</h3>
+<ul>
+<li>Apri <strong>Impostazioni › Sistema › Aggiornamenti</strong> (il nome cambia un po' da marca a marca) e controlla la data della <strong>patch di sicurezza</strong>: se è vecchia di molti mesi, il telefono è a rischio.</li>
+<li>Apri il <strong>Play Store</strong>, tocca la tua foto profilo, poi "Gestisci app e dispositivo" e aggiorna tutto, a partire da <strong>Chrome</strong> e da "Android System WebView".</li>
+<li>Controlla anche gli aggiornamenti di sistema di Google Play, nella sezione Sicurezza e privacy delle impostazioni.</li>
+</ul>
+
+<h3>Riavvia il telefono ogni tanto</h3>
+<p>Molti aggiornamenti si completano solo dopo il riavvio, e diversi attacchi ai telefoni non restano installati in modo permanente: secondo Sekoia, quelli di questa campagna non lasciavano componenti fissi sul dispositivo. Spegnere e riaccendere il telefono una volta alla settimana è un'abitudine semplice che consiglio a tutti.</p>
+
+<h2>Le regole da mettere per iscritto in studio</h2>
+<p>Aggiornare una volta non basta: serve una regola che valga sempre. Ecco quella che propongo ai miei clienti:</p>
+<ul>
+<li><strong>Nessun accesso ai dati dello studio da telefoni senza aggiornamenti</strong>: posta, gestionale e cartelle condivise solo da dispositivi che ricevono ancora patch di sicurezza.</li>
+<li><strong>Aggiornamenti automatici attivi</strong> su sistema operativo e app, senza eccezioni.</li>
+<li><strong>Doppia autenticazione con app o passkey</strong> sugli account importanti e uscita dalle sessioni sui dispositivi che non usi più: limita i danni se qualcuno ruba i cookie.</li>
+<li><strong>Un controllo periodico</strong>, anche una volta al mese, della versione dei telefoni in uso. Con Microsoft 365 o Google Workspace si può bloccare l'accesso automaticamente ai dispositivi non aggiornati.</li>
+</ul>
+<p>Ho approfondito il tema della gestione dei telefoni in un articolo dedicato agli <a href="https://www.roccoandrealigorio.it/?p=330">smartphone aziendali</a>, e sui rischi delle password salvate nel browser in quello sui <a href="https://www.roccoandrealigorio.it/?p=322">malware infostealer</a>. Se vuoi una mano a fare l'inventario dei dispositivi e impostare le regole di accesso, trovi cosa posso fare nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Se il mio telefono è aggiornato, sono al sicuro?</h3>
+<p>Da questa campagna sì: tutte le falle usate erano già corrette. Nessun telefono è invulnerabile, ma un dispositivo aggiornato elimina la grande maggioranza degli attacchi noti.</p>
+
+<h3>Ho un iPhone vecchio che non si aggiorna più: posso continuare a usarlo?</h3>
+<p>Per telefonare sì, ma non per la posta, il gestionale o i dati dei clienti. Senza patch di sicurezza ogni nuova falla resta aperta per sempre.</p>
+
+<h3>Come faccio a sapere se il mio telefono è stato attaccato?</h3>
+<p>Questi attacchi non lasciano segni visibili. Se hai un telefono vecchio usato per lavoro, aggiornalo o sostituiscilo, cambia le password principali e chiudi le sessioni attive degli account dalle impostazioni di sicurezza.</p>
