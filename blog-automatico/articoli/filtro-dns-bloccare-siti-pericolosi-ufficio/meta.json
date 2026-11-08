@@ -2,12 +2,22 @@
   "titolo": "Filtro DNS: come bloccare i siti pericolosi in tutto l'ufficio",
   "slug": "filtro-dns-bloccare-siti-pericolosi-ufficio",
   "estratto": "Filtro DNS: cos'è, come blocca phishing e malware su tutta la rete dello studio, quali servizi gratuiti usare e come attivarlo sul router.",
-  "categorie": ["Informatica"],
-  "tag": ["Reti", "Sicurezza informatica", "Phishing", "Malware"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Reti",
+    "Sicurezza informatica",
+    "Phishing",
+    "Malware"
+  ],
   "seo": {
     "titolo": "Filtro DNS: bloccare i siti pericolosi in tutto l'ufficio",
     "descrizione": "Filtro DNS per studi e PMI: come bloccare phishing e malware su tutti i dispositivi della rete, quali servizi gratuiti usare e come attivarlo.",
     "keyword": "filtro DNS"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Filtro DNS: come bloccare i siti pericolosi in tutto l'ufficio",
+  "id": 366
 }

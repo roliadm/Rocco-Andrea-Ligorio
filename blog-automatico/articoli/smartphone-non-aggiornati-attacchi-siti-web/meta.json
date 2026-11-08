@@ -2,12 +2,22 @@
   "titolo": "Smartphone non aggiornati: dati rubati solo visitando un sito",
   "slug": "smartphone-non-aggiornati-attacchi-siti-web",
   "estratto": "Smartphone non aggiornati: una campagna appena scoperta rubava dati da iPhone e Android visitando siti normali. Ecco cosa controllare in studio.",
-  "categorie": ["Informatica"],
-  "tag": ["Smartphone", "Android", "Aggiornamenti di sicurezza", "Sicurezza informatica"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Smartphone",
+    "Android",
+    "Aggiornamenti di sicurezza",
+    "Sicurezza informatica"
+  ],
   "seo": {
     "titolo": "Smartphone non aggiornati: dati rubati visitando un sito",
     "descrizione": "Smartphone non aggiornati a rischio: iPhone e Android violati solo aprendo un sito. Cosa è successo e i controlli da fare sui telefoni dello studio.",
     "keyword": "smartphone non aggiornati"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Smartphone non aggiornati: dati rubati solo visitando un sito",
+  "id": 368
 }
