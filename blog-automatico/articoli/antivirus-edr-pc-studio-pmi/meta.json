@@ -2,12 +2,23 @@
   "titolo": "Antivirus o EDR: cosa serve davvero ai PC dello studio",
   "slug": "antivirus-edr-pc-studio-pmi",
   "estratto": "Antivirus o EDR per i computer dello studio? Ti spiego la differenza, quando basta l'antivirus di Windows e come scegliere senza spendere troppo.",
-  "categorie": ["Informatica"],
-  "tag": ["Sicurezza informatica", "Malware", "Ransomware", "Microsoft 365", "Windows 11"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Sicurezza informatica",
+    "Malware",
+    "Ransomware",
+    "Microsoft 365",
+    "Windows 11"
+  ],
   "seo": {
     "titolo": "Antivirus o EDR: cosa serve davvero ai PC di studi e PMI",
     "descrizione": "Antivirus o EDR? La differenza spiegata semplice, quando basta Microsoft Defender e come scegliere la protezione giusta per i PC dello studio.",
     "keyword": "antivirus o EDR"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Antivirus o EDR: cosa serve davvero ai PC dello studio",
+  "id": 370
 }
