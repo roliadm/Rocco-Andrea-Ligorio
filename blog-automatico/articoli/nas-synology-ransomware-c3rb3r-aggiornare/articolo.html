@@ -1,0 +1,80 @@
+<p>Il NAS è spesso il cuore dello studio: lì ci sono le pratiche dei clienti, l'archivio delle fatture, a volte anche i backup dei PC. Proprio per questo è un bersaglio. A fine ottobre Synology, uno dei produttori più diffusi negli uffici italiani, ha avvisato che un gruppo ransomware sta colpendo i <strong>NAS Synology</strong> con il sistema operativo non aggiornato. In questo articolo ti spiego cosa è successo, come capire in pochi minuti se il tuo NAS è a rischio e cosa fare subito, anche se non sei un tecnico.</p>
+
+<h2>Cosa è successo ai NAS Synology</h2>
+<p>Il 29 ottobre 2026 Synology ha pubblicato un <a href="https://synology.com/en-global/company/news/article/C3RB3R" target="_blank" rel="noopener">comunicato ufficiale</a> in cui conferma attacchi in corso contro dispositivi con versioni vecchie di <strong>DSM</strong> (DiskStation Manager, il sistema operativo dei NAS Synology). Secondo l'azienda, gli attaccanti sfruttano una vulnerabilità corretta da un aggiornamento di fine 2024, descritta nel bollettino Synology-SA-24:20, e il loro obiettivo è cifrare i dati e chiedere un riscatto.</p>
+<p>È un avviso raro: come ha ricordato <a href="https://bleepingcomputer.com/news/security/synology-warns-customers-of-ongoing-c3rb3r-ransomware-attacks" target="_blank" rel="noopener">BleepingComputer</a>, l'ultima volta che Synology aveva lanciato un allarme simile era agosto 2019. I primi utenti colpiti avevano già raccontato l'attacco nei forum da più di due settimane.</p>
+
+<h3>Chi c'è dietro e cosa vedi se vieni colpito</h3>
+<p>L'attacco è stato collegato al ransomware <strong>C3RB3R</strong> (chiamato anche Cerber). I segnali sono chiari:</p>
+<ul>
+<li>i file cifrati prendono l'estensione <strong>.L0CK3D</strong>;</li>
+<li>in ogni cartella compare un file di testo chiamato <strong>read-me3.txt</strong> con le istruzioni per pagare;</li>
+<li>il riscatto richiesto, secondo le segnalazioni delle vittime, è di alcune migliaia di dollari per un "decryptor" da acquistare su un sito del dark web.</li>
+</ul>
+<p>Synology non ha detto quale falla precisa viene usata né quanti dispositivi sono stati colpiti. Il bollettino a cui rimanda descrive tre problemi, il più grave dei quali (CVE-2024-10441, gravità 9,8 su 10) permette di eseguire comandi sul NAS da remoto. Un'analisi del team di sicurezza cinese Qihoo 360, riportata da <a href="https://thehackernews.com/2026/11/synology-nas-devices-targeted-in.html" target="_blank" rel="noopener">The Hacker News</a>, sostiene che C3RB3R abbia sfruttato anche due falle corrette solo a settembre 2026: Synology non lo ha confermato, ma il messaggio pratico è lo stesso. Non basta aver aggiornato "qualche tempo fa": serve l'ultima versione disponibile.</p>
+
+<h2>Perché il problema riguarda tanti studi e PMI</h2>
+<p>Vedo spesso NAS installati anni fa, configurati una volta e poi dimenticati. Funzionano, nessuno li tocca, e intanto restano indietro di diverse versioni. Tre fattori rendono la situazione delicata:</p>
+<ol>
+<li><strong>Molti NAS sono raggiungibili da internet.</strong> L'organizzazione Shadowserver conta oltre 380.000 NAS Synology esposti in rete nel mondo. Non sono tutti vulnerabili, ma è la platea su cui gli attaccanti fanno le loro scansioni automatiche.</li>
+<li><strong>Le falle vecchie sono la porta più usata.</strong> Secondo il <a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener">Data Breach Investigations Report 2026 di Verizon</a>, lo sfruttamento di vulnerabilità è all'origine del 31% delle violazioni analizzate, contro il 20% dell'anno precedente.</li>
+<li><strong>Il NAS spesso contiene anche i backup.</strong> Se il ransomware cifra il NAS e i backup sono solo lì, si perde l'archivio e la possibilità di ripristinarlo nello stesso momento.</li>
+</ol>
+
+<h2>Come verificare se il tuo NAS Synology è a rischio</h2>
+<p>Il controllo richiede pochi minuti. Accedi all'interfaccia del NAS con un account amministratore e apri <strong>Pannello di controllo &gt; Aggiorna e ripristina</strong>: lì trovi la versione di DSM installata e l'eventuale aggiornamento disponibile.</p>
+<p>Secondo il bollettino richiamato da Synology, queste sono le versioni minime corrette per ciascun ramo:</p>
+<ul>
+<li>DSM 7.2.2: <strong>7.2.2-72806-1</strong> o successiva;</li>
+<li>DSM 7.2.1: <strong>7.2.1-69057-6</strong> o successiva;</li>
+<li>DSM 7.2: <strong>7.2-64570-4</strong> o successiva;</li>
+<li>DSM 7.1: <strong>7.1.1-42962-7</strong> o successiva;</li>
+<li>DSM 6.2: <strong>6.2.4-25556-8</strong> o successiva.</li>
+</ul>
+<p>Il mio consiglio è di non fermarti al minimo: installa l'ultima versione che il tuo modello supporta. Se il NAS è così vecchio da non ricevere più aggiornamenti, va pianificata la sostituzione: un dispositivo senza patch con dentro i dati dei clienti è un rischio anche per gli obblighi del GDPR.</p>
+
+<h2>Cosa fare subito: le 6 azioni prioritarie</h2>
+<h3>1. Aggiorna DSM e attiva gli aggiornamenti automatici</h3>
+<p>È la prima indicazione di Synology. Prima di aggiornare, verifica di avere un backup recente fuori dal NAS. Poi, sempre in <strong>Aggiorna e ripristina</strong>, imposta l'installazione automatica degli aggiornamenti, almeno di quelli importanti. Controlla anche il <strong>Centro pacchetti</strong>: le applicazioni installate sul NAS vanno aggiornate a loro volta.</p>
+
+<h3>2. Togli l'interfaccia di gestione da internet</h3>
+<p>Synology raccomanda di non rendere accessibile da internet la pagina di amministrazione. Controlla sul router se ci sono porte inoltrate verso il NAS (le classiche 5000 e 5001) e chiudile. Se tu o i colleghi dovete accedere ai file da fuori, la strada più sicura è una <strong>VPN</strong>, cioè un collegamento cifrato alla rete dello studio: ne parlo nella guida al <a href="https://www.roccoandrealigorio.it/?p=342">lavoro da remoto sicuro</a>.</p>
+
+<h3>3. Spegni i servizi che non usi</h3>
+<p>Ogni servizio attivo è una porta in più. Se non usate FTP, SSH, Telnet, WebDAV o pacchetti installati "per prova", disattivali. Meno cose girano sul NAS, meno occasioni ha chi attacca.</p>
+
+<h3>4. Rafforza gli accessi</h3>
+<ul>
+<li>disattiva l'account predefinito "admin" e usa un amministratore con un nome diverso;</li>
+<li>attiva la <strong>verifica in due passaggi</strong> per gli account amministratori;</li>
+<li>abilita il <strong>blocco automatico</strong> degli indirizzi che sbagliano ripetutamente la password;</li>
+<li>usa password lunghe e diverse da quelle di altri servizi.</li>
+</ul>
+
+<h3>5. Proteggi i dati con snapshot e backup esterni</h3>
+<p>Gli <strong>snapshot</strong> sono "fotografie" delle cartelle che permettono di tornare indietro in pochi minuti; se impostati come non modificabili, il ransomware non riesce a cancellarli. Non bastano da soli: serve almeno una copia fuori dal NAS e scollegata, secondo la regola del <a href="https://www.roccoandrealigorio.it/?p=211">backup 3-2-1</a>. E una copia vale solo se hai provato a ripristinarla: ecco come fare un <a href="https://www.roccoandrealigorio.it/?p=364">test di ripristino del backup</a>.</p>
+
+<h3>6. Esegui il Consulente sicurezza</h3>
+<p>DSM include uno strumento chiamato <strong>Consulente sicurezza</strong> (Security Advisor) che controlla la configurazione e segnala impostazioni deboli. Lancia una scansione dopo l'aggiornamento e sistema i punti indicati. Per una revisione più completa trovi altri consigli nelle mie <a href="https://www.roccoandrealigorio.it/?p=268">9 regole per la sicurezza del NAS</a>.</p>
+
+<h2>Se il NAS è già stato cifrato</h2>
+<p>Se trovi file .L0CK3D o il file read-me3.txt, mantieni la calma e segui quest'ordine:</p>
+<ol>
+<li><strong>scollega il NAS dalla rete</strong>, senza spegnerlo né formattarlo, e sospendi sincronizzazioni e backup automatici, per non propagare i file cifrati alle copie;</li>
+<li><strong>conserva le prove</strong>: nota di riscatto, qualche file cifrato, registri del NAS;</li>
+<li><strong>cambia le password</strong> da un dispositivo pulito;</li>
+<li>valuta con il consulente se si tratta di una violazione da notificare al Garante entro 72 ore;</li>
+<li>ripristina solo da backup verificati e puliti, <strong>dopo</strong> aver aggiornato il sistema.</li>
+</ol>
+<p>Ricorda che l'aggiornamento chiude la porta ma non decifra i file già colpiti, e pagare non garantisce di riavere i dati.</p>
+<p>Se non sai da dove cominciare o vuoi far controllare il NAS dello studio, posso aiutarti: trovi come lavoro nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Il mio NAS Synology non è raggiungibile da internet: sono al sicuro?</h3>
+<p>Il rischio è molto più basso, ma non nullo: un PC infetto nella rete dello studio può comunque raggiungerlo. L'aggiornamento resta necessario.</p>
+<h3>Uso QuickConnect per accedere da fuori: devo disattivarlo?</h3>
+<p>Synology non ha indicato QuickConnect come causa degli attacchi. Se lo usi, tieni DSM aggiornato e attiva la verifica in due passaggi; se puoi, preferisci una VPN.</p>
+<h3>L'aggiornamento di DSM può cancellare i dati?</h3>
+<p>Normalmente no, ma un backup recente prima di aggiornare è sempre una buona abitudine, soprattutto sui modelli più vecchi.</p>
+<h3>Il problema riguarda anche NAS di altre marche?</h3>
+<p>Questo attacco riguarda Synology, ma in passato campagne simili hanno colpito anche altri produttori. Le regole sono le stesse: aggiornamenti, niente pannello esposto su internet e backup scollegati.</p>

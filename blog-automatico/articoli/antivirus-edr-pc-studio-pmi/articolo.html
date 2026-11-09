@@ -1,0 +1,72 @@
+<p>Quando chiedo a un cliente come sono protetti i computer dello studio, la risposta più frequente è: "C'è l'antivirus". A volte è quello gratuito di Windows, a volte un prodotto comprato anni fa e rinnovato in automatico. Ma oggi molti attacchi non usano più i classici virus che un antivirus riconosce, e così nasce la domanda: <strong>antivirus o EDR</strong>? In questo articolo ti spiego in parole semplici la differenza, quando l'antivirus basta, quando conviene fare un passo in più e come scegliere senza spendere più del necessario.</p>
+
+<h2>Che cosa fa un antivirus, e dove si ferma</h2>
+<p>L'antivirus tradizionale lavora come un controllo all'ingresso: confronta i file che arrivano sul computer con un elenco di minacce conosciute e blocca quelli sospetti. Gli antivirus moderni sono diventati più bravi: osservano anche il comportamento dei programmi e usano analisi nel cloud. Windows 10 e 11 includono già <a href="https://learn.microsoft.com/en-us/windows/security/book/operating-system-security-virus-and-threat-protection" target="_blank" rel="noopener">Microsoft Defender Antivirus</a>, che per un uso normale offre una buona protezione di base.</p>
+<p>Il limite è che l'antivirus guarda soprattutto i singoli file e decide "sì o no". Molti attacchi recenti, invece:</p>
+<ul>
+<li>usano <strong>strumenti legittimi</strong> già presenti in Windows, come PowerShell, o programmi di assistenza remota;</li>
+<li>entrano con <strong>password rubate</strong> e agiscono come se fossero un utente normale;</li>
+<li>restano silenziosi per giorni prima di far partire il ransomware.</li>
+</ul>
+<p>In tutti questi casi non c'è un "file cattivo" da bloccare, e l'antivirus può non accorgersi di nulla.</p>
+
+<h2>Che cos'è un EDR, spiegato semplice</h2>
+<p>EDR sta per <strong>Endpoint Detection and Response</strong>, cioè "rilevamento e risposta sui dispositivi". Se l'antivirus è il controllo all'ingresso, l'EDR è una telecamera di sorveglianza con un allarme collegato: registra cosa succede sul computer (programmi avviati, connessioni, modifiche ai file) e cerca sequenze sospette.</p>
+<h3>Cosa sa fare in più</h3>
+<ul>
+<li><strong>Riconosce i comportamenti</strong>: per esempio, Word che avvia uno script che scarica un programma da internet.</li>
+<li><strong>Reagisce</strong>: può isolare dalla rete un PC compromesso, fermare un processo, annullare alcune modifiche.</li>
+<li><strong>Racconta cosa è successo</strong>: conserva la cronologia degli eventi, utile per capire da dove è entrato l'attacco e se ci sono dati coinvolti, anche ai fini del GDPR.</li>
+<li><strong>Centralizza</strong>: tutti i PC si vedono da un'unica console, con gli avvisi in un solo posto.</li>
+</ul>
+<h3>Il punto che molti sottovalutano</h3>
+<p>Un EDR genera avvisi, e qualcuno li deve leggere. Se nessuno guarda la console, buona parte del valore si perde. Per questo esistono anche i servizi <strong>MDR</strong> (Managed Detection and Response), in cui un'azienda specializzata controlla gli avvisi al posto tuo e interviene se serve. Per uno studio senza un informatico interno, spesso è la soluzione più realistica.</p>
+
+<h2>Antivirus o EDR: quale serve al tuo studio</h2>
+<p>Non esiste una risposta unica, ma ti propongo un criterio pratico basato su quello che vedo ogni giorno.</p>
+<h3>L'antivirus integrato può bastare se</h3>
+<ul>
+<li>i PC sono pochi (due o tre) e usati per attività semplici;</li>
+<li>non trattate dati particolarmente delicati, come dati sanitari o giudiziari;</li>
+<li>gli altri fondamentali sono in ordine: aggiornamenti, backup scollegati, doppia autenticazione, utenti senza privilegi di amministratore.</li>
+</ul>
+<h3>Conviene un EDR se</h3>
+<ul>
+<li>gestite dati sensibili di clienti o pazienti;</li>
+<li>i dipendenti lavorano anche da casa o in mobilità;</li>
+<li>avete un server o un NAS con l'archivio dello studio;</li>
+<li>siete fornitori di aziende soggette alla NIS2, che sempre più spesso chiedono garanzie ai propri fornitori;</li>
+<li>un fermo di qualche giorno avrebbe un costo serio.</li>
+</ul>
+<p>Il motivo è concreto: secondo il <a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener">Data Breach Investigations Report 2026 di Verizon</a>, il ransomware è presente nel 48% delle violazioni analizzate. Un EDR ben gestito aumenta molto le possibilità di fermare l'attacco prima che i file vengano cifrati.</p>
+
+<h2>Se usi già Microsoft 365, guarda cosa hai in casa</h2>
+<p>Molti studi pagano un antivirus a parte senza sapere di avere già, o di poter avere, qualcosa di più. Microsoft propone <a href="https://learn.microsoft.com/en-us/defender-business/mdb-overview" target="_blank" rel="noopener">Defender for Business</a>, una soluzione pensata per le aziende fino a 300 utenti che include EDR, indagine e correzione automatica degli attacchi, riduzione della superficie d'attacco e gestione delle vulnerabilità.</p>
+<ul>
+<li>è <strong>già compresa</strong> nella licenza Microsoft 365 Business Premium;</li>
+<li>si può acquistare <strong>separatamente</strong> anche con Business Basic o Business Standard;</li>
+<li>protegge Windows usando componenti già presenti nel sistema, e copre Mac, iPhone e Android tramite app;</li>
+<li>per i <strong>server</strong> Windows e Linux servono licenze aggiuntive.</li>
+</ul>
+<p>Non è l'unica opzione: esistono ottimi EDR di altri produttori. Ma prima di comprare, controlla le licenze che hai: è un consiglio che fa spesso risparmiare. Ne parlo anche nella guida all'<a href="https://www.roccoandrealigorio.it/?p=280">aggiornamento del software in ufficio</a>.</p>
+
+<h2>Come scegliere e attivare la protezione: 6 passi</h2>
+<ol>
+<li><strong>Fai l'elenco dei dispositivi</strong>: PC, portatili, server, telefoni usati per lavoro. Non si protegge quello che non si conosce.</li>
+<li><strong>Verifica che la protezione sia davvero attiva</strong> su ogni PC: apri Sicurezza di Windows e controlla che la protezione in tempo reale sia accesa e senza avvisi.</li>
+<li><strong>Attiva la protezione anti-manomissione</strong> (tamper protection): impedisce a un malware, o a un utente, di spegnere l'antivirus. È descritta nella <a href="https://learn.microsoft.com/defender-endpoint/prevent-changes-to-security-settings-with-tamper-protection" target="_blank" rel="noopener">documentazione Microsoft</a>.</li>
+<li><strong>Non installare due antivirus</strong> sullo stesso PC: rallentano il sistema e possono ostacolarsi a vicenda.</li>
+<li><strong>Decidi chi legge gli avvisi</strong>: tu, un collaboratore formato, il tuo consulente o un servizio MDR. Scrivilo, con un recapito per le emergenze.</li>
+<li><strong>Non dimenticare le basi</strong>: nessuno strumento compensa PC non aggiornati o utenti che lavorano come amministratori. Su questo trovi una guida all'<a href="https://www.roccoandrealigorio.it/?p=334">utente standard sul PC</a>.</li>
+</ol>
+<p>Se vuoi capire quale protezione ha senso per i computer del tuo studio, partendo dalle licenze che hai già, puoi dare un'occhiata ai miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a> o a <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>L'antivirus gratuito di Windows è sufficiente?</h3>
+<p>Per un uso domestico o per pochissimi PC, con gli altri fondamentali in ordine, offre una buona base. Per uno studio con dati di clienti e più postazioni, conviene valutare un EDR con gestione centralizzata.</p>
+<h3>Un EDR rallenta i computer?</h3>
+<p>Le soluzioni moderne hanno un impatto contenuto sui PC recenti. I problemi nascono soprattutto quando si installano due prodotti di sicurezza insieme.</p>
+<h3>Con un EDR posso fare a meno del backup?</h3>
+<p>No. L'EDR riduce la probabilità di un attacco riuscito, il backup ti permette di ripartire se qualcosa va storto comunque. Servono entrambi.</p>
+<h3>Antivirus o EDR: serve anche sui Mac?</h3>
+<p>Sì. Anche i Mac sono bersaglio di malware, in particolare quelli che rubano password. Molte soluzioni EDR, compresa quella di Microsoft, li supportano.</p>
