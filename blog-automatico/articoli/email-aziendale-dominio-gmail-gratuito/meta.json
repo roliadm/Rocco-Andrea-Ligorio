@@ -16,5 +16,8 @@
     "descrizione": "Email aziendale con dominio proprio: perché conviene rispetto a Gmail gratuito, quanto costa e come migrare le caselle senza perdere messaggi.",
     "keyword": "email aziendale con dominio proprio"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Email aziendale con dominio proprio: perché lasciare la casella gratuita",
+  "id": 376
 }

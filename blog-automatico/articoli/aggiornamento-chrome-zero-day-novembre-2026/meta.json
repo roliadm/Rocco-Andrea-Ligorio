@@ -16,5 +16,8 @@
     "descrizione": "Aggiornamento Chrome urgente: Google corregge una falla zero-day già usata dagli hacker. Come controllare i PC dello studio in un minuto.",
     "keyword": "aggiornamento Chrome"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Aggiornamento Chrome: falla zero-day già sfruttata, cosa fare subito",
+  "id": 374
 }
