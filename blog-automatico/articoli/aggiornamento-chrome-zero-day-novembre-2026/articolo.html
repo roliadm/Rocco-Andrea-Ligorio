@@ -1,0 +1,60 @@
+<p>Il browser è il programma che in ufficio resta aperto tutto il giorno: posta via web, home banking, gestionali in cloud, portali di Agenzia delle Entrate e INPS. Per questo l'<strong>aggiornamento Chrome</strong> pubblicato da Google il 9 novembre 2026 non va rimandato: corregge una falla <strong>già sfruttata dagli attaccanti</strong> prima che esistesse una correzione. In questo articolo ti spiego cosa è successo, come controllare in un minuto che ogni PC dello studio sia a posto, cosa fare con Edge e gli altri browser e come evitare che la prossima volta un aggiornamento resti "in attesa" per settimane.</p>
+
+<h2>Cosa corregge l'aggiornamento Chrome del 9 novembre</h2>
+<p>Google ha rilasciato la versione <strong>157.0.8103.50/51</strong> per Windows e Mac e <strong>157.0.8103.50</strong> per Linux. Secondo il <a href="https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_018223192.html" target="_blank" rel="noopener">comunicato ufficiale di Google</a>, l'aggiornamento contiene 9 correzioni di sicurezza, 7 di gravità alta e 2 di gravità media.</p>
+<p>Quella che conta di più è la <strong>CVE-2026-125350</strong> (CVE è il codice con cui si cataloga ogni vulnerabilità nota). Si tratta di un errore di tipo <em>use-after-free</em> nella parte di Chrome che elabora i dati XML: in parole semplici, il browser riutilizza una porzione di memoria che aveva già liberato, e un attaccante abile può sfruttare questo errore per far eseguire al programma istruzioni che non dovrebbe. Google scrive di essere a conoscenza di un exploit, cioè di un attacco funzionante, già in circolazione. La falla era stata segnalata in forma anonima solo tre giorni prima, il 6 novembre.</p>
+
+<h3>Perché si parla di "zero-day"</h3>
+<p>Si chiama <strong>zero-day</strong> una vulnerabilità che qualcuno sfrutta quando il produttore ha avuto "zero giorni" per correggerla. È la situazione peggiore: chi attacca parte in vantaggio, e l'unica difesa concreta è installare la correzione appena esce. Google, come fa di solito, non ha diffuso dettagli tecnici sull'attacco per dare tempo agli utenti di aggiornarsi.</p>
+
+<h3>Cosa rischia in pratica uno studio</h3>
+<p>Nelle falle di questo tipo di solito basta <strong>aprire una pagina web preparata ad arte</strong>: un link in una email di phishing, un sito legittimo compromesso, una pubblicità malevola. Non serve scaricare nulla né cliccare "Consenti". Il risultato può essere l'installazione di un malware, il furto delle password salvate nel browser o l'accesso alle sessioni già aperte (posta, banca, gestionale). Ho spiegato come funzionano questi furti nell'articolo sui <a href="https://www.roccoandrealigorio.it/?p=322">malware infostealer</a>.</p>
+
+<h2>Come controllare l'aggiornamento Chrome su ogni PC</h2>
+<p>Chrome si aggiorna da solo, ma l'aggiornamento diventa effettivo solo quando il browser viene <strong>chiuso e riaperto</strong>. Ed è qui che, negli uffici che seguo, vedo il problema più comune: Chrome resta aperto per giorni, con decine di schede, e la correzione aspetta.</p>
+<ol>
+<li>Apri Chrome e clicca sui <strong>tre puntini</strong> in alto a destra.</li>
+<li>Vai su <strong>Guida &gt; Informazioni su Google Chrome</strong>.</li>
+<li>Chrome controlla e scarica da solo l'ultima versione.</li>
+<li>Clicca <strong>Riavvia</strong>: le schede aperte vengono ripristinate.</li>
+<li>Verifica che il numero di versione sia <strong>157.0.8103.50 o superiore</strong>.</li>
+</ol>
+<p>Se in alto a destra vedi un pulsante colorato con scritto "Aggiorna" o "Riavvia per aggiornare", significa che la correzione è già scaricata e manca solo il riavvio. Google distribuisce le nuove versioni in modo graduale: se un PC non la trova subito, riprova qualche ora dopo.</p>
+
+<h3>E sugli smartphone?</h3>
+<p>Il 9 novembre è uscita anche la versione 157.0.8103.50 di Chrome per Android. Google precisa nel <a href="https://chromereleases.googleblog.com/2026/11/chrome-for-android-update_01533302390.html" target="_blank" rel="noopener">comunicato dedicato</a> che le versioni Android contengono le stesse correzioni di sicurezza di quelle desktop. Apri il Play Store, cerca Chrome e tocca "Aggiorna" se compare il pulsante. Se in studio usate telefoni Android, controlla nello stesso momento anche l'<a href="https://www.roccoandrealigorio.it/?p=354">aggiornamento Android di novembre</a>.</p>
+
+<h2>Edge, Brave, Opera: riguarda anche loro?</h2>
+<p>Molti browser, a partire da <strong>Microsoft Edge</strong> che è preinstallato su Windows, sono costruiti su Chromium, il "motore" open source di Chrome. Quando una falla è nel motore, di norma i produttori degli altri browser pubblicano la loro correzione nei giorni successivi, non sempre nello stesso giorno.</p>
+<p>Il mio consiglio pratico è semplice: <strong>aggiorna tutti i browser installati</strong>, anche quelli che pensi di non usare. In Edge il percorso è <strong>tre puntini &gt; Guida e feedback &gt; Informazioni su Microsoft Edge</strong>; negli altri browser c'è una voce simile nel menu. E se un browser non serve davvero, la scelta più sicura è disinstallarlo: un programma dimenticato è un programma che nessuno aggiorna.</p>
+
+<h2>Come gestire gli aggiornamenti del browser in modo stabile</h2>
+<p>Una falla come questa si chiude in pochi minuti. Il problema vero è avere la certezza che sia chiusa su <strong>tutti</strong> i computer, compreso il portatile del collega in ferie o il PC della reception. Ecco le regole che applico negli uffici che seguo.</p>
+<ul>
+<li><strong>Riavvio del browser obbligatorio.</strong> Nelle reti con Windows Pro e un dominio o Microsoft Intune, Chrome ed Edge si possono configurare con criteri centralizzati (le cosiddette <em>policy</em>) che chiedono il riavvio e lo forzano dopo un certo numero di ore.</li>
+<li><strong>Un solo browser "ufficiale".</strong> Meno browser installati significa meno cose da aggiornare e da controllare.</li>
+<li><strong>Estensioni sotto controllo.</strong> Un browser aggiornato con estensioni sospette resta un rischio: ne ho parlato nella guida sulle <a href="https://www.roccoandrealigorio.it/?p=352">estensioni del browser</a>.</li>
+<li><strong>Utenti standard, non amministratori.</strong> Se un attacco riesce, con un account senza privilegi fa meno danni.</li>
+<li><strong>Un controllo a fine settimana.</strong> Basta un elenco dei PC e una spunta: chi ha l'ultima versione e chi no.</li>
+</ul>
+<p>Più in generale, il browser rientra nel piano di aggiornamenti di tutto lo studio insieme a sistema operativo, Office, firewall e NAS. Se vuoi impostarlo una volta per tutte, trovi lo schema nel mio <a href="https://www.roccoandrealigorio.it/?p=280">piano pratico per gli aggiornamenti software</a>. E se preferisci che qualcuno se ne occupi per te, puoi vedere i miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi di assistenza informatica</a>.</p>
+
+<h2>Cosa fare se temi che un PC sia già stato colpito</h2>
+<p>Al momento Google non ha indicato chi abbia usato la falla né contro chi. Gli attacchi zero-day ai browser, in genere, colpiscono obiettivi selezionati prima di diffondersi. Se però un PC si è comportato in modo strano negli ultimi giorni (finestre che si aprono da sole, avvisi dell'antivirus, accessi sospetti segnalati da Microsoft o Google), fai così:</p>
+<ol>
+<li>aggiorna e riavvia subito il browser;</li>
+<li>esegui una scansione completa con l'antivirus o l'EDR aziendale;</li>
+<li>da un altro dispositivo pulito, <strong>cambia le password</strong> della posta e dei servizi più importanti e chiudi le sessioni attive;</li>
+<li>controlla che l'<a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a> sia attiva ovunque;</li>
+<li>se ci sono indizi concreti di furto di dati, segui la procedura per il <a href="https://www.roccoandrealigorio.it/?p=276">data breach</a>.</li>
+</ol>
+
+<h2>Domande frequenti</h2>
+<h3>Chrome non si aggiornava da solo?</h3>
+<p>Sì, scarica gli aggiornamenti in automatico, ma li applica solo quando lo chiudi e lo riapri. Se il browser resta aperto per giorni, la correzione resta in attesa.</p>
+<h3>Quale versione di Chrome devo avere?</h3>
+<p>Sul computer la 157.0.8103.50 o una successiva; lo verifichi da Guida &gt; Informazioni su Google Chrome.</p>
+<h3>Se uso solo Edge sono al sicuro?</h3>
+<p>Non automaticamente: Edge usa lo stesso motore di Chrome. Controlla che sia aggiornato all'ultima versione disponibile e ricontrolla nei prossimi giorni.</p>
+<h3>Devo fare qualcosa anche su Mac?</h3>
+<p>Sì, se usi Chrome. La procedura è la stessa: menu Chrome, Informazioni su Google Chrome, poi Riavvia.</p>
