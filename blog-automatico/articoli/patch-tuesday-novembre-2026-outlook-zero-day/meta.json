@@ -2,12 +2,23 @@
   "titolo": "Patch Tuesday di novembre 2026: falla di Outlook già sfruttata, cosa fare",
   "slug": "patch-tuesday-novembre-2026-outlook-zero-day",
   "estratto": "Microsoft corregge oltre mille falle, una in Outlook già usata dagli hacker per rubare le credenziali. Cosa aggiornare e perché Windows Update non basta.",
-  "categorie": ["Informatica"],
-  "tag": ["Aggiornamenti di sicurezza", "Sicurezza informatica", "Microsoft Office", "Windows 11", "Email"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Aggiornamenti di sicurezza",
+    "Sicurezza informatica",
+    "Microsoft Office",
+    "Windows 11",
+    "Email"
+  ],
   "seo": {
     "titolo": "Patch Tuesday di novembre: falla Outlook già sfruttata",
     "descrizione": "Patch Tuesday di novembre 2026: oltre mille falle e una in Outlook già sfruttata per rubare credenziali. Cosa aggiornare subito in studio e in azienda.",
     "keyword": "patch tuesday di novembre"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Patch Tuesday di novembre 2026: falla di Outlook già sfruttata, cosa fare",
+  "id": 379
 }
