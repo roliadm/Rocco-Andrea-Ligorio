@@ -1,0 +1,69 @@
+<p>Martedì 10 novembre 2026 Microsoft ha pubblicato gli aggiornamenti di sicurezza mensili: dopo il record di ottobre il pacchetto è un po' più leggero, ma resta enorme, con <strong>oltre mille vulnerabilità corrette</strong>. Una sola è già usata dagli attaccanti e riguarda il programma che in studio resta aperto tutto il giorno: <strong>Outlook</strong>. C'è però un dettaglio che vedo sfuggire spesso: questa correzione non arriva con il normale aggiornamento di Windows, ma con quello di Office. In questo articolo ti spiego cosa contiene il <strong>Patch Tuesday di novembre</strong>, perché la falla di Outlook va presa sul serio e come verificare in pochi minuti che tutti i PC dell'ufficio siano a posto.</p>
+
+<h2>Patch Tuesday di novembre 2026: i numeri</h2>
+<p>Il "Patch Tuesday" è il secondo martedì del mese, il giorno in cui Microsoft rilascia in blocco le correzioni per Windows, Office e gli altri suoi prodotti. I conteggi delle società di analisi variano a seconda di cosa includono (alcune sommano anche le falle di componenti di terze parti, come il motore di Chrome usato da Edge), ma secondo <a href="https://www.tenable.com/blog/microsoft-november-2026-patch-tuesday-addresses-1093-cves-cve-2026-124194" target="_blank" rel="noopener">l'analisi di Tenable</a> il quadro è questo:</p>
+<ul>
+<li><strong>1.093 vulnerabilità</strong> corrette, in 287 tra prodotti e componenti;</li>
+<li><strong>63 critiche</strong>, cioè sfruttabili con conseguenze gravi e spesso senza grandi difficoltà;</li>
+<li>quasi la metà permette di <strong>ottenere privilegi più alti</strong> su un PC già raggiunto, poco più di un quarto di <strong>eseguire codice da remoto</strong>;</li>
+<li>i prodotti con più correzioni sono Word ed Excel, seguiti da SQL Server, il database usato da molti gestionali.</li>
+</ul>
+<p>Per confronto, a ottobre le falle corrette erano state oltre 1.400, un record assoluto di cui ti ho parlato nell'articolo sul <a href="https://www.roccoandrealigorio.it/?p=286">Patch Tuesday di ottobre</a>. Numeri di questo tipo, fino a un anno fa impensabili, sono ormai la normalità: i ricercatori, aiutati anche dall'intelligenza artificiale, trovano molti più difetti di prima. Per chi gestisce i PC significa una cosa sola: aggiornare ogni mese non è più un'opzione.</p>
+
+<h2>La falla di Outlook già sfruttata</h2>
+<p>La vulnerabilità da correggere per prima si chiama <strong>CVE-2026-124194</strong> (il codice CVE è il "numero di targa" con cui si identifica ogni falla). Microsoft la classifica come "spoofing", cioè falsificazione, con una gravità moderata: 6,5 su 10. Il punteggio non deve trarre in inganno, perché la falla è <strong>già usata in attacchi reali</strong>: l'agenzia statunitense per la cybersicurezza CISA l'ha inserita il 10 novembre nel suo <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">catalogo delle vulnerabilità sfruttate</a>, chiedendo agli enti federali di correggerla entro il 24 novembre.</p>
+
+<h3>Come funziona l'attacco</h3>
+<p>Il meccanismo, descritto da diverse analisi tecniche, è questo:</p>
+<ol>
+<li>l'attaccante invia un <strong>file di Office o un messaggio costruito ad arte</strong>, per esempio come allegato di una finta fattura o di un sollecito;</li>
+<li>la vittima lo apre in Outlook;</li>
+<li>Outlook si collega in silenzio a un server dell'attaccante, <strong>senza mostrare l'avviso</strong> che normalmente compare quando un contenuto cerca di scaricare qualcosa dall'esterno;</li>
+<li>durante questo collegamento il PC "si presenta" inviando una versione cifrata delle credenziali di Windows dell'utente (l'hash NTLMv2, una sorta di impronta della password).</li>
+</ol>
+<p>Con quell'impronta l'attaccante può provare a <strong>ricavare la password</strong> con calma sui propri computer, oppure riutilizzarla subito per <strong>spacciarsi per l'utente</strong> su altri servizi della rete aziendale, come le cartelle condivise. Se la password è corta o riutilizzata, il rischio è concreto.</p>
+
+<h3>Chi è esposto</h3>
+<p>Sono interessate le versioni di Outlook "classico" incluse in <strong>Microsoft 365 Apps</strong>, <strong>Office LTSC 2021</strong> e <strong>Office LTSC 2024</strong>. Una buona notizia: secondo Microsoft il <strong>riquadro di anteprima non basta</strong> per far scattare l'attacco, il file va aperto. Serve quindi un'azione dell'utente, ed è proprio il tipo di azione che il phishing è bravissimo a ottenere.</p>
+
+<h2>Perché Windows Update non basta</h2>
+<p>Qui sta il punto pratico. La correzione per Outlook è distribuita con gli <strong>aggiornamenti di Office</strong>, non con l'aggiornamento cumulativo di Windows. Vedo spesso uffici in cui Windows è aggiornato alla perfezione, mentre Office è fermo da mesi perché qualcuno ha disattivato gli aggiornamenti automatici o perché la versione installata è vecchia.</p>
+<p>Per controllare un PC bastano due minuti:</p>
+<ol>
+<li>apri Word o Outlook e vai su <strong>File &gt; Account</strong>;</li>
+<li>alla voce <strong>Opzioni di aggiornamento</strong> scegli <strong>Aggiorna ora</strong> e attendi la fine;</li>
+<li>chiudi e riapri i programmi di Office.</li>
+</ol>
+<p>Se usi Office LTSC, le build corrette indicate nelle note di rilascio sono la <strong>14334.21048</strong> per la versione 2021 e la <strong>17932.21140</strong> per la 2024: il numero di build compare nella stessa schermata, sotto "Informazioni su Outlook". Se il pulsante di aggiornamento non c'è, gli aggiornamenti sono gestiti centralmente o la licenza non li prevede: è il momento di chiedere a chi segue l'informatica dello studio.</p>
+
+<h2>Le altre correzioni importanti</h2>
+<p>Oltre a Outlook, ci sono alcune falle critiche che meritano attenzione, soprattutto se in ufficio c'è un server:</p>
+<ul>
+<li><strong>Windows Search (CVE-2026-116928)</strong>, gravità 9,8 su 10: può essere attivata da un allegato elaborato da un server Exchange installato in sede, senza bisogno di credenziali;</li>
+<li><strong>Active Directory e LDAP</strong>, cioè i servizi che gestiscono utenti e password in una rete con server Windows: diverse falle gravi, tra cui una da 9,8 che non richiede di essere autenticati;</li>
+<li><strong>SharePoint Server</strong> installato in sede, con una falla da 9,9 che permette a un utente già collegato di ottenere i permessi più alti.</li>
+</ul>
+<p>Per i PC con Windows 11 l'aggiornamento cumulativo è il <strong>KB5132061</strong> (versioni 24H2 e 25H2), per Windows 10 il <strong>KB5131096</strong>, che però arriva solo ai PC iscritti al programma di aggiornamenti estesi: se ne hai ancora in ufficio, rileggi l'articolo su <a href="https://www.roccoandrealigorio.it/?p=215">Windows 10 ESU</a>.</p>
+
+<h3>Prodotti che non ricevono più correzioni</h3>
+<p>Questo mese segna anche l'<strong>ultimo aggiornamento per Windows 11 23H2</strong> nelle edizioni Enterprise ed Education; le edizioni Home e Pro sono fuori supporto già da novembre 2025. Inoltre Exchange Server 2016 e 2019 non compaiono più tra i prodotti corretti: se lo studio usa ancora un server di posta in casa con queste versioni, le nuove falle restano aperte.</p>
+
+<h2>Cosa fare questa settimana</h2>
+<ol>
+<li><strong>Aggiorna Office su tutti i PC</strong>, a partire da quelli di chi riceve più posta dall'esterno (segreteria, amministrazione).</li>
+<li><strong>Installa l'aggiornamento di Windows</strong> e riavvia davvero i PC: "aggiorna e spegni" la sera è il modo più semplice.</li>
+<li><strong>Aggiorna i server</strong> in una finestra concordata, dopo aver verificato che il backup notturno sia andato a buon fine.</li>
+<li><strong>Ricorda a tutti</strong> di non aprire allegati inattesi, anche se arrivano da mittenti noti: in caso di dubbio si telefona.</li>
+<li><strong>Controlla le password</strong>: questa falla mira proprio alle credenziali, quindi password lunghe e diverse per ogni servizio, insieme all'<a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a>, ne riducono molto l'impatto.</li>
+</ol>
+<p>Se vuoi un metodo per non rincorrere ogni mese queste notizie, trovi un percorso semplice nella guida al <a href="https://www.roccoandrealigorio.it/?p=280">piano di aggiornamenti per l'ufficio</a>. E se preferisci che qualcuno se ne occupi al posto tuo, dai un'occhiata ai miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>. Per i dettagli tecnici completi puoi consultare la <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-124194" target="_blank" rel="noopener">scheda ufficiale Microsoft della vulnerabilità</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Uso Outlook sul web o la nuova app Outlook: devo fare qualcosa?</h3>
+<p>Le analisi pubblicate indicano come vulnerabile l'Outlook classico incluso in Microsoft 365 Apps e Office LTSC. La versione web viene aggiornata direttamente da Microsoft. Conviene comunque aggiornare Office su ogni PC, perché il pacchetto contiene molte altre correzioni per Word ed Excel.</p>
+<h3>Ho aggiornato Windows, sono protetto?</h3>
+<p>Non dalla falla di Outlook: la correzione arriva con gli aggiornamenti di Office. Verifica da File &gt; Account &gt; Opzioni di aggiornamento in qualsiasi programma di Office.</p>
+<h3>Basta non aprire gli allegati?</h3>
+<p>Riduce molto il rischio, perché l'attacco richiede che il file venga aperto. Ma basta un momento di distrazione: l'aggiornamento resta l'unica difesa affidabile.</p>
+<h3>Ho un Office 2019 o 2016: cosa rischio?</h3>
+<p>Queste versioni non ricevono più aggiornamenti di sicurezza, quindi le nuove falle restano aperte. È il momento di pianificare il passaggio a una versione supportata.</p>

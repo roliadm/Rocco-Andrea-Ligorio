@@ -1,0 +1,13 @@
+{
+  "titolo": "Regole di inoltro email: il segnale nascosto di una casella violata",
+  "slug": "regole-inoltro-email-casella-violata",
+  "estratto": "Un inoltro automatico che nessuno ricorda di aver creato può copiare ogni email all'esterno. Come controllare le regole di Outlook e Gmail in 10 minuti.",
+  "categorie": ["Informatica"],
+  "tag": ["Email", "Microsoft 365", "Sicurezza informatica", "Phishing", "GDPR"],
+  "seo": {
+    "titolo": "Regole di inoltro email: come scoprire una casella violata",
+    "descrizione": "Regole di inoltro email: i segnali di una casella violata e come controllare Outlook, Microsoft 365 e Gmail in 10 minuti per bloccare la fuga di dati.",
+    "keyword": "regole di inoltro email"
+  },
+  "stato": "draft"
+}

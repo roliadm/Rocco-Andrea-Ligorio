@@ -1,0 +1,74 @@
+<p>Quando una casella email viene violata, il primo pensiero va alla password: la si cambia e ci si sente al sicuro. Spesso però l'attaccante, nei pochi minuti in cui è entrato, ha lasciato qualcosa che sopravvive al cambio password: una <strong>regola che inoltra in silenzio la posta</strong> a un indirizzo esterno, oppure che sposta in una cartella nascosta le risposte di un cliente o di un fornitore. Vedo questa situazione più spesso di quanto si pensi, ed è il motore di molte truffe e fughe di dati. In questo articolo ti spiego perché le <strong>regole di inoltro email</strong> sono il segnale nascosto di una casella violata, come controllarle in Outlook, Microsoft 365 e Gmail in una decina di minuti e come impedire che si ripresentino.</p>
+
+<h2>Perché le regole di inoltro email interessano agli attaccanti</h2>
+<p>Una regola è un'istruzione automatica che il programma di posta esegue su ogni messaggio in arrivo: "se arriva una mail con la parola fattura, spostala nella cartella Amministrazione". È uno strumento comodo e legittimo. Proprio per questo è perfetto per chi vuole restare nella casella senza farsi notare.</p>
+<p>Con una sola regola un attaccante può:</p>
+<ul>
+<li><strong>ricevere una copia di tutta la posta</strong>, anche dopo che la password è stata cambiata, perché la regola continua a funzionare da sola;</li>
+<li><strong>nascondere le risposte</strong> di una persona precisa, spostandole nella cartella Posta indesiderata o in cartelle poco usate, così la vittima non si accorge della conversazione in corso;</li>
+<li><strong>cancellare gli avvisi</strong> di sicurezza o i messaggi che contengono parole come "bonifico", "IBAN" o "hackerato".</li>
+</ul>
+<p>È lo schema tipico della <a href="https://www.roccoandrealigorio.it/?p=294">truffa del cambio IBAN</a>: l'attaccante legge le trattative, si inserisce al momento giusto e nasconde le risposte vere. Ma anche senza truffe, una regola di inoltro verso l'esterno significa che i dati di clienti e pazienti escono dallo studio: dal punto di vista del <strong>GDPR</strong> è a tutti gli effetti una violazione dei dati personali.</p>
+
+<h2>I segnali che qualcosa non va</h2>
+<p>Nella sua guida su come <a href="https://learn.microsoft.com/it-it/defender-office-365/responding-to-a-compromised-email-account" target="_blank" rel="noopener">rispondere a un account di posta compromesso</a>, Microsoft elenca alcuni sintomi tipici. Tra quelli che vedo più spesso negli uffici:</p>
+<ul>
+<li>regole che <strong>inoltrano la posta a indirizzi sconosciuti</strong> o che spostano i messaggi nelle cartelle Note, Posta indesiderata o Feed RSS;</li>
+<li>un <strong>inoltro esterno aggiunto di recente</strong> nelle impostazioni della casella;</li>
+<li>messaggi strani nella cartella <strong>Posta inviata</strong> o in quella degli eliminati;</li>
+<li>email che mancano all'appello, o clienti che dicono di aver risposto senza che tu abbia visto nulla;</li>
+<li>blocchi improvvisi dell'invio della posta, segno che dalla casella è partito spam.</li>
+</ul>
+<p>Anche Google, per Gmail, è esplicita: se compare l'avviso che stai inoltrando la posta a un altro indirizzo e non hai mai impostato nulla, <strong>cambia subito la password</strong> e disattiva l'inoltro, come spiega la <a href="https://support.google.com/mail/answer/10957?hl=it" target="_blank" rel="noopener">guida ufficiale di Gmail</a>.</p>
+
+<h2>Come controllare le regole in 10 minuti</h2>
+<p>Il controllo va fatto casella per casella. Comincia da quelle più esposte: titolare, amministrazione, segreteria e chiunque gestisca pagamenti.</p>
+
+<h3>Outlook e Microsoft 365</h3>
+<ol>
+<li>Accedi a Outlook sul web con l'account da verificare e apri <strong>Impostazioni &gt; Posta &gt; Regole</strong>: leggi ogni regola e chiediti se la riconosci.</li>
+<li>Sempre nelle impostazioni, apri <strong>Posta &gt; Inoltro</strong> e verifica che non ci sia un indirizzo esterno.</li>
+<li>In Outlook classico sul PC trovi le stesse regole in <strong>File &gt; Gestisci regole e avvisi</strong>.</li>
+<li>Dall'interfaccia di amministrazione di Microsoft 365, nella scheda dell'utente, controlla la sezione posta: l'amministratore può impostare un <strong>inoltro a livello di casella</strong> che l'utente non vede tra le sue regole.</li>
+</ol>
+<p>Attenzione a un dettaglio: un attaccante esperto può creare regole <strong>nascoste</strong>, che non compaiono nelle normali schermate. Per un controllo completo l'amministratore può usare i comandi PowerShell indicati da Microsoft, che elencano anche le regole nascoste e gli inoltri impostati sulla casella. Nell'interfaccia di Exchange c'è inoltre un report dei messaggi inoltrati automaticamente, utile per vedere in un colpo solo chi sta inviando posta all'esterno.</p>
+
+<h3>Gmail e Google Workspace</h3>
+<ol>
+<li>Apri <strong>Impostazioni &gt; Visualizza tutte le impostazioni &gt; Inoltro e POP/IMAP</strong> e controlla che l'inoltro sia disattivato o diretto a un indirizzo che conosci.</li>
+<li>Apri la scheda <strong>Filtri e indirizzi bloccati</strong>: ogni filtro con l'azione "Inoltra" o "Elimina" va guardato con attenzione.</li>
+<li>Controlla anche gli <strong>account collegati</strong> e le app che hanno accesso alla casella.</li>
+</ol>
+<h3>Altre caselle (Aruba, Register e simili)</h3>
+<p>Anche la webmail dei principali provider ha una sezione dedicata a filtri e inoltri, di solito nelle impostazioni della casella. La logica è la stessa: ogni regola che manda la posta fuori o la sposta in cartelle insolite deve avere un motivo chiaro e un "proprietario" che sa spiegarla.</p>
+
+<h2>Bloccare l'inoltro esterno per tutto l'ufficio</h2>
+<p>Controllare è bene, prevenire è meglio. In Microsoft 365 il criterio antispam in uscita ha un'impostazione che <strong>blocca l'inoltro automatico verso l'esterno</strong>. Secondo la <a href="https://learn.microsoft.com/it-it/defender-office-365/outbound-spam-policies-external-email-forwarding" target="_blank" rel="noopener">documentazione Microsoft</a>, il valore predefinito "Automatico, controllato dal sistema" oggi equivale a disattivato per la maggior parte delle organizzazioni, ma il comportamento può variare: Microsoft stessa consiglia di impostare in modo esplicito <strong>Attivato</strong> o <strong>Disattivato</strong>.</p>
+<p>Il mio consiglio per uno studio o una PMI è semplice:</p>
+<ul>
+<li><strong>disattiva l'inoltro esterno per tutti</strong>; l'inoltro tra colleghi interni continua a funzionare;</li>
+<li>se a qualcuno serve davvero (per esempio un professionista che riceve la posta anche su un'altra casella), consenti l'eccezione solo per quella persona e <strong>verso quell'indirizzo</strong>, e scrivila nel registro delle eccezioni;</li>
+<li>quando un inoltro viene bloccato, il mittente riceve un messaggio di errore con il codice <strong>5.7.520</strong>: se qualcuno se lo vede comparire, sai già dove guardare.</li>
+</ul>
+<p>Anche Google Workspace permette all'amministratore di decidere se gli utenti possono inoltrare automaticamente la propria posta: vale la pena spegnerlo dove non serve.</p>
+
+<h2>Se trovi una regola sospetta</h2>
+<p>Non limitarti a cancellarla. Una regola sconosciuta è la prova che qualcuno è entrato, quindi:</p>
+<ol>
+<li><strong>fai uno screenshot</strong> della regola e annota l'indirizzo di destinazione: servirà per capire cosa è uscito;</li>
+<li><strong>cambia la password</strong> da un dispositivo sicuro e <strong>disconnetti tutte le sessioni attive</strong>, altrimenti l'attaccante resta collegato;</li>
+<li>attiva o verifica l'<a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a>, controllando che non siano stati aggiunti telefoni o app che non riconosci;</li>
+<li>rimuovi la regola e l'eventuale inoltro, poi controlla le <a href="https://www.roccoandrealigorio.it/?p=292">app di terze parti</a> autorizzate ad accedere alla casella;</li>
+<li>valuta con il titolare del trattamento se si tratta di una <a href="https://www.roccoandrealigorio.it/?p=276">violazione dei dati da notificare</a> entro 72 ore.</li>
+</ol>
+<p>Un controllo di tutte le caselle dello studio, insieme al blocco dell'inoltro esterno, richiede in genere meno di un'ora ed è una delle prime cose che faccio quando prendo in carico un nuovo ufficio. Se vuoi una mano, trovi come lavoro nella pagina <a href="https://www.roccoandrealigorio.it/come-lavoro/">Come lavoro</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Cambiare la password elimina le regole create dall'attaccante?</h3>
+<p>No. Le regole e gli inoltri restano attivi anche dopo il cambio password: vanno cercati e rimossi a mano.</p>
+<h3>Bloccare l'inoltro esterno impedisce di inoltrare una singola email a mano?</h3>
+<p>No. Il blocco riguarda solo l'inoltro automatico tramite regole o impostazioni della casella; inoltrare un messaggio con il pulsante "Inoltra" continua a funzionare.</p>
+<h3>Ogni quanto conviene controllare le regole?</h3>
+<p>Una verifica ogni tre mesi è un buon ritmo, più un controllo immediato ogni volta che qualcuno segnala email strane o mancanti.</p>
+<h3>Le regole nascoste si vedono da Outlook?</h3>
+<p>Non sempre. Per trovarle serve un controllo da parte dell'amministratore con gli strumenti di Microsoft 365.</p>
