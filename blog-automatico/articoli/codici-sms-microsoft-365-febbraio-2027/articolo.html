@@ -1,0 +1,71 @@
+<p>In molti studi e piccole aziende l'accesso a Microsoft 365 funziona così: password, poi un codice di sei cifre che arriva via SMS sul cellulare. È comodo e tutti lo conoscono. Ma ha i giorni contati: dal <strong>1° febbraio 2027</strong> Microsoft smetterà di inviare i <strong>codici SMS di Microsoft 365</strong> e le chiamate vocali usati come secondo fattore di accesso. Chi a quella data avrà solo il telefono come verifica non resterà chiuso fuori, ma verrà bloccato al login finché non registra un metodo nuovo, magari il lunedì mattina con una scadenza in arrivo. In questo articolo ti spiego cosa cambia, chi è coinvolto e come preparare lo studio con calma nelle prossime settimane.</p>
+
+<h2>Cosa cambia per i codici SMS di Microsoft 365</h2>
+<p>L'annuncio è arrivato a luglio nel centro messaggi di Microsoft 365 (comunicazione MC1426371), aggiornato a settembre, ed è descritto nella <a href="https://learn.microsoft.com/en-au/entra/identity/authentication/concept-sms-voice-retirement" target="_blank" rel="noopener">documentazione ufficiale di Microsoft Entra</a>, il servizio che gestisce gli account di lavoro di Microsoft 365. In sintesi, Microsoft ritira gli SMS e le chiamate che invia lei stessa e spinge tutti verso le <strong>passkey</strong>, le credenziali digitali che ti ho presentato nella <a href="https://www.roccoandrealigorio.it/?p=253">guida alle passkey</a>.</p>
+<p>Le date da segnare sono queste:</p>
+<ul>
+<li><strong>1° settembre 2026</strong>: le passkey sono diventate il metodo predefinito. Chi usa SMS o chiamate ha iniziato a vedere, al momento dell'accesso, l'invito a registrare una passkey, per ora rimandabile;</li>
+<li><strong>30 ottobre 2026</strong>: le aziende che hanno davvero bisogno degli SMS possono configurare un fornitore telefonico esterno, a pagamento, tramite il Microsoft Security Store;</li>
+<li><strong>1° febbraio 2027</strong>: SMS e chiamate forniti da Microsoft spariscono per quasi tutti gli utenti;</li>
+<li><strong>1° luglio 2027</strong>: la stessa sorte tocca agli amministratori globali e agli utenti esterni.</li>
+</ul>
+<p>Microsoft precisa che <strong>non c'è modo di rinviare</strong> le due scadenze. Esiste un'opzione tecnica per sospendere temporaneamente gli inviti a registrare la passkey, ma vale solo fino al 1° febbraio 2027.</p>
+
+<h3>Cosa succede a chi non si prepara</h3>
+<p>Secondo le <a href="https://learn.microsoft.com/en-us/entra/identity/authentication/concept-sms-voice-retirement-faq" target="_blank" rel="noopener">domande frequenti pubblicate da Microsoft</a>, l'account non viene disattivato e i dati non si perdono. Però l'utente che ha solo SMS o chiamata come verifica troverà una schermata <strong>bloccante</strong>: non potrà entrare in Outlook, Teams o OneDrive finché non registra una passkey. Se il telefono non è compatibile o la persona non sa cosa fare, il problema finisce sulla tua scrivania nel momento meno adatto.</p>
+
+<h2>Perché Microsoft abbandona gli SMS</h2>
+<p>Gli SMS sono stati per anni il modo più semplice per attivare la doppia verifica, e restano molto meglio della sola password. Il loro limite è che <strong>non resistono al phishing</strong>: una pagina di accesso falsa può chiederti il codice appena ricevuto e usarlo in tempo reale. A questo si aggiunge lo <strong>scambio di SIM</strong> (SIM swap), cioè la truffa in cui un criminale si fa intestare un duplicato della tua SIM e riceve i tuoi messaggi.</p>
+<p>Microsoft lo dice in modo esplicito: SMS e chiamate non offrono un livello di sicurezza paragonabile a quello delle passkey. Una passkey invece è legata al sito vero: su una pagina contraffatta semplicemente non funziona. È lo stesso motivo per cui, parlando del <a href="https://www.roccoandrealigorio.it/?p=239">device code phishing</a>, ti consigliavo di passare a metodi resistenti al phishing.</p>
+
+<h2>Chi è coinvolto in uno studio o in una PMI</h2>
+<p>Il cambiamento riguarda gli <strong>account di lavoro</strong> gestiti con Microsoft Entra, quindi praticamente tutte le caselle Microsoft 365 aziendali, a prescindere dal piano. Gli account personali tipo Outlook.com non sono oggetto di questo annuncio.</p>
+<p>In concreto, sei coinvolto se anche una sola persona dello studio:</p>
+<ul>
+<li>riceve il codice di accesso via SMS o con una telefonata;</li>
+<li>usa l'SMS per reimpostare da sola la password dimenticata (anche questa procedura rientra nel ritiro, salvo fornitore telefonico esterno);</li>
+<li>non ha mai configurato l'app Microsoft Authenticator o un altro metodo oltre al telefono.</li>
+</ul>
+<p>Chi invece usa già l'app Authenticator, Windows Hello o una chiavetta di sicurezza non riceverà la schermata bloccante. Microsoft conferma che anche i <strong>codici generati da un'app</strong> (quelli a sei cifre che cambiano ogni 30 secondi) restano supportati dopo febbraio, pur non essendo resistenti al phishing come le passkey.</p>
+
+<h2>Come preparare lo studio in 5 passi</h2>
+<p>Non serve un progetto complicato. In una realtà da 5 a 30 persone di solito bastano un paio di settimane, lavorando con ordine.</p>
+
+<h3>1. Scopri chi usa ancora gli SMS</h3>
+<p>Chi amministra Microsoft 365 trova nel centro di amministrazione di Microsoft Entra, alla voce dei metodi di autenticazione, l'elenco dei metodi registrati da ogni utente. Microsoft ha anche pubblicato uno <a href="https://github.com/microsoft/entra-sms-voice-usage-analyzer" target="_blank" rel="noopener">script di verifica gratuito</a> che conta gli utenti interessati: se il risultato è diverso da zero, sei dentro. Se non hai un amministratore interno, è il primo controllo da chiedere al tuo tecnico.</p>
+
+<h3>2. Scegli il metodo giusto per ciascuno</h3>
+<ul>
+<li><strong>Passkey nell'app Microsoft Authenticator</strong>: la soluzione più semplice per chi ha uno smartphone aziendale o personale recente. Richiede un telefono aggiornato (indicativamente iOS 17 o Android 14 e successivi);</li>
+<li><strong>Windows Hello</strong>: accesso con volto, impronta o PIN direttamente dal PC dell'ufficio;</li>
+<li><strong>Chiave di sicurezza FIDO2</strong>: una piccola chiavetta USB o NFC, ideale per chi non vuole usare il cellulare personale, per le postazioni condivise e per gli account di amministratore.</li>
+</ul>
+<p>Il mio consiglio: per gli amministratori una chiavetta fisica (anzi due, una di riserva), per tutti gli altri la passkey in Authenticator o Windows Hello.</p>
+
+<h3>3. Avvisa le persone prima che compaia il blocco</h3>
+<p>Una mail di cinque righe evita metà delle chiamate di aiuto: cosa cambia, entro quando, cosa vedranno sullo schermo e chi contattare. Spiega anche che il nuovo metodo non costa nulla e che <strong>nessuno dello studio chiederà mai la passkey o un codice</strong> per telefono o via email: è il momento ideale per ricordare come si riconosce un tentativo di truffa.</p>
+
+<h3>4. Fai registrare il nuovo metodo con calma</h3>
+<p>Organizza mezz'ora con ciascuno, o una breve sessione di gruppo. Ogni utente può gestire i propri metodi dalla pagina "Informazioni di sicurezza" del proprio account Microsoft. Fai registrare <strong>almeno due metodi</strong> per persona, così lo smartphone perso o cambiato non diventa un'emergenza. Solo dopo aver verificato che il nuovo metodo funziona, togli il numero di telefono dai metodi di accesso.</p>
+
+<h3>5. Valuta il fornitore telefonico solo se indispensabile</h3>
+<p>Se in studio c'è chi proprio non può usare né smartphone né chiavetta, Microsoft consente di continuare con gli SMS tramite un fornitore esterno scelto nel Security Store. È un servizio a pagamento, con costi a messaggio, e Microsoft raccomanda di configurarlo <strong>almeno quattro settimane prima</strong> della scadenza. Nella maggior parte dei piccoli studi una chiavetta di sicurezza è la soluzione più semplice ed economica.</p>
+
+<h2>Gli errori che vedo più spesso</h2>
+<ul>
+<li><strong>Rimandare all'ultimo</strong>: l'invito a registrare la passkey oggi si può saltare, e quasi tutti lo saltano. A febbraio non sarà più possibile;</li>
+<li><strong>Dimenticare l'account amministratore</strong>: spesso è intestato al titolare ma legato al cellulare di un ex collaboratore o del vecchio tecnico. Se perdi l'accesso a quello, perdi il controllo di tutto Microsoft 365;</li>
+<li><strong>Un solo metodo per persona</strong>: basta un telefono rotto per restare fuori;</li>
+<li><strong>Caselle condivise usate come utenti</strong>: se più persone entrano in una casella come "segreteria@" con password e SMS su un unico numero, è il momento di trasformarla in una vera casella condivisa, accessibile dagli account personali.</li>
+</ul>
+<p>Se preferisci che qualcuno faccia il censimento e accompagni le persone nel passaggio, è un lavoro che seguo spesso: trovi i dettagli nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>. Per un quadro più ampio sulla doppia verifica puoi rileggere anche la <a href="https://www.roccoandrealigorio.it/?p=217">guida all'autenticazione a due fattori</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Dopo il 1° febbraio 2027 resterò chiuso fuori da Microsoft 365?</h3>
+<p>No. Microsoft assicura che l'account non viene bloccato né cancellato: al primo accesso ti verrà chiesto di registrare una passkey e non potrai proseguire finché non lo fai. Meglio farlo prima, con calma.</p>
+<h3>L'app Microsoft Authenticator va ancora bene?</h3>
+<p>Sì. Il ritiro riguarda solo SMS e chiamate fornite da Microsoft. Anzi, l'app Authenticator può custodire anche la passkey, che è il metodo consigliato.</p>
+<h3>Passare alle passkey costa qualcosa?</h3>
+<p>No: secondo Microsoft le passkey sono incluse in tutti i piani senza costi aggiuntivi. Si paga solo se scegli di mantenere gli SMS con un fornitore telefonico esterno o se acquisti chiavette di sicurezza.</p>
+<h3>Cosa faccio con un collaboratore che non vuole usare il cellulare personale?</h3>
+<p>Una chiave di sicurezza FIDO2 è la risposta più pulita: si collega al PC o si avvicina al telefono e non richiede di installare nulla sui dispositivi personali.</p>
