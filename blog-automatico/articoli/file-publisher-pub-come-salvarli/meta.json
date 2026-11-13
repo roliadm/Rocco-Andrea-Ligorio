@@ -2,12 +2,22 @@
   "titolo": "Microsoft Publisher dismesso: come salvare i file .pub dello studio",
   "slug": "file-publisher-pub-come-salvarli",
   "estratto": "File Publisher che non si aprono più? Dopo la dismissione di Microsoft Publisher ecco come ritrovare, convertire e salvare i file .pub dello studio.",
-  "categorie": ["Informatica"],
-  "tag": ["Microsoft Office", "Microsoft 365", "Aggiornamenti di sicurezza", "Backup"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Microsoft Office",
+    "Microsoft 365",
+    "Aggiornamenti di sicurezza",
+    "Backup"
+  ],
   "seo": {
     "titolo": "File Publisher: come salvarli dopo la fine di Publisher",
     "descrizione": "File Publisher non più apribili con Microsoft 365? Come trovare i file .pub dello studio, convertirli in PDF o Word e scegliere l'alternativa giusta.",
     "keyword": "file Publisher"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Microsoft Publisher dismesso: come salvare i file .pub dello studio",
+  "id": 385
 }
