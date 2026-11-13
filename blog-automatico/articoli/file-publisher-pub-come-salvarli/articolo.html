@@ -1,0 +1,71 @@
+<p>Negli ultimi giorni mi è capitato più di una volta: qualcuno in studio cerca di aprire il volantino dell'open day, la newsletter per i clienti o il modello della carta intestata e il computer risponde che il programma non c'è più. Il motivo è semplice: Microsoft ha dismesso <strong>Publisher</strong>, il programma con cui molti uffici hanno impaginato per anni brochure, biglietti da visita ed etichette. I <strong>file Publisher</strong> (quelli con estensione <strong>.pub</strong>) però restano sui dischi, su OneDrive e sul server. In questo articolo ti spiego cosa è cambiato, chi è coinvolto, come ritrovare e mettere al sicuro quei file e con cosa sostituire Publisher senza perdere tempo.</p>
+
+<h2>Cosa è successo a Microsoft Publisher</h2>
+<p>Microsoft aveva annunciato la fine di Publisher con largo anticipo e l'ha confermata nella sua <a href="https://support.microsoft.com/en-us/publisher" target="_blank" rel="noopener">pagina di supporto ufficiale</a>. In sintesi le date sono due:</p>
+<ul>
+<li><strong>1° ottobre 2026</strong>: Publisher non fa più parte di <strong>Microsoft 365</strong>. Con il rilascio dell'aggiornamento che lo rimuove, chi usa l'abbonamento non può più aprire il programma, né scaricarlo o installarlo di nuovo;</li>
+<li><strong>13 ottobre 2026</strong>: finisce il supporto per le versioni acquistate una volta sola (le cosiddette licenze <strong>perpetue</strong>, cioè "a vita"), insieme a Office 2021 e Office LTSC 2021. Ne avevo parlato nell'articolo su <a href="https://www.roccoandrealigorio.it/?p=270">Office 2021 fuori supporto</a>.</li>
+</ul>
+<p>La differenza pratica è importante. Con Microsoft 365 Publisher sparisce e i file .pub non si aprono più con quell'abbonamento. Con una licenza perpetua il programma continua a funzionare, ma <strong>non riceve più correzioni di sicurezza</strong>. Le versioni 2016 e 2019 erano già fuori supporto dall'ottobre 2025, e le edizioni 2024 di Office non includono più Publisher.</p>
+
+<h2>Chi è coinvolto in studio e in azienda</h2>
+<p>Vedo spesso tre situazioni tipiche:</p>
+<ul>
+<li><strong>Studi con Microsoft 365</strong>: è il caso più frequente. Da ottobre Publisher è sparito dal menu Start o sta per sparire, e i file .pub restano "orfani";</li>
+<li><strong>Uffici con un vecchio Office perpetuo</strong>: Publisher si apre ancora, quindi sembra che non sia cambiato nulla. In realtà è il momento migliore per convertire i file, finché il programma c'è;</li>
+<li><strong>Archivi dimenticati</strong>: cartelle condivise o NAS con anni di materiale grafico in .pub che nessuno apre da tempo, ma che un giorno servirà (il logo in alta qualità, il modulo per i clienti, il depliant da ristampare).</li>
+</ul>
+
+<h2>Primo passo: trovare tutti i file Publisher</h2>
+<p>Prima di decidere cosa fare, conviene sapere quanti file ci sono e dove si trovano. Microsoft suggerisce di cercare <strong>".pub"</strong> sul PC, in OneDrive e in SharePoint. In pratica:</p>
+<ol>
+<li>sul PC apri Esplora file, seleziona <strong>Questo PC</strong> o la cartella dei documenti e scrivi <code>*.pub</code> nella casella di ricerca;</li>
+<li>ripeti la ricerca nelle <strong>cartelle condivise</strong> dello studio e sul NAS, se ne hai uno;</li>
+<li>su OneDrive e SharePoint usa la ricerca dal browser con la stessa estensione;</li>
+<li>annota in un elenco semplice quali file servono ancora davvero e quali sono solo archivio.</li>
+</ol>
+<p>Spesso si scopre che i file "vivi" sono pochi: la carta intestata, un paio di moduli, il volantino che si aggiorna ogni anno. Tutto il resto basta conservarlo in un formato leggibile.</p>
+
+<h2>Come convertire i file Publisher</h2>
+<p>La strada giusta dipende da cosa devi fare con ogni file: solo <strong>consultarlo</strong> o anche <strong>modificarlo</strong>.</p>
+
+<h3>Se hai ancora Publisher installato</h3>
+<p>Approfittane subito. Apri il file, vai su <strong>File &gt; Salva con nome</strong> e scegli <strong>PDF</strong> come tipo di file. Il PDF mantiene l'aspetto originale ed è perfetto per l'archivio e per la stampa.</p>
+<p>Se i file sono decine o centinaia, Microsoft mette a disposizione uno script di esempio per PowerShell (lo strumento di automazione di Windows), chiamato <strong>Convert-PubFileToPDF.ps1</strong>, che esporta in PDF un file o intere cartelle, sottocartelle comprese. Due avvertenze: funziona solo su un PC dove Publisher è <strong>ancora installato e con licenza valida</strong>, e salta i file per cui esiste già un PDF con lo stesso nome. Se non sei pratico di PowerShell, è un lavoro da affidare a chi ti segue l'informatica.</p>
+
+<h3>Se devi modificare il contenuto</h3>
+<p>Microsoft indica questo percorso: prima salvi il file in PDF, poi apri il PDF con <strong>Word</strong> (File &gt; Apri). Word lo trasforma in un documento modificabile. Funziona bene per testi semplici; con layout ricchi di immagini e caselle di testo qualche elemento si sposta e va sistemato a mano. Per la carta intestata o un modulo, di solito bastano dieci minuti di ritocchi.</p>
+
+<h3>Se Publisher non c'è più</h3>
+<p>Qui entrano in gioco i programmi di terze parti. Il più accessibile è <strong>LibreOffice Draw</strong>, gratuito, che sa aprire i file .pub grazie a una libreria sviluppata appositamente. Come riportato da <a href="https://borncity.com/news/microsoft-publisher-eingestellt-libreoffice-draw-oeffnet-nur-dateien-bis-2010/" target="_blank" rel="noopener">Borncity</a> sulla base della documentazione di LibreOffice, ci sono però dei limiti:</p>
+<ul>
+<li>il supporto ufficiale riguarda i file creati con Publisher <strong>dalla versione 98 alla 2010</strong>; con quelli più recenti il file si apre spesso, ma caratteri, impaginazione e immagini possono risultare diversi;</li>
+<li>non si può salvare di nuovo in formato .pub: il file va conservato in <strong>PDF</strong> o nel formato aperto di LibreOffice (ODF);</li>
+<li>è adatto soprattutto a pagine singole e pubblicazioni brevi, come newsletter e volantini.</li>
+</ul>
+<p>Esistono anche programmi di impaginazione come <strong>Scribus</strong> (gratuito) e <strong>Affinity</strong>, che importano i file Publisher, e servizi di conversione online. Su questi ultimi ti invito alla prudenza: caricare su un sito sconosciuto documenti con dati di clienti o dipendenti significa consegnarli a un fornitore terzo, con le conseguenze previste dal GDPR. Per un volantino pubblico va bene, per un modulo compilato no.</p>
+
+<h2>Con cosa sostituire Publisher per i nuovi lavori</h2>
+<p>Per gran parte di ciò che si faceva con Publisher in ufficio non serve un programma di grafica professionale. Microsoft stessa indica le alternative già incluse in Microsoft 365:</p>
+<ul>
+<li><strong>Word</strong> per buste, etichette, carta intestata, newsletter, programmi di eventi, moduli e fatture;</li>
+<li><strong>Word o PowerPoint</strong> per volantini, brochure, biglietti da visita, attestati, calendari e biglietti d'auguri;</li>
+<li><strong>PowerPoint</strong> per striscioni, cartelli e poster.</li>
+</ul>
+<p>Il mio consiglio è di approfittarne per creare dei <strong>modelli</strong> (file .dotx in Word, .potx in PowerPoint) con logo, colori e caratteri dello studio, salvati in una cartella condivisa. Così chiunque produce un volantino coerente senza ripartire ogni volta da zero. Se invece la grafica è una parte importante del tuo lavoro, conviene valutare un programma di impaginazione vero e proprio.</p>
+
+<h2>Perché non conviene tenersi il vecchio Publisher a vita</h2>
+<p>Chi ha una licenza perpetua può continuare a usare Publisher, ed è comodo per convertire i file con calma. Tenerlo come strumento di lavoro quotidiano, però, significa usare un programma che non riceve più correzioni di sicurezza e che apre file arrivati anche dall'esterno. È lo stesso ragionamento che vale per Office 2021: un software fuori supporto è una porta che resta socchiusa. Il mio suggerimento è usarlo solo per il tempo necessario a convertire l'archivio, poi disinstallarlo e trattare con diffidenza i file .pub ricevuti via email.</p>
+<p>Una volta convertiti, ricordati di includere i nuovi PDF e i modelli nel <strong>backup</strong> dello studio e di verificare che siano davvero ripristinabili: perdere la carta intestata originale è una seccatura piccola, ma evitabile.</p>
+<p>Se vuoi una mano a censire i file, convertirli in blocco o preparare i modelli per l'ufficio, trovi come lavoro nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>I miei file .pub sono andati persi?</h3>
+<p>No. I file restano dove li avevi salvati: è il programma per aprirli che non è più disponibile con Microsoft 365. Puoi convertirli con una copia di Publisher ancora installata oppure aprirli con programmi alternativi come LibreOffice Draw.</p>
+
+<h3>Posso reinstallare Publisher dall'abbonamento Microsoft 365?</h3>
+<p>No. Secondo Microsoft, dopo la dismissione Publisher non è più scaricabile né installabile con Microsoft 365. Solo chi possiede una licenza perpetua (per esempio Office 2021) può ancora installarlo, ma senza aggiornamenti di sicurezza.</p>
+
+<h3>Qual è il formato migliore per conservare i vecchi file Publisher?</h3>
+<p>Per l'archivio il <strong>PDF</strong>, che conserva l'aspetto originale ed è leggibile ovunque. Per i documenti che modificherai ancora, conviene ricrearli come modelli di Word o PowerPoint.</p>
