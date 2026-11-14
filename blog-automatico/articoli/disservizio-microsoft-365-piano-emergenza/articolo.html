@@ -1,0 +1,55 @@
+<p>Giovedì 12 novembre, poco dopo le 18:30 ora italiana, molti uffici hanno scoperto all'improvviso che Outlook non si collegava più, Teams non caricava le chat e Copilot non rispondeva. Il problema non era nei loro PC né nella loro connessione: era un <strong>disservizio di Microsoft 365</strong> a livello mondiale, andato avanti per ore e con strascichi anche il giorno dopo. Quando l'email è il canale principale con clienti, fornitori ed enti, anche poche ore di blocco pesano. In questo articolo ti racconto cosa è successo, cosa vuol dire per la posta che ti hanno mandato in quelle ore e, soprattutto, come preparare lo studio in modo che il prossimo <strong>disservizio Microsoft 365</strong> sia un fastidio e non un fermo.</p>
+
+<h2>Cosa è successo il 12 e 13 novembre</h2>
+<p>Secondo la ricostruzione di <a href="https://www.securityweek.com/microsoft-struggles-to-restore-email-and-other-services-in-a-global-outage/" target="_blank" rel="noopener">SecurityWeek</a>, il blocco è partito da <strong>Exchange Online</strong>, il servizio che gestisce le caselle di posta di Microsoft 365, e si è allargato a tutti i servizi che dipendono da esso: Outlook (sul web, sul PC e sullo smartphone), Teams, Copilot e perfino i collegamenti a Microsoft 365 usati da altri strumenti di intelligenza artificiale. Tra le organizzazioni colpite ci sono stati il servizio sanitario britannico, il governo di Singapore e una compagnia aerea indiana: non un problema di nicchia, quindi.</p>
+<p>Microsoft ha spiegato che alcuni server erano diventati improvvisamente non disponibili e che quelli rimasti attivi si sono trovati sovraccarichi; come riporta <a href="https://tg24.sky.it/tecnologia/2026/11/13/outlook-microsoft-down-cosa-sappiamo" target="_blank" rel="noopener">Sky TG24</a>, l'azienda ha <strong>escluso un attacco informatico</strong>. Il ripristino è avvenuto per gradi: venerdì 13 Microsoft parlava di una prima stabilizzazione, ma ammetteva che la capacità non era ancora tornata ai livelli normali. Al momento in cui scrivo la causa precisa non è stata ancora pubblicata: Microsoft di solito diffonde un rapporto dettagliato qualche giorno dopo la chiusura dell'incidente.</p>
+
+<h3>Le email arrivate in quelle ore sono andate perse?</h3>
+<p>Nella grande maggioranza dei casi no. La posta elettronica è progettata per sopportare i guasti: quando il server del destinatario non risponde, il server di chi spedisce tiene il messaggio in coda e <strong>riprova più volte</strong>. Lo standard che regola l'email (<a href="https://www.rfc-editor.org/rfc/rfc5321#section-4.5.4.1" target="_blank" rel="noopener">RFC 5321</a>) raccomanda di continuare i tentativi per alcuni giorni prima di arrendersi. Per questo, dopo un blocco, vedi arrivare tutto insieme decine di messaggi in ritardo.</p>
+<p>Il rischio c'è solo se il sistema del mittente si arrende prima: in quel caso il mittente riceve un messaggio di mancato recapito. Il mio consiglio, nei giorni successivi a un disservizio, è semplice: se aspettavi un documento importante e non l'hai visto, <strong>chiedi conferma</strong> a chi te l'ha inviato. Ed evita di rimandare in blocco tutto quello che hai spedito tu: rischi solo di far arrivare tutto due volte.</p>
+
+<h2>Perché il cloud non elimina il rischio di fermo</h2>
+<p>Spostare la posta e i file su Microsoft 365 è una scelta che consiglio quasi sempre: niente server in ufficio da mantenere, aggiornamenti automatici, accesso da ovunque. Ma vedo spesso una convinzione sbagliata, cioè che "nel cloud non si rompe mai niente". Non è così.</p>
+<ul>
+<li>Microsoft garantisce contrattualmente una <strong>disponibilità del 99,9%</strong>: significa che sono messi in conto fino a circa 43 minuti di fermo al mese senza violare il contratto.</li>
+<li>Se il fermo è più lungo, il rimborso previsto è un <strong>credito sul canone</strong>, come spiega questa <a href="https://learn.microsoft.com/en-us/archive/blogs/alaw/understanding-service-credits-under-99-9-service-level-agreements-sla" target="_blank" rel="noopener">guida di Microsoft sui crediti di servizio</a>: qualche euro di sconto, non il risarcimento delle ore di lavoro perse.</li>
+<li>Quando tutto è nello stesso servizio (email, chat, file, calendario), un solo guasto <strong>blocca tutto insieme</strong>.</li>
+</ul>
+<p>Il punto non è abbandonare il cloud, ma accettare che un disservizio prima o poi capiterà e decidere in anticipo come lavorare nel frattempo. È la stessa logica con cui si mette un <a href="https://www.roccoandrealigorio.it/?p=258">gruppo di continuità</a> sotto il server o si tiene un <a href="https://www.roccoandrealigorio.it/?p=211">backup secondo la regola 3-2-1</a>.</p>
+
+<h2>Il piano di emergenza per un disservizio Microsoft 365 in 6 passi</h2>
+<p>Non serve un documento di cinquanta pagine. Per uno studio o una piccola azienda basta una pagina, condivisa con tutti, che risponda a sei domande.</p>
+
+<h3>1. Come capisco se il problema è mio o di Microsoft?</h3>
+<p>La prima mezz'ora di un disservizio si spreca quasi sempre a riavviare PC e router. Chi amministra Microsoft 365 trova lo stato aggiornato dei servizi nella sezione <strong>Integrità del servizio</strong> dell'interfaccia di amministrazione (qui la <a href="https://learn.microsoft.com/en-us/microsoft-365/enterprise/view-service-health" target="_blank" rel="noopener">guida ufficiale Microsoft</a>), con il codice dell'incidente e gli aggiornamenti. Se nessuno in ufficio ha quell'accesso, stabilite chi deve controllare e chi avvisa gli altri: un messaggio su WhatsApp al gruppo dello studio vale più di dieci riavvii.</p>
+
+<h3>2. Con quale canale ci parliamo se Teams è bloccato?</h3>
+<p>Se la chat interna e le riunioni passano tutte da Teams, serve un <strong>canale di riserva</strong> già pronto: un gruppo di messaggistica sui telefoni aziendali o una semplice lista di numeri. Va deciso prima, non durante il blocco.</p>
+
+<h3>3. Come raggiungo clienti e fornitori se l'email non va?</h3>
+<p>Tieni un elenco dei contatti telefonici essenziali <strong>fuori da Outlook</strong>: i clienti con pratiche in scadenza, i fornitori critici, il commercialista o il consulente del lavoro. Se la rubrica esiste solo dentro Outlook, durante il blocco non la vedi. Per le comunicazioni con valore legale la <strong>PEC</strong>, che di solito è su un fornitore diverso, resta un'alternativa utile.</p>
+
+<h3>4. I file di lavoro sono disponibili anche offline?</h3>
+<p>OneDrive e SharePoint permettono di tenere sempre sul PC le cartelle più usate, così si può continuare a lavorare anche se il servizio non risponde: le modifiche si sincronizzano al ritorno della connessione. Verifica che le cartelle davvero indispensabili (pratiche in corso, modelli, listini) siano impostate come <strong>"Mantieni sempre su questo dispositivo"</strong>. E ricorda che la sincronizzazione non è un backup: ne ho parlato nell'articolo su <a href="https://www.roccoandrealigorio.it/?p=274">perché OneDrive non basta come backup di Microsoft 365</a>.</p>
+
+<h3>5. Le scadenze reggono qualche ora di blocco?</h3>
+<p>Il disservizio di novembre è iniziato nel tardo pomeriggio: chi doveva inviare un documento entro la sera si è trovato in difficoltà. Per gli invii importanti (offerte, gare, risposte a enti) è buona abitudine <strong>non arrivare all'ultima ora</strong> e sapere già quale canale alternativo usare, ad esempio la PEC o il caricamento diretto sul portale dell'ente.</p>
+
+<h3>6. Chi decide e chi comunica?</h3>
+<p>Basta indicare una persona che dichiara "siamo in emergenza", avvisa i colleghi sul canale di riserva e, se il blocco si prolunga, aggiorna i clienti con una telefonata o un messaggio. Alla fine, un breve controllo: le email in ritardo sono arrivate? Ci sono invii da rifare?</p>
+
+<h2>Attenzione alle email "di recupero" dopo il blocco</h2>
+<p>I grandi disservizi fanno notizia, e le notizie vengono sfruttate dai truffatori. Nei giorni successivi diffida di qualunque messaggio che, con la scusa del problema appena risolto, ti chieda di <strong>"verificare l'account"</strong>, reinserire la password o recuperare "messaggi in sospeso" tramite un link. Microsoft non ti chiede di fare nulla del genere dopo un guasto: le email in coda arrivano da sole. Se hai attivato l'<a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a>, anche una password consegnata per errore non basta da sola a chi la ruba.</p>
+
+<h2>Il mio consiglio</h2>
+<p>Un disservizio di qualche ora capita a tutti i fornitori, Microsoft compresa, e ricapiterà. La differenza la fa avere deciso prima chi controlla, come ci si parla e dove si trovano i contatti e i file indispensabili. Se vuoi, posso aiutarti a scrivere il piano di emergenza del tuo studio e a configurare Microsoft 365 in modo che un blocco non ti fermi: trovi cosa faccio nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Il disservizio Microsoft 365 del 12 novembre è stato un attacco hacker?</h3>
+<p>No. Microsoft ha dichiarato di non avere indizi di attività dolose: il problema è nato da server diventati non disponibili e dal conseguente sovraccarico di quelli rimasti attivi.</p>
+<h3>Devo cambiare password dopo il disservizio?</h3>
+<p>Non per il disservizio in sé, perché nessun dato risulta compromesso. Cambiala solo se in quei giorni l'hai inserita su una pagina arrivata tramite un link sospetto.</p>
+<h3>Posso chiedere un rimborso a Microsoft?</h3>
+<p>Il contratto prevede crediti sul canone quando la disponibilità mensile scende sotto il 99,9%, su richiesta dell'amministratore tramite il supporto. Sono importi modesti e non coprono il lavoro perso.</p>
+<h3>Conviene tenere un secondo servizio di email di riserva?</h3>
+<p>Per la maggior parte degli studi no: costa e complica la gestione. Più utile avere PEC, telefono e un canale di messaggistica pronti come alternative, e i file indispensabili disponibili offline.</p>
