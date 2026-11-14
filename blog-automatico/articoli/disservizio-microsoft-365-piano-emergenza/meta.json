@@ -2,12 +2,22 @@
   "titolo": "Disservizio Microsoft 365: cosa insegna il blocco di Outlook e Teams",
   "slug": "disservizio-microsoft-365-piano-emergenza",
   "estratto": "Outlook e Teams bloccati per ore il 12 novembre: cosa è successo e il piano in 6 passi per non fermare lo studio al prossimo disservizio del cloud.",
-  "categorie": ["Informatica"],
-  "tag": ["Microsoft 365", "Email", "Backup", "Sicurezza informatica"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Microsoft 365",
+    "Email",
+    "Backup",
+    "Sicurezza informatica"
+  ],
   "seo": {
     "titolo": "Disservizio Microsoft 365: il piano per non fermarsi",
     "descrizione": "Disservizio Microsoft 365 del 12 novembre: cosa è successo a Outlook e Teams e il piano di emergenza in 6 passi per studi e PMI che lavorano nel cloud.",
     "keyword": "disservizio Microsoft 365"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Disservizio Microsoft 365: cosa insegna il blocco di Outlook e Teams",
+  "id": 387
 }
