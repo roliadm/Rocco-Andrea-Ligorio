@@ -17,5 +17,8 @@
     "descrizione": "Firewall Check Point: PHP2Shell e una falla di Gaia sono già sfruttate. Come capire se sei a rischio e i 7 passi per mettere al sicuro lo studio.",
     "keyword": "firewall Check Point"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Firewall Check Point: falle già sfruttate, cosa fare subito",
+  "id": 389
 }

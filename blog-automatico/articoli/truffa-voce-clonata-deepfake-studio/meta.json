@@ -2,12 +2,22 @@
   "titolo": "Truffa della voce clonata: come difendere lo studio dai deepfake",
   "slug": "truffa-voce-clonata-deepfake-studio",
   "estratto": "Bastano pochi secondi di audio per clonare la voce del titolare e chiedere un bonifico urgente. Come riconoscere la truffa e le regole che la fermano.",
-  "categorie": ["Informatica"],
-  "tag": ["Sicurezza informatica", "Truffe online", "Intelligenza artificiale", "Phishing"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Sicurezza informatica",
+    "Truffe online",
+    "Intelligenza artificiale",
+    "Phishing"
+  ],
   "seo": {
     "titolo": "Truffa della voce clonata: come difendere studio e azienda",
     "descrizione": "Truffa della voce clonata con l'intelligenza artificiale: come funziona, i segnali per riconoscerla e 6 regole pratiche per proteggere pagamenti e dati.",
     "keyword": "truffa della voce clonata"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Truffa della voce clonata: come difendere lo studio dai deepfake",
+  "id": 391
 }
