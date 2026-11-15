@@ -1,0 +1,21 @@
+{
+  "titolo": "Firewall Check Point: falle già sfruttate, cosa fare subito",
+  "slug": "firewall-check-point-php2shell-cosa-fare",
+  "estratto": "Firewall Check Point con portale Mobile Access sotto attacco: due falle sfruttate danno il controllo totale. Chi è a rischio e cosa aggiornare subito.",
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Sicurezza informatica",
+    "Firewall",
+    "VPN",
+    "Aggiornamenti di sicurezza",
+    "Ransomware"
+  ],
+  "seo": {
+    "titolo": "Firewall Check Point: falle sfruttate, cosa fare subito",
+    "descrizione": "Firewall Check Point: PHP2Shell e una falla di Gaia sono già sfruttate. Come capire se sei a rischio e i 7 passi per mettere al sicuro lo studio.",
+    "keyword": "firewall Check Point"
+  },
+  "stato": "draft"
+}

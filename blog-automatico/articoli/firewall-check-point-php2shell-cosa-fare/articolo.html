@@ -1,0 +1,50 @@
+<p>Il firewall è la porta d'ingresso della rete dello studio: filtra il traffico da Internet e, quasi sempre, è anche il punto a cui ti colleghi da casa con la VPN. Quando proprio quella porta ha una falla, chi attacca non deve più ingannare nessuno: entra e basta. È quello che sta succedendo in questi giorni a chi usa un <strong>firewall Check Point</strong> con il portale di accesso remoto esposto su Internet. Il 12 novembre 2026 il produttore ha confermato attacchi reali, in alcuni casi conclusi con la distruzione dei dati. In questo articolo ti spiego cosa è successo, come capire se sei coinvolto e cosa fare subito, anche se il firewall te l'ha installato un fornitore e non ci metti mano da anni.</p>
+
+<h2>Cosa è successo ai firewall Check Point</h2>
+<p>Nel suo <a href="https://blog.checkpoint.com/security/security-advisory-active-exploitation-of-php2shell-and-local-privilege-escalation/" target="_blank" rel="noopener">avviso di sicurezza del 12 novembre</a> Check Point descrive una catena di attacco in due passaggi, osservata tra il 30 ottobre e il 4 novembre:</p>
+<ol>
+<li><strong>L'ingresso</strong>: gli attaccanti hanno sfruttato <strong>PHP2Shell</strong>, il nome dato a due falle critiche di PHP (CVE-2026-109618 e CVE-2026-109619, gravità 9,2 su 10). PHP è il linguaggio con cui funzionano molte pagine web, comprese quelle del <strong>portale Mobile Access</strong>, la pagina che il firewall pubblica su Internet per l'accesso remoto. Le falle permettono di eseguire comandi senza avere alcuna password.</li>
+<li><strong>Il controllo totale</strong>: una volta dentro, hanno usato una seconda falla nel sistema operativo dei firewall, Gaia (CVE-2026-123039), per ottenere i privilegi di <strong>root</strong>, cioè di amministratore assoluto dell'apparato.</li>
+</ol>
+<p>Da lì, secondo l'<a href="https://research.checkpoint.com/2026/php2shell-exploitation-on-check-point-gateway/" target="_blank" rel="noopener">analisi tecnica di Check Point Research</a>, hanno installato una backdoor (un accesso nascosto e permanente), esplorato la rete interna e in alcuni casi sono arrivati ai server di virtualizzazione VMware ESXi, dove hanno lanciato un programma che cancella i file. Il 13 novembre l'agenzia americana per la cybersicurezza CISA ha inserito la falla di Gaia nel suo <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">catalogo delle vulnerabilità sfruttate</a>, e il Centro canadese per la cybersicurezza ha pubblicato un <a href="https://www.cyber.gc.ca/en/alerts-advisories/check-point-security-advisory-av26-1154" target="_blank" rel="noopener">proprio avviso</a>.</p>
+<p>Check Point parla di "un paio di dozzine" di sistemi compromessi, tutti non aggiornati: la prima ondata ha colpito organizzazioni israeliane, la seconda, dal 2 novembre, anche aziende in altri Paesi. I numeri sono piccoli, ma il punto è un altro: <strong>il codice per sfruttare le falle ormai circola</strong>, e da qui in avanti i tentativi aumentano.</p>
+
+<h2>Il tuo firewall Check Point è a rischio?</h2>
+<p>Prima di allarmarti, verifica tre cose. Se non sai rispondere, chiedi al fornitore che gestisce la rete: sono domande da cinque minuti.</p>
+
+<h3>1. Hai un firewall Check Point?</h3>
+<p>Lo trovi scritto sull'apparato nell'armadio di rete, nel contratto di assistenza o nella fattura. Negli uffici piccoli è frequente la linea <strong>Quantum Spark</strong> (i modelli pensati per le piccole imprese), nelle realtà più strutturate i gateway che usano Gaia.</p>
+
+<h3>2. È attivo il portale Mobile Access?</h3>
+<p>È il caso più esposto, perché quella pagina è raggiungibile da chiunque su Internet. Check Point indica come vulnerabili a PHP2Shell i gateway dalla versione R80 alla R82.20 e anche diverse versioni dei firewall Spark. La falla di Gaia, invece, riguarda le versioni R81.20, R82, R82.10 e R82.20 e, secondo CISA, non tocca i firewall Spark.</p>
+
+<h3>3. Quando è stato aggiornato l'ultima volta?</h3>
+<p>Le correzioni per PHP2Shell sono disponibili dal 23 ottobre, cioè circa una settimana prima degli attacchi. Se il firewall non riceve aggiornamenti da allora, va considerato a rischio.</p>
+<p>C'è poi un caso particolare: le versioni <strong>R81 e R81.10</strong> sono fuori supporto e non ricevono più correzioni. Se il tuo apparato è fermo lì, il problema non è solo questa falla: va pianificato un aggiornamento di versione o la sostituzione.</p>
+
+<h2>Cosa fare subito: la checklist in 7 passi</h2>
+<ol>
+<li><strong>Installa gli aggiornamenti.</strong> Check Point raccomanda il <strong>Jumbo Hotfix di novembre</strong> su tutti i gateway e i server di gestione, con priorità a quelli che hanno il portale Mobile Access esposto. Per i firewall Spark segui l'avviso del produttore e installa il firmware più recente indicato per il tuo modello.</li>
+<li><strong>Se non puoi aggiornare oggi, riduci l'esposizione.</strong> Disattiva temporaneamente il portale Mobile Access o limita l'accesso agli indirizzi IP che conosci. Per la falla di Gaia, Check Point indica come misura provvisoria l'arresto del servizio <em>dynamic_server</em>, sapendo che alcune funzioni di configurazione smettono di funzionare: è un'operazione da far fare a chi conosce l'apparato.</li>
+<li><strong>Controlla se sei già stato colpito.</strong> Aggiornare chiude la porta ma non caccia chi è già entrato. Chiedi al fornitore di verificare gli indicatori pubblicati da Check Point, tra cui un processo chiamato <em>CPconfigdaemon</em>, file sospetti nelle cartelle temporanee e soprattutto <strong>buchi inspiegabili nei registri del traffico</strong>, segno che qualcuno ha spento la registrazione.</li>
+<li><strong>Cambia le password</strong> degli amministratori del firewall e, se ci sono segnali di compromissione, anche quelle degli utenti VPN. Attiva l'<a href="https://www.roccoandrealigorio.it/?p=217">autenticazione a due fattori</a> per gli accessi remoti, se non l'hai già fatto.</li>
+<li><strong>Proteggi i server interni.</strong> In questi attacchi il bersaglio finale erano i server di virtualizzazione. Verifica che non siano raggiungibili dal firewall con password deboli o servizi di amministrazione lasciati aperti.</li>
+<li><strong>Verifica il backup.</strong> Un programma che cancella i dati si batte solo con una copia che l'attaccante non può toccare: offline o immutabile, secondo la <a href="https://www.roccoandrealigorio.it/?p=211">regola del backup 3-2-1</a>. E fai una <a href="https://www.roccoandrealigorio.it/?p=364">prova di ripristino</a>: un backup mai provato è una speranza, non una garanzia.</li>
+<li><strong>Metti per iscritto chi aggiorna il firewall.</strong> In molti studi nessuno sa con certezza chi debba farlo. Serve un nome, un contratto e una cadenza, almeno mensile, più gli interventi urgenti come questo.</li>
+</ol>
+
+<h2>La lezione: il firewall non si installa e si dimentica</h2>
+<p>Negli ultimi mesi ti ho raccontato casi molto simili con <a href="https://www.roccoandrealigorio.it/?p=233">i firewall Fortinet</a>, Cisco e SonicWall. Lo schema si ripete sempre: una falla nella parte del firewall esposta su Internet, di solito la VPN o il suo portale, viene sfruttata pochi giorni dopo la pubblicazione della correzione. Chi aggiorna in fretta si salva, chi aspetta il prossimo intervento programmato rischia.</p>
+<p>PHP2Shell è anche un buon esempio di come un problema nasca lontano e arrivi fino all'ufficio: è una falla di PHP, la stessa che riguarda <a href="https://www.roccoandrealigorio.it/?p=298">i siti WordPress e i gestionali web</a>, finita dentro un apparato di sicurezza. Come spiega anche <a href="https://www.fortinet.com/it/blog/industry-trends/understanding-php2shell-vulnerabilities-and-reducing-risk-while-you-patch" target="_blank" rel="noopener">un approfondimento di Fortinet</a>, qualsiasi programma che usa PHP per pubblicare pagine web va controllato. Per questo l'<strong>inventario</strong> di cosa hai, e di chi lo aggiorna, è la prima misura di sicurezza.</p>
+<p>Il secondo insegnamento riguarda l'accesso remoto: meno servizi esponi su Internet, meno porte hai da sorvegliare. Se il portale Mobile Access serve a due persone, forse si può sostituire con una soluzione più semplice e meglio protetta, come ti ho spiegato nella guida al <a href="https://www.roccoandrealigorio.it/?p=342">lavoro da remoto sicuro</a>.</p>
+<p>Se hai un firewall Check Point e non sai a che versione è, o vuoi che qualcuno verifichi aggiornamenti, registri e backup al posto tuo, trovi come posso aiutarti nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Ho un firewall Check Point ma non uso la VPN: sono al sicuro?</h3>
+<p>Il rischio maggiore riguarda chi ha il portale Mobile Access raggiungibile da Internet. Se non è attivo l'esposizione è molto più bassa, ma l'aggiornamento va installato comunque: corregge anche altre falle e la configurazione potrebbe cambiare in futuro.</p>
+<h3>Basta installare l'aggiornamento?</h3>
+<p>Chiude le falle, ma non elimina un eventuale accesso già ottenuto. Se il portale era esposto e il firewall non era aggiornato tra fine ottobre e oggi, fai controllare gli indicatori di compromissione pubblicati da Check Point.</p>
+<h3>Il mio firewall Spark è coinvolto?</h3>
+<p>Check Point indica diverse versioni dei firewall Spark come vulnerabili a PHP2Shell, mentre la falla di Gaia non li riguarda. Installa il firmware più recente per il tuo modello e verifica con il fornitore che il portale di accesso remoto sia protetto.</p>
+<h3>Devo segnalare l'incidente se trovo segni di intrusione?</h3>
+<p>Se l'attacco ha coinvolto dati personali di clienti o dipendenti, il GDPR prevede la valutazione e, nei casi previsti, la notifica al Garante entro 72 ore. Se rientri nella NIS2, ci sono anche gli obblighi di notifica verso ACN.</p>
