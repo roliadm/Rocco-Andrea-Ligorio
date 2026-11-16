@@ -2,12 +2,22 @@
   "titolo": "Vulnerabilità scoperte con l'AI: +300% in tre mesi, cosa cambia per lo studio",
   "slug": "vulnerabilita-intelligenza-artificiale-enisa-aggiornare",
   "estratto": "L'agenzia UE ENISA avverte: con l'AI le falle scoperte sono triplicate e sfruttate in poche ore. Come adeguare aggiornamenti e difese in studio.",
-  "categorie": ["Informatica"],
-  "tag": ["Sicurezza informatica", "Aggiornamenti di sicurezza", "Intelligenza artificiale", "NIS2"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Sicurezza informatica",
+    "Aggiornamenti di sicurezza",
+    "Intelligenza artificiale",
+    "NIS2"
+  ],
   "seo": {
     "titolo": "Vulnerabilità scoperte con l'AI: perché aggiornare subito",
     "descrizione": "Vulnerabilità scoperte con l'AI in aumento del 300% secondo ENISA: cosa significa per studi e PMI e come accorciare i tempi degli aggiornamenti.",
     "keyword": "vulnerabilità scoperte con l'AI"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Vulnerabilità scoperte con l'AI: +300% in tre mesi, cosa cambia per lo studio",
+  "id": 395
 }
