@@ -2,12 +2,23 @@
   "titolo": "Videosorveglianza in ufficio: regole privacy e sicurezza delle telecamere",
   "slug": "videosorveglianza-ufficio-regole-privacy-sicurezza",
   "estratto": "Cartello, tempi di conservazione, dipendenti e rischi informatici: le regole per installare telecamere nello studio senza errori né falle.",
-  "categorie": ["Informatica"],
-  "tag": ["Privacy", "GDPR", "Sicurezza informatica", "Reti", "Hardware"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Privacy",
+    "GDPR",
+    "Sicurezza informatica",
+    "Reti",
+    "Hardware"
+  ],
   "seo": {
     "titolo": "Videosorveglianza in ufficio: regole privacy e sicurezza",
     "descrizione": "Videosorveglianza in ufficio: cartello, conservazione delle immagini, regole per i dipendenti e come proteggere le telecamere dagli hacker.",
     "keyword": "videosorveglianza in ufficio"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Videosorveglianza in ufficio: regole privacy e sicurezza delle telecamere",
+  "id": 399
 }

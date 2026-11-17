@@ -2,12 +2,23 @@
   "titolo": "Gestione remota dei PC: cosa insegna l'attacco a N-central",
   "slug": "gestione-remota-pc-fornitore-n-central",
   "estratto": "Falle sfruttate nella piattaforma N-central: perché la gestione remota dei PC del fornitore IT ti riguarda e le 5 domande da fargli subito.",
-  "categorie": ["Informatica"],
-  "tag": ["Sicurezza informatica", "Assistenza remota", "Aggiornamenti di sicurezza", "Backup", "NIS2"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Sicurezza informatica",
+    "Assistenza remota",
+    "Aggiornamenti di sicurezza",
+    "Backup",
+    "NIS2"
+  ],
   "seo": {
     "titolo": "Gestione remota dei PC: la lezione dell'attacco a N-central",
     "descrizione": "Gestione remota dei PC sotto attacco: cosa è successo a N-central, perché riguarda il tuo studio e quali domande fare subito al fornitore IT.",
     "keyword": "gestione remota dei PC"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Gestione remota dei PC: cosa insegna l'attacco a N-central",
+  "id": 397
 }
