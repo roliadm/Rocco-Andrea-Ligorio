@@ -1,0 +1,52 @@
+<p>Se il tuo studio ha un fornitore IT che aggiorna i computer, controlla l'antivirus e interviene "da remoto" senza passare in ufficio, su ogni PC è quasi certamente installato un piccolo programma che glielo permette. È comodo, ed è il modo in cui lavorano quasi tutti i tecnici seri. Ma in questi giorni la <strong>gestione remota dei PC</strong> è finita al centro di un caso che riguarda migliaia di aziende: le falle nella piattaforma N-central di N-able, sfruttate dagli attaccanti a poche ore dalla loro pubblicazione. In questo articolo ti spiego cosa è successo, perché ti riguarda anche se non hai mai sentito questo nome e quali domande fare al tuo fornitore questa settimana.</p>
+
+<h2>Cosa è successo a N-central</h2>
+<p><strong>N-central</strong> è una piattaforma di tipo <strong>RMM</strong> (Remote Monitoring and Management, cioè monitoraggio e gestione da remoto) usata dai fornitori di servizi informatici per amministrare i computer e i server dei loro clienti. Il tecnico installa un "agente" su ogni PC e da un'unica console può distribuire aggiornamenti, lanciare script, prendere il controllo dello schermo.</p>
+<p>La cronologia, in breve:</p>
+<ul>
+<li>tra l'8 e il 10 novembre 2026 un ricercatore indipendente ha pubblicato oltre 30 vulnerabilità, con il codice per sfruttarle. N-able ha messo temporaneamente offline la versione in cloud e ha chiesto ai clienti di spegnere i server installati in sede, come riporta <a href="https://thehackernews.com/2026/11/n-able-takes-hosted-n-central-offline.html" target="_blank" rel="noopener">The Hacker News</a>;</li>
+<li>il 10 novembre è uscita una prima correzione (2026.4 Hotfix 2), ma pochi giorni dopo lo stesso ricercatore ha mostrato nuove tecniche che funzionavano anche sui server aggiornati, in certe configurazioni;</li>
+<li>secondo i ricercatori citati da <a href="https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html" target="_blank" rel="noopener">The Hacker News</a>, almeno 21 server N-central sono stati violati e usati per minare criptovaluta, e 19 di questi avevano già installato la correzione;</li>
+<li>il 17 novembre N-able ha rilasciato la versione <strong>2026.4 Hotfix 3</strong>, che corregge altre 17 vulnerabilità e blocca definitivamente le vecchie interfacce coinvolte.</li>
+</ul>
+<p>Non è un caso isolato: già a settembre N-able aveva diffuso una correzione urgente per una falla critica che permetteva di eseguire comandi sul server senza credenziali, come si legge nell'<a href="https://status.n-able.com/2026/09/06/n-central-2026-3-hotfix-4-cve-2026-86218/" target="_blank" rel="noopener">avviso ufficiale del produttore</a>.</p>
+
+<h2>Perché la gestione remota dei PC ti riguarda anche se non usi N-central</h2>
+<p>Il punto non è il singolo prodotto. Strumenti simili (N-central, NinjaOne, Datto, ConnectWise, Atera e tanti altri) hanno tutti la stessa caratteristica: <strong>chi controlla la console controlla tutti i PC collegati</strong>, spesso con i privilegi più alti del sistema. Nel caso N-central, una delle tecniche descritte permetteva proprio di eseguire comandi sui computer Windows gestiti con i permessi di sistema.</p>
+<p>Tradotto per uno studio: se la piattaforma del tuo fornitore viene violata, l'attaccante non deve più ingannare un tuo collaboratore con una email di phishing. Può entrare direttamente nei tuoi PC usando lo stesso canale "di fiducia" del tecnico, e lo stesso vale per tutti gli altri clienti di quel fornitore. Per questo gli attaccanti amano questi strumenti: un solo bersaglio, decine o centinaia di vittime.</p>
+<p>Ne ho già parlato a proposito degli <a href="https://www.roccoandrealigorio.it/?p=272">accessi dei fornitori ai dati</a>: la sicurezza del tuo studio dipende anche da quella di chi ti assiste.</p>
+
+<h2>Cosa fare subito: le domande al tuo fornitore IT</h2>
+<p>Non devi diventare un tecnico. Ti basta sapere cosa chiedere, preferibilmente per iscritto, e pretendere risposte chiare.</p>
+<h3>1. Quale strumento di gestione remota usate sui miei PC?</h3>
+<p>È una domanda legittima e il fornitore deve saperti rispondere. Annota il nome nel tuo <a href="https://www.roccoandrealigorio.it/?p=326">inventario informatico</a>, insieme all'elenco dei computer su cui è installato.</p>
+<h3>2. Se è N-central, avete già installato l'Hotfix 3?</h3>
+<p>Se il fornitore usa la versione installata nei propri locali, deve aggiornarla subito: il produttore indica che resta esposta finché non viene aggiornata. Vanno aggiornati anche gli agenti installati sui tuoi PC, perché quelli vecchi possono essere impersonati anche con un server corretto. Chi usa la versione in cloud riceve l'aggiornamento lato server dal produttore.</p>
+<h3>3. Avete verificato che non ci siano state intrusioni?</h3>
+<p>Aggiornare non basta se qualcuno è già entrato. I ricercatori consigliano di controllare accessi e registri dall'8 novembre in poi, cercando processi sconosciuti, nuove attività pianificate e account non riconosciuti. Chiedi una conferma esplicita che questo controllo sia stato fatto.</p>
+<h3>4. Come è protetto l'accesso alla console?</h3>
+<p>Chi entra nella console del fornitore deve usare l'<strong>autenticazione a due fattori</strong>, ogni tecnico deve avere un proprio account e le azioni devono essere registrate. Sono le stesse indicazioni della <a href="https://www.cisa.gov/sites/default/files/2023-06/Guide%20to%20Securing%20Remote%20Access%20Software_clean%20Final_508c.pdf" target="_blank" rel="noopener">guida della CISA sulla sicurezza dei software di accesso remoto</a>, pubblicata insieme ad altre agenzie proprio pensando ai fornitori di servizi gestiti.</p>
+<h3>5. Mi avvisereste in caso di incidente?</h3>
+<p>Il contratto dovrebbe prevedere che il fornitore ti comunichi senza ritardo qualsiasi incidente che tocchi i tuoi sistemi. Se gestisce dati personali per tuo conto è anche un <strong>responsabile del trattamento</strong> ai sensi del GDPR, e tu hai solo 72 ore per valutare un'eventuale notifica al Garante: ti spiego come muoverti nella guida sul <a href="https://www.roccoandrealigorio.it/?p=276">data breach</a>.</p>
+
+<h2>Le difese che dipendono da te</h2>
+<p>Alcune protezioni non dipendono dal fornitore e funzionano anche se la sua piattaforma viene compromessa:</p>
+<ul>
+<li><strong>backup scollegati o non modificabili</strong>: se un attaccante prende il controllo dei PC, un backup che lui non può cancellare è la tua assicurazione. Verifica che il backup non sia gestito dalla stessa console con le stesse credenziali;</li>
+<li><strong>un solo strumento di accesso remoto</strong>: vedo spesso PC con tre o quattro programmi diversi installati negli anni da tecnici diversi. Ognuno è una porta in più: fai rimuovere quelli che non servono;</li>
+<li><strong>attenzione ai segnali strani</strong>: PC improvvisamente lenti o con la ventola sempre al massimo, finestre che si aprono da sole, programmi mai visti. Nel caso N-central gli attaccanti hanno installato software per minare criptovaluta, che consuma proprio la potenza del processore;</li>
+<li><strong>un referente interno</strong>: anche in uno studio piccolo, una persona deve sapere chi chiamare e cosa fare se qualcosa non torna.</li>
+</ul>
+
+<h2>Il fornitore resta un alleato, se lavora bene</h2>
+<p>Non voglio che il messaggio sia "togli la gestione remota": sarebbe un errore. Un PC aggiornato e monitorato da remoto è molto più sicuro di uno che nessuno guarda per mesi. Il punto è scegliere un fornitore che tratti la propria piattaforma come il bene più delicato che ha, che aggiorni in fretta e che ti dica le cose come stanno quando succede qualcosa. Se vuoi capire come imposto io il rapporto con i clienti, lo trovi nella pagina <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a>; per una verifica della tua situazione, dai un'occhiata ai miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Come faccio a sapere se sul mio PC c'è un software di gestione remota?</h3>
+<p>Su Windows apri "Impostazioni", poi "App installate", e cerca nomi come N-able, Windows Agent, NinjaOne, Datto, Atera o ConnectWise. Nel dubbio chiedi al tuo fornitore l'elenco completo: è un'informazione che deve darti.</p>
+<h3>Se il mio fornitore usa N-central devo spegnere i PC?</h3>
+<p>No. L'intervento riguarda il server del fornitore e gli agenti sui tuoi PC: è lui che deve aggiornarli e controllare eventuali intrusioni. Tu devi chiedere conferma scritta che sia stato fatto.</p>
+<h3>La versione in cloud di N-central è sicura?</h3>
+<p>Secondo N-able i server in cloud sono stati aggiornati direttamente dal produttore. Gli agenti installati sui PC vanno comunque portati all'ultima versione.</p>
+<h3>Questo caso riguarda anche la NIS2?</h3>
+<p>Se la tua organizzazione rientra nella NIS2, la sicurezza della catena di fornitura è tra le misure richieste: sapere quali strumenti usa il fornitore e come li protegge fa parte di quel lavoro.</p>
