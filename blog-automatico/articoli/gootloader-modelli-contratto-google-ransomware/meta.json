@@ -1,0 +1,13 @@
+{
+  "titolo": "Gootloader: i modelli di contratto su Google che aprono la porta al ransomware",
+  "slug": "gootloader-modelli-contratto-google-ransomware",
+  "estratto": "Gootloader usa falsi modelli di contratto trovati su Google per infettare i PC degli studi: come riconoscerlo e proteggere computer e sito WordPress.",
+  "categorie": ["Informatica"],
+  "tag": ["Malware", "Ransomware", "WordPress", "Sicurezza informatica", "Siti web"],
+  "seo": {
+    "titolo": "Gootloader: falsi modelli di contratto che portano malware",
+    "descrizione": "Gootloader, l'allarme FBI: falsi modelli di contratto su Google portano il ransomware negli studi. Come difendere PC e sito WordPress, passo per passo.",
+    "keyword": "Gootloader"
+  },
+  "stato": "draft"
+}

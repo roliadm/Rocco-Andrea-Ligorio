@@ -1,0 +1,63 @@
+<p>Ti serve un modello di contratto, una clausola particolare o un fac-simile di accordo: apri Google, scrivi due parole e scarichi il primo documento che sembra fare al caso tuo. È un gesto che vedo fare ogni giorno negli studi e negli uffici. Il 16 novembre 2026 l'FBI ha pubblicato un avviso proprio su questo: il malware <strong>Gootloader</strong> sfrutta i risultati di ricerca su documenti legali e commerciali per entrare nei computer e aprire la strada al ransomware. In questo articolo ti spiego come funziona l'inganno, perché riguarda da vicino studi professionali e PMI e quali contromisure puoi adottare già oggi, sia sui PC sia sul sito aziendale.</p>
+
+<h2>Gootloader: cosa dice l'avviso dell'FBI</h2>
+<p>L'avviso FLASH dell'FBI, pubblicato il 16 novembre 2026 in coordinamento con la CISA (l'agenzia statunitense per la sicurezza informatica), descrive un'attività che va avanti dal 2020. I numeri, riportati nel <a href="https://www.ic3.gov/CSA/2026/261116.pdf" target="_blank" rel="noopener">documento ufficiale pubblicato su IC3</a> e ripresi da <a href="https://cybersecuritynews.com/spread-gootloader-malware/" target="_blank" rel="noopener">Cyber Security News</a>, sono questi:</p>
+<ul>
+<li><strong>oltre 1.000 siti WordPress</strong> violati e usati come esca, più 216 domini controllati direttamente da chi gestisce Gootloader (dati di ottobre 2026);</li>
+<li><strong>più di 28 milioni di dollari</strong> di riscatti ransomware collegati a questa infrastruttura;</li>
+<li>bersagli preferiti: <strong>professionisti del diritto</strong>, cioè avvocati, uffici legali interni, responsabili privacy e chi in azienda si occupa di contratti.</li>
+</ul>
+<p>Gootloader non è il ransomware vero e proprio: è un <strong>malware di accesso iniziale</strong>, cioè il "piede nella porta". Una volta dentro un PC, chi lo controlla può rubare credenziali, muoversi verso gli altri computer della rete e, alla fine, cifrare tutto e chiedere un riscatto.</p>
+
+<h2>Come funziona la trappola dei modelli su Google</h2>
+<p>La tecnica si chiama <strong>SEO poisoning</strong>, "avvelenamento" dei risultati di ricerca. In pratica i criminali fanno salire nelle prime posizioni di Google pagine create apposta per ingannare chi cerca documenti.</p>
+<h3>1. Ricerche di nicchia, poca concorrenza</h3>
+<p>Secondo l'FBI scelgono frasi cercate da poche persone e con pochi siti concorrenti, come clausole contrattuali legate a una specifica giurisdizione. Su ricerche così specifiche è facile comparire in prima pagina accanto a risultati legittimi.</p>
+<h3>2. Siti veri, ma violati</h3>
+<p>Le pagine esca non stanno su siti sospetti: stanno su <strong>siti WordPress reali</strong>, magari di un'associazione o di una piccola azienda, che sono stati violati con password rubate o tramite plugin non aggiornati. Per questo l'indirizzo non fa scattare nessun campanello d'allarme.</p>
+<h3>3. Il finto forum e il download</h3>
+<p>La pagina mostra spesso una discussione in cui qualcuno chiede proprio il modello che cercavi e un "amministratore" risponde con il link per scaricarlo. Il file scaricato è un archivio ZIP che contiene uno <strong>script JavaScript</strong> mascherato da documento. Se lo apri, Windows lo esegue con un componente di sistema chiamato Windows Script Host e l'infezione parte, spesso senza che tu veda nulla di strano.</p>
+<h3>4. Filtri per non farsi scoprire</h3>
+<p>Un sistema di filtraggio decide chi vede la trappola in base a Paese, provenienza della visita, cookie e indirizzo IP. Così un ricercatore di sicurezza o il proprietario del sito possono visitare la pagina e non notare nulla.</p>
+
+<h2>Perché riguarda anche gli studi italiani</h2>
+<p>L'avviso parla soprattutto di professionisti statunitensi, ma la tecnica funziona in qualunque lingua e l'FBI segnala vittime in moltissimi settori. Gli studi legali, i commercialisti, i consulenti del lavoro e gli uffici amministrativi delle PMI cercano modelli di documenti tutti i giorni: è esattamente il comportamento su cui Gootloader fa leva. E c'è un secondo aspetto: se hai un <strong>sito WordPress</strong> trascurato, il tuo sito potrebbe diventare una delle esche senza che tu lo sappia, con danni d'immagine e possibili problemi con Google. Ne avevo parlato anche nell'articolo sulla <a href="https://www.roccoandrealigorio.it/?p=350">falla negli aggiornamenti di WordPress 7.1.4</a>.</p>
+
+<h2>Cosa fare sui PC dello studio</h2>
+<ol>
+<li><strong>Scarica i modelli solo da fonti note</strong>: ordini professionali, siti istituzionali, banche dati a cui sei abbonato, l'archivio interno dello studio. Un forum sconosciuto non è una fonte.</li>
+<li><strong>Diffida dei file .js, .vbs o degli ZIP</strong> quando ti aspetti un documento Word o PDF. Un modello di contratto non ha alcun motivo di essere uno script.</li>
+<li><strong>Mostra le estensioni dei file</strong> in Esplora file (in Windows 11: Visualizza, poi Mostra, poi "Estensioni nomi file"), così "contratto.docx.js" non si nasconde più.</li>
+<li><strong>Disattiva Windows Script Host</strong> dove nessun programma lo usa: è una delle contromisure indicate dall'FBI. In azienda si può fare in modo centralizzato, oppure limitare l'esecuzione degli script con criteri di controllo delle applicazioni come AppLocker.</li>
+<li><strong>Lavora con un utente standard</strong>, non amministratore: limita molto quello che un malware riesce a fare. Ti spiego perché in <a href="https://www.roccoandrealigorio.it/?p=334">questo articolo sull'account amministratore</a>.</li>
+<li><strong>Proteggi la navigazione</strong> con un filtro DNS e una protezione aggiornata sui PC: ne trovi i dettagli nelle guide sul <a href="https://www.roccoandrealigorio.it/?p=366">filtro DNS</a> e su <a href="https://www.roccoandrealigorio.it/?p=370">antivirus ed EDR</a>.</li>
+</ol>
+
+<h2>Cosa fare se hai un sito WordPress</h2>
+<p>L'FBI dedica una parte dell'avviso proprio a chi gestisce siti, perché sono la materia prima di questa campagna. Le indicazioni principali, in parole semplici:</p>
+<ul>
+<li>aggiorna WordPress, plugin e tema, ed <strong>elimina quelli che non usi</strong>;</li>
+<li>attiva l'<strong>autenticazione a due fattori</strong> per tutti gli account amministratore;</li>
+<li>disattiva il file <strong>xmlrpc.php</strong> se non ti serve (è una vecchia porta d'accesso remoto molto presa di mira) o limitane l'uso;</li>
+<li>impedisci l'esecuzione di codice PHP nella cartella dei caricamenti e valuta un firewall per applicazioni web;</li>
+<li>controlla ogni tanto <strong>Google Search Console</strong>: se il sito compare per ricerche su contratti o argomenti che non c'entrano nulla con la tua attività, o spuntano pagine mai create, è un segnale da non ignorare.</li>
+</ul>
+
+<h2>Se qualcuno ha già aperto il file</h2>
+<p>Se il file è stato solo scaricato, non aprirlo e non estrarlo: eliminalo o fallo analizzare. Se invece è stato aperto, l'FBI è chiara: <strong>cancellare il file non basta</strong>. I passi sono questi:</p>
+<ol>
+<li>scollega subito il PC dalla rete (cavo e Wi-Fi), senza spegnerlo;</li>
+<li>chiama chi si occupa della tua informatica;</li>
+<li>cambia le password usate su quel PC, ma da un altro dispositivo sicuro;</li>
+<li>valuta la reinstallazione completa del computer se l'analisi trova persistenza o furto di credenziali;</li>
+<li>verifica se ci sono dati personali coinvolti: potrebbe trattarsi di un data breach da notificare. Ho scritto una guida su <a href="https://www.roccoandrealigorio.it/?p=276">cosa fare nelle prime 72 ore</a>.</li>
+</ol>
+<p>Se vuoi che controlli i PC dello studio o il tuo sito WordPress, trovi come lavoro nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Se scarico un PDF o un file Word da Google corro lo stesso rischio?</h3>
+<p>Il rischio principale descritto dall'FBI riguarda archivi ZIP con script JavaScript, non i normali PDF o documenti Word. Resta comunque buona regola scaricare solo da fonti affidabili e tenere aggiornati PC, Office e lettore PDF.</p>
+<h3>L'antivirus non dovrebbe bloccarlo da solo?</h3>
+<p>Spesso sì, ma Gootloader cambia frequentemente e cerca di eludere i controlli. Un antivirus aggiornato è necessario, non sufficiente: servono anche utenti standard, script disattivati dove non servono e un po' di attenzione.</p>
+<h3>Come capisco se il mio sito WordPress è stato usato come esca?</h3>
+<p>Controlla in Search Console le ricerche per cui compari e le pagine indicizzate, cerca su Google "site:tuodominio.it" seguito da parole come "contratto" o "accordo" e verifica utenti e plugin installati. Se trovi qualcosa di strano, fai analizzare il sito prima di cancellare.</p>
