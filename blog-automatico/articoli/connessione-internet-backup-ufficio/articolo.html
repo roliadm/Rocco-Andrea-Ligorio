@@ -1,0 +1,63 @@
+<p>Lunedì mattina, la fibra non va. Il gestionale in cloud non si apre, la PEC non parte, il centralino VoIP è muto e i clienti trovano occupato. Il tecnico dell'operatore arriverà "entro qualche giorno lavorativo". Mi capita di ricevere telefonate così più spesso di quanto si pensi, e quasi sempre la soluzione sarebbe costata meno di una mezza giornata di fermo. In questa guida ti spiego cos'è una <strong>connessione internet di backup</strong>, quali soluzioni esistono per studi professionali e PMI, quanto impegno richiedono e come configurarla perché scatti da sola quando la linea principale cade.</p>
+
+<h2>Perché oggi serve una connessione internet di backup</h2>
+<p>Dieci anni fa, senza internet, in ufficio si poteva almeno continuare a scrivere documenti e consultare le pratiche sul server. Oggi quasi tutto passa dalla rete:</p>
+<ul>
+<li><strong>posta elettronica e PEC</strong>, spesso su Microsoft 365 o Google Workspace;</li>
+<li><strong>gestionali e software in cloud</strong> (contabilità, paghe, studi medici, CRM);</li>
+<li><strong>telefonia VoIP</strong>, cioè il centralino che viaggia su internet;</li>
+<li><strong>pagamenti</strong>, POS, home banking, fatturazione elettronica;</li>
+<li><strong>backup online</strong> e sincronizzazione dei file.</li>
+</ul>
+<p>Quando la linea cade, l'operatore deve indennizzarti secondo il <a href="https://www.agcom.it/sites/default/files/migration/attachment/Allegato%2020-7-2018.pdf" target="_blank" rel="noopener">regolamento AGCOM sugli indennizzi</a>, che prevede importi maggiori per le utenze affari. Ma parliamo di pochi euro al giorno, da chiedere con un reclamo: nulla in confronto al lavoro perso, alle scadenze saltate e alla figura con i clienti.</p>
+
+<h2>Le soluzioni possibili, dalla più semplice alla più robusta</h2>
+
+<h3>1. Lo smartphone in hotspot</h3>
+<p>È la soluzione d'emergenza che tutti hanno già in tasca: si attiva l'hotspot e uno o due PC si collegano. Va bene per mandare una PEC urgente, ma ha limiti chiari: la connessione è <strong>manuale</strong>, regge pochi dispositivi, consuma i giga personali e non tiene in piedi stampanti, centralino e server. Consideralo il piano C, non il piano B.</p>
+
+<h3>2. Una SIM dati nel router, o un router 4G/5G collegato al principale</h3>
+<p>Molti router professionali e di fascia medio-alta hanno una funzione di <strong>failover</strong>: se la linea principale non risponde, passano automaticamente a una connessione mobile e tornano alla fibra quando si ripristina. Per fare un esempio concreto, la <a href="https://uk.fritz.com/service/knowledge-base/dok/FRITZ-Box-7530/3946_Configuring-fallback-protection-for-the-internet-connection-in-the-FRITZ-Box" target="_blank" rel="noopener">documentazione ufficiale dei FRITZ!Box</a> descrive due strade:</p>
+<ul>
+<li>una <strong>chiavetta mobile USB</strong> inserita direttamente nel router;</li>
+<li>un <strong>router 4G/5G separato</strong> collegato con un cavo di rete, utile quando nel punto in cui sta il router principale il segnale del cellulare è debole.</li>
+</ul>
+<p>In entrambi i casi puoi impostare dopo quanto tempo passare alla linea di riserva e dopo quanto tornare a quella principale. È la soluzione che consiglio più spesso agli studi fino a 10–15 postazioni: costa un'offerta dati mensile e un apparecchio, e non richiede lavori.</p>
+
+<h3>3. Due linee fisse con un firewall "dual WAN"</h3>
+<p>Per uffici più grandi, o dove la connessione è davvero critica, si usano <strong>due linee di operatori diversi</strong> (per esempio fibra e FWA, la connessione radio fissa con antenna sul tetto) gestite da un firewall con due porte internet, detto <strong>dual WAN</strong>. Il firewall controlla di continuo entrambe le linee e sposta il traffico su quella che funziona; in alcuni casi può anche usarle insieme per distribuire il carico.</p>
+<p>Un dettaglio che fa la differenza: due linee dello <strong>stesso operatore</strong>, o che passano dallo stesso armadio in strada, spesso cadono insieme. Se scegli la ridondanza, scegli tecnologie e percorsi diversi.</p>
+
+<h2>Cosa deve funzionare quando scatta la linea di riserva</h2>
+<p>Il passaggio automatico è solo metà del lavoro. Prima di considerare il problema risolto, verifica questi punti.</p>
+
+<h3>Il centralino telefonico</h3>
+<p>Non tutti gli operatori permettono di usare i numeri VoIP da una connessione diversa dalla loro. La stessa documentazione FRITZ!Box avverte che, se l'operatore non lo consente, i numeri vanno limitati alla linea principale. Chiedi al tuo fornitore di telefonia come si comporta il centralino durante il failover, oppure prevedi un <strong>inoltro automatico sui cellulari</strong> quando la linea è giù.</p>
+
+<h3>Gli accessi dall'esterno</h3>
+<p>Se ti colleghi allo studio da casa con una VPN, o se hai telecamere e NAS raggiungibili da fuori, ricorda che la linea di riserva ha un <strong>indirizzo IP diverso</strong>, spesso non pubblico. Gli accessi remoti potrebbero non funzionare finché non torna la fibra. Ne ho parlato nella guida al <a href="https://www.roccoandrealigorio.it/?p=342">lavoro da remoto sicuro</a>.</p>
+
+<h3>Le regole di sicurezza</h3>
+<p>Un router 4G collegato "al volo" a un angolo della rete può aggirare il firewall e il <a href="https://www.roccoandrealigorio.it/?p=366">filtro DNS</a> dell'ufficio. La linea di riserva va collegata in modo che il traffico passi comunque dalle stesse protezioni, e il router di riserva va protetto con password non predefinite e aggiornamenti, come qualsiasi altro apparato.</p>
+
+<h3>La corrente</h3>
+<p>Se manca la luce, il router di riserva si spegne insieme agli altri. Un piccolo <a href="https://www.roccoandrealigorio.it/?p=258">gruppo di continuità (UPS)</a> sotto router, firewall e centralino tiene in piedi la connessione per il tempo di salvare il lavoro o di chiudere una telefonata.</p>
+
+<h2>Come organizzarsi in pratica: una checklist</h2>
+<ol>
+<li><strong>Fai un elenco</strong> dei servizi che si fermano senza internet e di quanto ti costa un'ora di fermo: ti aiuta a scegliere quanto investire.</li>
+<li><strong>Verifica la copertura mobile</strong> nel punto dove andrà il router di riserva, con tutti e tre o quattro gli operatori principali.</li>
+<li><strong>Scegli un operatore diverso</strong> da quello della linea principale, così un guasto alla loro rete non ti lascia senza entrambe.</li>
+<li><strong>Controlla il router</strong>: se non gestisce il failover, valuta un modello che lo faccia o un firewall dual WAN.</li>
+<li><strong>Prova il passaggio</strong>: stacca il cavo della fibra in un momento tranquillo e verifica che PC, posta, gestionale e telefoni continuino a funzionare. Ripeti la prova ogni sei mesi, come faresti con il <a href="https://www.roccoandrealigorio.it/?p=364">test di ripristino del backup</a>.</li>
+<li><strong>Scrivi due righe di istruzioni</strong> per i colleghi: cosa succede quando la linea cade, chi chiamare, dove si trova il numero dell'assistenza dell'operatore.</li>
+</ol>
+<p>Se vuoi una valutazione della rete del tuo ufficio e una proposta su misura, senza acquistare apparati che non servono, puoi leggere <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a> o scrivermi dalla pagina <a href="https://www.roccoandrealigorio.it/contatti/">contatti</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Una connessione 4G o 5G basta per tutto l'ufficio?</h3>
+<p>Per email, gestionali in cloud e navigazione di 5–10 persone, con un buon segnale, di solito sì. Può soffrire con videochiamate numerose o grandi caricamenti di file: durante il fermo conviene rimandarli.</p>
+<h3>Quanti giga servono per la SIM di riserva?</h3>
+<p>Dipende dall'uso, ma la linea si attiva solo durante i guasti. Un'offerta dati business con traffico generoso evita sorprese se il guasto dura qualche giorno; controlla che non ci siano costi fissi per la SIM inattiva.</p>
+<h3>Posso usare due linee anche quando funzionano entrambe?</h3>
+<p>Sì, con un firewall dual WAN puoi distribuire il traffico, per esempio i backup su una linea e il lavoro quotidiano sull'altra. Per la maggior parte degli studi, però, il semplice failover automatico è già sufficiente.</p>

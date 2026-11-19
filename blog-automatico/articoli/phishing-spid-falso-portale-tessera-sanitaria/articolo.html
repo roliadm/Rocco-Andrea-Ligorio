@@ -1,0 +1,66 @@
+<p>Arriva un'email dal "Ministero dell'Economia e delle Finanze": c'è un audit tecnico in corso, devi verificare la tua identità digitale entro 48 ore, altrimenti ti sospendono l'invio delle ricette elettroniche. Il tono è burocratico, il logo è quello giusto, la scadenza mette fretta. È esattamente la trappola che il CERT-AGID ha segnalato il 17 novembre 2026: una campagna di <strong>phishing SPID</strong> con un falso portale del Sistema Tessera Sanitaria, rivolta a medici, farmacisti e operatori sanitari. Lo stesso giorno è emersa una seconda campagna, con un finto sito dell'Agenzia delle Entrate e una finta app IO. In questo articolo ti spiego come funzionano entrambe, perché riguardano anche studi e PMI fuori dalla sanità e cosa fare se qualcuno in ufficio ci è già cascato.</p>
+
+<h2>Il falso portale del Sistema Tessera Sanitaria</h2>
+<p>Secondo la <a href="https://cert-agid.gov.it/news/falso-portale-del-sistema-tessera-sanitaria-prende-di-mira-gli-operatori-della-sanita-obiettivo-le-credenziali-spid-otp-e-documenti-didentita/" target="_blank" rel="noopener">segnalazione del CERT-AGID</a> (la struttura dell'Agenzia per l'Italia Digitale che monitora le campagne malevole), l'email ha queste caratteristiche:</p>
+<ul>
+<li>si presenta come comunicazione del <strong>MEF e del Sistema Tessera Sanitaria</strong>;</li>
+<li>si apre con un generico "Gentile Professionista", segno di un invio di massa;</li>
+<li>parla di una "procedura obbligatoria" di verifica dell'identità digitale e di aggiornamento delle credenziali;</li>
+<li>minaccia la <strong>sospensione temporanea dei servizi</strong>, ricetta elettronica compresa, se non si agisce entro 48 ore.</li>
+</ul>
+<p>Il link porta a una copia credibile del portale riservato agli operatori sanitari. Cliccando sulla verifica compare l'elenco dei gestori SPID, ognuno con una schermata di accesso imitata: la vittima inserisce nome utente, password e poi il <strong>codice OTP</strong>, cioè il codice temporaneo che arriva via SMS o app e che dovrebbe proteggere l'accesso. Nell'ultimo passaggio il sito chiede di caricare foto fronte e retro della <strong>carta d'identità e della tessera sanitaria</strong>.</p>
+<p>Il CERT-AGID ha chiesto e ottenuto la disattivazione del dominio usato e ha condiviso gli indicatori tecnici con gli enti accreditati. Ma campagne di questo tipo, nella mia esperienza, ricompaiono spesso con indirizzi nuovi e grafiche leggermente diverse. Il caso è stato ripreso anche da <a href="https://www.punto-informatico.it/tessera-sanitaria-falso-portale-rubare-dati/" target="_blank" rel="noopener">Punto Informatico</a>.</p>
+
+<h3>Perché è più credibile del solito</h3>
+<p>I truffatori si appoggiano a qualcosa di vero: per l'accesso ai servizi della ricetta elettronica è stata davvero introdotta l'<strong>autenticazione a due o più fattori</strong>. Un medico che ha appena dovuto cambiare modalità di accesso trova normale ricevere una richiesta di "riallineamento". Vedo spesso questo schema: più una regola è nuova e poco chiara, più è facile travestire una truffa da adempimento.</p>
+
+<h2>La seconda trappola: finto sito dell'Agenzia delle Entrate e finta app IO</h2>
+<p>Sempre il 17 novembre il CERT-AGID ha descritto una campagna diversa, rivolta a chi naviga dallo smartphone. Un dominio fraudolento imita il sito dell'Agenzia delle Entrate e mostra il contenuto malevolo <strong>solo ai telefoni</strong>: da un computer sembra tutto innocuo. Sullo smartphone compare invece un finto aggiornamento dell'app IO, con tanto di scritta "Verified by Google Play Protect", che invita a scaricare un file APK (il formato di installazione delle app Android).</p>
+<p>Quel file contiene <strong>Mirax</strong>, un malware che, secondo l'<a href="https://cert-agid.gov.it/news/malware-mirax-veicolato-in-italia-tramite-falso-domini-di-agenzia-delle-entrate-e-finto-aggiornamento-app-io/" target="_blank" rel="noopener">analisi del CERT-AGID</a>, unisce due funzioni:</p>
+<ul>
+<li><strong>trojan bancario</strong>: ruba credenziali dell'home banking e sovrappone schermate false alle app vere;</li>
+<li><strong>controllo remoto</strong>: intercetta SMS e codici OTP e permette ai criminali di comandare il telefono a distanza, abusando delle funzioni di Accessibilità di Android.</li>
+</ul>
+<p>Un telefono così compromesso vanifica la doppia autenticazione: i codici di conferma finiscono direttamente a chi attacca.</p>
+
+<h2>Perché il phishing SPID riguarda tutti, non solo la sanità</h2>
+<p>Con le credenziali SPID e un documento d'identità, un criminale può entrare a nome tuo nei servizi pubblici: Agenzia delle Entrate, INPS, cassetto fiscale, fascicolo sanitario, servizi del proprio ordine professionale. Può consultare dati riservati, presentare domande o tentare di aprire conti e finanziamenti con la tua identità. Per uno studio di commercialisti o consulenti del lavoro, che usa SPID ogni giorno anche per conto dei clienti, il danno può allargarsi ben oltre la singola persona.</p>
+<p>E le copie dei documenti caricate sul falso portale sono un regalo per i <strong>furti d'identità</strong>: restano utilizzabili per anni, molto più a lungo di una password.</p>
+
+<h2>Come riconoscere le richieste false</h2>
+<p>Le regole che ripeto sempre in studio sono poche e semplici:</p>
+<ol>
+<li><strong>Nessun ente pubblico ti chiede credenziali SPID, codici OTP o documenti via email o SMS.</strong> Se succede, è una truffa, qualunque logo ci sia.</li>
+<li><strong>Diffida della scadenza ravvicinata</strong> ("entro 48 ore", "sospensione immediata"): serve a farti agire senza pensare.</li>
+<li><strong>Entra nei portali solo digitando l'indirizzo</strong> o usando un preferito salvato, mai dal link nel messaggio. Se c'è davvero un adempimento, lo troverai lì.</li>
+<li><strong>Controlla l'indirizzo nella barra del browser</strong>: i siti istituzionali usano domini ufficiali (per esempio quelli che finiscono in <em>.gov.it</em>), non nomi strani con <em>.online</em> o simili.</li>
+<li><strong>Gli aggiornamenti delle app si fanno solo dallo store ufficiale</strong> (Google Play o App Store). Una pagina web che ti chiede di installare un file APK è un segnale d'allarme, anche se dice "verificato".</li>
+</ol>
+
+<h3>Cosa fare in ufficio</h3>
+<ul>
+<li>Inoltra a colleghi e collaboratori un breve avviso su queste due campagne: due righe bastano.</li>
+<li>Verifica se il tuo gestore SPID offre <strong>notifiche di accesso</strong> via email o app e attivale: ti accorgi subito di un login che non hai fatto.</li>
+<li>Sugli smartphone usati per lavoro, lascia <strong>disattivata l'installazione di app da origini sconosciute</strong>. Ne ho parlato nella guida sugli <a href="https://www.roccoandrealigorio.it/?p=330">smartphone aziendali</a>.</li>
+<li>Un <a href="https://www.roccoandrealigorio.it/?p=366">filtro DNS</a> sulla rete dell'ufficio blocca molti di questi domini appena vengono segnalati.</li>
+<li>Le email sospette si possono inoltrare al CERT-AGID all'indirizzo <strong>malware@cert-agid.gov.it</strong>: aiuti anche gli altri.</li>
+</ul>
+
+<h2>Se hai già inserito i dati</h2>
+<p>Non perdere tempo per imbarazzo: conta la velocità.</p>
+<ol>
+<li><strong>Contatta subito il tuo gestore SPID</strong> (dall'app o dal sito ufficiale, non dai link ricevuti) per cambiare la password e, se necessario, sospendere l'identità digitale.</li>
+<li><strong>Controlla gli accessi recenti</strong> nell'area personale del gestore e nei portali che usi (Agenzia delle Entrate, INPS, Sistema TS).</li>
+<li>Se hai caricato i documenti, valuta una <strong>denuncia alla Polizia Postale</strong>: ti servirà per contestare eventuali usi illeciti della tua identità.</li>
+<li>Se hai installato l'APK, <strong>scollega il telefono da internet</strong>, avvisa la banca e fai controllare o ripristinare il dispositivo prima di riusarlo per l'home banking.</li>
+<li>Se erano coinvolti dati di pazienti o clienti, valuta con il tuo consulente privacy se si tratta di un <a href="https://www.roccoandrealigorio.it/?p=276">data breach da notificare entro 72 ore</a>.</li>
+</ol>
+<p>Se vuoi una mano a preparare l'ufficio a questo tipo di truffe, con regole chiare e una breve <a href="https://www.roccoandrealigorio.it/?p=356">formazione per il personale</a>, trovi come lavoro nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Il Sistema Tessera Sanitaria può chiedermi di verificare lo SPID via email?</h3>
+<p>No. Eventuali adempimenti si verificano entrando nel portale ufficiale digitando l'indirizzo. Nessun ente chiede credenziali, codici OTP o foto dei documenti tramite un link in un'email.</p>
+<h3>La doppia autenticazione non mi protegge?</h3>
+<p>Protegge da chi conosce solo la password, ma non se sei tu a inserire il codice OTP sul sito falso, o se il telefono è infettato da un malware come Mirax che legge gli SMS.</p>
+<h3>Non lavoro in sanità: devo preoccuparmi?</h3>
+<p>Sì. Lo schema "verifica la tua identità entro 48 ore" viene riciclato con i loghi di Agenzia delle Entrate, INPS e pagoPA. Le regole per difendersi sono le stesse.</p>
