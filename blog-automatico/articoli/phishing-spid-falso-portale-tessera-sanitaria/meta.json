@@ -2,12 +2,23 @@
   "titolo": "Phishing SPID: il falso portale Tessera Sanitaria e la finta app IO",
   "slug": "phishing-spid-falso-portale-tessera-sanitaria",
   "estratto": "Phishing SPID: falso portale Tessera Sanitaria per medici e farmacisti e finta app IO con malware Mirax. Come riconoscerli e cosa fare se ci sei cascato.",
-  "categorie": ["Informatica"],
-  "tag": ["Phishing", "Truffe online", "Autenticazione a due fattori", "Smartphone", "Sicurezza informatica"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Phishing",
+    "Truffe online",
+    "Autenticazione a due fattori",
+    "Smartphone",
+    "Sicurezza informatica"
+  ],
   "seo": {
     "titolo": "Phishing SPID: falso portale Tessera Sanitaria e app IO",
     "descrizione": "Phishing SPID: falso portale Tessera Sanitaria e finta app IO rubano credenziali e documenti. Come riconoscere la truffa e cosa fare subito in studio.",
     "keyword": "phishing SPID"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Phishing SPID: il falso portale Tessera Sanitaria e la finta app IO",
+  "id": 407
 }

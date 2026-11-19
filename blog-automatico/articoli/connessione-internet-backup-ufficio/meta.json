@@ -2,12 +2,22 @@
   "titolo": "Connessione internet di backup: come non fermare l'ufficio se cade la fibra",
   "slug": "connessione-internet-backup-ufficio",
   "estratto": "Connessione internet di backup per studi e PMI: SIM 4G/5G nel router, doppia linea e failover automatico. Come sceglierla, configurarla e provarla.",
-  "categorie": ["Informatica"],
-  "tag": ["Reti", "Firewall", "Hardware", "Sicurezza informatica"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Reti",
+    "Firewall",
+    "Hardware",
+    "Sicurezza informatica"
+  ],
   "seo": {
     "titolo": "Connessione internet di backup: l'ufficio sempre online",
     "descrizione": "Connessione internet di backup per studi e PMI: SIM 4G/5G, doppia linea e failover automatico per non fermare l'ufficio quando cade la fibra.",
     "keyword": "connessione internet di backup"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Connessione internet di backup: come non fermare l'ufficio se cade la fibra",
+  "id": 405
 }
