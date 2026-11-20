@@ -1,0 +1,54 @@
+<p>Il vecchio server nello sgabuzzino fa rumore, il contratto di assistenza scade e il fornitore del gestionale propone la versione online. Oppure succede il contrario: tutto è già in cloud, ma ogni mese arrivano nuove fatture di abbonamenti e ci si chiede se un server in casa non costerebbe meno. È una domanda che mi fanno spesso, e la risposta onesta è che non esiste una scelta giusta per tutti. In questa guida ti do i criteri pratici per decidere tra <strong>server in ufficio o cloud</strong>: costi, sicurezza, backup, connessione, privacy, e quando conviene una soluzione mista.</p>
+
+<h2>Di cosa parliamo esattamente</h2>
+<p>Con <strong>server in ufficio</strong> (in gergo "on-premise") intendo un computer dedicato, di proprietà dello studio, che tiene cartelle condivise, gestionale, posta o database. Può essere un vero server con Windows Server oppure un <strong>NAS</strong>, cioè un archivio di rete più semplice.</p>
+<p>Con <strong>cloud</strong> intendo servizi che girano nei data center di un fornitore e si usano via internet, pagando un canone: Microsoft 365 o Google Workspace per posta e documenti, il gestionale in versione online, un server virtuale noleggiato. Non è "il computer di qualcun altro senza regole": è un servizio con un contratto, che va scelto e configurato bene.</p>
+
+<h2>Server in ufficio o cloud: i criteri per decidere</h2>
+
+<h3>1. Costi: non solo il prezzo d'acquisto</h3>
+<p>Il server sembra più economico perché si paga una volta. In realtà ai costi iniziali vanno aggiunti licenze, gruppo di continuità, backup, assistenza, energia e la sostituzione dopo cinque-sette anni. Il cloud ha un canone mensile prevedibile, che però cresce con il numero di utenti e non finisce mai. Il consiglio è di fare un conto su <strong>cinque anni</strong>, mettendo tutto nella stessa colonna, compreso il tempo di chi oggi "si occupa del server" in ufficio.</p>
+
+<h3>2. Connessione internet</h3>
+<p>Con il cloud, senza internet ci si ferma. Se la tua zona ha una linea instabile o lenta in upload, lavorare su file pesanti (progetti, immagini, archivi) può diventare frustrante. In quel caso serve almeno una <a href="https://www.roccoandrealigorio.it/?p=405">connessione internet di backup</a>. Con un server in ufficio, invece, la rete locale continua a funzionare anche se cade la fibra, ma il lavoro da casa dipende comunque dalla linea dello studio.</p>
+
+<h3>3. Sicurezza: chi fa cosa</h3>
+<p>Qui si fanno gli errori più comuni. Nel cloud vale il <strong>modello di responsabilità condivisa</strong>: il fornitore protegge i data center e l'infrastruttura, ma account, password, permessi, dispositivi e dati restano responsabilità tua. Microsoft lo spiega chiaramente nella sua <a href="https://learn.microsoft.com/azure/security/fundamentals/shared-responsibility" target="_blank" rel="noopener">documentazione sulla responsabilità condivisa</a>. In pratica: un grande fornitore aggiorna i suoi sistemi meglio di quanto possa fare un piccolo studio, ma se un dipendente cade in un phishing senza doppia autenticazione, il cloud non ti salva.</p>
+<p>Con il server in ufficio tutto è sulle tue spalle: aggiornamenti, firewall, antivirus, accessi da remoto. Vedo ancora server raggiungibili da internet con desktop remoto aperto e password deboli: è una delle porte d'ingresso preferite dal ransomware.</p>
+
+<h3>4. Backup e ripristino</h3>
+<p>Né il server né il cloud sono un backup. Il server può rompersi, essere rubato o cifrato da un ransomware; nel cloud un file cancellato per errore o da un attaccante può sparire anche dalla sincronizzazione. In entrambi i casi serve una copia separata secondo la regola 3-2-1, e per il cloud vale quanto ho spiegato in <a href="https://www.roccoandrealigorio.it/?p=274">backup di Microsoft 365</a>. Soprattutto, il backup va <a href="https://www.roccoandrealigorio.it/?p=364">provato con un test di ripristino</a>.</p>
+
+<h3>5. Privacy e GDPR</h3>
+<p>Scegliere il cloud non ti toglie la responsabilità sui dati dei clienti. Il fornitore diventa un <strong>responsabile del trattamento</strong> e, come prevede l'articolo 28 del <a href="https://www.garanteprivacy.it/regolamentoue" target="_blank" rel="noopener">Regolamento europeo sulla protezione dei dati</a>, serve un accordo scritto che stabilisca cosa può fare con i dati. Conviene anche sapere dove sono conservati: per uno studio professionale, data center nell'Unione europea semplificano molto le cose. Con il server in ufficio i dati restano fisicamente da te, ma devi dimostrare di proteggerli in modo adeguato.</p>
+
+<h3>6. Il software che usi</h3>
+<p>Spesso la scelta la fa il gestionale. Molti produttori stanno spostando i loro programmi verso versioni solo online, mentre alcuni software tecnici o vecchi funzionano solo installati in locale. Prima di decidere chiedi ai fornitori dei programmi principali quali versioni supporteranno nei prossimi anni.</p>
+
+<h2>Quando conviene il cloud</h2>
+<ul>
+<li>studi piccoli, fino a una decina di persone, senza nessuno che si occupi di informatica internamente;</li>
+<li>molto <strong>lavoro da remoto</strong> o più sedi;</li>
+<li>gestionale già disponibile in versione online affidabile;</li>
+<li>un server attuale vecchio o fuori supporto, come capita oggi a chi ha ancora <a href="https://www.roccoandrealigorio.it/?p=310">Windows Server 2016</a>.</li>
+</ul>
+
+<h2>Quando conviene restare con un server in ufficio</h2>
+<ul>
+<li>file molto pesanti (CAD, grafica, video, archivi di immagini) e una connessione limitata;</li>
+<li>software che funziona solo in locale o apparecchiature collegate al server;</li>
+<li>presenza di un tecnico di fiducia con un contratto di manutenzione che copra aggiornamenti e controlli;</li>
+<li>esigenze particolari di riservatezza che il cliente o la normativa di settore impongono.</li>
+</ul>
+
+<h2>La via di mezzo: la soluzione ibrida</h2>
+<p>Nella maggior parte degli studi che seguo la scelta migliore è mista: <strong>posta, documenti e collaborazione in cloud</strong>, mentre un piccolo NAS in ufficio tiene gli archivi pesanti e fa da copia locale del backup. Così si sfrutta la sicurezza dei grandi fornitori per i servizi più esposti, senza dipendere da internet per tutto. Anche l'agenzia europea per la cybersicurezza, nella sua <a href="https://www.enisa.europa.eu/publications/cybersecurity-guide-for-smes" target="_blank" rel="noopener">guida per le PMI</a>, insiste su backup, aggiornamenti e controllo degli accessi più che sul tipo di infrastruttura: sono queste le basi, ovunque stiano i dati.</p>
+<p>Se stai valutando il passaggio, il mio consiglio è di non farlo tutto in un weekend: si parte da un inventario di dati e programmi, si migra un servizio alla volta e si tiene il vecchio sistema in sola lettura per qualche settimana. Se vuoi un parere su misura, trovi come lavoro nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Il cloud è più sicuro del server in ufficio?</h3>
+<p>L'infrastruttura di un grande fornitore di solito sì, perché è aggiornata e sorvegliata di continuo. Ma la sicurezza di account, password e dati resta tua: senza doppia autenticazione e backup, il cloud non basta.</p>
+<h3>Se passo al cloud posso buttare il vecchio server?</h3>
+<p>Solo dopo aver verificato che tutti i dati siano migrati e leggibili, conservato una copia d'archivio e cancellato i dischi in modo sicuro prima di smaltirlo.</p>
+<h3>Quanto costa passare al cloud?</h3>
+<p>Dipende da utenti, quantità di dati e programmi. Il modo corretto è confrontare il costo su cinque anni di entrambe le soluzioni, compresi assistenza, backup e sostituzione dell'hardware.</p>

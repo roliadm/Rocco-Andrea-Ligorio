@@ -1,0 +1,63 @@
+<p>In questi giorni molti clienti mi hanno girato lo stesso titolo allarmato: "falla critica in Java, aggiornare subito". La notizia è vera, ma come spesso succede il rischio non è distribuito in modo uguale: per qualcuno è urgente, per altri quasi irrilevante. La vulnerabilità si chiama <strong>Java4Shell</strong> ed è stata resa pubblica il 17 novembre 2026, insieme alle correzioni di Oracle. In questo articolo ti spiego in parole semplici cos'è, chi deve preoccuparsi davvero, perché i normali PC dell'ufficio sono raramente il problema e quali domande fare al fornitore del gestionale o del server.</p>
+
+<h2>Cos'è Java4Shell, in parole semplici</h2>
+<p><strong>Java</strong> è una piattaforma su cui girano moltissimi programmi, soprattutto lato server: gestionali web, portali, sistemi di autenticazione, strumenti per sviluppatori. Per funzionare questi programmi usano un "motore", il <strong>Java Runtime</strong> (o JDK), che spesso è installato insieme al programma stesso senza che nessuno se ne accorga.</p>
+<p>Java4Shell (sigla ufficiale <strong>CVE-2026-114938</strong>) è un difetto nella parte di questo motore che decodifica il <strong>Base64</strong>, un formato con cui i programmi trasformano dati e allegati in testo semplice. Inviando una stringa costruita apposta a un'applicazione che la decodifica, un attaccante può corrompere la memoria e, nei casi peggiori, eseguire comandi sul server <strong>senza bisogno di credenziali</strong>.</p>
+<p>Secondo l'analisi pubblicata da <a href="https://www.bleepingcomputer.com/news/security/critical-java4shell-flaw-allows-rce-attacks-on-major-java-applications" target="_blank" rel="noopener">BleepingComputer</a>, i ricercatori che l'hanno scoperta sono riusciti a sfruttarla nelle configurazioni predefinite di prodotti molto diffusi nelle aziende, come <strong>Jira, Confluence, Jenkins e Keycloak</strong>. Oracle la valuta 8,1 su 10 (gravità alta); i ricercatori, con il sistema di calcolo più recente, arrivano a 9,2.</p>
+
+<h3>Le condizioni perché la falla sia sfruttabile</h3>
+<p>Qui sta la differenza tra il titolo allarmato e il rischio reale. Per essere colpiti servono insieme tre cose:</p>
+<ol>
+<li>una versione di Java recente: <strong>OpenJDK 17.0.6 e successive</strong>, comprese le distribuzioni che ne derivano (Oracle Java, Microsoft, Amazon Corretto, Eclipse Temurin, Azul Zulu, Red Hat);</li>
+<li>un processore <strong>x86-64 con le istruzioni AVX-512 VBMI</strong>, tipiche dei server moderni (per esempio Intel Xeon dalla generazione Ice Lake e AMD Zen 4 o successivi); i processori ARM non sono coinvolti;</li>
+<li>un'applicazione che riceve dall'esterno dati in Base64 e li decodifica, per esempio tramite un servizio web esposto su internet.</li>
+</ol>
+<p>Non esiste inoltre un attacco "universale": ogni programma richiede un exploit costruito su misura. Per questo <a href="https://www.malwarebytes.com/it/blog/bugs/2026/11/java4shell-a-critical-flaw-with-a-narrow-reach" target="_blank" rel="noopener">Malwarebytes</a> la definisce una falla critica ma dalla portata ristretta.</p>
+
+<h2>Chi rischia davvero con Java4Shell</h2>
+<p>Vedo spesso studi e piccole aziende che non sanno di avere Java in casa. Ecco dove può nascondersi:</p>
+<ul>
+<li><strong>server in ufficio</strong> con gestionali web, portali per clienti o intranet basati su Java;</li>
+<li><strong>server o macchine virtuali in cloud</strong> gestiti dal fornitore del software;</li>
+<li><strong>appliance</strong> (apparati "chiavi in mano" per backup, monitoraggio, documentale) che contengono un Java integrato;</li>
+<li>strumenti usati da chi sviluppa software, come Jenkins, Jira o Confluence installati in proprio.</li>
+</ul>
+<p>Il punto più delicato è proprio l'ultimo della lista delle condizioni: i sistemi <strong>raggiungibili da internet</strong>. Un portale clienti pubblicato online su un server recente è il caso tipico da verificare per primo.</p>
+
+<h3>E i PC dell'ufficio?</h3>
+<p>Per il normale PC di una segreteria il rischio è basso. Malwarebytes osserva che un computer d'ufficio o di casa raramente fa girare un servizio Java che accetta dati dall'esterno, e Oracle precisa che la falla non è sfruttabile tramite applet o applicazioni Java Web Start. Inoltre molti processori dei PC desktop non hanno le istruzioni AVX-512 richieste. Questo non significa ignorare Java sui PC: se un programma lo installa, va comunque tenuto aggiornato come qualunque altro software, ma senza panico.</p>
+
+<h2>Cosa raccomandano le autorità</h2>
+<p>L'agenzia statunitense per la cybersicurezza, <a href="https://www.cisa.gov/news-events/alerts/2026/11/17/critical-java-vulnerability-requires-immediate-patching" target="_blank" rel="noopener">CISA</a>, il 17 novembre ha chiesto di applicare le patch immediatamente, dando priorità ai sistemi esposti su internet. Le sue indicazioni, utili anche per una PMI, sono:</p>
+<ul>
+<li><strong>individuare tutte le installazioni di Java</strong>, comprese quelle integrate nei programmi di terzi, nei container e negli apparati, che spesso non compaiono come voce separata nell'elenco dei software installati;</li>
+<li>installare gli aggiornamenti di Java e dei produttori dei programmi <strong>appena disponibili</strong>;</li>
+<li>se non è possibile aggiornare subito, limitare l'accesso non autenticato, porre limiti alla dimensione dei dati in ingresso e validare il Base64 ricevuto;</li>
+<li>tenere d'occhio crash improvvisi di Java e processi sospetti.</li>
+</ul>
+<p>Oracle ha pubblicato le correzioni nel suo <a href="https://www.oracle.com/security-alerts/cspunov2026.html" target="_blank" rel="noopener">aggiornamento di sicurezza di novembre</a>, e i principali distributori di OpenJDK stanno rilasciando le proprie versioni corrette. Alla data in cui scrivo non risultano attacchi riusciti confermati: sono stati osservati tentativi di scansione, ma i ricercatori non hanno diffuso gli exploit completi. È esattamente la finestra di tempo giusta per aggiornare, prima che la situazione cambi.</p>
+
+<h2>Cosa fare in studio, passo per passo</h2>
+<p>Ecco il piano che sto seguendo con i miei clienti in questi giorni.</p>
+<ol>
+<li><strong>Fai l'elenco dei server e dei servizi</strong>: quali programmi girano in ufficio o in cloud, chi li gestisce, quali sono raggiungibili da internet. Se hai già un <a href="https://www.roccoandrealigorio.it/?p=326">inventario informatico</a>, parti da lì.</li>
+<li><strong>Scrivi ai fornitori</strong> del gestionale, del portale o dell'appliance con tre domande precise: "il vostro prodotto usa Java 17 o successivo?", "è interessato da CVE-2026-114938?", "quando rilasciate l'aggiornamento o quale soluzione temporanea consigliate?". Conserva la risposta scritta.</li>
+<li><strong>Aggiorna prima ciò che è esposto</strong> su internet, poi il resto. Se il fornitore indica una mitigazione temporanea (ad esempio un parametro di avvio di Java che disattiva la parte difettosa), applicala solo seguendo le sue istruzioni.</li>
+<li><strong>Fai un backup</strong> del server prima di aggiornare e verifica che sia ripristinabile: un aggiornamento andato storto non deve diventare un fermo.</li>
+<li><strong>Riduci l'esposizione</strong>: un servizio che usano solo i dipendenti non ha motivo di essere aperto a tutto internet. Meglio raggiungerlo tramite VPN.</li>
+</ol>
+<p>Se il software Java è stato sviluppato su misura per te, chiedi a chi l'ha realizzato di aggiornare il runtime e ricompilare se necessario. È anche un buon momento per verificare di avere un contratto di manutenzione che copra questi casi: ne parlo in <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a>.</p>
+
+<h2>La lezione: sapere cosa gira sui propri server</h2>
+<p>Java4Shell ricorda Log4Shell del 2021, la falla in un componente Java che mise in difficoltà mezzo mondo. Anche allora il problema principale non era aggiornare, ma <strong>scoprire dove fosse il componente vulnerabile</strong>. Chi aveva un elenco aggiornato dei propri sistemi e un fornitore reattivo ha risolto in poche ore; gli altri hanno impiegato settimane. Un buon <a href="https://www.roccoandrealigorio.it/?p=280">piano per gli aggiornamenti software</a> serve proprio a questo.</p>
+<p>Se vuoi una mano a capire se nei tuoi server c'è Java e come metterli in sicurezza, dai un'occhiata ai miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Devo disinstallare Java dai PC dell'ufficio?</h3>
+<p>Non per Java4Shell, che colpisce soprattutto i server che ricevono dati dall'esterno. Se però Java non serve più a nessun programma, toglierlo riduce comunque i rischi futuri; se serve, tienilo aggiornato.</p>
+<h3>Il mio gestionale è in cloud: devo fare qualcosa?</h3>
+<p>L'aggiornamento spetta al fornitore, ma è giusto chiedergli per iscritto se il servizio è interessato e quando l'ha corretto. È una verifica che rientra anche nei tuoi obblighi verso i dati dei clienti.</p>
+<h3>Java4Shell è già usata dagli hacker?</h3>
+<p>Al 20 novembre 2026 sono segnalati tentativi di scansione ma nessun attacco riuscito confermato. La situazione può cambiare rapidamente, quindi conviene aggiornare ora.</p>
+<h3>Quali versioni di Java sono coinvolte?</h3>
+<p>OpenJDK 17.0.6 e successive (quindi le linee 17, 21, 25 e 27) e le distribuzioni derivate, solo su processori x86-64 con AVX-512 VBMI. Java 8 e 11 standard non risultano tra quelle indicate da OpenJDK.</p>

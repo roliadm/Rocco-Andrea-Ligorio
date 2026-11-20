@@ -1,0 +1,13 @@
+{
+  "titolo": "Java4Shell: la falla di Java nei server, cosa deve controllare lo studio",
+  "slug": "java4shell-falla-java-server-cosa-fare",
+  "estratto": "Java4Shell, la falla critica di Java del 17 novembre: chi rischia davvero, perché i PC dell'ufficio c'entrano poco e cosa chiedere ai fornitori.",
+  "categorie": ["Informatica"],
+  "tag": ["Aggiornamenti di sicurezza", "Sicurezza informatica", "Software su misura", "Windows Server"],
+  "seo": {
+    "titolo": "Java4Shell: cosa fare con la falla critica di Java",
+    "descrizione": "Java4Shell, la falla critica di Java: quali server e programmi rischiano, cosa aggiornare subito e cosa chiedere ai fornitori del gestionale.",
+    "keyword": "Java4Shell"
+  },
+  "stato": "draft"
+}
