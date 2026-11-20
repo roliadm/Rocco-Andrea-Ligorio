@@ -2,12 +2,23 @@
   "titolo": "Server in ufficio o cloud: come scegliere per lo studio e la PMI",
   "slug": "server-ufficio-o-cloud-come-scegliere",
   "estratto": "Server in ufficio o cloud? Costi, sicurezza, backup, connessione e privacy: i criteri pratici per scegliere la soluzione giusta per studi e PMI.",
-  "categorie": ["Informatica"],
-  "tag": ["Backup", "Microsoft 365", "NAS", "Windows Server", "GDPR"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Backup",
+    "Microsoft 365",
+    "NAS",
+    "Windows Server",
+    "GDPR"
+  ],
   "seo": {
     "titolo": "Server in ufficio o cloud: come scegliere senza errori",
     "descrizione": "Server in ufficio o cloud? Costi, sicurezza, backup e privacy a confronto: i criteri pratici per scegliere la soluzione giusta per studi e PMI.",
     "keyword": "server in ufficio o cloud"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Server in ufficio o cloud: come scegliere per lo studio e la PMI",
+  "id": 411
 }
