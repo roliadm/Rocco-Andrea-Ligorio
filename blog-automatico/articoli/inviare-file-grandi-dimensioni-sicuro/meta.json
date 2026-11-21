@@ -1,0 +1,13 @@
+{
+  "titolo": "Inviare file di grandi dimensioni in modo sicuro: guida per lo studio",
+  "slug": "inviare-file-grandi-dimensioni-sicuro",
+  "estratto": "Allegato troppo pesante? Come inviare file di grandi dimensioni a clienti e colleghi in modo sicuro, senza servizi improvvisati e nel rispetto del GDPR.",
+  "categorie": ["Informatica"],
+  "tag": ["Email", "Microsoft 365", "GDPR", "Privacy", "Sicurezza informatica"],
+  "seo": {
+    "titolo": "Inviare file di grandi dimensioni: i metodi sicuri",
+    "descrizione": "Come inviare file di grandi dimensioni a clienti e colleghi: limiti delle email, link protetti, scadenze e password. Metodi sicuri e conformi al GDPR.",
+    "keyword": "inviare file di grandi dimensioni"
+  },
+  "stato": "draft"
+}
