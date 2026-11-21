@@ -2,12 +2,23 @@
   "titolo": "Truffe del Black Friday: come proteggere gli acquisti dell'ufficio",
   "slug": "truffe-black-friday-acquisti-ufficio",
   "estratto": "Truffe del Black Friday 2026: negozi falsi, finti avvisi di consegna e phishing scritto con l'AI. Le regole pratiche per chi compra per l'ufficio.",
-  "categorie": ["Informatica"],
-  "tag": ["Truffe online", "Phishing", "Sicurezza informatica", "Intelligenza artificiale", "Autenticazione a due fattori"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Truffe online",
+    "Phishing",
+    "Sicurezza informatica",
+    "Intelligenza artificiale",
+    "Autenticazione a due fattori"
+  ],
   "seo": {
     "titolo": "Truffe del Black Friday: come difendere studio e azienda",
     "descrizione": "Truffe del Black Friday: negozi falsi, finti corrieri e phishing con l'AI. Le regole del Garante e i miei consigli per chi compra per l'ufficio.",
     "keyword": "truffe del Black Friday"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Truffe del Black Friday: come proteggere gli acquisti dell'ufficio",
+  "id": 415
 }
