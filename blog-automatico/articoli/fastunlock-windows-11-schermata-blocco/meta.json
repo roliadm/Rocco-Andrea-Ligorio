@@ -2,12 +2,22 @@
   "titolo": "FastUnlock: la falla di Windows 11 che aggira la schermata di blocco",
   "slug": "fastunlock-windows-11-schermata-blocco",
   "estratto": "FastUnlock, falla zero-day di Windows 11 senza patch: chi ha il PC in mano può aggirare la schermata di blocco. Ecco cosa fare subito in studio.",
-  "categorie": ["Informatica"],
-  "tag": ["Windows 11", "BitLocker", "Sicurezza informatica", "Aggiornamenti di sicurezza"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Windows 11",
+    "BitLocker",
+    "Sicurezza informatica",
+    "Aggiornamenti di sicurezza"
+  ],
   "seo": {
     "titolo": "FastUnlock: falla di Windows 11 sul blocco schermo, che fare",
     "descrizione": "FastUnlock aggira la schermata di blocco di Windows 11 ed è ancora senza patch. Come funziona e le misure pratiche per proteggere i PC dello studio.",
     "keyword": "FastUnlock"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "FastUnlock: la falla di Windows 11 che aggira la schermata di blocco",
+  "id": 419
 }
