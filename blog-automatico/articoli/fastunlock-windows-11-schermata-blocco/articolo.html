@@ -1,0 +1,64 @@
+<p>Quando ti alzi dalla scrivania e premi Windows+L, dai per scontato che il PC sia al sicuro: senza PIN o password nessuno può usarlo. Il 19 novembre un ricercatore ha pubblicato <strong>FastUnlock</strong>, una falla di Windows 11 non ancora corretta che permette a chi ha il computer fra le mani di aggirare in parte la schermata di blocco e avviare programmi. In questo articolo ti spiego in parole semplici cosa è stato scoperto, quanto deve preoccupare uno studio o una PMI e cosa conviene fare già oggi, in attesa della patch di Microsoft.</p>
+
+<h2>Cos'è FastUnlock e come funziona</h2>
+<p>FastUnlock è una <strong>vulnerabilità zero-day</strong>, cioè una falla resa pubblica prima che il produttore abbia rilasciato una correzione. L'ha divulgata su GitHub un ricercatore noto con lo pseudonimo "Nightmare Eclipse", senza avvisare prima Microsoft, come riportano <a href="https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html" target="_blank" rel="noopener">The Hacker News</a> e <a href="https://www.it-connect.tech/fastunlock-zero-day-lets-attackers-bypass-the-windows-11-lock-screen-and-threaten-bitlocker/" target="_blank" rel="noopener">IT-Connect</a>.</p>
+<p>Senza entrare nei dettagli tecnici, il meccanismo è questo:</p>
+<ol>
+<li>dalla schermata di blocco si apre la pagina "Ho dimenticato il PIN", quella che serve a recuperare l'accesso con l'account Microsoft;</li>
+<li>da lì si avvia l'<strong>Assistente vocale</strong> (Narrator), la funzione di accessibilità che legge lo schermo ad alta voce per le persone non vedenti;</li>
+<li>sfruttando un errore nel modo in cui l'Assistente vocale gestisce le finestre, si arriva ad alcune pagine delle Impostazioni senza aver inserito alcuna password;</li>
+<li>da queste impostazioni si può far aprire il contenuto di una chiavetta USB e lanciare un programma.</li>
+</ol>
+<p>Il programma gira con un account di servizio limitato, quello che Windows usa per mostrare la schermata di blocco: non è un amministratore. Il ricercatore sostiene però che, combinando FastUnlock con un'altra falla da lui pubblicata pochi giorni prima, si possano ottenere i privilegi massimi sul sistema. È un'affermazione che al momento non trova conferme indipendenti.</p>
+
+<h3>Chi ha verificato la falla</h3>
+<p>L'azienda di sicurezza ThreatLocker ha provato la tecnica lo stesso giorno e ha confermato di essere riuscita ad avviare un programma dalla schermata di blocco. Il ricercatore dice di averla testata su <strong>Windows 11 26H2 con gli aggiornamenti di novembre installati</strong>. Non è ancora chiaro se anche Windows 10 sia vulnerabile: nessuno l'ha verificato pubblicamente.</p>
+
+<h2>FastUnlock è pericoloso per lo studio? Le condizioni dell'attacco</h2>
+<p>Ti dico subito la cosa più importante: <strong>non si tratta di un attacco da remoto</strong>. Nessuno può sfruttare FastUnlock via internet o con un'email. Servono tre condizioni insieme:</p>
+<ul>
+<li><strong>accesso fisico al PC</strong>, acceso e bloccato: un portatile rubato in auto, dimenticato in treno o lasciato incustodito in sala riunioni, oppure un computer in un'area dove passano clienti e fornitori;</li>
+<li><strong>un account Microsoft collegato</strong> al PC, perché la tecnica parte dalla pagina di recupero del PIN;</li>
+<li><strong>BitLocker in modalità "solo TPM"</strong>, cioè la configurazione più comune, in cui il disco si sblocca da solo all'accensione senza chiedere nulla.</li>
+</ul>
+<p>Quest'ultimo punto merita una spiegazione. La <strong>cifratura del disco</strong> protegge i dati se qualcuno estrae il disco o avvia il PC con un altro sistema. Ma con la modalità solo TPM, una volta acceso il computer, il disco è già "aperto" e l'unica barriera rimasta è proprio la schermata di blocco. FastUnlock non rompe la cifratura e non recupera la chiave di BitLocker: sfrutta il fatto che, a PC acceso, i dati sono già leggibili dal sistema.</p>
+<p>Ad oggi <strong>non ci sono segnalazioni di attacchi reali</strong> che usino questa tecnica. Ma ora che la descrizione è pubblica, il rischio concreto riguarda soprattutto i portatili: chi ruba un computer acceso o in sospensione ha in mano qualcosa di più di un oggetto da rivendere.</p>
+
+<h2>Cosa fare subito contro FastUnlock</h2>
+<p>Microsoft non ha ancora pubblicato né un avviso né una correzione. Il prossimo Patch Tuesday, l'appuntamento mensile con gli aggiornamenti di sicurezza, cade <strong>martedì 8 dicembre 2026</strong>, ma non è detto che la patch arrivi in quella data. Nel frattempo, ecco cosa consiglio ai miei clienti.</p>
+
+<h3>1. Spegnere o ibernare i portatili, non solo bloccarli</h3>
+<p>Questa è la misura più semplice ed efficace. Un PC <strong>spento o in ibernazione</strong> non è vulnerabile a FastUnlock, perché la schermata di blocco non è attiva e il disco non è ancora sbloccato. Quando si esce dall'ufficio con il portatile in borsa, la regola deve essere "Arresta il sistema", non chiudere il coperchio. Vale soprattutto per chi viaggia, va in tribunale, dai clienti o lavora in treno.</p>
+
+<h3>2. Aggiungere un PIN all'avvio di BitLocker</h3>
+<p>Microsoft stessa, nella sua <a href="https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/countermeasures" target="_blank" rel="noopener">guida alle contromisure per BitLocker</a>, indica il <strong>PIN di pre-avvio</strong> come protezione in più per i dispositivi che possono essere persi o rubati: il disco non si sblocca finché qualcuno non digita un codice, prima ancora che parta Windows. Attenzione, però: il PIN protegge un PC spento, non uno già acceso e bloccato. Per questo va abbinato alla regola del punto 1. Ne ho parlato più in dettaglio nella guida alla <a href="https://www.roccoandrealigorio.it/?p=284">cifratura del disco del portatile</a>.</p>
+
+<h3>3. Disattivare l'esecuzione automatica delle chiavette</h3>
+<p>L'ultimo passaggio dell'attacco passa da una chiavetta USB. Impostare la <strong>riproduzione automatica</strong> su "Non eseguire alcuna azione" (in Impostazioni › Bluetooth e dispositivi › Riproduzione automatica) è una buona pratica in ogni caso e rende la vita più difficile anche a FastUnlock. Negli studi con più PC conviene imporla a tutti tramite criteri di gruppo o Intune.</p>
+
+<h3>4. Valutare il blocco dell'Assistente vocale</h3>
+<p>Il ricercatore suggerisce di impedire l'avvio dell'Assistente vocale, per esempio con AppLocker, lo strumento di Windows che decide quali programmi possono essere eseguiti. È una misura da affidare a chi gestisce l'informatica dello studio e da applicare <strong>solo dove nessuno usa l'Assistente vocale</strong>: per chi ha bisogno di funzioni di accessibilità, disattivarle non è un'opzione accettabile.</p>
+
+<h3>5. Controllare chi può avvicinarsi ai PC</h3>
+<p>Postazioni in reception, PC in sala riunioni, computer lasciati accesi la sera in uffici dove entrano le imprese di pulizia: sono tutti punti in cui l'accesso fisico è più facile di quanto pensiamo. Spegnere i PC a fine giornata, oltre a risparmiare energia, chiude anche questa porta.</p>
+
+<h3>6. Installare la patch appena esce</h3>
+<p>Quando Microsoft rilascerà la correzione, andrà installata rapidamente su tutti i PC Windows 11. Se nel tuo ufficio gli aggiornamenti vengono rimandati o dimenticati, è il momento giusto per mettere in piedi un <a href="https://www.roccoandrealigorio.it/?p=280">piano di aggiornamento ordinato</a>.</p>
+
+<h2>Se un portatile viene perso o rubato</h2>
+<p>FastUnlock ricorda una cosa che vale sempre: un portatile smarrito con i dati dei clienti dentro è un potenziale <strong>data breach</strong>, cioè una violazione di dati personali che il GDPR chiede di valutare ed eventualmente notificare al Garante entro 72 ore. In quel caso conviene cambiare subito la password dell'account Microsoft e delle caselle email usate su quel PC, disconnettere le sessioni attive dal portale dell'account e, se il computer è gestito con Intune, avviare la cancellazione da remoto. Ho raccolto tutti i passaggi nella guida su <a href="https://www.roccoandrealigorio.it/?p=276">cosa fare nelle prime 72 ore dopo un data breach</a>.</p>
+<p>Se vuoi una mano a configurare BitLocker con PIN, la riproduzione automatica e le regole di spegnimento su tutti i PC dello studio, trovi come posso aiutarti nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>FastUnlock permette di entrare nel mio PC da internet?</h3>
+<p>No. Serve avere fisicamente il computer davanti, acceso e bloccato. Il rischio riguarda soprattutto portatili persi, rubati o lasciati incustoditi.</p>
+
+<h3>Ho BitLocker attivo: sono protetto?</h3>
+<p>Solo in parte. Con la configurazione standard il disco si sblocca da solo all'accensione, quindi a PC acceso conta la schermata di blocco. Spegnere il PC e aggiungere un PIN di avvio rende la protezione molto più solida.</p>
+
+<h3>Windows 10 è vulnerabile?</h3>
+<p>Al momento non si sa: i test pubblicati riguardano Windows 11 26H2. In ogni caso le misure suggerite, spegnimento e PIN di avvio, valgono anche per Windows 10.</p>
+
+<h3>Quando arriverà la correzione di Microsoft?</h3>
+<p>Microsoft non ha ancora comunicato date. Il prossimo aggiornamento mensile è previsto per l'8 dicembre 2026; potrebbe anche arrivare un aggiornamento straordinario prima.</p>

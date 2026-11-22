@@ -1,0 +1,66 @@
+<p>In quasi tutti gli studi che visito c'è un cassetto pieno di chiavette: quella del convegno, quella del cliente con i documenti da scansionare, quella "del backup" che nessuno ricorda più cosa contenga. Le <strong>chiavette USB in ufficio</strong> sono comodissime, ma sono anche uno dei modi più semplici per perdere dati riservati o far entrare un virus nella rete. In questo articolo ti spiego quali sono i rischi reali e ti propongo sette regole pratiche, dalla cifratura ai blocchi su Windows, per continuare a usarle senza brutte sorprese.</p>
+
+<h2>Perché le chiavette USB in ufficio sono un rischio</h2>
+<p>I problemi sono essenzialmente tre, e spesso si presentano insieme.</p>
+
+<h3>Si perdono facilmente</h3>
+<p>Una chiavetta pesa pochi grammi, finisce in tasca, in borsa, nel PC di un collega o del cliente. Se dentro ci sono buste paga, cartelle cliniche, dichiarazioni dei redditi o fascicoli e non è cifrata, chiunque la trovi può leggerne il contenuto. Per il GDPR la perdita di un supporto con dati personali leggibili è un <strong>data breach</strong>, cioè una violazione di dati personali da valutare ed eventualmente notificare al <a href="https://www.garanteprivacy.it/data-breach" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a> entro 72 ore.</p>
+
+<h3>Possono portare malware</h3>
+<p>Una chiavetta che passa da un computer all'altro può trasportare <strong>malware</strong>, cioè programmi dannosi, anche senza che il proprietario se ne accorga: basta che sia stata collegata a un PC infetto. Windows da tempo non avvia più in automatico i programmi presenti sulle chiavette, ma un file con un nome invitante ("Fattura", "Stipendi 2026") viene aperto volentieri da chiunque.</p>
+<p>Non è una paura teorica. In uno studio pubblicato nel 2016, alcuni ricercatori dell'Università dell'Illinois hanno lasciato <strong>297 chiavette</strong> nel campus: quasi tutte sono state raccolte e in circa la metà dei casi qualcuno le ha collegate al computer e ha aperto i file, come descritto nel <a href="https://zakird.com/papers/usb.pdf" target="_blank" rel="noopener">documento dei ricercatori</a>. La curiosità resta il miglior alleato di chi vuole entrare in un ufficio.</p>
+
+<h3>Non tutte sono davvero "chiavette"</h3>
+<p>Esistono dispositivi che sembrano normali memorie USB ma, una volta collegati, si presentano al computer come una <strong>tastiera</strong> e digitano comandi a velocità altissima. Sono strumenti nati per i test di sicurezza, ma si comprano online per poche decine di euro. Per questo una chiavetta di provenienza sconosciuta non va mai collegata, nemmeno "solo per vedere di chi è".</p>
+
+<h2>Le 7 regole per usare le chiavette USB in ufficio</h2>
+
+<h3>1. Usare solo chiavette dello studio</h3>
+<p>Il primo passo è semplice: lo studio acquista un numero limitato di chiavette, possibilmente riconoscibili (stesso modello, un'etichetta), e solo quelle si collegano ai PC. Chiavette personali, gadget dei convegni e memorie trovate restano fuori. Se un cliente porta documenti su una chiavetta, meglio farseli inviare con un servizio sicuro: ne ho parlato nella guida su come <a href="https://www.roccoandrealigorio.it/?p=413">inviare file di grandi dimensioni in modo sicuro</a>.</p>
+
+<h3>2. Cifrare tutto quello che esce dall'ufficio</h3>
+<p>Una chiavetta cifrata persa è un fastidio; una chiavetta in chiaro persa può diventare un problema legale. Su Windows Pro c'è <strong>BitLocker To Go</strong>: clic destro sull'unità in Esplora file, "Attiva BitLocker", scegli una password robusta e salva la chiave di ripristino in un luogo sicuro. La chiavetta si potrà aprire su qualsiasi PC Windows conoscendo la password. In alternativa esistono chiavette con <strong>cifratura hardware e tastierino</strong> integrato, comode anche su Mac. Trovi più dettagli nella guida alla <a href="https://www.roccoandrealigorio.it/?p=284">cifratura del disco</a>.</p>
+
+<h3>3. Disattivare la riproduzione automatica</h3>
+<p>Quando colleghi una chiavetta, Windows può proporti di aprirla o di avviare un'azione. Meglio impostare <strong>"Non eseguire alcuna azione"</strong> in Impostazioni › Bluetooth e dispositivi › Riproduzione automatica: così ogni apertura diventa una scelta consapevole. È una piccola impostazione che riduce i rischi anche contro falle recenti, come quella della schermata di blocco di Windows 11 che passa proprio da una chiavetta.</p>
+
+<h3>4. Far controllare le chiavette dall'antivirus</h3>
+<p>Microsoft Defender, l'antivirus integrato in Windows, analizza i file quando vengono aperti. Verifica che sia attivo su tutti i PC e, per le chiavette che arrivano dall'esterno e non puoi evitare, fai una scansione manuale (clic destro › "Analizza con Microsoft Defender") prima di aprire qualunque file. Non è una garanzia assoluta, ma blocca le minacce più diffuse.</p>
+
+<h3>5. Bloccare o limitare le porte USB dove serve</h3>
+<p>Non tutti hanno bisogno delle chiavette. Su Windows Pro e nelle reti con dominio o Microsoft Intune si possono usare i <strong>criteri di gruppo</strong>, le regole che chi gestisce i PC imposta in modo centralizzato, per:</p>
+<ul>
+<li>negare del tutto l'accesso alle memorie rimovibili sui PC che non ne hanno bisogno, come la postazione della reception;</li>
+<li>permettere la lettura ma impedire la scrittura, così i dati non possono essere copiati fuori;</li>
+<li>consentire la scrittura solo sulle chiavette protette da BitLocker, il compromesso che consiglio più spesso.</li>
+</ul>
+<p>Microsoft descrive queste opzioni nella sua guida alla <a href="https://techcommunity.microsoft.com/blog/coreinfrastructureandsecurityblog/manage-usb-devices-on-windows-hosts/1691477" target="_blank" rel="noopener">gestione dei dispositivi USB su Windows</a>. Tieni presente che Windows Home non ha i criteri di gruppo né BitLocker To Go: è uno dei motivi per cui negli uffici consiglio sempre la versione Pro.</p>
+
+<h3>6. Non usare la chiavetta come backup</h3>
+<p>"Tanto ho tutto sulla chiavetta" è una frase che sento spesso. Una memoria USB si rompe, si smarrisce e, se resta collegata, viene cifrata dal ransomware insieme al resto. Non è un backup: un sistema serio prevede più copie, su supporti diversi e almeno una fuori sede, come spiego nella guida al <a href="https://www.roccoandrealigorio.it/?p=211">backup 3-2-1</a>.</p>
+
+<h3>7. Tenere un elenco e svuotare il cassetto</h3>
+<p>Annota quali chiavette ha lo studio e chi le usa, magari nello stesso <a href="https://www.roccoandrealigorio.it/?p=326">inventario informatico</a> dove tieni PC e stampanti. Quelle vecchie o inutilizzate vanno cancellate in modo sicuro o distrutte, non buttate nel cestino: un semplice "elimina" non basta, come spiego nella guida su come <a href="https://www.roccoandrealigorio.it/?p=300">cancellare i dati prima di smaltire un dispositivo</a>.</p>
+
+<h2>Come spiegarlo ai collaboratori</h2>
+<p>Le regole tecniche funzionano solo se le persone capiscono il perché. Bastano tre messaggi chiari, ripetuti ogni tanto:</p>
+<ul>
+<li><strong>una chiavetta trovata non si collega mai</strong>: si consegna a chi si occupa dell'informatica;</li>
+<li><strong>i dati dei clienti viaggiano solo su chiavette cifrate</strong> o, meglio ancora, con link di condivisione protetti;</li>
+<li><strong>se una chiavetta si perde, lo si dice subito</strong>, senza timore di rimproveri: ogni ora conta per valutare se c'è un data breach.</li>
+</ul>
+<p>Se vuoi impostare queste regole su tutti i PC dello studio, con BitLocker, criteri di gruppo e un elenco dei dispositivi, puoi vedere <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a> e i <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a> che offro.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Posso usare BitLocker To Go se ho Windows Home?</h3>
+<p>Windows Home permette di aprire una chiavetta già cifrata con BitLocker, ma non di cifrarne una nuova. In quel caso servono un PC con Windows Pro o una chiavetta con cifratura hardware.</p>
+
+<h3>Una chiavetta nuova, appena comprata, è sicura?</h3>
+<p>Nella grande maggioranza dei casi sì, se acquistata da un rivenditore affidabile. Diffida invece dei prezzi troppo bassi su marketplace sconosciuti e dei gadget promozionali.</p>
+
+<h3>Ho perso una chiavetta con dati dei clienti: cosa faccio?</h3>
+<p>Se era cifrata con una password robusta il rischio è basso, ma annota l'accaduto. Se non era cifrata, va valutato subito se si tratta di un data breach da notificare al Garante entro 72 ore. Ho raccolto i passaggi nella guida su <a href="https://www.roccoandrealigorio.it/?p=276">cosa fare dopo un data breach</a>.</p>
+
+<h3>Meglio bloccare del tutto le porte USB?</h3>
+<p>Dipende dal lavoro che si fa. Bloccarle ovunque crea spesso più problemi di quanti ne risolva; di solito il giusto equilibrio è permettere solo chiavette cifrate e bloccarle sulle postazioni che non ne hanno bisogno.</p>
