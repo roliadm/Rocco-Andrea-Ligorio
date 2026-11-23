@@ -1,0 +1,69 @@
+<p>In molti studi e piccole aziende WhatsApp è diventato il canale più veloce per parlare con clienti, fornitori e colleghi, spesso con WhatsApp Business installato sul telefono dell'ufficio. Per questo vale la pena fermarsi un minuto sull'<strong>aggiornamento WhatsApp</strong> di novembre: corregge una falla che, secondo CSIRT Italia, è <strong>già stata sfruttata</strong> e permette a un malintenzionato di scoprire l'indirizzo IP di chi riceve un messaggio. In questo articolo ti spiego cosa è successo, perché un dato in apparenza innocuo come l'IP interessa ai truffatori, come controllare la versione su ogni smartphone dello studio e quali impostazioni conviene attivare.</p>
+
+<h2>Cosa corregge l'aggiornamento WhatsApp di novembre</h2>
+<p>Il 23 novembre 2026 il CSIRT Italia dell'Agenzia per la Cybersicurezza Nazionale ha pubblicato un <a href="https://www.acn.gov.it/portale/w/whatsapp-rilevato-sfruttamento-in-rete-della-vulnerabilita-cve-2026-23871" target="_blank" rel="noopener">avviso sullo sfruttamento in rete della vulnerabilità CVE-2026-23871</a> (CVE è il codice con cui si cataloga ogni vulnerabilità nota). Pochi giorni prima Meta aveva pubblicato le correzioni, insieme ad altre due falle, come riportato anche da <a href="https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html" target="_blank" rel="noopener">The Hacker News</a>.</p>
+
+<h3>La falla già sfruttata: CVE-2026-23871</h3>
+<p>Riguarda <strong>WhatsApp per Android e WhatsApp Business per Android</strong>, dalla versione 2.20.198.3 fino alle versioni precedenti alla <strong>2.26.17.4</strong>. Il problema sta nel controllo incompleto degli indirizzi web contenuti in un particolare tipo di messaggio, quello che nasce dalle risposte agli annunci pubblicitari "Clicca per WhatsApp". Un attaccante può costruire un messaggio di questo tipo con un'immagine o un altro contenuto ospitato su un suo server: quando il messaggio viene mostrato nella chat, il telefono scarica quel contenuto e <strong>rivela il proprio indirizzo IP</strong> all'attaccante.</p>
+<p>Non si tratta di una falla che dà accesso alle chat o permette di installare programmi sul telefono: la gravità assegnata è bassa (3,5 su 10). WhatsApp ha però spiegato che la falla potrebbe essere stata usata insieme a messaggi di spam, probabilmente per rendere più credibile un messaggio truffaldino. Ed è proprio questo il punto che interessa a uno studio.</p>
+
+<h3>Le altre due correzioni</h3>
+<ul>
+<li><strong>CVE-2026-102769</strong> (gravità 6,8): riguarda WhatsApp per Android prima della versione 2.26.35.74. Un messaggio "dettagli ordine" costruito ad arte e inviato da un'app non ufficiale, se toccato, poteva far cancellare file salvati localmente da WhatsApp. Non risultano attacchi.</li>
+<li><strong>CVE-2026-44908</strong> (gravità 4,8): riguarda la verifica dei certificati dell'infrastruttura usata da Meta AI, su Android, iPhone e Mac. Secondo WhatsApp non c'è stato alcuno sfruttamento.</li>
+</ul>
+<p>In pratica: se sul telefono c'è l'<strong>ultima versione disponibile nel Play Store o nell'App Store</strong>, sei a posto per tutte e tre.</p>
+
+<h2>Perché l'indirizzo IP interessa ai truffatori</h2>
+<p>L'indirizzo IP è il "numero civico" con cui un dispositivo si presenta su internet. Da solo non svela nomi o password, ma dice parecchio:</p>
+<ul>
+<li>la <strong>zona approssimativa</strong> in cui si trova il telefono e l'operatore usato;</li>
+<li>se il telefono è collegato al Wi-Fi dell'ufficio, l'<strong>indirizzo pubblico della rete dello studio</strong>, cioè quello del router o del firewall;</li>
+<li>quando la persona ha letto il messaggio, perché il contenuto viene scaricato solo nel momento in cui la chat viene aperta.</li>
+</ul>
+<p>Con queste informazioni un truffatore può confezionare un messaggio molto più convincente ("ti scrivo dalla filiale di Bari della tua banca..."), capire se il bersaglio ha davvero aperto la conversazione e, nel caso peggiore, sapere quale rete andare a sondare. Se il firewall dell'ufficio ha una VPN esposta e non aggiornata, conoscerne l'indirizzo è un primo passo per un attacco: ne ho parlato negli articoli sulle falle dei firewall <a href="https://www.roccoandrealigorio.it/?p=362">SonicWall</a> e <a href="https://www.roccoandrealigorio.it/?p=233">Fortinet</a>.</p>
+
+<h2>Come fare l'aggiornamento WhatsApp sugli smartphone dello studio</h2>
+<p>L'operazione richiede pochi minuti per telefono. Ti consiglio di farla su <strong>tutti</strong> i dispositivi usati per lavoro, compresi quelli personali dei collaboratori se ci gestiscono clienti.</p>
+<ol>
+<li><strong>Apri il Play Store</strong> (su Android) o l'App Store (su iPhone), cerca WhatsApp o WhatsApp Business e tocca <strong>Aggiorna</strong> se compare il pulsante.</li>
+<li><strong>Controlla la versione</strong>: in WhatsApp vai in Impostazioni, Aiuto, Informazioni sull'app. Su Android il numero deve essere almeno <strong>2.26.17.4</strong> per la falla già sfruttata; meglio ancora 2.26.35.74 o successiva, che chiude anche la seconda.</li>
+<li><strong>Attiva gli aggiornamenti automatici</strong> nel Play Store (profilo, Impostazioni, Preferenze di rete, Aggiornamento automatico app) o, su iPhone, in Impostazioni, App Store, Aggiornamenti app.</li>
+<li><strong>Aggiorna anche il sistema operativo</strong> del telefono: un'app aggiornata su un Android abbandonato dal produttore resta comunque esposta. Ne ho parlato nell'articolo sull'<a href="https://www.roccoandrealigorio.it/?p=354">aggiornamento Android di novembre</a>.</li>
+</ol>
+
+<h3>Se i telefoni sono tanti</h3>
+<p>Quando i dispositivi aziendali sono più di tre o quattro, controllarli a mano diventa un'attività che si dimentica. Un sistema di gestione centralizzata dei dispositivi (MDM, cioè un pannello da cui vedere e configurare tutti gli smartphone) permette di sapere in un colpo d'occhio quali hanno app vecchie e di forzare gli aggiornamenti. Trovi qualche indicazione nella guida sugli <a href="https://www.roccoandrealigorio.it/?p=330">smartphone aziendali</a>.</p>
+
+<h2>Le impostazioni di WhatsApp da attivare comunque</h2>
+<p>L'aggiornamento chiude la falla, ma alcune opzioni di privacy riducono in generale quello che un estraneo può scoprire. Le trovi in Impostazioni, Privacy:</p>
+<ul>
+<li><strong>Proteggi indirizzo IP nelle chiamate</strong> (in Privacy, Avanzate): fa passare le chiamate attraverso i server di WhatsApp, così chi ti chiama non vede il tuo IP. La qualità può calare leggermente, ma per un numero di lavoro pubblicato sul sito ne vale la pena.</li>
+<li><strong>Silenzia chiamate da numeri sconosciuti</strong>: le chiamate di chi non è in rubrica non squillano, ma restano nell'elenco delle chiamate.</li>
+<li><strong>Ultimo accesso, foto profilo e info</strong>: limitale ai contatti, così chi scrive a freddo non sa quando sei online.</li>
+<li><strong>Gruppi</strong>: scegli chi può aggiungerti, per evitare di finire in gruppi di "investimento" o di finte offerte di lavoro.</li>
+</ul>
+
+<h2>Come riconoscere i messaggi sospetti</h2>
+<p>La falla è stata usata insieme a messaggi di spam: la difesa più efficace resta quindi saper riconoscere una truffa. Ecco i segnali che vedo più spesso nei messaggi arrivati agli studi:</p>
+<ul>
+<li>un numero sconosciuto che si presenta come banca, corriere, Agenzia delle Entrate o "ufficio legale" di un'azienda nota;</li>
+<li>una richiesta urgente: un pagamento, un codice ricevuto via SMS, un link per "sbloccare" qualcosa;</li>
+<li>messaggi che sembrano risposte a pubblicità che non hai mai cliccato;</li>
+<li>offerte di lavoro o guadagni facili, spesso con invito a passare su Telegram.</li>
+</ul>
+<p>In questi casi non aprire link, non inviare codici e usa <strong>Blocca e segnala</strong> dal menu della chat. Se il messaggio riguarda un cliente o un fornitore reale, verifica telefonando al numero che hai già in archivio, non a quello indicato nel messaggio.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Ho un iPhone: devo preoccuparmi?</h3>
+<p>La falla già sfruttata riguarda solo WhatsApp per Android e WhatsApp Business per Android. Aggiorna comunque l'app anche su iPhone e Mac, perché una delle altre correzioni di novembre riguarda anche quelle versioni.</p>
+
+<h3>Un attaccante può leggere le mie chat con questa falla?</h3>
+<p>No. Secondo le informazioni pubblicate, la falla rivela l'indirizzo IP del telefono che visualizza il messaggio, non dà accesso ai contenuti delle conversazioni né al dispositivo.</p>
+
+<h3>Devo avvisare i clienti o il Garante?</h3>
+<p>Di norma no: l'indirizzo IP del telefono dell'ufficio non è un dato dei tuoi clienti. Se però noti messaggi strani partiti dal tuo numero o accessi sospetti, segui la procedura che ho descritto nell'articolo sul <a href="https://www.roccoandrealigorio.it/?p=276">data breach</a>.</p>
+
+<h3>Posso farmi aiutare a tenere aggiornati i dispositivi dello studio?</h3>
+<p>Sì: inventario dei dispositivi, aggiornamenti e controlli periodici fanno parte dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a> che offro a studi e PMI. Se vuoi, <a href="https://www.roccoandrealigorio.it/contatti/">scrivimi</a> e vediamo insieme da dove partire.</p>
