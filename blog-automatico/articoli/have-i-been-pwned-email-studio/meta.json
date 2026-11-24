@@ -17,5 +17,8 @@
     "descrizione": "Have I Been Pwned: come verificare gratis se le email dello studio sono in un data breach, monitorare il dominio e cosa fare se risultano violate.",
     "keyword": "Have I Been Pwned"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Have I Been Pwned: come scoprire se le email dello studio sono state rubate",
+  "id": 427
 }
