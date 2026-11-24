@@ -1,0 +1,57 @@
+<p>Ogni settimana qualche servizio online subisce un furto di dati, e spesso le persone coinvolte lo scoprono mesi dopo, o non lo scoprono affatto. Nel frattempo email e password rubate circolano tra i truffatori e vengono provate su caselle di posta, gestionali e portali. Esiste però un modo gratuito e affidabile per sapere se un indirizzo è finito in una di queste fughe di dati: <strong>Have I Been Pwned</strong>. In questo articolo ti spiego cos'è, come usarlo per le email tue e dello studio, come tenere d'occhio l'intero dominio aziendale e cosa fare, in concreto, quando il risultato è "sì, sei coinvolto".</p>
+
+<h2>Cos'è Have I Been Pwned e perché fidarsi</h2>
+<p><a href="https://haveibeenpwned.com/faqs" target="_blank" rel="noopener">Have I Been Pwned</a> (in gergo "pwned" significa "violato") è un servizio creato e gestito dal ricercatore di sicurezza australiano <strong>Troy Hunt</strong>, online dal dicembre 2013. Raccoglie i dati delle violazioni rese pubbliche e permette a chiunque di verificare se il proprio indirizzo email compare in una di esse. Secondo la <a href="https://haveibeenpwned.com/subscription" target="_blank" rel="noopener">pagina ufficiale del servizio</a>, oggi conta oltre <strong>17 miliardi di account</strong> provenienti da più di mille violazioni, e lo usano per monitorare i propri domini oltre 200.000 organizzazioni.</p>
+<p>Il punto importante: il sito non ti mostra la password rubata né i dati degli altri. Ti dice <strong>in quali violazioni</strong> compare il tuo indirizzo, quando sono avvenute e quali tipi di dati sono stati esposti (email, password, numeri di telefono, indirizzi e così via). È esattamente l'informazione che serve per decidere cosa fare.</p>
+
+<h3>Perché ne parlo proprio adesso</h3>
+<p>Il 24 novembre 2026 <a href="https://www.theregister.com/security/2026/11/24/orgs-that-leak-data-prioritize-corporate-interests-over-customers-says-have-i-been-pwneds-troy-hunt/5311802" target="_blank" rel="noopener">The Register</a> ha raccontato l'analisi di Hunt su otto anni di segnalazioni: dal 2018 ha avvisato direttamente 73 organizzazioni che avevano subito una fuga di dati, e in molti casi il primo contatto è caduto nel vuoto, è stato trattato come una normale richiesta di assistenza o è stato contestato. Tradotto: <strong>non puoi contare sul fatto che sia l'azienda violata ad avvisarti</strong>. Controllare da soli è più rapido.</p>
+
+<h2>Come controllare un indirizzo email in due minuti</h2>
+<ol>
+<li>Apri il sito <strong>haveibeenpwned.com</strong> digitando tu l'indirizzo (diffida dei siti con nomi simili).</li>
+<li>Inserisci l'indirizzo email da verificare e avvia la ricerca. È gratuito e non serve registrarsi.</li>
+<li>Leggi l'elenco delle violazioni: per ciascuna trovi il nome del servizio, la data e i dati esposti.</li>
+</ol>
+<p>Se il risultato è "nessuna violazione", ottimo, ma non è una garanzia assoluta: il servizio conosce solo le fughe di dati diventate pubbliche. Se invece trovi delle voci, guarda soprattutto due cose: <strong>se tra i dati esposti c'è la password</strong> e se quella password la usi ancora, lì o altrove.</p>
+
+<h3>Ricevere un avviso alle prossime violazioni</h3>
+<p>Con la funzione <strong>Notify me</strong> puoi registrare il tuo indirizzo e ricevere un'email quando compare in una nuova violazione. L'avviso arriva solo all'indirizzo monitorato, dopo una conferma: nessuno può iscrivere la tua email al posto tuo e leggere i risultati.</p>
+
+<h2>Have I Been Pwned per tutto il dominio dello studio</h2>
+<p>Controllare un indirizzo alla volta va bene per uso personale. Per uno studio con dieci caselle sul proprio dominio (per esempio nome@studiorossi.it) c'è una funzione più utile: la <strong>ricerca per dominio</strong>. Dimostri di essere il titolare del dominio (con un'email all'indirizzo dell'amministratore, un record DNS o un file sul sito) e ottieni l'elenco di tutti gli indirizzi aziendali coinvolti in violazioni note, più gli avvisi futuri.</p>
+<p>Per i domini piccoli è gratis: il piano gratuito copre i domini con <strong>fino a 10 indirizzi violati</strong>. Oltre quella soglia serve un abbonamento a pagamento, il cui prezzo è indicato sulla pagina dei piani del servizio. Per la maggior parte degli studi professionali la soglia gratuita basta, e se la superi è già di per sé un segnale da approfondire.</p>
+<p>Un consiglio pratico: fai fare la verifica del dominio a chi gestisce la tua posta o il tuo DNS, e fai arrivare gli avvisi a una casella controllata davvero, non a un indirizzo che nessuno legge.</p>
+
+<h2>Cosa fare se un'email risulta violata</h2>
+<p>Non serve allarmarsi: un risultato positivo è frequente, soprattutto per indirizzi usati da molti anni. Serve però agire con ordine.</p>
+<ol>
+<li><strong>Cambia la password</strong> del servizio violato, se lo usi ancora, e di ogni altro servizio dove usavi la stessa password o una simile. Il riuso delle password è il vero pericolo: i truffatori provano in automatico le coppie email-password rubate su Microsoft 365, Google, home banking e portali.</li>
+<li><strong>Attiva l'autenticazione a due fattori</strong> sulla casella email e sugli account importanti. Ti spiego come nella <a href="https://www.roccoandrealigorio.it/?p=217">guida all'autenticazione a due fattori</a>.</li>
+<li><strong>Controlla la casella email</strong>: accessi recenti da Paesi strani, regole di inoltro che non hai creato, messaggi spariti. Sono i segni tipici di una casella già compromessa.</li>
+<li><strong>Aspettati phishing mirato.</strong> Se nella violazione c'erano nome, telefono o indirizzo, i truffatori possono scriverti messaggi credibili. Avvisa i colleghi coinvolti.</li>
+<li><strong>Annota cosa hai fatto</strong>, soprattutto se l'indirizzo è aziendale: in caso di problemi successivi avrai una traccia utile.</li>
+</ol>
+
+<h3>E se la violazione riguarda dati dei clienti?</h3>
+<p>Have I Been Pwned segnala che <em>un altro servizio</em> è stato violato, non il tuo studio. Ma se scopri che un account aziendale è stato effettivamente usato da estranei, e da lì potevano vedere dati personali di clienti, potresti trovarti davanti a una violazione da valutare secondo il GDPR. In quel caso segui i passi del mio articolo sul <a href="https://www.roccoandrealigorio.it/?p=276">data breach e le prime 72 ore</a>.</p>
+
+<h2>Controllare le password senza rivelarle</h2>
+<p>Il servizio ha anche una sezione chiamata <strong>Pwned Passwords</strong>, che dice se una password compare tra quelle già rubate. Ti starai chiedendo se sia prudente digitare una password su un sito. Il sistema è pensato apposta: la password viene trasformata in un codice (hash) sul tuo dispositivo e al servizio arriva solo l'inizio di quel codice, una tecnica chiamata <strong>k-anonimato</strong>. Molti password manager usano proprio questa banca dati per segnalarti le password compromesse, senza che tu debba fare nulla.</p>
+<p>Per lo studio la soluzione più semplice resta questa: un <a href="https://www.roccoandrealigorio.it/?p=241">password manager</a> condiviso in modo ordinato, con una password diversa per ogni servizio, e il controllo delle password violate attivo. Così, quando esce una nuova fuga di dati, cambi una password sola e non dieci.</p>
+
+<h2>Una routine semplice da adottare</h2>
+<ul>
+<li>Registra il dominio dello studio sulla ricerca per dominio e controlla gli avvisi quando arrivano.</li>
+<li>Una volta all'anno verifica anche le caselle personali usate per lavoro e le vecchie caselle gratuite ancora collegate a servizi dello studio.</li>
+<li>Quando un collaboratore entra o lascia lo studio, inserisci questo controllo nella procedura di gestione degli account.</li>
+</ul>
+<p>Se vuoi impostare il monitoraggio del dominio, ripulire le password condivise o capire se una casella è stata davvero violata, puoi vedere come lavoro nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Have I Been Pwned è un sito sicuro e gratuito?</h3>
+<p>Sì. È un servizio noto e usato anche da grandi aziende. La ricerca di un singolo indirizzo, gli avvisi via email e il monitoraggio dei domini con fino a 10 indirizzi violati sono gratuiti.</p>
+<h3>Se la mia email è in una violazione, il mio PC è infetto?</h3>
+<p>No. Significa che un servizio dove eri registrato ha perso i dati. Il rischio è che la password rubata venga riutilizzata: cambiala ovunque la usavi e attiva la doppia autenticazione.</p>
+<h3>Posso controllare le email dei clienti o dei colleghi?</h3>
+<p>Puoi cercare un singolo indirizzo, ma la ricerca per dominio richiede di dimostrare che il dominio è tuo. Per le caselle dei colleghi la strada corretta è il monitoraggio del dominio dello studio.</p>
