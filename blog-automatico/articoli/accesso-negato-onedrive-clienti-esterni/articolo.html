@@ -1,0 +1,69 @@
+<p>La scena è questa: un commercialista o un avvocato condivide da OneDrive la cartella dei documenti con un cliente, come fa da mesi, e il cliente richiama dicendo che il link non funziona più e che compare un messaggio di <strong>accesso negato</strong>. Nessuno ha toccato nulla, eppure il file non si apre. Non è un guasto: Microsoft sta cambiando il modo in cui le persone esterne accedono ai file condivisi da OneDrive e SharePoint. In questo articolo ti spiego cosa è cambiato, perché proprio adesso l'<strong>accesso negato su OneDrive</strong> colpisce clienti e fornitori, come si risolve in pochi minuti e cosa conviene controllare per non avere sorprese.</p>
+
+<h2>Cosa sta cambiando nella condivisione con l'esterno</h2>
+<p>Fino a poco tempo fa, quando condividevi un file con una "persona specifica" fuori dallo studio, il destinatario poteva aprirlo inserendo un <strong>codice monouso</strong> che SharePoint gli inviava via email. In inglese si chiama <em>SharePoint One-Time Passcode</em>: niente account da creare, bastava la casella di posta. Era comodo, ma era un meccanismo a parte, che sfuggiva ai controlli di sicurezza centrali di Microsoft 365.</p>
+<p>Microsoft ha deciso di eliminarlo e di far passare tutte le condivisioni esterne da <strong>Microsoft Entra B2B</strong>, cioè il sistema che gestisce gli "ospiti" dell'organizzazione. In pratica, ogni persona esterna con cui condividi qualcosa diventa un <strong>account ospite</strong> nel tuo Microsoft 365: lo vedi, lo puoi bloccare, gli si applicano le stesse regole di sicurezza degli altri accessi. Il cambiamento è descritto nella <a href="https://learn.microsoft.com/en-us/sharepoint/faqs-odspintegrationwithentrab2b" target="_blank" rel="noopener">pagina di domande frequenti di Microsoft</a> ed è stato annunciato agli amministratori con il messaggio MC1243549.</p>
+
+<h3>Le due fasi, in breve</h3>
+<ul>
+<li><strong>Prima fase (tra maggio e luglio 2026)</strong>: le nuove condivisioni con l'esterno creano automaticamente un account ospite. L'opzione per disattivare questa integrazione è stata rimossa.</li>
+<li><strong>Seconda fase (da ottobre 2026)</strong>: il vecchio codice monouso di SharePoint viene ritirato nei tenant commerciali, cioè negli abbonamenti Microsoft 365 delle aziende. Microsoft lo distribuisce in automatico, un'organizzazione alla volta, e non si può scegliere la data. Secondo l'aggiornamento del Message Center del 1° ottobre, il completamento è previsto entro <strong>fine novembre 2026</strong>.</li>
+</ul>
+<p>Ecco perché il problema sta emergendo proprio in queste settimane: molti studi stanno ricevendo adesso la seconda fase, spesso senza che nessuno se ne sia accorto.</p>
+
+<h2>Chi rischia l'accesso negato su OneDrive</h2>
+<p>Non tutti i link smettono di funzionare. Il problema riguarda una situazione precisa:</p>
+<ul>
+<li>il file o la cartella era stato condiviso con un link di tipo <strong>"Persone specifiche"</strong>;</li>
+<li>il destinatario entrava con il <strong>codice via email</strong> di SharePoint;</li>
+<li>per quella persona <strong>non esiste ancora un account ospite</strong> nel tuo Microsoft 365.</li>
+</ul>
+<p>Quando il ritiro raggiunge il tuo abbonamento, quella persona trova un messaggio di accesso negato su tutto ciò che le avevi condiviso in passato. Non arriva nessun avviso, né a te né a lei: lo scopri quando il cliente ti chiama.</p>
+<p>Sono invece <strong>tranquilli</strong>:</p>
+<ul>
+<li>gli esterni che hanno già un account ospite (per esempio perché li hai invitati in un Team o hai condiviso qualcosa con loro dopo l'estate);</li>
+<li>i link di tipo <strong>"Chiunque abbia il collegamento"</strong>, che Microsoft conferma non essere toccati da questo cambiamento;</li>
+<li>i colleghi interni dello studio.</li>
+</ul>
+<p>Se vuoi rinfrescare la differenza tra i vari tipi di link, ne ho parlato nella guida ai <a href="https://www.roccoandrealigorio.it/?p=312">link di condivisione in OneDrive e SharePoint</a>.</p>
+
+<h2>Come ripristinare l'accesso in pochi minuti</h2>
+<p>La buona notizia è che <strong>non devi ricondividere ogni singolo file</strong>. Microsoft indica due strade, entrambe rapide.</p>
+
+<h3>1. Ricondividere almeno un elemento con la stessa persona</h3>
+<p>Basta che chi ha i permessi di condivisione condivida di nuovo <strong>un file, una cartella o un sito</strong> con lo stesso indirizzo email usato in origine. In quel momento viene creato l'account ospite e la persona riottiene l'accesso a <strong>tutto</strong> quello che le era già stato condiviso, non solo all'ultimo file. È la soluzione più semplice per il singolo cliente che chiama.</p>
+
+<h3>2. Creare l'ospite dall'amministrazione</h3>
+<p>In alternativa, l'amministratore di Microsoft 365 può aggiungere l'esterno come utente ospite dal portale di Microsoft Entra, usando esattamente l'indirizzo email del link originale. È la scelta migliore quando i clienti coinvolti sono parecchi e vuoi sistemarli prima che se ne accorgano.</p>
+
+<h3>Cosa vedrà il cliente la prima volta</h3>
+<p>Al primo accesso dopo il cambiamento, il cliente dovrà accettare l'invito e verificare la propria identità. Se ha già un account Microsoft o aziendale potrà usare quello; altrimenti Entra prevede comunque un <strong>codice via email</strong> come metodo di riserva, che Microsoft conferma resta supportato. Conviene avvisarlo con due righe: "riceverai una richiesta di Microsoft per confermare il tuo indirizzo, è normale".</p>
+
+<h2>Cosa controllare come amministratore</h2>
+<p>Se gestisci tu il Microsoft 365 dello studio, o se hai un fornitore che lo fa per te, ecco i controlli che consiglio di fare questa settimana.</p>
+<ol>
+<li><strong>Fai l'elenco di chi è fuori</strong>. Nelle impostazioni di ogni sito SharePoint c'è un report di condivisione esterna che mostra con chi sono stati condivisi i contenuti. Ti serve per capire quali clienti accedevano col vecchio codice e non hanno ancora un account ospite.</li>
+<li><strong>Verifica chi può invitare ospiti</strong>. In Microsoft Entra, nelle impostazioni di collaborazione esterna, controlla che i dipendenti che condividono file con i clienti possano effettivamente invitare ospiti. Se l'invito è riservato ai soli amministratori, la condivisione esterna fallisce con un messaggio di errore generico.</li>
+<li><strong>Controlla che il codice via email di Entra sia attivo</strong>. Tra i provider di identità per gli utenti esterni c'è l'opzione "codice monouso via email": se è disattivata, i clienti senza account Microsoft dovranno crearne uno, e molti si bloccheranno lì.</li>
+<li><strong>Rivedi i domini consentiti o bloccati</strong>. Con il passaggio a Entra B2B, le eventuali restrizioni sui domini esterni impostate in Entra possono valere anche per la condivisione dei file: conviene verificare che non escludano clienti legittimi.</li>
+<li><strong>Avvisa chi risponde al telefono</strong>. Una riga in segreteria o all'help desk ("se un cliente non apre un link, ricondividi un file con lo stesso indirizzo") evita mezz'ore perse.</li>
+</ol>
+
+<h2>Perché, alla fine, è un cambiamento positivo</h2>
+<p>Capisco la seccatura, soprattutto a fine anno, quando i documenti con i clienti circolano di più. Però il vecchio codice di SharePoint era un'isola: gli accessi esterni non comparivano nei registri centrali, non si potevano applicare regole come l'autenticazione a due fattori e non si aveva un elenco chiaro di chi poteva vedere cosa. Con gli account ospite, invece, hai <strong>un unico posto</strong> dove vedere tutti gli esterni, puoi rimuovere in un clic chi non collabora più con lo studio e gli accessi finiscono nei log di Entra, utili anche in caso di verifica per il GDPR.</p>
+<p>È lo stesso filo dei cambiamenti di cui ho scritto di recente, come lo stop ai <a href="https://www.roccoandrealigorio.it/?p=383">codici SMS di Microsoft 365 dal febbraio 2027</a>: Microsoft sta chiudendo le scorciatoie meno sicure. Il consiglio è approfittarne per fare ordine e cancellare gli ospiti e le condivisioni che non servono più.</p>
+<p>Se preferisci che sia qualcun altro a fare questi controlli sul Microsoft 365 dello studio, trovi come posso aiutarti nella pagina dei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Devo ricondividere tutti i file con ogni cliente?</h3>
+<p>No. Basta ricondividere almeno un file, una cartella o un sito con lo stesso indirizzo email, oppure creare l'account ospite dall'amministrazione: la persona torna a vedere tutto ciò che le era già stato condiviso.</p>
+
+<h3>I link "Chiunque abbia il collegamento" smetteranno di funzionare?</h3>
+<p>No, secondo Microsoft questo cambiamento non riguarda i link anonimi. Resta però valido il consiglio di usarli solo per file non riservati e con una scadenza.</p>
+
+<h3>Il cliente deve pagare o comprare una licenza Microsoft?</h3>
+<p>No. Il cliente non deve acquistare nulla: se non ha un account Microsoft o aziendale può accedere con un codice ricevuto via email, purché l'opzione sia attiva nelle impostazioni di Entra del tuo studio.</p>
+
+<h3>Posso rimandare o disattivare il cambiamento?</h3>
+<p>No. Microsoft lo applica automaticamente a tutti gli abbonamenti aziendali e non permette di scegliere la data né di tornare al vecchio codice di SharePoint. L'unica scelta sensata è prepararsi, come descritto sopra.</p>
