@@ -16,5 +16,8 @@
     "descrizione": "Accesso negato su OneDrive per i clienti esterni? Cosa cambia con la fine del codice SharePoint e come ripristinare l'accesso senza ricondividere tutto.",
     "keyword": "accesso negato su OneDrive"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Accesso negato su OneDrive: perché i clienti non aprono più i file condivisi",
+  "id": 429
 }
