@@ -1,0 +1,13 @@
+{
+  "titolo": "Autenticazione NTLM: accessi bloccati dopo gli aggiornamenti di novembre",
+  "slug": "autenticazione-ntlm-problemi-aggiornamenti-novembre",
+  "estratto": "Accessi falliti dopo gli aggiornamenti Windows di novembre? Cosa cambia nell'autenticazione NTLM, chi è colpito e come risolvere senza togliere le patch.",
+  "categorie": ["Informatica"],
+  "tag": ["Aggiornamenti di sicurezza", "Windows 11", "Windows Server", "Sicurezza informatica", "Reti"],
+  "seo": {
+    "titolo": "Autenticazione NTLM: accessi bloccati dopo le patch Windows",
+    "descrizione": "Autenticazione NTLM e aggiornamenti di novembre: perché alcuni accessi falliscono, quali sistemi sono colpiti e come rimediare senza togliere le patch.",
+    "keyword": "autenticazione NTLM"
+  },
+  "stato": "draft"
+}

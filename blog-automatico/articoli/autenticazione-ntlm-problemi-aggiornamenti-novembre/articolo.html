@@ -1,0 +1,60 @@
+<p>Hai installato gli aggiornamenti di Windows di novembre e da quel giorno qualcosa non va: il PC chiede di nuovo la password per navigare, un programma che passa dal proxy aziendale non si collega più, l'accesso unico ai servizi interni si è rotto. Non è una coincidenza. Con le patch rilasciate dal 10 novembre 2026 Microsoft ha iniziato a rendere più rigida l'<strong>autenticazione NTLM</strong>, un vecchio sistema di accesso ancora molto diffuso nelle reti degli uffici. Il 20 novembre ha ammesso ufficialmente che alcuni dispositivi e programmi di terze parti non reggono il cambiamento. In questo articolo ti spiego cosa è cambiato, come capire se il problema riguarda il tuo studio, come risolverlo senza togliere le patch e cosa preparare entro maggio 2027, quando arriverà la seconda fase.</p>
+
+<h2>Cos'è l'autenticazione NTLM e perché Microsoft la sta stringendo</h2>
+<p><strong>NTLM</strong> è un protocollo di autenticazione, cioè il "linguaggio" con cui un PC Windows dimostra a un server o a un altro dispositivo chi è l'utente, senza mandare la password in chiaro. È nato negli anni Novanta e da tempo è stato affiancato da <strong>Kerberos</strong>, più moderno e sicuro. NTLM però sopravvive ovunque: lo usano i proxy per la navigazione, molti software gestionali, alcuni NAS, programmi che si appoggiano a cartelle condivise e sistemi di accesso unico (in inglese <em>single sign-on</em>, SSO).</p>
+<p>Il suo punto debole è noto: se la sessione non è "firmata", un attaccante che si trova in mezzo alla comunicazione può intercettarla e riutilizzarla per accedere ad altri sistemi al posto dell'utente. È il cosiddetto <strong>attacco di relay</strong>. Per chiudere questa porta Microsoft ha pubblicato il documento di supporto <a href="https://support.microsoft.com/en-us/help/5135557" target="_blank" rel="noopener">KB5135557</a>, che descrive un piano in due fasi. Le protezioni sono legate alla vulnerabilità <strong>CVE-2026-118737</strong>, che riguarda il componente RPC di Windows e che, secondo l'analisi di <a href="https://www.action1.com/vulnerabilities/cve-2026-118737" target="_blank" rel="noopener">Action1</a>, al momento della patch non risultava sfruttata né divulgata pubblicamente.</p>
+
+<h3>Le due fasi del piano Microsoft</h3>
+<ul>
+<li><strong>Fase 1, dal 10 novembre 2026</strong>: i PC Windows aggiornati propongono sempre la firma NTLM su tutte le connessioni. I server accettano ancora sia chi firma sia chi non firma, e registrano negli eventi chi non lo fa.</li>
+<li><strong>Fase 2, da maggio 2027</strong>: i server Windows inizieranno a <strong>pretendere</strong> la firma per impostazione predefinita. I dispositivi e i programmi che non la supportano verranno rifiutati.</li>
+</ul>
+<p>Sono interessati Windows 11 (dalla 23H2 alla 26H2), Windows 10 Enterprise LTSC 2021 e Windows Server 2016, 2019, 2022 e 2025. Le connessioni anonime e quelle con account Guest continuano a funzionare, e Kerberos non è toccato.</p>
+
+<h2>Chi ha problemi di autenticazione NTLM dopo le patch di novembre</h2>
+<p>Il problema non nasce da Windows in sé, ma da prodotti di terze parti che implementano NTLM in modo incompleto. Microsoft cita espressamente tre categorie:</p>
+<ul>
+<li><strong>proxy di autenticazione</strong>, cioè i sistemi che filtrano la navigazione e chiedono di identificarsi prima di uscire su internet;</li>
+<li><strong>soluzioni di accesso unico (SSO)</strong>, che fanno entrare l'utente in più applicazioni con un solo login;</li>
+<li><strong>software di "pacchettizzazione" delle applicazioni</strong>, usati per distribuire programmi sui PC.</li>
+</ul>
+<p>In termini tecnici, questi prodotti dichiarano di inviare alcune informazioni obbligatorie (il nome NetBIOS del computer e del dominio) ma poi le lasciano vuote. Il PC aggiornato, che ora negozia la firma vera, rifiuta l'accesso. Come ha riportato <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-authentication-issues-after-november-updates/" target="_blank" rel="noopener">BleepingComputer</a>, al 25 novembre una correzione definitiva da parte di Microsoft non era ancora disponibile: la soluzione vera spetta ai produttori dei dispositivi.</p>
+
+<h3>I sintomi da riconoscere</h3>
+<p>Nella pratica, in un ufficio, vedo il problema presentarsi così:</p>
+<ul>
+<li>il browser o un programma chiede continuamente utente e password per uscire su internet, oppure mostra un errore di autenticazione del proxy (codice HTTP 407);</li>
+<li>un portale interno o un gestionale con accesso automatico smette di riconoscere l'utente;</li>
+<li>il problema compare <strong>solo sui PC aggiornati</strong>, mentre quelli non ancora aggiornati funzionano.</li>
+</ul>
+<p>Chi gestisce la rete può verificarlo nel registro eventi di Windows, nel canale <em>Microsoft-Windows-NTLM/Operational</em>: l'evento 4021 con "Target Information" impostato su "Not Found" indica un dispositivo che non rispetta il protocollo. Gli eventi 4022 (sul client) e 4023 (sul server) mostrano invece se la firma è stata negoziata.</p>
+
+<h2>Come risolvere senza disinstallare gli aggiornamenti</h2>
+<p>La tentazione, quando qualcosa si rompe dopo un aggiornamento, è toglierlo. Te lo sconsiglio: le patch di novembre correggono anche altre vulnerabilità, come ho spiegato nell'articolo sul <a href="https://www.roccoandrealigorio.it/?p=379">Patch Tuesday di novembre 2026</a>. Microsoft indica una strada in tre passi.</p>
+<ol>
+<li><strong>Soluzione temporanea sul PC.</strong> Si crea nel registro di sistema, in <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0</code>, il valore <code>ClientAllowUnsignedNtlm</code> di tipo REG_DWORD impostato a 1. Così il PC torna ad accettare le sessioni non firmate. Microsoft lo definisce espressamente un rimedio <strong>solo temporaneo</strong>, che potrebbe essere rimosso in futuro, e va applicato solo sui PC che ne hanno davvero bisogno.</li>
+<li><strong>Verifica con il produttore.</strong> Controlla se il proxy, il sistema SSO o il programma coinvolto può usare Kerberos al posto di NTLM, oppure se esiste già un aggiornamento compatibile.</li>
+<li><strong>Richiesta formale di correzione.</strong> Se non c'è nessuna delle due cose, chiedi al fornitore un aggiornamento conforme alle specifiche Microsoft (il documento MS-NLMP, sezione 3.1.5.1.2). Mettilo per iscritto: ti servirà anche per pianificare la fase 2.</li>
+</ol>
+<p>Modificare il registro senza esperienza può creare altri guasti: se nello studio non c'è chi se ne occupa, fallo fare a chi gestisce i vostri sistemi. È esattamente il tipo di intervento che seguo nei miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi di assistenza informatica</a>.</p>
+
+<h2>Prepararsi a maggio 2027: la checklist</h2>
+<p>Il disagio di questi giorni è un'anteprima. Da maggio 2027 saranno i server a rifiutare chi non firma, e lì il problema non riguarderà un solo PC ma tutti gli utenti che passano da quel dispositivo. Conviene usare i prossimi mesi per mettere ordine:</p>
+<ul>
+<li><strong>fai l'elenco</strong> di proxy, firewall con autenticazione degli utenti, NAS, sistemi SSO e software che si collegano al server o al dominio (se hai già un <a href="https://www.roccoandrealigorio.it/?p=280">piano per gli aggiornamenti</a>, aggiungili lì);</li>
+<li><strong>controlla gli eventi</strong> 4022 e 4023 sui server dal 2019 in poi: indicano quali client non usano ancora la firma;</li>
+<li><strong>aggiorna o sostituisci</strong> i dispositivi che non rispettano il protocollo, preferendo Kerberos dove possibile;</li>
+<li><strong>togli il rimedio temporaneo</strong> appena il fornitore rilascia la correzione, per non lasciare la porta aperta;</li>
+<li>solo quando l'analisi non mostra più connessioni non firmate, valuta di attivare in anticipo sul server l'obbligo di firma (valore <code>ServerRequireNtlmSign</code> a 1), come suggerisce Microsoft.</li>
+</ul>
+<p>In molti piccoli uffici questi controlli non sono mai stati fatti perché "tutto funzionava". La fase 2 è un'ottima occasione per scoprire quali sistemi si reggono su protocolli vecchi, prima che lo scopra qualcun altro.</p>
+
+<h2>Domande frequenti</h2>
+<h3>Devo disinstallare gli aggiornamenti di novembre se qualcosa non funziona?</h3>
+<p>No. Le patch correggono anche altre falle. Meglio applicare il rimedio temporaneo indicato da Microsoft solo sui PC colpiti e chiedere al fornitore del dispositivo una versione compatibile.</p>
+<h3>Il mio studio usa solo Microsoft 365 senza server: sono coinvolto?</h3>
+<p>Probabilmente poco o nulla, perché il cambiamento riguarda soprattutto le reti con server Windows, proxy o sistemi di accesso unico interni. Se però usi un proxy o un vecchio gestionale che chiede l'accesso Windows, vale la pena controllare.</p>
+<h3>Cosa succede a maggio 2027?</h3>
+<p>I server Windows inizieranno a rifiutare per impostazione predefinita le connessioni NTLM non firmate. I dispositivi e i programmi non aggiornati smetteranno di autenticarsi, quindi conviene sistemarli prima.</p>
+<h3>Il rimedio nel registro è sicuro?</h3>
+<p>È accettabile solo per poco tempo e solo dove serve: riporta il PC al comportamento precedente, meno protetto contro gli attacchi di relay. Va rimosso appena arriva la correzione del produttore.</p>
