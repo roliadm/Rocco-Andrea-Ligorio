@@ -2,12 +2,22 @@
   "titolo": "Accessibilità del sito web: cosa chiede l'European Accessibility Act a studi e PMI",
   "slug": "accessibilita-sito-web-european-accessibility-act",
   "estratto": "Il tuo sito deve rispettare l'European Accessibility Act? Chi è obbligato, chi è esente, cosa controllare e come rendere il sito usabile da tutti.",
-  "categorie": ["Informatica"],
-  "tag": ["Siti web", "Normative digitali", "WordPress", "App per aziende"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Siti web",
+    "Normative digitali",
+    "WordPress",
+    "App per aziende"
+  ],
   "seo": {
     "titolo": "Accessibilità del sito web: obblighi EAA per studi e PMI",
     "descrizione": "Accessibilità del sito web ed European Accessibility Act: chi è obbligato, quando le microimprese sono esenti e i controlli pratici da fare sul sito.",
     "keyword": "accessibilità del sito web"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Accessibilità del sito web: cosa chiede l'European Accessibility Act a studi e PMI",
+  "id": 431
 }
