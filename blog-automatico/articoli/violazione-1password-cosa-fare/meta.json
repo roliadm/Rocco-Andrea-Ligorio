@@ -2,12 +2,22 @@
   "titolo": "Violazione di 1Password: cosa è successo e cosa deve fare lo studio",
   "slug": "violazione-1password-cosa-fare",
   "estratto": "Violazione di 1Password: le password nelle casseforti sono al sicuro, ma nomi ed email dei clienti sono stati copiati. Cosa controllare in studio.",
-  "categorie": ["Informatica"],
-  "tag": ["Password", "Phishing", "Sicurezza informatica", "Autenticazione a due fattori"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Password",
+    "Phishing",
+    "Sicurezza informatica",
+    "Autenticazione a due fattori"
+  ],
   "seo": {
     "titolo": "Violazione di 1Password: cosa è successo e cosa fare ora",
     "descrizione": "Violazione di 1Password: quali dati sono stati copiati, perché le password restano al sicuro e i 5 controlli da fare subito per evitare il phishing.",
     "keyword": "violazione di 1Password"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Violazione di 1Password: cosa è successo e cosa deve fare lo studio",
+  "id": 435
 }
