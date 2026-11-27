@@ -1,0 +1,77 @@
+<p>Se in studio usate 1Password per custodire le credenziali di home banking, PEC, gestionali e portali della pubblica amministrazione, in questi giorni potresti aver letto titoli allarmanti: "1Password violato", "rubati i dati dei clienti". È normale chiedersi se le password siano finite in mano a qualcuno e se sia il caso di cambiarle tutte. Ti anticipo la risposta: per quanto comunicato dall'azienda, <strong>le casseforti con le password non sono state toccate</strong>. Ma la <strong>violazione di 1Password</strong> ha esposto altri dati che i truffatori possono usare per attacchi di phishing molto credibili. In questo articolo ti spiego cosa è successo, quali dati sono stati copiati, cosa non è a rischio e quali controlli conviene fare adesso, senza panico.</p>
+
+<h2>Cosa è successo: la violazione di 1Password in breve</h2>
+<p>Il 25 novembre 2026 1Password ha pubblicato un <a href="https://1password.com/blog/update-on-nov-2026-security-incident" target="_blank" rel="noopener">aggiornamento ufficiale sull'incidente</a>. Secondo l'azienda, il 19 novembre è partita un'indagine su attività sospette: un attaccante, rimasto finora sconosciuto, era riuscito a entrare nell'account <strong>GitHub</strong> aziendale di un dipendente. GitHub è la piattaforma dove molte aziende di software conservano il codice dei propri programmi e gli strumenti che lo pubblicano in automatico.</p>
+<p>Da quell'account, come riportano <a href="https://thehackernews.com/2026/11/1password-hacked-customer-data-and.html" target="_blank" rel="noopener">The Hacker News</a> e <a href="https://www.techzine.eu/news/security/146075/1password-hit-by-data-breach-via-github-account/" target="_blank" rel="noopener">Techzine</a>, l'attaccante ha:</p>
+<ul>
+<li>copiato il <strong>codice sorgente</strong> di alcuni archivi privati;</li>
+<li>raggiunto il sistema che compila e pubblica gli aggiornamenti dei servizi (in gergo <em>CI/CD</em>, la "catena di montaggio" del software);</li>
+<li>inserito del codice malevolo in alcuni servizi interni di 1Password, usandolo per scaricare dati amministrativi di una parte dei clienti.</li>
+</ul>
+<p>L'azienda non ha detto come sia stato compromesso l'account del dipendente né quanti clienti siano coinvolti: parla di un "sottoinsieme" di clienti e di un numero limitato di utenti avvisati direttamente.</p>
+
+<h2>Quali dati sono stati copiati e quali no</h2>
+<p>È la parte più importante, perché decide cosa devi fare. Ti riassumo quanto dichiarato da 1Password.</p>
+
+<h3>Dati esposti</h3>
+<ul>
+<li><strong>nomi e indirizzi email</strong> dei clienti coinvolti;</li>
+<li>identificativi dell'account e dell'utente, data di creazione e data dell'ultimo accesso;</li>
+<li>chiavi pubbliche e alcuni parametri tecnici del protocollo di accesso (SRP), che servono a verificare la password senza mai trasmetterla;</li>
+<li>i <strong>codici contenuti in alcuni link inviati via email</strong>: inviti, attivazione di nuovi utenti e recupero dell'account;</li>
+<li>metadati interni non segreti.</li>
+</ul>
+
+<h3>Dati non toccati</h3>
+<ul>
+<li>il <strong>contenuto delle casseforti</strong> (vault): password, note, carte, documenti salvati;</li>
+<li>le <strong>chiavi di recupero</strong> dell'account e le chiavi che le proteggono.</li>
+</ul>
+<p>Il motivo è nel modo in cui funziona 1Password: le casseforti sono cifrate sul tuo dispositivo con la password principale e con la <strong>Secret Key</strong>, il codice lungo che ricevi alla creazione dell'account. L'azienda non le conosce, quindi anche chi entra nei suoi server non può aprirle. È esattamente il principio che ti avevo descritto nella <a href="https://www.roccoandrealigorio.it/?p=241">guida ai password manager</a>, e questo incidente lo conferma.</p>
+<p>Anche i codici dei link di invito e recupero, da soli, non bastano: per usarli serve l'accesso tramite il sistema di login aziendale (SSO) oppure un codice inviato all'email registrata. Per prudenza 1Password li ha comunque allungati, passando da 6 cifre a 10 caratteri.</p>
+
+<h2>Il vero rischio per lo studio: il phishing mirato</h2>
+<p>Se le password sono al sicuro, perché preoccuparsi? Perché un elenco di nomi ed email di persone che <strong>sicuramente</strong> usano 1Password, magari con la data dell'ultimo accesso, è materiale prezioso per i truffatori. Possono inviare email che sembrano arrivare da 1Password, del tipo:</p>
+<ul>
+<li>"A seguito dell'incidente di sicurezza devi verificare il tuo account entro 24 ore";</li>
+<li>"Reimposta la password principale cliccando qui";</li>
+<li>"Scarica la nuova versione dell'app per proteggere i tuoi dati".</li>
+</ul>
+<p>Il link porta a una pagina identica a quella vera, dove viene chiesto di inserire password principale e Secret Key. Chi li inserisce consegna davvero le chiavi di tutto. Lo stesso 1Password invita i clienti a <strong>fare attenzione a tentativi di phishing</strong> inattesi. Vedo spesso, dopo notizie come questa, ondate di email false che sfruttano la paura del momento: è successo con altri servizi e succederà anche stavolta.</p>
+
+<h2>Cosa fare adesso: 5 controlli pratici</h2>
+<p>1Password dichiara che i clienti non devono cambiare le credenziali dell'account. Io aggiungerei qualche controllo di buon senso, che richiede pochi minuti e vale per qualunque password manager.</p>
+<ol>
+<li><strong>Avvisa colleghi e collaboratori.</strong> Una mail interna di due righe: "1Password non ci chiederà mai di inserire password principale o Secret Key da un link. Se arriva una mail del genere, non cliccate e giratemela". È la difesa più efficace.</li>
+<li><strong>Accedi sempre dall'app o digitando l'indirizzo.</strong> Per qualunque verifica apri l'app di 1Password o scrivi a mano l'indirizzo del tuo account, mai dal link di un'email.</li>
+<li><strong>Controlla dispositivi e utenti.</strong> Dal pannello di amministrazione verifica l'elenco dei dispositivi autorizzati e degli utenti: se compare qualcosa che non riconosci, rimuovilo. Controlla anche gli inviti in sospeso e annulla quelli che non servono più.</li>
+<li><strong>Attiva la verifica in due passaggi sull'account 1Password.</strong> Se non l'avete ancora fatto, è il momento: aggiunge un secondo ostacolo anche nel caso peggiore. Trovi come scegliere il metodo giusto nella <a href="https://www.roccoandrealigorio.it/?p=217">guida all'autenticazione a due fattori</a>.</li>
+<li><strong>Proteggi la casella email.</strong> I codici di recupero arrivano via email: se la casella del titolare o dell'amministratore è debole, diventa la porta d'ingresso. Password robusta, verifica in due passaggi e un controllo delle regole di inoltro sono il minimo.</li>
+</ol>
+
+<h3>E se qualcuno ha già cliccato?</h3>
+<p>Se un collega ha inserito i dati di 1Password in una pagina sospetta, non aspettare: cambia subito la password principale, genera una nuova Secret Key dalle impostazioni dell'account, scollega i dispositivi non riconosciuti e, a partire dagli account più importanti (banca, PEC, email), cambia le password salvate. Se nella cassaforte c'erano credenziali di accesso a dati dei clienti, valuta con il responsabile privacy se si tratta di una violazione da notificare.</p>
+
+<h2>La lezione per chi sceglie un password manager</h2>
+<p>Questo incidente non dimostra che i password manager siano insicuri, anzi. Un'azienda specializzata in sicurezza è stata violata, eppure le password dei clienti sono rimaste illeggibili grazie alla cifratura sul dispositivo. Con un file Excel di password in una cartella condivisa, o con le password salvate nel browser, l'esito sarebbe stato ben diverso.</p>
+<p>Ci sono però tre insegnamenti utili per uno studio o una PMI:</p>
+<ul>
+<li><strong>Nessun fornitore è immune.</strong> Scegli servizi che cifrano i dati sul tuo dispositivo e che comunicano gli incidenti in modo trasparente e tempestivo.</li>
+<li><strong>Gli account dei dipendenti sono il bersaglio.</strong> L'attacco è partito dall'account di una persona, non da una falla del prodotto. Vale anche per il tuo studio: account personali protetti, accessi ridotti al necessario.</li>
+<li><strong>La password principale va custodita bene.</strong> Il kit di emergenza con la Secret Key va stampato e conservato in un luogo sicuro, non lasciato in una cartella del PC o inviato per email.</li>
+</ul>
+<p>Se vuoi una mano a verificare la configurazione del password manager dello studio, gli utenti autorizzati e la protezione delle caselle email, puoi dare un'occhiata ai miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a> o a <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Devo cambiare tutte le password salvate in 1Password?</h3>
+<p>No. Secondo 1Password il contenuto delle casseforti non è stato toccato e i clienti non devono cambiare le credenziali. Cambiale solo se qualcuno ha inserito password principale o Secret Key in una pagina sospetta.</p>
+
+<h3>Come capisco se il mio account è tra quelli coinvolti?</h3>
+<p>1Password ha avvisato direttamente gli utenti interessati. Attenzione però: anche le email false useranno lo stesso argomento. Per sicurezza verifica sempre accedendo dall'app, mai da un link.</p>
+
+<h3>Conviene passare a un altro password manager?</h3>
+<p>Non per questo incidente: le casseforti hanno retto proprio grazie alla cifratura sul dispositivo. Ha più senso valutare come l'azienda gestirà le prossime settimane e rafforzare le vostre abitudini, a partire dalla verifica in due passaggi.</p>
+
+<h3>Il codice sorgente rubato rende 1Password meno sicuro?</h3>
+<p>L'azienda afferma che il codice non contiene segreti degli utenti. Un software ben progettato resta sicuro anche se il codice è noto, perché la protezione dipende dalle chiavi, che restano solo sui tuoi dispositivi.</p>
