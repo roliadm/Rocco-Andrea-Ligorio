@@ -1,0 +1,13 @@
+{
+  "titolo": "Certificati SSL a 100 giorni: cosa cambia per sito, VPN e posta dello studio",
+  "slug": "certificati-ssl-durata-100-giorni",
+  "estratto": "Certificati SSL sempre più brevi: oggi 200 giorni, dal 15 marzo 2027 solo 100. Quali sistemi sono coinvolti e come evitare scadenze a sorpresa.",
+  "categorie": ["Informatica"],
+  "tag": ["Siti web", "Sicurezza informatica", "Firewall", "NAS", "Email"],
+  "seo": {
+    "titolo": "Certificati SSL a 100 giorni: cosa cambia e come prepararsi",
+    "descrizione": "Certificati SSL: dal 15 marzo 2027 durano al massimo 100 giorni. Il calendario delle scadenze e 5 passi per non bloccare sito, VPN e posta dello studio.",
+    "keyword": "certificati SSL"
+  },
+  "stato": "draft"
+}

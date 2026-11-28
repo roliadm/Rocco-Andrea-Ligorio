@@ -1,0 +1,66 @@
+<p>Un lunedì mattina il sito dello studio mostra a tutti i visitatori un avviso rosso: "La connessione non è privata". Oppure il portale clienti smette di funzionare, o i colleghi non riescono più a collegarsi alla VPN dal portatile. La causa, molto spesso, è banale: un <strong>certificato SSL scaduto</strong>. Finora capitava una volta all'anno e qualcuno se ne ricordava. Ma le regole stanno cambiando: i <strong>certificati SSL</strong> durano sempre meno, oggi al massimo 200 giorni e dal 15 marzo 2027 al massimo 100. In questo articolo ti spiego cosa sono, cosa cambia e quando, quali sistemi dello studio sono coinvolti e come organizzarti per non ritrovarti con il sito bloccato.</p>
+
+<h2>Cosa sono i certificati SSL e perché scadono</h2>
+<p>Il certificato SSL (oggi il nome tecnico corretto è TLS, ma tutti continuano a dire SSL) è il "documento d'identità" di un sito o di un servizio. Serve a due cose: dimostrare al browser che sta parlando davvero con <em>www.tuostudio.it</em> e non con un impostore, e cifrare i dati che viaggiano, come password e moduli di contatto. È quello che fa comparire l'indirizzo con <strong>https</strong>.</p>
+<p>Ogni certificato ha una data di scadenza. Quando scade, il browser non si fida più e mostra un avviso che spaventa i visitatori; molti programmi, come app e gestionali, si rifiutano proprio di collegarsi. Le regole sulla durata le decide il <strong>CA/Browser Forum</strong>, l'organismo che riunisce le autorità che emettono i certificati e i produttori dei browser (Google, Apple, Mozilla, Microsoft).</p>
+<p>Attenzione a non confondere: qui parliamo dei certificati dei siti e dei servizi web, non dei certificati di <a href="https://www.roccoandrealigorio.it/?p=401">firma digitale</a> o della CNS, che seguono regole diverse.</p>
+
+<h2>Le nuove scadenze dei certificati SSL: il calendario</h2>
+<p>Ad aprile 2025 il CA/Browser Forum ha approvato la <a href="https://cabforum.org/2025/04/11/ballot-sc081v3-introduce-schedule-of-reducing-validity-and-data-reuse-periods/" target="_blank" rel="noopener">decisione SC-081v3</a>, che riduce la durata massima in più tappe, come riassume anche <a href="https://www.digicert.com/it/blog/tls-certificate-lifetimes-will-officially-reduce-to-47-days" target="_blank" rel="noopener">DigiCert</a>, una delle principali autorità di certificazione:</p>
+<ul>
+<li><strong>fino al 14 marzo 2026</strong>: massimo 398 giorni (circa 13 mesi);</li>
+<li><strong>dal 15 marzo 2026</strong>: massimo <strong>200 giorni</strong>, la regola in vigore oggi;</li>
+<li><strong>dal 15 marzo 2027</strong>: massimo <strong>100 giorni</strong>;</li>
+<li><strong>dal 15 marzo 2029</strong>: massimo <strong>47 giorni</strong>.</li>
+</ul>
+<p>Si riduce anche il periodo per cui resta valida la <strong>verifica del dominio</strong>, il controllo con cui l'autorità accerta che il dominio sia davvero tuo: dal 2029 andrà ripetuta dopo appena 10 giorni. Le nuove regole valgono per i certificati emessi dopo ciascuna data: quelli già in uso restano validi fino alla loro scadenza naturale.</p>
+<p>Il primo effetto concreto si è già visto: come segnala <a href="https://www.sectigo.com/it/blog/inizia-periodo-validita-200-giorni-certificato" target="_blank" rel="noopener">Sectigo</a>, i primi certificati da 200 giorni emessi a metà marzo sono scaduti a inizio ottobre 2026. Chi rinnovava a mano "una volta all'anno" ha scoperto di doverlo fare ogni sei mesi. Dal prossimo marzo sarà ogni tre mesi circa, e nel 2029 più di sette volte l'anno.</p>
+
+<h3>Perché accorciare la durata</h3>
+<p>L'obiettivo è la sicurezza: se un certificato viene rubato o emesso per errore, una durata breve limita il tempo in cui può essere usato in modo fraudolento. Il messaggio dei browser è chiaro: il rinnovo manuale non è più sostenibile, bisogna <strong>automatizzare</strong>.</p>
+
+<h2>Quali sistemi dello studio usano un certificato</h2>
+<p>Il sito web è il caso più evidente, ma non l'unico. Nella mia esperienza i certificati dimenticati stanno quasi sempre altrove:</p>
+<ul>
+<li><strong>sito web e portale clienti</strong>, anche quelli gestiti dall'agenzia che li ha realizzati;</li>
+<li><strong>posta elettronica</strong> su server propri o su hosting con dominio personalizzato;</li>
+<li><strong>VPN e firewall</strong>, la cui pagina di accesso usa un certificato;</li>
+<li><strong>NAS</strong> raggiungibili da fuori con un indirizzo del tipo <em>nas.tuostudio.it</em>;</li>
+<li><strong>gestionali installati in ufficio</strong> e consultabili via web o da app;</li>
+<li><strong>server di posta Exchange</strong>, desktop remoto via web, centralini VoIP.</li>
+</ul>
+
+<h2>Come organizzarsi: 5 passi pratici</h2>
+
+<h3>1. Fai l'inventario dei certificati</h3>
+<p>Elenca ogni servizio con https: dominio, chi lo gestisce, dove è installato il certificato, data di scadenza. Puoi aggiungerlo all'<a href="https://www.roccoandrealigorio.it/?p=326">inventario informatico</a> dello studio. Per vedere la scadenza di un sito basta cliccare sul lucchetto nella barra degli indirizzi del browser.</p>
+
+<h3>2. Chiedi all'hosting se il rinnovo è automatico</h3>
+<p>Molti hosting usano certificati gratuiti come quelli di <a href="https://letsencrypt.org/" target="_blank" rel="noopener">Let's Encrypt</a>, che durano al massimo 90 giorni e si rinnovano da soli. Se il tuo sito è in questa situazione, non devi fare nulla. Se invece hai acquistato un certificato a pagamento e lo installa qualcuno a mano, quella procedura va rivista adesso.</p>
+
+<h3>3. Automatizza dove possibile</h3>
+<p>Il rinnovo automatico usa un protocollo chiamato <strong>ACME</strong>: un piccolo programma sul server chiede il nuovo certificato e lo installa prima della scadenza, senza intervento umano. Lo supportano ormai le principali autorità di certificazione e molti pannelli di hosting, firewall e NAS recenti. Verifica con il tuo tecnico quali apparati lo gestiscono.</p>
+
+<h3>4. Per gli apparati che non si automatizzano, cambia approccio</h3>
+<p>Alcuni dispositivi più vecchi accettano solo l'installazione manuale. Le strade sono due: metterli dietro un sistema che gestisce il certificato al loro posto (per esempio il firewall o un server dedicato), oppure, se sono usati solo all'interno dell'ufficio, usare certificati interni che non seguono le regole dei browser pubblici. È una scelta tecnica da valutare caso per caso.</p>
+
+<h3>5. Imposta un avviso di scadenza</h3>
+<p>Anche con l'automazione, qualcosa può bloccarsi: un cambio di server, un dominio trasferito, una regola del firewall. Un servizio di monitoraggio, anche gratuito, che avvisa via email 15–20 giorni prima della scadenza evita brutte sorprese. E ricordati che anche il <a href="https://www.roccoandrealigorio.it/?p=316">dominio aziendale</a> ha una scadenza da tenere sotto controllo.</p>
+
+<h2>Cosa succede se non fai nulla</h2>
+<p>Con 200 giorni oggi e 100 dal prossimo marzo, un certificato rinnovato a mano finirà prima o poi per scadere nel momento sbagliato. Le conseguenze: visitatori che abbandonano il sito, moduli di contatto che non arrivano, colleghi bloccati fuori dalla VPN, app dei clienti che non si collegano, e un'immagine poco professionale. Ancora peggio, abituare le persone a cliccare "procedi comunque" sugli avvisi del browser è esattamente ciò che sfruttano i truffatori.</p>
+<p>Se gestisci un portale o un software su misura e vuoi capire come rendere automatici i rinnovi, ti spiego <a href="https://www.roccoandrealigorio.it/come-lavoro/">come lavoro</a> e trovi i dettagli nei miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Devo comprare un nuovo certificato ogni 100 giorni?</h3>
+<p>No, di solito no. Molte autorità di certificazione vendono abbonamenti annuali o pluriennali che includono tutte le riemissioni necessarie. Cambia la frequenza dell'installazione, non per forza il costo.</p>
+
+<h3>Il mio sito è su un hosting con certificato gratuito: devo preoccuparmi?</h3>
+<p>Quasi certamente no: i certificati gratuiti di questo tipo si rinnovano già in automatico ogni pochi mesi. Basta verificare con l'hosting che il rinnovo automatico sia attivo.</p>
+
+<h3>I certificati già emessi diventano invalidi?</h3>
+<p>No. Le nuove durate valgono per i certificati emessi dopo ciascuna data; quelli già in uso restano validi fino alla loro scadenza naturale.</p>
+
+<h3>Questa regola vale anche per la firma digitale?</h3>
+<p>No. Riguarda solo i certificati pubblici dei siti e dei servizi web. Firma digitale e CNS seguono regole proprie.</p>

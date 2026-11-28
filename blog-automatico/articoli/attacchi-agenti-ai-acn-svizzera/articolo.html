@@ -1,0 +1,72 @@
+<p>"Tanto chi vuoi che attacchi proprio il nostro studio?" È una frase che sento spesso, e fino a ieri aveva una logica: un criminale informatico ha tempo limitato e lo dedica ai bersagli più ricchi. Ma tra il 23 e il 24 novembre 2026 le autorità di cybersicurezza di Italia e Svizzera hanno confermato una cosa che cambia il ragionamento: sono in corso <strong>attacchi con agenti AI</strong>, cioè programmi di intelligenza artificiale che cercano da soli i sistemi vulnerabili, entrano e proseguono l'attacco senza un operatore umano dietro ogni passo. Quando il tempo dell'attaccante non è più un limite, ogni server esposto e ogni password debole diventano un bersaglio. In questo articolo ti spiego cosa hanno comunicato le autorità, come funzionano questi attacchi e quali controlli conviene fare subito in studio o in azienda.</p>
+
+<h2>Cosa hanno comunicato ACN e Svizzera sugli attacchi con agenti AI</h2>
+<p>In Italia il CSIRT Italia, la squadra di risposta agli incidenti dell'<strong>Agenzia per la Cybersicurezza Nazionale (ACN)</strong>, ha diffuso il 23 novembre un bollettino (BL01/261123/CSIRT-ITA) sull'impiego di agenti di intelligenza artificiale in campagne di compromissione automatizzate. Il giorno dopo l'Ufficio federale della cibersicurezza svizzero (UFCS, noto anche come NCSC) ha annunciato i primi casi confermati nel proprio Paese. Le due comunicazioni sono riassunte, tra gli altri, da <a href="https://www.bleepingcomputer.com/news/security/italy-and-switzerland-warn-of-autonomous-ai-driven-cyberattacks/" target="_blank" rel="noopener">BleepingComputer</a> e <a href="https://www.datamanager.it/2026/11/cyberattacchi-autonomi-italia-e-svizzera-lanciano-lallarme-sugli-agenti-ai/" target="_blank" rel="noopener">Data Manager</a>.</p>
+<p>I punti principali:</p>
+<ul>
+<li>secondo CSIRT Italia le campagne sono <strong>su larga scala</strong> e in alcuni casi più agenti lavorano in parallelo, arrivando a compromettere molti sistemi <strong>nel giro di poche ore</strong>;</li>
+<li>gli agenti sfruttano <strong>vulnerabilità note, configurazioni sbagliate e credenziali rubate</strong> su sistemi raggiungibili da Internet, e li usano come porta d'ingresso verso la rete interna;</li>
+<li>in Svizzera, in tutti i casi noti all'UFCS l'attacco è andato a segno; le vittime sono gestori di infrastrutture critiche in almeno due settori, non specificati;</li>
+<li>l'UFCS indica come punti d'ingresso <strong>password predefinite o facili da indovinare</strong> e falle note in software esposti su Internet.</li>
+</ul>
+<p>Due precisazioni per non esagerare. Primo: il "100% di successo" svizzero riguarda solo i pochi casi conosciuti e segnalati, non è una statistica generale. Secondo: per ora le vittime citate sono infrastrutture critiche. Ma le tecniche descritte non hanno nulla di esclusivo: funzionano allo stesso modo sul firewall, sulla VPN o sul NAS di uno studio professionale.</p>
+
+<h2>Come funziona un attacco condotto da un agente AI</h2>
+<p>Un <strong>agente AI</strong> è un programma basato su un modello di intelligenza artificiale che non si limita a rispondere a domande: riceve un obiettivo, sceglie da solo le azioni da compiere, le esegue e decide il passo successivo in base al risultato. Molti di questi strumenti nascono per i <em>penetration test</em>, cioè le simulazioni di attacco commissionate dalle aziende per scoprire i propri punti deboli. Nelle mani sbagliate fanno lo stesso lavoro, ma contro chiunque.</p>
+
+<h3>Le fasi dell'attacco</h3>
+<ol>
+<li><strong>Ricognizione</strong>: l'agente scandisce Internet alla ricerca di servizi esposti (pannelli di gestione, VPN, webmail, desktop remoto, siti con componenti vecchi).</li>
+<li><strong>Verifica</strong>: per ogni sistema trovato controlla se ha falle note o se accetta password deboli o predefinite.</li>
+<li><strong>Ingresso</strong>: sfrutta il punto debole e prende il controllo del primo sistema.</li>
+<li><strong>Espansione</strong>: dal primo sistema si muove verso la rete interna. Secondo CSIRT Italia, in alcuni casi gli agenti hanno perfino scritto codice malevolo in tempo reale per aggirare l'antivirus.</li>
+</ol>
+<p>La vera novità non è la tecnica, che è quella di sempre, ma la <strong>velocità</strong> e la <strong>tenacia</strong>: se un metodo viene bloccato, l'agente ne prova subito un altro, e lo fa su migliaia di bersagli contemporaneamente. Ne avevo già parlato a proposito delle <a href="https://www.roccoandrealigorio.it/?p=395">vulnerabilità scoperte con l'AI</a>: il tempo tra la pubblicazione di una falla e il suo sfruttamento si sta accorciando drasticamente.</p>
+
+<h2>Perché riguarda anche studi professionali e PMI</h2>
+<p>Un attaccante umano sceglie. Un agente automatico no: prova tutto ciò che trova. Questo significa che lo studio con cinque dipendenti e un firewall non aggiornato da un anno è sulla stessa lista di un grande ospedale. Nella mia esperienza, i punti deboli più comuni nelle piccole realtà sono sempre gli stessi:</p>
+<ul>
+<li><strong>firewall e VPN</strong> con aggiornamenti arretrati di mesi;</li>
+<li><strong>NAS</strong> raggiungibili da Internet per "accedere ai file da casa";</li>
+<li><strong>desktop remoto</strong> (RDP) aperto verso l'esterno, magari per il fornitore del gestionale;</li>
+<li>account con <strong>password semplici</strong> e senza verifica in due passaggi;</li>
+<li>pannelli di amministrazione di router, telecamere e stampanti lasciati con le <strong>credenziali di fabbrica</strong>.</li>
+</ul>
+
+<h2>Cosa fare subito: 6 controlli raccomandati</h2>
+<p>Le raccomandazioni di ACN e UFCS sono molto concrete e, adattate a uno studio, si traducono così.</p>
+
+<h3>1. Riduci ciò che è esposto su Internet</h3>
+<p>Fai un elenco di tutto ciò che è raggiungibile dall'esterno: VPN, webmail, NAS, telecamere, desktop remoto. Ciò che non serve va chiuso. Disattiva le <strong>interfacce di gestione remota</strong> non indispensabili, come chiede CSIRT Italia. Dove possibile, limita l'accesso a indirizzi IP o Paesi autorizzati.</p>
+
+<h3>2. Aggiorna per primi i sistemi esposti</h3>
+<p>L'UFCS raccomanda di installare gli aggiornamenti critici sui sistemi esposti il prima possibile e <strong>al massimo entro 24 ore</strong>. CSIRT Italia chiede di dare priorità alle falle già sfruttate attivamente. Firewall, VPN e NAS vengono prima dei PC.</p>
+
+<h3>3. Verifica in due passaggi ovunque si entra da fuori</h3>
+<p>Webmail, VPN, Microsoft 365, accessi remoti: tutti devono avere la verifica in due passaggi o le <a href="https://www.roccoandrealigorio.it/?p=253">passkey</a>, senza eccezioni. È la barriera che rende inutili le password indovinate o rubate.</p>
+
+<h3>4. Via le password predefinite e deboli</h3>
+<p>Cambia le credenziali di fabbrica di router, NAS, stampanti e telecamere. Usa un <a href="https://www.roccoandrealigorio.it/?p=241">password manager</a> per avere password lunghe e diverse per ogni servizio.</p>
+
+<h3>5. Ognuno con i permessi che gli servono</h3>
+<p>Il principio del <strong>privilegio minimo</strong>: nessuno lavora tutti i giorni con un account amministratore, e i servizi automatici hanno solo i permessi indispensabili. Se un account viene violato, il danno resta contenuto.</p>
+
+<h3>6. Controlla i segnali anomali e fai un test</h3>
+<p>Accessi da orari o Paesi insoliti, traffico in uscita anomalo dal server, nuovi account amministratore: sono segnali da monitorare. Una verifica periodica dall'esterno, fatta da un tecnico, mostra cosa vede un attaccante prima che lo veda lui.</p>
+
+<h2>Il backup resta l'ultima difesa</h2>
+<p>Anche con tutte le precauzioni, un attacco può riuscire. Per questo serve un <a href="https://www.roccoandrealigorio.it/?p=211">backup secondo la regola 3-2-1</a>, con almeno una copia scollegata dalla rete e un ripristino provato davvero. Se vuoi una mano a capire cosa del tuo studio è visibile da Internet e da dove cominciare, trovi i dettagli nei miei <a href="https://www.roccoandrealigorio.it/servizi/">servizi</a>.</p>
+
+<h2>Domande frequenti</h2>
+
+<h3>Gli attacchi con agenti AI sono già arrivati alle piccole imprese italiane?</h3>
+<p>Le comunicazioni ufficiali citano infrastrutture critiche. Però le tecniche usate, cioè falle note e password deboli su sistemi esposti, sono le stesse che colpiscono ogni giorno le PMI. È prudente comportarsi come se il rischio fosse già concreto.</p>
+
+<h3>Mi serve un antivirus "con intelligenza artificiale" per difendermi?</h3>
+<p>Non è la prima mossa. Gli agenti entrano da porte lasciate aperte: aggiornamenti mancanti, servizi esposti, password deboli. Chiudere quelle porte vale molto più di qualsiasi prodotto nuovo.</p>
+
+<h3>Cosa significa che un sistema è "esposto su Internet"?</h3>
+<p>Che chiunque nel mondo può raggiungerlo e provare ad accedere: per esempio la pagina di login della VPN o del NAS. Un PC dietro al firewall, senza servizi aperti verso l'esterno, non è esposto.</p>
+
+<h3>Quanto tempo ho per installare un aggiornamento critico?</h3>
+<p>Per i sistemi raggiungibili da Internet l'UFCS indica al massimo 24 ore. Per questo conviene attivare gli aggiornamenti automatici dove possibile e sapere chi se ne occupa.</p>
