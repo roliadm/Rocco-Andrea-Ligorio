@@ -2,12 +2,23 @@
   "titolo": "Attacchi con agenti AI: l'allarme di ACN e Svizzera e cosa fare in studio",
   "slug": "attacchi-agenti-ai-acn-svizzera",
   "estratto": "Attacchi con agenti AI: ACN e Svizzera segnalano intrusioni automatiche in poche ore. Come funzionano e i 6 controlli da fare subito in studio e in PMI.",
-  "categorie": ["Informatica"],
-  "tag": ["Intelligenza artificiale", "Sicurezza informatica", "Aggiornamenti di sicurezza", "Autenticazione a due fattori", "Firewall"],
+  "categorie": [
+    "Informatica"
+  ],
+  "tag": [
+    "Intelligenza artificiale",
+    "Sicurezza informatica",
+    "Aggiornamenti di sicurezza",
+    "Autenticazione a due fattori",
+    "Firewall"
+  ],
   "seo": {
     "titolo": "Attacchi con agenti AI: l'allarme ACN e cosa fare subito",
     "descrizione": "Attacchi con agenti AI: cosa hanno segnalato ACN e Svizzera, come lavorano gli attacchi automatici e i 6 controlli per proteggere studio e PMI.",
     "keyword": "attacchi con agenti AI"
   },
-  "stato": "draft"
+  "stato": "draft",
+  "immagine": "copertina.png",
+  "immagine_alt": "Attacchi con agenti AI: l'allarme di ACN e Svizzera e cosa fare in studio",
+  "id": 437
 }
